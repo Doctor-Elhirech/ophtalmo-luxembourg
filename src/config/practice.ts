@@ -27,6 +27,7 @@ export type PhotoSlot = keyof typeof photoSlots;
 
 /** Replace only when the final domain is confirmed; demo stays out of search. */
 export const siteSettings = {
-  origin: 'https://ophtalmo-luxembourg-mamer-demo.genial-reed-0431.chatgpt.site',
+  origin: 'http://127.0.0.1:4321',
   indexable: false,
+  localOnly: true,
 };

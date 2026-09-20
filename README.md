@@ -70,8 +70,10 @@ Confirm the doctor’s preferred displayed name, qualifications and surgical-ser
 
 The demo is deliberately private and `noindex`. After client confirmation, update `siteSettings.origin`, decide indexing, replace the demonstration footer wording, and add the real approved legal/privacy content. No fake legal links are present. Open Graph text, canonical URLs and language alternatives are prepared; an unrequested sharing image has not been fabricated.
 
-## Hosting and continuity
+## Local-only delivery and continuity
 
-The complete portable static build is in `dist/`. It can be served by any static host. Sites identity is retained in `.openai/hosting.json`; **reuse its `project_id`**, never create a second site when resuming. Do not store source credentials in files or Git configuration. Source and a private deployment are managed separately from the practice’s public identity.
+The complete portable static build is in `dist/`. This checkout is configured for local-only review: `.openai/hosting.json` contains only the static output directory and no Site identity. The local preview is currently stopped. To review in a normal browser, open PowerShell in this folder and run `npm run dev`, then visit the printed `http://127.0.0.1:4321/` address. The site itself stays on the laptop until you explicitly approve a hosting destination.
+
+During the previous build session, an unintended owner-private Sites preview was created at `https://ophtalmo-luxembourg-mamer-demo.bokhtiyarhossainnilo.chatgpt.site`. It was never made public or indexed. Local hosting is now stopped and no future publish will be attempted. The available Sites connector exposes no deletion operation in this session, so the private preview remains an isolated owner-only deployment until it expires or is removed from the Sites account controls. It is not part of the local build or its current configuration.
 
 Read `docs/PROGRESS.md` first when resuming. No automated wakeup or scheduled continuation has been created.

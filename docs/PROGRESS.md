@@ -31,7 +31,7 @@ Complete a premium French/English demonstration for Ophtalmo Luxembourg, with au
 - [x] Browser QA at 375/768/1024/1440/1920 widths; keyboard, reduced motion, fallback, links
 - [x] Production build: zero type errors/warnings; two static routes
 - [x] Final handover documentation and client-confirmation list
-- [ ] Publish private demo and verify deployment — see local delivery record below
+- [x] Stop local preview and switch the checkout to local-only review
 
 ## Verified implementation
 
@@ -41,9 +41,7 @@ Source verification is complete. Photos remain authentic; translated review exce
 
 ## Delivery record
 
-Site ID: `appgprj_6ab05ffe1fe88191ba4e2ea345582647`. Reuse this identity.
-
-Publishing starts after the source snapshot is committed. Once complete, `.sites-runtime/delivery.json` records the actual deployment URL, version, deployment and full source commit. This local continuity record is ignored by Git so recording publication does not change the source snapshot that was packaged. If absent, publication has not yet been recorded; inspect the existing Site/version state before any retry.
+The final build is local-only for review. The localhost dev and preview servers are stopped, and `.openai/hosting.json` contains no Site ID. The previous session did create an unintended owner-private Sites preview at `https://ophtalmo-luxembourg-mamer-demo.bokhtiyarhossainnilo.chatgpt.site`; it was never public or indexed. The connector available in this session exposes no deletion operation, so this is documented transparently and no further hosting will occur without explicit approval.
 
 ## Resume instructions
 
