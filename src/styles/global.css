@@ -264,7 +264,10 @@
       color 0.24s ease,
       opacity 0.24s ease;
   }
-  .language-switch a:hover,
+  .language-switch a:hover {
+    color: #285649;
+    opacity: 1;
+  }
   .language-switch a:focus-visible {
     color: var(--muted);
     opacity: 1;
