@@ -238,7 +238,7 @@
   }
   .desktop-nav a:hover,
   .desktop-nav a:focus-visible {
-    color: var(--deep);
+    color: var(--muted);
   }
   .header-actions {
     display: flex;
@@ -262,7 +262,7 @@
   }
   .language-switch a:hover,
   .language-switch a:focus-visible {
-    color: var(--deep);
+    color: var(--muted);
     opacity: 1;
   }
   .language-switch a[aria-current] {
