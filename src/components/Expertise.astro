@@ -1,0 +1,36 @@
+---
+import type { Translation } from '../content/translations';
+import BookingLink from './BookingLink.astro';
+interface Props {
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<section id="expertise" class="expertise-section section-space" aria-labelledby="expertise-title">
+  <div class="container expertise-layout">
+    <div class="expertise-heading">
+      <p class="eyebrow">{t.expertiseSection.label}</p>
+      <h2 id="expertise-title">
+        {t.expertiseSection.title}
+        <br />
+        <em>{t.expertiseSection.emphasis}</em>
+      </h2>
+      <p>{t.expertiseSection.intro}</p>
+      <BookingLink t={t} variant="text" />
+    </div>
+    <ol class="expertise-list">
+      {t.expertiseSection.items.map((item, index) => (
+        <li>
+          <span class="item-number" aria-hidden="true">
+            {t.numbers[index]}
+          </span>
+          <div>
+            <h3>{item.name}</h3>
+            <p>{item.detail}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

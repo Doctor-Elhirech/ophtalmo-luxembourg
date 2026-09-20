@@ -1,0 +1,31 @@
+---
+import type { Translation } from '../content/translations';
+interface Props {
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<section class="journey-section container section-space" aria-labelledby="journey-title">
+  <div class="journey-heading">
+    <p class="eyebrow">{t.journey.label}</p>
+    <h2 id="journey-title">
+      {t.journey.title}
+      <br />
+      <em>{t.journey.emphasis}</em>
+    </h2>
+  </div>
+  <ol class="journey-list">
+    {t.journey.steps.map((step, index) => (
+      <li>
+        <span class="journey-number" aria-hidden="true">
+          {t.numbers[index]}
+        </span>
+        <div>
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>

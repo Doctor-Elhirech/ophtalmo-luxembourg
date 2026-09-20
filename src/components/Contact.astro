@@ -1,0 +1,88 @@
+---
+import type { Translation } from '../content/translations';
+import BookingLink from './BookingLink.astro';
+import Photo from './Photo.astro';
+import Arrow from './Arrow.astro';
+interface Props {
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<section
+  id="appointment"
+  class="appointment-section section-space"
+  aria-labelledby="appointment-title"
+>
+  <div class="container appointment-layout">
+    <div>
+      <p class="eyebrow">{t.appointment.label}</p>
+      <h2 id="appointment-title">
+        {t.appointment.title}
+        <br />
+        <em>{t.appointment.emphasis}</em>
+      </h2>
+    </div>
+    <div class="appointment-actions">
+      <p>{t.appointment.text}</p>
+      <BookingLink t={t} label={t.action.availability} variant="light" />
+      <span class="booking-note">{t.appointment.bookingNote}</span>
+      <div class="appointment-phone">
+        <span>{t.appointment.phoneLabel}</span>
+        <a href={t.phoneHref}>
+          {t.phone}
+          <Arrow />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<section
+  id="contact"
+  class="contact-section container section-space"
+  aria-labelledby="contact-title"
+>
+  <div class="contact-content">
+    <p class="eyebrow">{t.contactSection.label}</p>
+    <h2 id="contact-title">
+      {t.contactSection.title}
+      <br />
+      <em>{t.contactSection.emphasis}</em>
+    </h2>
+    <div class="contact-details">
+      <div>
+        <h3 class="eyebrow">{t.contactSection.addressLabel}</h3>
+        <address>
+          {t.address.street}
+          <br />
+          {t.address.postalCity}
+          <br />
+          {t.contactSection.country}
+        </address>
+        <a
+          class="text-link"
+          href={t.directionsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${t.action.directions} (${t.accessibility.newTab})`}
+        >
+          {t.action.directions}
+          <Arrow diagonal />
+        </a>
+      </div>
+      <div>
+        <h3 class="eyebrow">{t.contactSection.contactLabel}</h3>
+        <a class="contact-phone" href={t.phoneHref}>
+          {t.phone}
+        </a>
+        <a class="contact-email" href={`mailto:${t.email}`}>
+          {t.email}
+        </a>
+      </div>
+    </div>
+  </div>
+  <figure class="contact-photo">
+    <Photo slot="exterior" t={t} />
+    <figcaption>{t.contactSection.caption}</figcaption>
+  </figure>
+</section>

@@ -1,0 +1,41 @@
+---
+import { photoSlots, type PhotoSlot } from '../config/practice';
+import type { Translation } from '../content/translations';
+interface Props {
+  slot: PhotoSlot;
+  t: Translation;
+  eager?: boolean;
+  sizes?: string;
+  class?: string;
+}
+const {
+  slot,
+  t,
+  eager = false,
+  sizes = '(max-width: 767px) 100vw, 50vw',
+  class: className,
+} = Astro.props;
+const photo = photoSlots[slot];
+const widths = [480, 960, 1600]
+  .map((size) => ({ file: size, width: Math.min(size, photo.width) }))
+  .filter((item, index, all) => all.findIndex((other) => other.width === item.width) === index);
+---
+
+<div class:list={['photo', className]} style={`--photo-ratio: ${photo.width} / ${photo.height}`}>
+  <img
+    src={`/images/${photo.base}-960.webp`}
+    srcset={widths
+      .map((item) => `/images/${photo.base}-${item.file}.webp ${item.width}w`)
+      .join(', ')}
+    sizes={sizes}
+    width={photo.width}
+    height={photo.height}
+    alt={t.photos[slot]}
+    loading={eager ? 'eager' : 'lazy'}
+    fetchpriority={eager ? 'high' : 'auto'}
+    decoding="async"
+  />
+  <span class="photo-fallback" hidden>
+    {t.accessibility.imageUnavailable}
+  </span>
+</div>

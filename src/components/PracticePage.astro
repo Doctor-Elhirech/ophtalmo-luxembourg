@@ -1,0 +1,22 @@
+---
+import Hero from './Hero.astro';
+import Doctor from './Doctor.astro';
+import Expertise from './Expertise.astro';
+import PracticeGallery from './PracticeGallery.astro';
+import Journey from './Journey.astro';
+import Reviews from './Reviews.astro';
+import Contact from './Contact.astro';
+import type { Translation } from '../content/translations';
+interface Props {
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<Hero t={t} />
+<Doctor t={t} />
+<Expertise t={t} />
+<PracticeGallery t={t} />
+<Journey t={t} />
+<Reviews t={t} />
+<Contact t={t} />

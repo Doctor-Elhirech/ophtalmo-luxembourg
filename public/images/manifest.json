@@ -1,0 +1,137 @@
+[
+  {
+    "slot": "exterior-wide",
+    "source": "Img-5.png",
+    "output": "public/images/exterior-wide-480.webp",
+    "width": 480,
+    "height": 185,
+    "bytes": 32298,
+    "originalWidth": 2020
+  },
+  {
+    "slot": "exterior-wide",
+    "source": "Img-5.png",
+    "output": "public/images/exterior-wide-960.webp",
+    "width": 960,
+    "height": 370,
+    "bytes": 120918,
+    "originalWidth": 2020
+  },
+  {
+    "slot": "exterior-wide",
+    "source": "Img-5.png",
+    "output": "public/images/exterior-wide-1600.webp",
+    "width": 1600,
+    "height": 616,
+    "bytes": 306086,
+    "originalWidth": 2020
+  },
+  {
+    "slot": "exterior",
+    "source": "Img-4.png",
+    "output": "public/images/exterior-480.webp",
+    "width": 480,
+    "height": 339,
+    "bytes": 35744,
+    "originalWidth": 772
+  },
+  {
+    "slot": "exterior",
+    "source": "Img-4.png",
+    "output": "public/images/exterior-960.webp",
+    "width": 772,
+    "height": 546,
+    "bytes": 83798,
+    "originalWidth": 772
+  },
+  {
+    "slot": "exterior",
+    "source": "Img-4.png",
+    "output": "public/images/exterior-1600.webp",
+    "width": 772,
+    "height": 546,
+    "bytes": 83798,
+    "originalWidth": 772
+  },
+  {
+    "slot": "consultation",
+    "source": "Img-1.png",
+    "output": "public/images/consultation-480.webp",
+    "width": 480,
+    "height": 479,
+    "bytes": 19582,
+    "originalWidth": 648
+  },
+  {
+    "slot": "consultation",
+    "source": "Img-1.png",
+    "output": "public/images/consultation-960.webp",
+    "width": 648,
+    "height": 646,
+    "bytes": 31902,
+    "originalWidth": 648
+  },
+  {
+    "slot": "consultation",
+    "source": "Img-1.png",
+    "output": "public/images/consultation-1600.webp",
+    "width": 648,
+    "height": 646,
+    "bytes": 31902,
+    "originalWidth": 648
+  },
+  {
+    "slot": "examination",
+    "source": "Img-2.png",
+    "output": "public/images/examination-480.webp",
+    "width": 480,
+    "height": 383,
+    "bytes": 28114,
+    "originalWidth": 716
+  },
+  {
+    "slot": "examination",
+    "source": "Img-2.png",
+    "output": "public/images/examination-960.webp",
+    "width": 716,
+    "height": 572,
+    "bytes": 54878,
+    "originalWidth": 716
+  },
+  {
+    "slot": "examination",
+    "source": "Img-2.png",
+    "output": "public/images/examination-1600.webp",
+    "width": 716,
+    "height": 572,
+    "bytes": 54878,
+    "originalWidth": 716
+  },
+  {
+    "slot": "examination-alternate",
+    "source": "Img-3.png",
+    "output": "public/images/examination-alternate-480.webp",
+    "width": 480,
+    "height": 474,
+    "bytes": 24686,
+    "originalWidth": 867
+  },
+  {
+    "slot": "examination-alternate",
+    "source": "Img-3.png",
+    "output": "public/images/examination-alternate-960.webp",
+    "width": 867,
+    "height": 856,
+    "bytes": 58694,
+    "originalWidth": 867
+  },
+  {
+    "slot": "examination-alternate",
+    "source": "Img-3.png",
+    "output": "public/images/examination-alternate-1600.webp",
+    "width": 867,
+    "height": 856,
+    "bytes": 58694,
+    "originalWidth": 867
+  }
+]

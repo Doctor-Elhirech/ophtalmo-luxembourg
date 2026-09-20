@@ -1,0 +1,22 @@
+---
+import type { Translation } from '../content/translations';
+import Arrow from './Arrow.astro';
+interface Props {
+  t: Translation;
+  label?: string;
+  variant?: 'dark' | 'light' | 'text';
+  class?: string;
+}
+const { t, label = t.action.book, variant = 'dark', class: className } = Astro.props;
+---
+
+<a
+  class:list={['booking-link', `button-${variant}`, className]}
+  href={t.bookingUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={`${label} (${t.accessibility.newTab})`}
+>
+  <span>{label}</span>
+  <Arrow diagonal />
+</a>

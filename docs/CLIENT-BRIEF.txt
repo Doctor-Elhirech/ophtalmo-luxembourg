@@ -1,0 +1,986 @@
+You are acting as a world-class digital art director, product designer, UX designer, motion designer, frontend architect, and senior engineer.
+
+Your job is to build a PREMIUM DEMO WEBSITE for a real private ophthalmology practice in Mamer, Luxembourg.
+
+This is not meant to look like an AI-generated portfolio template, a startup landing page, a generic doctor website, or a typical “medical blue + white” site.
+
+The quality bar is:
+
+A boutique design studio could reasonably charge around $20,000 for this website.
+
+The doctor should open the demo and immediately feel that this is a serious, premium, carefully art-directed digital presence that could represent his practice professionally.
+
+IMPORTANT:
+I do NOT want you to follow a predefined visual recipe.
+I want you to make the design decisions yourself.
+
+You have full creative freedom over:
+- visual identity
+- typography
+- color palette
+- layout
+- composition
+- spacing
+- image treatment
+- interactions
+- motion
+- responsive behavior
+- section structure
+- navigation
+- visual storytelling
+- component architecture
+- frontend stack
+
+Use your own judgment as an elite designer.
+
+The result must feel intentional, sophisticated, memorable, restrained and expensive.
+
+==================================================
+1. FIRST: INSPECT THE EXISTING PROJECT
+==================================================
+
+Before writing code:
+
+1. Inspect the entire existing repository.
+2. Determine the current framework, package manager, build setup and installed dependencies.
+3. Inspect any existing design system/components/assets before replacing anything.
+4. Inspect the image folders carefully.
+5. Identify every provided practice photo by actually looking at the images rather than trusting filenames.
+6. Reuse good existing infrastructure where it helps.
+7. Remove or replace anything that makes the project look generic, unfinished or AI-generated.
+8. Do not ask me unnecessary questions. Make strong professional decisions yourself unless something is genuinely blocking implementation.
+
+Choose the best stack for this project yourself.
+
+The stack should prioritize:
+- excellent runtime performance
+- smooth interactions
+- fast initial load
+- maintainability
+- responsive behavior
+- clean component architecture
+- minimal unnecessary JavaScript
+- a straightforward path to stronger technical SEO later
+
+SEO is NOT the main objective of this phase.
+The objective of this phase is the first impression.
+
+Do not add a backend.
+Do not add authentication.
+Do not add a database.
+Do not build a custom appointment-booking system.
+Do not add unnecessary infrastructure.
+
+==================================================
+2. CORE OBJECTIVE
+==================================================
+
+Build a single polished practice website that feels like a custom-designed premium medical brand.
+
+The doctor should feel:
+
+“This was clearly designed specifically for my practice.”
+
+The website should communicate:
+- trust
+- precision
+- calm
+- expertise
+- modernity
+- human attention
+- professionalism
+
+But do this through art direction, typography, photography, composition, spacing and UX rather than generic marketing language.
+
+Do not over-explain.
+
+Do not make the website feel corporate, clinical, sterile or like a SaaS dashboard.
+
+==================================================
+3. ANTI–AI-SLOP RULES
+==================================================
+
+This is extremely important.
+
+Do NOT produce:
+- generic AI-generated hero sections
+- generic doctor/medical templates
+- excessive rounded cards
+- endless pill-shaped UI
+- random gradient blobs
+- excessive glassmorphism
+- “3 cards in a row” everywhere
+- repetitive section structures
+- huge meaningless headings with weak supporting design
+- fake testimonials
+- fake statistics
+- invented credentials
+- invented services
+- fake doctor photography
+- generic stock medical imagery
+- unnecessary icons everywhere
+- gratuitous animations
+- visual noise
+- trendy effects used only because they are trendy
+- default shadcn-looking interfaces
+- cookie-cutter Tailwind layouts
+- excessive borders
+- excessive shadows
+- giant floating UI decorations without purpose
+- a website that looks like it came from a prompt-to-website generator
+
+Do NOT try to prove technical skill by adding more effects.
+
+Premium design should come from:
+- exceptional typography
+- composition
+- visual hierarchy
+- photography
+- restraint
+- rhythm
+- whitespace
+- contrast
+- subtle interaction
+- intelligent motion
+- strong responsive design
+
+Every design element must have a reason to exist.
+
+==================================================
+4. VERIFIED BUSINESS INFORMATION
+==================================================
+
+Use these facts as the authoritative business data.
+
+Brand / Google Maps listing:
+Ophtalmo Luxembourg
+
+Doctena practice name:
+Cabinet Ophtalmologique Mamer
+
+Doctor:
+Dr M'Hamed EL HIRECH
+
+Profession:
+Ophthalmologist / Eye Doctor
+
+Location:
+110 Route d'Arlon
+L-8210 Mamer
+Luxembourg
+
+Phone:
++352 691 641 064
+
+Telephone link:
+tel:+352691641064
+
+Email:
+ophtalmo.luxembourg@gmail.com
+
+Current Doctena practitioner profile:
+https://www.doctena.lu/fr/practitioner/mhamed-el-hirech
+
+Use this exact practitioner profile for appointment CTAs.
+
+Do NOT use the generic Doctena homepage.
+
+Google Maps directions:
+https://www.google.com/maps/dir/?api=1&destination=110+Rte+d'Arlon,+8210+Mamer,+Luxembourg
+
+Specialties currently published on Doctena:
+
+1. General ophthalmology
+2. Pediatric ophthalmology, including newborns
+3. Glasses and contact lenses
+4. Cataract surgery
+5. Myopia surgery
+6. Strabismus surgery
+
+Professional background currently published on Doctena:
+
+- Graduate of the Faculty of Medicine of Besançon, France.
+- Former hospital assistant and hospital practitioner.
+- Former hospital attaché in Paris.
+
+Doctena also lists:
+- Cataract surgery
+- Myopia surgery
+
+under the education/training area.
+
+Do not exaggerate any of this.
+
+Do not invent:
+- years of experience
+- number of patients
+- success rates
+- equipment
+- technologies
+- awards
+- memberships beyond what is verified
+- additional qualifications
+- hospital affiliations
+- procedures not listed above
+
+There is also a Collège médical affiliation shown on the Doctena listing.
+
+==================================================
+5. LANGUAGE STRATEGY
+==================================================
+
+The website must support:
+
+FR
+EN
+
+French is the default language.
+
+English is the secondary language.
+
+Do NOT expose Arabic or Luxembourgish in the UI for this demo.
+
+However:
+architect the translation system cleanly so additional languages can be added later without redesigning the application.
+
+All visible text must come from the translation system.
+
+Do not hardcode visible copy inside components.
+
+French copy must feel like real, polished French used by a premium medical practice in Luxembourg.
+
+English should be natural professional English, not robotic literal translation.
+
+Do not invent information to make translations longer.
+
+==================================================
+6. REAL PHOTOS
+==================================================
+
+The project will contain real photos collected from the practice's public Google Maps listing.
+
+Some of the provided photos include:
+- practice exterior
+- consultation room / examination room
+- additional interior / room angles
+- multiple views of the premises
+
+USE THESE REAL PHOTOS.
+
+Inspect all supplied images and place each one where it creates the strongest visual result.
+
+Do not blindly follow filenames.
+
+Use the photos according to their actual content.
+
+The exterior photo should be used where establishing the physical identity of the practice is useful.
+
+The consultation-room photo should be used where it best supports trust, expertise and atmosphere.
+
+Additional practice images should be used in the gallery / practice storytelling areas where appropriate.
+
+For any visual section where there is no suitable real image:
+- use an elegant locally generated placeholder treatment
+- or use a tasteful abstract / typographic / architectural visual
+- or omit the image if the layout is stronger without it
+
+Do NOT use external stock image URLs.
+
+Do NOT fabricate a doctor portrait.
+
+If a portrait image is missing, use a sophisticated non-fake placeholder rather than generating a fake doctor.
+
+The website must never visually misrepresent an AI-generated person as the real doctor.
+
+All practice photos should remain authentic.
+Do not make the building, equipment or doctor look materially different from reality.
+
+==================================================
+7. CONTENT PHILOSOPHY
+==================================================
+
+The content matters, but the DESIGN matters more in this demo.
+
+Use the verified information above to make the website feel complete.
+
+Do not fill space with generic marketing paragraphs.
+
+Do not invent copy simply to make sections longer.
+
+Prefer:
+- concise headlines
+- strong short descriptions
+- editorial typography
+- clear information hierarchy
+- carefully chosen supporting text
+
+Where additional client-specific information is missing, design the section beautifully with concise content rather than fake details.
+
+==================================================
+8. REVIEWS
+==================================================
+
+Google Maps currently shows:
+
+5.0 / 5
+3 Google reviews
+
+There are currently only TWO written reviews visible.
+
+Use the following two written reviews accurately.
+
+Review 1:
+Reviewer: Sarah E.
+
+English rendering:
+“I highly recommend this ophthalmology practice. The doctor demonstrated great professionalism throughout the consultation. I particularly appreciated his professionalism, thoroughness, and attentive listening skills. A very positive experience that I would not hesitate to recommend.”
+
+This review is originally French and Google shows it as translated.
+
+Review 2:
+Reviewer: Aya Ads
+
+English rendering:
+“I consulted for eye pain; the ophthalmologist was very competent and attentive; I recommend him.”
+
+Important:
+- do not invent a third written review
+- do not fabricate a review count beyond the verified 3 total
+- do not rewrite these testimonials into stronger claims
+- preserve the meaning
+- make it clear visually that these are Google reviews
+- if you use shortened excerpts, keep them faithful to the original meaning
+
+You may show:
+5.0 / 5
+3 Google reviews
+
+while displaying the two available written testimonials.
+
+==================================================
+9. APPOINTMENT / BOOKING
+==================================================
+
+Do NOT build a booking backend.
+
+The practice already uses Doctena.
+
+Every primary appointment CTA should lead to:
+
+https://www.doctena.lu/fr/practitioner/mhamed-el-hirech
+
+Open the appointment link in a new tab where appropriate.
+
+Use a clear and premium CTA hierarchy.
+
+The experience should make booking feel extremely easy.
+
+Possible CTA language:
+
+FR:
+Prendre rendez-vous
+Réserver une consultation
+Voir les disponibilités
+
+EN:
+Book an appointment
+Schedule a consultation
+View availability
+
+Do not hardcode opening hours as a permanent marketing claim unless the client confirms them.
+
+Instead, use language such as:
+- Disponibilités sur Doctena
+- Voir les disponibilités
+- Availability via Doctena
+
+The appointment journey should clearly communicate that availability is handled externally by Doctena.
+
+==================================================
+10. SITE STRUCTURE
+==================================================
+
+You have creative freedom to determine the exact composition and visual treatment.
+
+However, the website should logically communicate the following:
+
+A. HERO
+Strong first impression.
+
+Should immediately establish:
+- Ophtalmo Luxembourg
+- ophthalmology practice
+- Mamer / Luxembourg
+- the doctor's practice
+- clear appointment CTA
+
+Use the real exterior photo if it genuinely works best as the hero.
+
+Do not force it into the hero if a more sophisticated editorial composition would produce a better result.
+
+B. ABOUT / THE DOCTOR
+Introduce Dr M'Hamed EL HIRECH with verified information only.
+
+Include:
+- medical identity
+- education
+- professional background
+- calm, human tone
+
+Do not make the doctor sound like a celebrity or invent accomplishments.
+
+C. AREAS OF EXPERTISE / SERVICES
+Present the verified areas:
+
+- General ophthalmology
+- Pediatric ophthalmology including newborns
+- Glasses & contact lenses
+- Cataract surgery
+- Myopia surgery
+- Strabismus surgery
+
+Avoid generic filler categories.
+
+The section must feel medically credible and visually distinctive.
+
+Do not turn it into a generic six-card service grid unless you genuinely believe that is the strongest design solution.
+
+D. THE PRACTICE
+Use the authentic interior and exterior photography.
+
+Make the physical practice feel real.
+
+This should help the visitor imagine:
+“What will it feel like when I arrive?”
+
+E. PATIENT JOURNEY / VISIT
+Explain the journey simply:
+- choose an appointment through Doctena
+- visit the practice in Mamer
+- consultation / examination
+- recommendations / follow-up
+
+Do not promise specific procedures, timelines, or outcomes.
+
+F. REVIEWS
+Use the verified review information above.
+
+This section should feel editorial and trustworthy rather than like a testimonial carousel from a template.
+
+G. APPOINTMENT CTA
+This is one of the strongest conversion moments.
+
+Make it visually memorable.
+
+Primary action:
+Book through Doctena
+
+Secondary:
+Call +352 691 641 064
+
+H. LOCATION / CONTACT
+Show:
+110 Route d'Arlon
+L-8210 Mamer
+Luxembourg
+
+Phone:
++352 691 641 064
+
+Email:
+ophtalmo.luxembourg@gmail.com
+
+Directions link:
+Google Maps directions
+
+A map may be used if it materially improves the experience, but lazy-load it and do not let it hurt initial performance.
+
+I. FOOTER
+Include:
+- Ophtalmo Luxembourg
+- navigation
+- contact
+- appointment link
+- FR / EN
+- subtle professional closing statement
+
+No dead links.
+
+No fake social accounts.
+
+No invented social links.
+
+==================================================
+11. VISUAL DESIGN DIRECTION
+==================================================
+
+You decide the visual identity.
+
+I want something that could genuinely be mistaken for a custom-designed premium European medical brand.
+
+Think:
+- luxury editorial design
+- contemporary European healthcare
+- architectural precision
+- calm confidence
+- high-end typography
+- sophisticated photography
+- subtle medical references
+- strong visual rhythm
+- precise spacing
+- restrained motion
+
+You may explore:
+- editorial asymmetry
+- oversized typography
+- sophisticated typographic hierarchy
+- visual cropping
+- layered photography
+- subtle optical / iris references
+- elegant geometry
+- negative space
+- unexpected but tasteful composition
+- fine hairline details
+- nuanced texture
+
+But do NOT force eye/iris graphics everywhere.
+
+The concept should feel subtle and intelligent.
+
+The best design may be extremely minimal.
+
+Do not mistake “premium” for “lots of effects.”
+
+==================================================
+12. MOTION
+==================================================
+
+Motion should make the experience feel expensive and smooth.
+
+Use motion deliberately for:
+- page entrance
+- navigation
+- image reveals
+- hover states
+- section transitions
+- subtle scrolling relationships
+- CTA feedback
+- mobile menu
+- language switching
+
+No scroll-jacking.
+
+No animation that makes reading difficult.
+
+No excessive blur effects.
+
+No constant floating/bouncing elements.
+
+Motion should feel:
+- calm
+- precise
+- fast when interactive
+- slower when cinematic
+
+Respect prefers-reduced-motion everywhere.
+
+Use GPU-friendly animations.
+
+Prefer transform / opacity and similarly performant properties.
+
+==================================================
+13. RESPONSIVE DESIGN
+==================================================
+
+The website must feel intentionally designed at:
+
+375px
+768px
+1024px
+1440px
+larger desktop widths
+
+Do not simply stack the desktop design on mobile.
+
+Mobile should be a deliberate composition.
+
+Pay particular attention to:
+- typography scale
+- image crops
+- CTA reachability
+- navigation
+- spacing
+- section rhythm
+- safe areas
+- no horizontal overflow
+
+A mobile visitor should experience the same level of polish as desktop.
+
+==================================================
+14. UX PRINCIPLES
+==================================================
+
+Follow modern UX principles.
+
+The interface should have:
+- obvious primary actions
+- clear navigation
+- predictable interactions
+- readable typography
+- strong visual hierarchy
+- excellent focus states
+- accessible controls
+- logical information architecture
+
+Do not hide important information behind unnecessary interactions.
+
+Appointment should always be easy to find.
+
+Phone contact should be easy on mobile.
+
+Navigation should remain effortless.
+
+==================================================
+15. ACCESSIBILITY
+==================================================
+
+Implement:
+- semantic HTML
+- correct headings
+- exactly one H1
+- keyboard accessibility
+- visible focus states
+- accessible navigation
+- aria-labels where needed
+- accessible language toggle
+- accessible dialogs/lightboxes if used
+- good contrast
+- reduced-motion support
+- meaningful alt text for real images
+
+Do not sacrifice accessibility for visual effects.
+
+==================================================
+16. PERFORMANCE
+==================================================
+
+Performance is important.
+
+Implement:
+- optimized local images where possible
+- lazy loading below-the-fold images
+- eager/preloaded hero image when appropriate
+- width/height/aspect-ratio protection against layout shifts
+- minimal JavaScript
+- no unnecessary libraries
+- avoid expensive scroll handlers
+- throttle/debounce where appropriate
+- avoid animation of layout properties
+- lazy-load map if present
+
+The site should feel fast.
+
+==================================================
+17. SEO-READY ARCHITECTURE
+==================================================
+
+SEO is not the main objective of this demo, but structure the application so technical SEO can be expanded later without rebuilding the project.
+
+Prepare clean:
+- title
+- meta description
+- semantic headings
+- canonical structure where applicable
+- Open Graph support
+- structured metadata where useful
+- clean URLs / anchors
+- meaningful image alt text
+
+Do not turn this into an SEO project.
+
+==================================================
+18. CONTENT SAFETY / FACTUAL ACCURACY
+==================================================
+
+This is a real medical practice.
+
+Never invent:
+- treatment outcomes
+- cure claims
+- patient numbers
+- equipment
+- medical technologies
+- awards
+- success percentages
+- wait times
+- pricing
+- insurance promises
+- emergency claims
+- consultation lengths
+- doctor specialties outside the verified list
+
+Never imply a diagnosis.
+
+Never imply a medical guarantee.
+
+Never use fake “before/after” imagery.
+
+Never use a fake doctor portrait as the real doctor.
+
+When information is missing, design around the gap rather than inventing facts.
+
+==================================================
+19. CONFIGURATION
+==================================================
+
+Keep business information centralized in a clean configuration layer.
+
+At minimum, make these easy to change:
+
+- practice name
+- doctor name
+- address
+- phone
+- email
+- Doctena URL
+- directions URL
+- translations
+- image paths
+- review data
+
+The purpose is to make the final client-confirmation stage extremely easy.
+
+==================================================
+20. IMAGE ARCHITECTURE
+==================================================
+
+Build a clean image system.
+
+Use local image slots.
+
+Examples:
+
+hero exterior
+clinic interior
+clinic angle 1
+clinic angle 2
+doctor portrait if later supplied
+
+Do not make components dependent on hardcoded image implementations.
+
+A future photo replacement should require dropping a new file into the expected location rather than rewriting components.
+
+If the repository already contains an image system, improve it rather than unnecessarily replacing it.
+
+==================================================
+21. NO UNNECESSARY FEATURES
+==================================================
+
+This is a premium demo, not a giant platform.
+
+Do NOT build:
+- patient login
+- dashboards
+- appointment management backend
+- database
+- CMS
+- payment system
+- newsletter system
+- fake contact forms
+- complicated blog
+- fake FAQ content
+- fake social media feeds
+- unnecessary multi-page architecture
+- admin dashboard
+
+Only build what increases the perceived quality and usefulness of the practice website.
+
+==================================================
+22. BRAND / VISUAL IDENTITY
+==================================================
+
+The current public-facing brand is:
+
+Ophtalmo Luxembourg
+
+Use that as the primary brand.
+
+The Doctena listing uses:
+Cabinet Ophtalmologique Mamer
+
+Use that wording naturally where context requires it, such as:
+“Cabinet d'ophtalmologie à Mamer”
+
+Do not make the brand feel like a hospital chain.
+
+Create a visual identity that belongs specifically to this practice.
+
+A custom wordmark / subtle mark is welcome if it helps, but do not create a cheesy eye logo.
+
+==================================================
+23. GOOGLE MAPS / LOCATION
+==================================================
+
+The verified physical location is:
+
+110 Route d'Arlon
+L-8210 Mamer
+Luxembourg
+
+Google Maps listing:
+Ophtalmo Luxembourg
+
+Use the location data accurately.
+
+Do not invent nearby landmarks.
+
+Do not invent parking information.
+
+Do not invent accessibility information.
+
+A directions CTA should lead to:
+
+https://www.google.com/maps/dir/?api=1&destination=110+Rte+d'Arlon,+8210+Mamer,+Luxembourg
+
+==================================================
+24. CURRENT INFORMATION THAT SHOULD NOT BE HARDCODED AS PERMANENT MARKETING COPY
+==================================================
+
+Doctena currently contains dynamic booking/provider information, including availability and a changing reservation count.
+
+There is currently a displayed reservation count of 294+ on the practitioner page.
+
+Do NOT build prominent marketing copy around this number because it is dynamic and may change.
+
+Likewise, do not hardcode provider opening hours from a scraped booking page into the main website unless the client later confirms them.
+
+Keep availability connected to Doctena.
+
+==================================================
+25. FINAL EXPERIENCE
+==================================================
+
+The site should communicate this feeling within the first 5–10 seconds:
+
+“This is a serious ophthalmology practice in Luxembourg with a modern, trustworthy, premium identity.”
+
+The doctor should be able to imagine this becoming his real website.
+
+The website must look:
+- premium
+- original
+- intentional
+- calm
+- modern
+- credible
+- fast
+- polished
+- human
+- European
+- bespoke
+
+It must NOT look:
+- AI-generated
+- template-based
+- generic
+- over-designed
+- overly corporate
+- like a SaaS landing page
+- like a random Behance concept with no usability
+
+==================================================
+26. IMPLEMENTATION STANDARD
+==================================================
+
+Write production-quality code.
+
+Use:
+- clean architecture
+- reusable components
+- clear naming
+- strong TypeScript typing
+- maintainable files
+- no giant monolithic component
+- no unnecessary abstraction
+- no dead code
+- no console errors
+- no broken links
+- no placeholder TODO clutter in the finished UI
+
+If you encounter an implementation choice where there are several valid approaches, choose the one that produces the best combination of:
+1. visual quality
+2. performance
+3. maintainability
+4. accessibility
+5. future extensibility
+
+==================================================
+27. QA BEFORE YOU FINISH
+==================================================
+
+Before declaring the project complete, test:
+
+- desktop
+- tablet
+- 375px mobile
+- FR mode
+- EN mode
+- all navigation links
+- Doctena CTA
+- phone CTA
+- email CTA
+- directions CTA
+- language switching
+- mobile navigation
+- all images
+- missing-image fallback
+- keyboard navigation
+- reduced-motion mode
+- no horizontal overflow
+- no console errors
+- no broken assets
+- no layout shift caused by images
+- no dead links
+
+Verify that every visible string is translated.
+
+Verify there is only one H1.
+
+Verify the real photos are being used correctly.
+
+==================================================
+28. FINAL DELIVERABLE
+==================================================
+
+Build the complete polished demo.
+
+Do not stop after scaffolding.
+
+Do not create a “Phase 1”.
+
+Do not leave major visual sections unfinished just because some content is missing.
+
+Where information is missing, solve the design problem elegantly without inventing facts.
+
+At the end, provide a very short customization note explaining:
+
+1. where the real practice photos are located and how to replace them
+2. where the Doctena URL is stored
+3. where FR / EN content is edited
+4. which remaining items should be confirmed by the doctor before this becomes the production website
+
+Most importantly:
+
+Do not design from a generic web-development checklist.
+
+Design from the perspective of a world-class creative director whose goal is to make this one specific doctor immediately impressed by the work.
+
+Be bold where it improves the experience.
+Be restrained where restraint creates luxury.
+Use the actual practice photography.
+Use the verified facts.
+Make strong decisions.
+Do not imitate an existing template.
+Do not produce AI slop.
+
+Build something that looks custom-made for Ophtalmo Luxembourg.

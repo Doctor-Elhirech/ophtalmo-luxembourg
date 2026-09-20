@@ -1,0 +1,40 @@
+---
+import type { Translation } from '../content/translations';
+import Photo from './Photo.astro';
+import BookingLink from './BookingLink.astro';
+import Arrow from './Arrow.astro';
+interface Props {
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-top container">
+    <div class="hero-heading">
+      <p class="eyebrow hero-eyebrow">{t.hero.eyebrow}</p>
+      <h1 id="hero-title">
+        {t.hero.line1}
+        <br />
+        <em>{t.hero.line2}</em>
+      </h1>
+    </div>
+    <div class="hero-intro">
+      <p>{t.hero.intro}</p>
+      <p class="hero-provider">{t.hero.provider}</p>
+      <BookingLink t={t} />
+      <span class="booking-note">{t.hero.bookingNote}</span>
+    </div>
+  </div>
+  <figure class="hero-figure container">
+    <Photo slot="exteriorWide" t={t} eager sizes="(max-width: 767px) 100vw, 94vw" />
+    <figcaption>
+      <span>{t.hero.caption}</span>
+      <span>{t.hero.coordinate}</span>
+      <a href="#practice">
+        {t.action.discover}
+        <Arrow />
+      </a>
+    </figcaption>
+  </figure>
+</section>

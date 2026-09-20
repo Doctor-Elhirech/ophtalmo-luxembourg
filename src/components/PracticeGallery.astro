@@ -1,0 +1,87 @@
+---
+import type { Translation } from '../content/translations';
+import { photoSlots, type PhotoSlot } from '../config/practice';
+import Photo from './Photo.astro';
+import Arrow from './Arrow.astro';
+interface Props {
+  t: Translation;
+}
+const { t } = Astro.props;
+const slots: PhotoSlot[] = ['exterior', 'examination', 'examinationAlternate'];
+---
+
+<section
+  id="practice"
+  class="practice-section container section-space"
+  aria-labelledby="practice-title"
+>
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">{t.practiceSection.label}</p>
+      <h2 id="practice-title">
+        {t.practiceSection.title}
+        <br />
+        <em>{t.practiceSection.emphasis}</em>
+      </h2>
+    </div>
+    <p class="section-description">{t.practiceSection.intro}</p>
+  </div>
+  <div class="gallery-layout">
+    {slots.map((slot, index) => (
+      <figure class={`gallery-item gallery-item-${index + 1}`}>
+        <a
+          class="gallery-open"
+          href={`/images/${photoSlots[slot].base}-1600.webp`}
+          data-photo-index={index}
+          data-photo-alt={t.photos[slot]}
+          data-photo-caption={t.practiceSection.captions[index]}
+          aria-label={`${t.accessibility.openPhoto} — ${t.practiceSection.captions[index]}`}
+        >
+          <Photo
+            slot={slot}
+            t={t}
+            sizes={index === 0 ? '(max-width: 600px) 90vw, 54vw' : '(max-width: 600px) 90vw, 35vw'}
+          />
+          <span class="photo-enlarge" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h14M12 5v14" stroke="currentColor" stroke-width="1.3" />
+            </svg>
+          </span>
+        </a>
+        <figcaption>
+          <span>{t.numbers[index]}</span>
+          {t.practiceSection.captions[index]}
+        </figcaption>
+      </figure>
+    ))}
+    <div class="gallery-caption">
+      <span class="caption-line"></span>
+      <p>{t.practiceSection.attribution}</p>
+    </div>
+  </div>
+</section>
+<dialog class="gallery-dialog" aria-label={t.accessibility.gallery}>
+  <div class="dialog-top">
+    <span class="gallery-counter"></span>
+    <button class="gallery-close" aria-label={t.accessibility.closeGallery}>
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="m5 5 14 14M19 5 5 19" stroke="currentColor" stroke-width="1.5" />
+      </svg>
+    </button>
+  </div>
+  <div class="lightbox-image-wrap">
+    <img class="lightbox-image" alt="" />
+    <p class="lightbox-fallback" hidden>
+      {t.accessibility.imageUnavailable}
+    </p>
+  </div>
+  <div class="dialog-bottom">
+    <button class="gallery-previous" aria-label={t.accessibility.previous}>
+      <Arrow />
+    </button>
+    <p class="gallery-image-caption" aria-live="polite"></p>
+    <button class="gallery-next" aria-label={t.accessibility.next}>
+      <Arrow />
+    </button>
+  </div>
+</dialog>

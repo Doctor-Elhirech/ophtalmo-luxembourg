@@ -1,0 +1,94 @@
+{
+  "base": "http://127.0.0.1:4321",
+  "date": "2026-09-20T22:57:24.645Z",
+  "viewports": [
+    {
+      "locale": "fr",
+      "width": 375,
+      "overflow": false,
+      "imagesLoaded": true,
+      "errors": 0
+    },
+    {
+      "locale": "fr",
+      "width": 768,
+      "overflow": false,
+      "imagesLoaded": true,
+      "errors": 0
+    },
+    {
+      "locale": "fr",
+      "width": 1024,
+      "overflow": false,
+      "imagesLoaded": true,
+      "errors": 0
+    },
+    {
+      "locale": "fr",
+      "width": 1440,
+      "overflow": false,
+      "imagesLoaded": true,
+      "errors": 0
+    },
+    {
+      "locale": "fr",
+      "width": 1920,
+      "overflow": false,
+      "imagesLoaded": true,
+      "errors": 0
+    },
+    {
+      "locale": "en",
+      "width": 375,
+      "overflow": false,
+      "imagesLoaded": true,
+      "errors": 0
+    },
+    {
+      "locale": "en",
+      "width": 768,
+      "overflow": false,
+      "imagesLoaded": true,
+      "errors": 0
+    },
+    {
+      "locale": "en",
+      "width": 1024,
+      "overflow": false,
+      "imagesLoaded": true,
+      "errors": 0
+    },
+    {
+      "locale": "en",
+      "width": 1440,
+      "overflow": false,
+      "imagesLoaded": true,
+      "errors": 0
+    },
+    {
+      "locale": "en",
+      "width": 1920,
+      "overflow": false,
+      "imagesLoaded": true,
+      "errors": 0
+    }
+  ],
+  "checks": [
+    "fr layout 375px",
+    "fr layout 768px",
+    "fr layout 1024px",
+    "fr layout 1440px",
+    "fr layout 1920px",
+    "en layout 375px",
+    "en layout 768px",
+    "en layout 1024px",
+    "en layout 1440px",
+    "en layout 1920px",
+    "mobile menu, anchors, Escape and language switching",
+    "keyboard skip link and accessible gallery",
+    "missing images show translated fallback and reserve layout",
+    "reading and booking work without JavaScript",
+    "200 percent text enlargement has no horizontal overflow"
+  ],
+  "failures": []
+}

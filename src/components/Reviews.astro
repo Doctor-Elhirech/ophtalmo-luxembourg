@@ -1,0 +1,50 @@
+---
+import type { Translation } from '../content/translations';
+interface Props {
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<section class="reviews-section section-space" aria-labelledby="reviews-title">
+  <div class="container">
+    <div class="reviews-heading">
+      <div>
+        <p class="eyebrow">{t.reviews.label}</p>
+        <h2 id="reviews-title">
+          {t.reviews.title}
+          <br />
+          <em>{t.reviews.emphasis}</em>
+        </h2>
+      </div>
+      <div class="rating">
+        <span class="eyebrow">{t.reviews.ratingLabel}</span>
+        <p>
+          <strong>{t.reviewSummary.rating}</strong>
+          <span>
+            {t.slash} {t.reviewSummary.maximum}
+          </span>
+        </p>
+        <span class="rating-count">{t.reviews.count}</span>
+      </div>
+    </div>
+    <div class="review-grid">
+      {t.reviews.quotes.map((quote, index) => (
+        <figure class="review">
+          <blockquote>
+            <p>
+              {t.reviews.openQuote}
+              {quote}
+              {t.reviews.closeQuote}
+            </p>
+          </blockquote>
+          <figcaption>
+            <span>{t.reviewers[index]}</span>
+            <span>{t.reviews.source}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+    <p class="review-note">{t.reviews.note}</p>
+  </div>
+</section>

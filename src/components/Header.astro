@@ -1,0 +1,71 @@
+---
+import type { Locale, Translation } from '../content/translations';
+import { locales, localePath } from '../content/translations';
+import BookingLink from './BookingLink.astro';
+interface Props {
+  t: Translation;
+  locale: Locale;
+}
+const { t, locale } = Astro.props;
+const links = [
+  ['doctor', t.nav.doctor],
+  ['expertise', t.nav.expertise],
+  ['practice', t.nav.practice],
+  ['contact', t.nav.contact],
+];
+---
+
+<header class="site-header">
+  <a href={localePath(locale)} class="wordmark" aria-label={t.name}>
+    <span class="brand-symbol" aria-hidden="true"></span>
+    <span>
+      {t.name.split(' ')[0]}
+      <small>{t.name.split(' ')[1]}</small>
+    </span>
+  </a>
+  <nav class="desktop-nav" aria-label={t.accessibility.mainNav}>
+    {links.map(([id, text]) => (
+      <a href={`#${id}`}>{text}</a>
+    ))}
+  </nav>
+  <div class="header-actions">
+    <div class="language-switch" aria-label={t.accessibility.language}>
+      {locales.map((lang) => (
+        <a
+          href={localePath(lang)}
+          lang={lang}
+          hreflang={lang}
+          class="language-link"
+          aria-current={lang === locale ? 'page' : undefined}
+          aria-label={t.localeNames[lang]}
+        >
+          {t.languageShort[lang]}
+        </a>
+      ))}
+    </div>
+    <BookingLink t={t} class="header-booking" />
+    <button
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      aria-label={t.accessibility.menu}
+      data-open-label={t.accessibility.menu}
+      data-close-label={t.accessibility.closeMenu}
+    >
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label={t.accessibility.mainNav} inert>
+    {links.map(([id, text], i) => (
+      <a href={`#${id}`}>
+        <span>{t.numbers[i]}</span>
+        {text}
+      </a>
+    ))}
+    <BookingLink t={t} />
+    <a class="mobile-phone" href={t.phoneHref}>
+      {t.phone}
+    </a>
+  </nav>
+</header>

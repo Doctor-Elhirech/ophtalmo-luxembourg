@@ -1,0 +1,49 @@
+---
+import type { Translation } from '../content/translations';
+import Photo from './Photo.astro';
+import Arrow from './Arrow.astro';
+interface Props {
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<section class="introduction container" aria-labelledby="intro-title">
+  <p class="eyebrow">{t.introduction.label}</p>
+  <h2 id="intro-title">
+    {t.introduction.title}
+    <br />
+    <em>{t.introduction.emphasis}</em>
+  </h2>
+  <p class="intro-description">{t.introduction.text}</p>
+</section>
+<section id="doctor" class="doctor-section container section-space" aria-labelledby="doctor-title">
+  <figure class="doctor-photo">
+    <Photo slot="consultation" t={t} />
+    <figcaption>{t.doctorSection.caption}</figcaption>
+  </figure>
+  <div class="doctor-copy">
+    <p class="eyebrow">{t.doctorSection.label}</p>
+    <h2 id="doctor-title">
+      {t.doctorSection.nameFirst}
+      <br />
+      {t.doctorSection.nameLast}
+    </h2>
+    <p class="doctor-role">{t.doctorSection.role}</p>
+    <ul class="qualifications">
+      {t.doctorSection.qualifications.map((qualification) => (
+        <li>{qualification}</li>
+      ))}
+    </ul>
+    <a
+      class="text-link"
+      href={t.profileUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${t.action.profile} (${t.accessibility.newTab})`}
+    >
+      {t.action.profile}
+      <Arrow diagonal />
+    </a>
+  </div>
+</section>

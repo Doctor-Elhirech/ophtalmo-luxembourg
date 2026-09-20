@@ -1,0 +1,27 @@
+{
+  "exterior-wide": {
+    "base": "exterior-wide",
+    "width": 2020,
+    "height": 778
+  },
+  "exterior": {
+    "base": "exterior",
+    "width": 772,
+    "height": 546
+  },
+  "consultation": {
+    "base": "consultation",
+    "width": 648,
+    "height": 646
+  },
+  "examination": {
+    "base": "examination",
+    "width": 716,
+    "height": 572
+  },
+  "examination-alternate": {
+    "base": "examination-alternate",
+    "width": 867,
+    "height": 856
+  }
+}

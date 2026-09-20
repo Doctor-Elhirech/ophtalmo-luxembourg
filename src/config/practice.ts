@@ -1,0 +1,32 @@
+import imageMetadata from './image-metadata.json';
+/** Single source of truth for factual information and external destinations. */
+export const practice = {
+  name: 'Ophtalmo Luxembourg',
+  doctor: 'Dr M’Hamed EL HIRECH',
+  listingName: 'Cabinet Ophtalmologique Mamer',
+  address: { street: '110 Route d’Arlon', postalCity: 'L-8210 Mamer', country: 'Luxembourg' },
+  phone: '+352 691 641 064',
+  phoneHref: 'tel:+352691641064',
+  email: 'ophtalmo.luxembourg@gmail.com',
+  bookingUrl: 'https://www.doctena.lu/fr/practitioner/mhamed-el-hirech',
+  directionsUrl:
+    "https://www.google.com/maps/dir/?api=1&destination=110+Rte+d'Arlon,+8210+Mamer,+Luxembourg",
+  profileUrl: 'https://www.doctena.lu/fr/practitioner/cabinet-ophtalmologique-mamer',
+  reviewSummary: { rating: '5.0', maximum: '5', count: 3, source: 'Google', suppliedInBrief: true },
+  reviewers: ['Sarah E.', 'Aya Ads'],
+};
+
+export const photoSlots = {
+  exteriorWide: imageMetadata['exterior-wide'],
+  exterior: imageMetadata.exterior,
+  consultation: imageMetadata.consultation,
+  examination: imageMetadata.examination,
+  examinationAlternate: imageMetadata['examination-alternate'],
+};
+export type PhotoSlot = keyof typeof photoSlots;
+
+/** Replace only when the final domain is confirmed; demo stays out of search. */
+export const siteSettings = {
+  origin: 'https://ophtalmo-luxembourg-mamer-demo.genial-reed-0431.chatgpt.site',
+  indexable: false,
+};
