@@ -41,8 +41,8 @@ Source verification is complete. Photos remain authentic; translated review exce
 
 ## Delivery record
 
-The final build is local-only for review. The localhost dev and preview servers are stopped, and `.openai/hosting.json` contains no Site ID. The previous session did create an unintended owner-private Sites preview at `https://ophtalmo-luxembourg-mamer-demo.bokhtiyarhossainnilo.chatgpt.site`; it was never public or indexed. The connector available in this session exposes no deletion operation, so this is documented transparently and no further hosting will occur without explicit approval.
+The final build is local-only for review. The localhost dev and preview servers are stopped, and the local Sites connector configuration has been removed. The previous session did create an unintended owner-private Sites preview at `https://ophtalmo-luxembourg-mamer-demo.bokhtiyarhossainnilo.chatgpt.site`; it was never public or indexed. The connector available in that session exposed no deletion operation, so this is documented transparently and no further hosting will occur without explicit approval.
 
 ## Resume instructions
 
-Read this file, README.md, docs/QA.md (when present), and `.openai/hosting.json`. Never register another Site if project_id already exists. Check active processes before starting a preview. Run `npm run build`, then `npm run qa` with preview running. User authorized full completion; do not stop at a scaffold.
+Read this file, README.md, and docs/QA.md (when present). Check active processes before starting a preview. Run `npm run build`, then `npm run qa` with preview running. User authorized full completion; do not stop at a scaffold.
