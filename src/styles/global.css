@@ -212,12 +212,14 @@
   .desktop-nav {
     display: flex;
     gap: 28px;
-    font-size: 13px;
+    font-size: 14px;
     white-space: nowrap;
   }
   .desktop-nav a {
     position: relative;
     padding: 8px 0;
+    color: var(--ink);
+    transition: color 0.24s ease;
   }
   .desktop-nav a::after {
     content: '';
@@ -233,6 +235,10 @@
   }
   .desktop-nav a:hover::after {
     transform: scaleX(1);
+  }
+  .desktop-nav a:hover,
+  .desktop-nav a:focus-visible {
+    color: #8d7435;
   }
   .header-actions {
     display: flex;
@@ -966,13 +972,48 @@
     color: var(--muted);
   }
   .footer-bottom > a {
+    position: relative;
     display: flex;
     gap: 12px;
     align-items: center;
+    min-height: 44px;
+    padding: 8px 14px;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid var(--line);
+    transition:
+      color 0.25s ease,
+      border-color 0.25s ease,
+      transform 0.25s ease;
+  }
+  .footer-bottom > a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--ink);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+  .footer-bottom > a:hover,
+  .footer-bottom > a:focus-visible {
+    color: var(--paper);
+    border-color: var(--ink);
+    transform: translateY(-2px);
+  }
+  .footer-bottom > a:hover::before,
+  .footer-bottom > a:focus-visible::before {
+    transform: scaleY(1);
   }
   .footer-bottom .arrow {
     transform: rotate(-90deg);
     width: 16px;
+    transition: transform 0.25s ease;
+  }
+  .footer-bottom > a:hover .arrow,
+  .footer-bottom > a:focus-visible .arrow {
+    transform: translateY(-3px) rotate(-90deg);
   }
   .demo-note {
     font-size: 9px;
