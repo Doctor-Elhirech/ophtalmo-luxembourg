@@ -38,7 +38,6 @@ Install the QA browser once with `npx playwright install chromium`. Set `QA_URL`
 | `public/images/`               | Optimized local WebP variants generated from the originals                                      |
 | `scripts/prepare-images.mjs`   | Repeatable image optimization and automatic dimension metadata                                  |
 | `scripts/qa.mjs`               | Responsive, accessibility, links, gallery, keyboard and fallback checks                         |
-| `docs/PROGRESS.md`             | Session continuity and current delivery status                                                  |
 | `docs/CONTENT-SOURCES.md`      | Factual provenance and doctor-confirmation items                                                |
 | `docs/QA.md`                   | Verification scope and limitations                                                              |
 
@@ -70,12 +69,8 @@ The exact requested Doctena practitioner link is retained for the primary appoin
 
 Confirm the doctor’s preferred displayed name, qualifications and surgical-service wording; final Doctena destination; rights to use all photography and identification of the correct facade/entrance; current Google rating/count and original French review wording; and the final domain, legal notice and applicable privacy information. No hours, parking claims or access claims have been invented. See `docs/CONTENT-SOURCES.md` for details.
 
-The demo is deliberately private and `noindex`. After client confirmation, update `siteSettings.origin`, decide indexing, replace the demonstration footer wording, and add the real approved legal/privacy content. No fake legal links are present. Open Graph text, canonical URLs and language alternatives are prepared; an unrequested sharing image has not been fabricated.
+The demo remains `noindex` until the doctor approves the content. Canonical, Open Graph and language-alternate URLs use Netlify's deployment URL when built there and fall back to localhost during local development. After client confirmation, update the origin if a custom domain is selected, decide indexing, replace the demonstration footer wording, and add the real approved legal/privacy content. No fake legal links are present.
 
-## Local-only delivery and continuity
+## Deploy to Netlify
 
-The complete portable static build is in `dist/`. This checkout is configured for local-only review and contains no Sites connector configuration. To review in a normal browser, open PowerShell in this folder and run `npm run dev`, then visit the printed `http://127.0.0.1:4321/` address. Check the running server before starting another instance. The site itself stays on the laptop until you explicitly approve a hosting destination.
-
-During the previous build session, an unintended owner-private Sites preview was created at `https://ophtalmo-luxembourg-mamer-demo.bokhtiyarhossainnilo.chatgpt.site`. It was never made public or indexed. Local hosting is now stopped and no future publish will be attempted. The available Sites connector exposes no deletion operation in this session, so the private preview remains an isolated owner-only deployment until it expires or is removed from the Sites account controls. It is not part of the local build or its current configuration.
-
-Read `docs/PROGRESS.md` first when resuming. No automated wakeup or scheduled continuation has been created.
+The repository includes `netlify.toml`, which sets the build command to `npm run build` and the publish directory to `dist`. Import the GitHub repository into Netlify, keep the production branch as `main`, and publish. The generated `*.netlify.app` URL can be shared with the doctor; the GitHub repository can remain private because source visibility and deployed-site visibility are separate settings. See `docs/QA.md` and `docs/CONTENT-SOURCES.md` for verification and factual handoff notes.

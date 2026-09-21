@@ -36,9 +36,13 @@ export const photoSlots = {
 };
 export type PhotoSlot = keyof typeof photoSlots;
 
-/** Replace only when the final domain is confirmed; demo stays out of search. */
+/** The local fallback keeps previews accurate; Netlify supplies URL during builds. */
 export const siteSettings = {
-  origin: 'http://127.0.0.1:4321',
+  origin:
+    import.meta.env.PUBLIC_SITE_ORIGIN ??
+    import.meta.env.URL ??
+    import.meta.env.DEPLOY_PRIME_URL ??
+    'http://127.0.0.1:4321',
   indexable: false,
-  localOnly: true,
+  localOnly: !import.meta.env.NETLIFY,
 };
