@@ -582,6 +582,9 @@
     gap: 42px 9%;
     align-items: start;
   }
+  .gallery-item .photo {
+    aspect-ratio: 4 / 3;
+  }
   .gallery-item-1 {
     grid-column: 1;
     grid-row: 1;
