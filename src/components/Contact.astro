@@ -3,6 +3,7 @@ import type { Translation } from '../content/translations';
 import BookingLink from './BookingLink.astro';
 import Photo from './Photo.astro';
 import Arrow from './Arrow.astro';
+import VisitFaq from './VisitFaq.astro';
 interface Props {
   t: Translation;
 }
@@ -27,6 +28,16 @@ const { t } = Astro.props;
       <p>{t.appointment.text}</p>
       <BookingLink t={t} label={t.action.availability} variant="light" />
       <span class="booking-note">{t.appointment.bookingNote}</span>
+      <a
+        class="text-link alternative-booking"
+        href={t.doctipro.bookingUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${t.appointment.alternativeBooking} (${t.accessibility.newTab})`}
+      >
+        <span>{t.appointment.alternativeBooking}</span>
+        <Arrow diagonal />
+      </a>
       <div class="appointment-phone">
         <span>{t.appointment.phoneLabel}</span>
         <a href={t.phoneHref}>
@@ -37,6 +48,7 @@ const { t } = Astro.props;
     </div>
   </div>
 </section>
+<VisitFaq t={t} />
 <section
   id="contact"
   class="contact-section container section-space"

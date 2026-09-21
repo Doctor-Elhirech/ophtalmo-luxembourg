@@ -14,6 +14,7 @@ const common = {
 
 const fr = {
   ...common,
+  doctipro: practice.doctipro.fr,
   meta: {
     title: 'Ophtalmo Luxembourg — Dr M’Hamed EL HIRECH, Mamer',
     description:
@@ -78,6 +79,9 @@ const fr = {
     ],
     caption: 'Au cabinet · Espace de consultation',
     source: 'Parcours publié sur Doctena',
+    profilesLabel: 'Profils professionnels',
+    doctenaProfile: 'Profil sur Doctena',
+    doctiproProfile: 'Profil sur Doctipro',
   },
   expertiseSection: {
     label: 'Les domaines de consultation',
@@ -145,6 +149,42 @@ const fr = {
     text: 'Choisissez votre créneau directement sur Doctena.',
     phoneLabel: 'Vous préférez nous appeler ?',
     bookingNote: 'La réservation s’effectue sur Doctena.',
+    alternativeBooking: 'Réserver aussi sur Doctipro — Mamer',
+  },
+  faq: {
+    label: 'Avant votre visite',
+    title: 'Quelques réponses,',
+    emphasis: 'pour vous guider.',
+    intro: 'Les informations utiles pour organiser votre venue au cabinet.',
+    items: [
+      {
+        question: 'Comment prendre rendez-vous ?',
+        answer:
+          'Vous pouvez réserver sur Doctena ou Doctipro pour le cabinet de Mamer. Consultez les disponibilités et finalisez votre réservation sur la plateforme choisie.',
+        linkLabel: 'Voir les options de réservation',
+        href: '#appointment',
+      },
+      {
+        question: 'Où se trouve le cabinet ?',
+        answer: `Le cabinet vous accueille au ${practice.address.street}, ${practice.address.postalCity}, au Luxembourg. Retrouvez les coordonnées et l’itinéraire ci-dessous.`,
+        linkLabel: 'Accès et coordonnées',
+        href: '#contact',
+      },
+      {
+        question: 'Quelles langues sont parlées ?',
+        answer:
+          'Le français, l’anglais et l’arabe sont indiqués sur le profil Doctena du cabinet. Pour une demande particulière, contactez le cabinet avant votre visite.',
+        linkLabel: '',
+        href: '',
+      },
+      {
+        question: 'Comment joindre le cabinet ?',
+        answer:
+          'Pour une question avant votre visite, vous pouvez joindre le cabinet par téléphone ou par e-mail.',
+        linkLabel: 'Contacter le cabinet',
+        href: '#contact',
+      },
+    ],
   },
   contactSection: {
     label: 'Nous trouver',
@@ -172,6 +212,7 @@ const fr = {
 
 const en: typeof fr = {
   ...common,
+  doctipro: practice.doctipro.en,
   meta: {
     title: 'Ophtalmo Luxembourg — Dr M’Hamed EL HIRECH, Mamer',
     description:
@@ -236,6 +277,9 @@ const en: typeof fr = {
     ],
     caption: 'At the practice · Consultation space',
     source: 'Professional background published on Doctena',
+    profilesLabel: 'Professional profiles',
+    doctenaProfile: 'Profile on Doctena',
+    doctiproProfile: 'Profile on Doctipro',
   },
   expertiseSection: {
     label: 'Areas of expertise',
@@ -302,6 +346,42 @@ const en: typeof fr = {
     text: 'Choose your appointment directly through Doctena.',
     phoneLabel: 'Prefer to call us?',
     bookingNote: 'Booking is handled by Doctena.',
+    alternativeBooking: 'Also book through Doctipro — Mamer',
+  },
+  faq: {
+    label: 'Before your visit',
+    title: 'A few answers,',
+    emphasis: 'to guide you.',
+    intro: 'Useful details to help you plan your visit to the practice.',
+    items: [
+      {
+        question: 'How do I book an appointment?',
+        answer:
+          'You can book through Doctena or Doctipro for the Mamer practice. Check availability and complete your booking on your chosen platform.',
+        linkLabel: 'View booking options',
+        href: '#appointment',
+      },
+      {
+        question: 'Where is the practice?',
+        answer: `The practice is at ${practice.address.street}, ${practice.address.postalCity}, Luxembourg. Find the contact details and directions below.`,
+        linkLabel: 'Location and directions',
+        href: '#contact',
+      },
+      {
+        question: 'Which languages are spoken?',
+        answer:
+          'French, English and Arabic are listed on the practice’s Doctena profile. For a specific language request, please contact the practice before your visit.',
+        linkLabel: '',
+        href: '',
+      },
+      {
+        question: 'How can I contact the practice?',
+        answer:
+          'If you have a question before your visit, you can contact the practice by phone or email.',
+        linkLabel: 'Contact the practice',
+        href: '#contact',
+      },
+    ],
   },
   contactSection: {
     label: 'Find us',

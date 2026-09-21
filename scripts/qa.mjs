@@ -18,6 +18,9 @@ async function check(name, fn) {
   }
 }
 const expectedBooking = 'https://www.doctena.lu/fr/practitioner/mhamed-el-hirech';
+// Isolated section captures omit fixed chrome; full-page captures keep it visible.
+const sectionScreenshotStyle =
+  '.site-header, .mobile-contact-bar { visibility: hidden !important; }';
 try {
   for (const locale of ['fr', 'en']) {
     for (const width of [375, 768, 1024, 1440, 1920]) {
@@ -49,19 +52,29 @@ try {
             scroll: document.documentElement.scrollWidth,
           }));
           assert.ok(dimensions.scroll <= dimensions.width, JSON.stringify(dimensions));
-          const anchors = await page
-            .locator('a[href^="#"]')
-            .evaluateAll((links) =>
-              links.map((link) => ({
-                href: link.getAttribute('href'),
-                exists: !!document.getElementById(link.hash.slice(1)),
-              })),
-            );
+          const anchors = await page.locator('a[href^="#"]').evaluateAll((links) =>
+            links.map((link) => ({
+              href: link.getAttribute('href'),
+              exists: !!document.getElementById(link.hash.slice(1)),
+            })),
+          );
           assert.ok(
             anchors.every((item) => item.exists),
             `Broken anchors: ${JSON.stringify(anchors.filter((item) => !item.exists))}`,
           );
           assert.ok((await page.locator(`a[href="${expectedBooking}"]`).count()) >= 4);
+          assert.equal(
+            await page.locator('.alternative-booking').getAttribute('href'),
+            `https://www.doctipro.lu/${locale}/rendez-vous/254?hospital=90`,
+          );
+          assert.equal(
+            await page.locator('.profile-links a').last().getAttribute('href'),
+            `https://www.doctipro.lu/${locale}/doctor-profile/254/el-hirech-mhamed`,
+          );
+          for (const link of await page.locator('.profile-links a, .alternative-booking').all()) {
+            assert.equal(await link.getAttribute('target'), '_blank');
+            assert.match(await link.getAttribute('rel'), /noopener/);
+          }
           assert.ok((await page.locator('a[href="tel:+352691641064"]').count()) > 0);
           assert.ok(
             (await page.locator('a[href="mailto:ophtalmo.luxembourg@gmail.com"]').count()) > 0,
@@ -83,6 +96,12 @@ try {
           });
           await page.screenshot({ path: `qa/screenshots/${locale}-${width}-hero.png` });
           if ([375, 1440].includes(width)) {
+            for (const section of ['doctor', 'appointment', 'faq']) {
+              await page.locator(`#${section}`).screenshot({
+                path: `qa/screenshots/${locale}-${width}-${section}.png`,
+                style: sectionScreenshotStyle,
+              });
+            }
             const axe = await new AxeBuilder({ page })
               .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
               .analyze();
@@ -102,6 +121,62 @@ try {
         }
       });
     }
+  }
+  for (const locale of ['fr', 'en']) {
+    await check(`${locale} FAQ keyboard, expanded answers and booking navigation`, async () => {
+      const context = await browser.newContext({
+        viewport: { width: 375, height: 812 },
+        reducedMotion: 'reduce',
+      });
+      const page = await context.newPage();
+      try {
+        await page.goto(base + (locale === 'en' ? '/en/' : '/'));
+        const items = page.locator('.faq-item');
+        assert.equal(await items.count(), 4);
+        assert.equal(await page.locator('.faq-item[open]').count(), 0);
+        const first = items.first();
+        const summary = first.locator('summary');
+        await summary.focus();
+        await page.keyboard.press('Enter');
+        assert.ok(await first.locator('.faq-answer').isVisible());
+        assert.ok(await summary.evaluate((el) => el === document.activeElement));
+        await page.keyboard.press('Space');
+        assert.equal(await first.locator('.faq-answer').isVisible(), false);
+        for (const item of await items.all()) {
+          await item.locator('summary').click();
+          assert.ok(await item.locator('.faq-answer').isVisible());
+          assert.ok((await item.locator('.faq-answer p').innerText()).length > 30);
+        }
+        assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+        const axe = await new AxeBuilder({ page })
+          .include('#faq')
+          .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+          .analyze();
+        assert.deepEqual(axe.violations, []);
+        // Restore FAQ focus after axe's focus checks before capturing this section.
+        await summary.focus();
+        await page.locator('#faq').screenshot({
+          path: `qa/screenshots/${locale}-375-faq-expanded.png`,
+          style: sectionScreenshotStyle,
+        });
+        await first.locator('a').click();
+        assert.ok(page.url().endsWith('#appointment'));
+        assert.ok(await page.locator('.alternative-booking').isVisible());
+        await page
+          .locator('.header-actions .language-link')
+          .filter({
+            hasText: locale === 'fr' ? 'EN' : 'FR',
+          })
+          .click();
+        await page.waitForURL(locale === 'fr' ? '**/en/#appointment' : '**/#appointment');
+        assert.equal(
+          await page.locator('html').getAttribute('lang'),
+          locale === 'fr' ? 'en' : 'fr',
+        );
+      } finally {
+        await context.close();
+      }
+    });
   }
   await check('mobile menu, anchors, Escape and language switching', async () => {
     const page = await browser.newPage({
@@ -197,6 +272,14 @@ try {
         expectedBooking,
       );
       assert.ok(await page.locator('.footer-top nav a[href="#doctor"]').count());
+      for (const path of ['/', '/en/']) {
+        await page.goto(base + path);
+        for (const item of await page.locator('.faq-item').all()) {
+          await item.locator('summary').click();
+          assert.ok(await item.locator('.faq-answer').isVisible());
+        }
+        assert.ok(await page.locator('.alternative-booking').isVisible());
+      }
     } finally {
       await context.close();
     }

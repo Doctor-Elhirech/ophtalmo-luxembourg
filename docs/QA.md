@@ -7,12 +7,15 @@ The repeatable browser suite is `scripts/qa.mjs`. It produces `qa/report.json` a
 - French and English at 375, 768, 1024, 1440 and 1920 pixels.
 - One H1, correct document language, complete section anchors and local assets.
 - Exact Doctena appointment URL and valid phone, email and Google directions hrefs.
+- Localized Doctipro profile/booking links, Mamer practice selection, and safe new-tab attributes.
 - No horizontal overflow, browser JavaScript errors or failed local HTTP assets.
 - All five genuine source photographs, intrinsic dimensions and image loading.
 - Automated axe WCAG 2 A/AA and 2.1 AA rules at 375 and 1440 pixels in each language.
 - Keyboard skip link, mobile menu, Escape behavior, language switching with anchor retention.
 - Native photo dialog, arrow-key navigation, focus cycling and restored focus on close.
 - Reduced motion, image-request failure with translated fallback, and core content/booking without JavaScript.
+- Four bilingual FAQ disclosures: keyboard Enter/Space, expanded-answer accessibility, internal booking/contact navigation, and native operation without JavaScript.
+- Separate desktop/mobile captures of the doctor profile links, appointment alternative and collapsed/expanded FAQ.
 - Visual inspection of complete French mobile/desktop and English tablet captures.
 
 ## Relevant findings addressed

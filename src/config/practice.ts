@@ -12,6 +12,17 @@ export const practice = {
   directionsUrl:
     "https://www.google.com/maps/dir/?api=1&destination=110+Rte+d'Arlon,+8210+Mamer,+Luxembourg",
   profileUrl: 'https://www.doctena.lu/fr/practitioner/cabinet-ophtalmologique-mamer',
+  // Each Doctipro booking URL selects the Mamer practice (hospital=90).
+  doctipro: {
+    fr: {
+      profileUrl: 'https://www.doctipro.lu/fr/doctor-profile/254/el-hirech-mhamed',
+      bookingUrl: 'https://www.doctipro.lu/fr/rendez-vous/254?hospital=90',
+    },
+    en: {
+      profileUrl: 'https://www.doctipro.lu/en/doctor-profile/254/el-hirech-mhamed',
+      bookingUrl: 'https://www.doctipro.lu/en/rendez-vous/254?hospital=90',
+    },
+  },
   reviewSummary: { rating: '5.0', maximum: '5', count: 3, source: 'Google', suppliedInBrief: true },
   reviewers: ['Sarah E.', 'Aya Ads'],
 };

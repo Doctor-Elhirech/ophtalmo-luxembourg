@@ -1,6 +1,6 @@
 {
   "base": "http://127.0.0.1:4321",
-  "date": "2026-09-20T23:46:18.879Z",
+  "date": "2026-09-21T05:37:07.703Z",
   "viewports": [
     {
       "locale": "fr",
@@ -84,6 +84,8 @@
     "en layout 1024px",
     "en layout 1440px",
     "en layout 1920px",
+    "fr FAQ keyboard, expanded answers and booking navigation",
+    "en FAQ keyboard, expanded answers and booking navigation",
     "mobile menu, anchors, Escape and language switching",
     "keyboard skip link and accessible gallery",
     "missing images show translated fallback and reserve layout",

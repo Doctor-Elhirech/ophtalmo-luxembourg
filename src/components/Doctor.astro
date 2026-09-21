@@ -35,15 +35,36 @@ const { t } = Astro.props;
         <li>{qualification}</li>
       ))}
     </ul>
-    <a
-      class="text-link"
-      href={t.profileUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`${t.action.profile} (${t.accessibility.newTab})`}
-    >
-      {t.action.profile}
-      <Arrow diagonal />
-    </a>
+    <div class="doctor-profiles">
+      <h3 class="eyebrow" id="profiles-title">
+        {t.doctorSection.profilesLabel}
+      </h3>
+      <ul class="profile-links" aria-labelledby="profiles-title">
+        <li>
+          <a
+            class="text-link"
+            href={t.profileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${t.doctorSection.doctenaProfile} (${t.accessibility.newTab})`}
+          >
+            Doctena
+            <Arrow diagonal />
+          </a>
+        </li>
+        <li>
+          <a
+            class="text-link"
+            href={t.doctipro.profileUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${t.doctorSection.doctiproProfile} (${t.accessibility.newTab})`}
+          >
+            Doctipro
+            <Arrow diagonal />
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </section>

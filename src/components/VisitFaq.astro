@@ -1,0 +1,39 @@
+---
+import type { Translation } from '../content/translations';
+import Arrow from './Arrow.astro';
+interface Props {
+  t: Translation;
+}
+const { t } = Astro.props;
+---
+
+<section id="faq" class="faq-section container section-space" aria-labelledby="faq-title">
+  <div class="faq-heading">
+    <p class="eyebrow">{t.faq.label}</p>
+    <h2 id="faq-title">
+      {t.faq.title}
+      <br />
+      <em>{t.faq.emphasis}</em>
+    </h2>
+    <p class="faq-intro">{t.faq.intro}</p>
+  </div>
+  <div class="faq-list">
+    {t.faq.items.map((item) => (
+      <details class="faq-item">
+        <summary>
+          <span>{item.question}</span>
+          <span class="faq-toggle" aria-hidden="true" />
+        </summary>
+        <div class="faq-answer">
+          <p>{item.answer}</p>
+          {item.href && (
+            <a class="text-link" href={item.href}>
+              {item.linkLabel}
+              <Arrow />
+            </a>
+          )}
+        </div>
+      </details>
+    ))}
+  </div>
+</section>

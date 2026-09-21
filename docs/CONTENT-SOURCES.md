@@ -9,9 +9,19 @@ The complete client brief is retained as `docs/CLIENT-BRIEF.txt`. Business facts
 - [Current Doctena practice listing](https://www.doctena.lu/fr/practitioner/cabinet-ophtalmologique-mamer): practice address, telephone, doctor identity, six service areas, Besançon medical degree and previous hospital roles.
 - [Doctena specialty listing](https://www.doctena.lu/fr/specialite/ophthalmologie-pedriatique/cabinet-ophtalmologique-mamer-2095093): matching email and Collège médical affiliation. The affiliation is not promoted in the website copy.
 
-The exact requested booking URL is `https://www.doctena.lu/fr/practitioner/mhamed-el-hirech`. The English equivalent redirects to the newer practice slug. Retrieval of the exact French URL was bot-gated; this does not prove it is broken. Its intended final destination should be checked by the doctor before launch. Every appointment CTA retains the URL explicitly required in the brief.
+The exact requested booking URL is `https://www.doctena.lu/fr/practitioner/mhamed-el-hirech`. The English equivalent redirects to the newer practice slug. Retrieval of the exact French URL was bot-gated; this does not prove it is broken. Its intended final destination should be checked by the doctor before launch. Primary appointment CTAs retain the URL explicitly required in the brief; the user subsequently approved the secondary Doctipro option below.
 
 No claims are derived from changing reservation numbers, posted booking hours, payment options or other unrequested provider data.
+
+## Additional profile and visitor information (21 September 2026)
+
+- [Doctipro French profile](https://www.doctipro.lu/fr/doctor-profile/254/el-hirech-mhamed) and [English profile](https://www.doctipro.lu/en/doctor-profile/254/el-hirech-mhamed): matching doctor name, ophthalmology specialty and practice header at 110 Route d'Arlon, Mamer. These support the additional profile links beneath the qualifications.
+- The profile's own appointment button leads to [French booking](https://www.doctipro.lu/fr/rendez-vous/254?hospital=90) or [English booking](https://www.doctipro.lu/en/rendez-vous/254?hospital=90). Both pages identify the doctor and Mamer practice. The demo uses these exact URLs for its secondary booking link. Availability was observed, but no slot was selected and no patient appointment was created. No assumption is made that Doctena and Doctipro calendars are synchronized.
+- [Doctena Mamer specialty listing](https://www.doctena.lu/en/specialty/ophthalmologist-eye-doctor/cabinet-ophtalmologique-mamer-2095093): lists French, English and Arabic. The FAQ explicitly attributes the language information to Doctena. The address and contact answers reuse existing verified practice details.
+- Doctipro's biography mentions 1 Val Sainte-Croix despite its Mamer header, and describes patients aged six and over while Doctena lists newborn care. Its additional treatment claims and hours are not imported. Confirm these discrepancies with the doctor before any related content changes.
+- The supplied Doctolib, PagesJaunes and Autour-de-moi profiles point to French practices in Bolbec/Sarcelles. Their connection to the Mamer doctor remains unconfirmed. The user agreed to defer those links, French-practice details and any travel claims until the doctor confirms them. French reviews are not mixed into the Mamer review section.
+
+The user approved the local bilingual profile links, secondary booking link and four-item FAQ. The two original language routes and primary Doctena destination remain in place. Confirm with the doctor that both booking services are intended for patient use before public launch.
 
 ## Reviews
 
@@ -32,4 +42,4 @@ No doctor portrait was supplied, so an authentic consultation-space photograph a
 5. Final domain, practice legal identity and the appropriate approved legal/privacy information. No invented legal pages or dead links have been added.
 6. Any future hours, parking, accessibility, pricing or insurance information must be supplied explicitly before adding it.
 
-The demonstration is intentionally excluded from indexing and remains owner-private in Sites until a deliberate sharing/publication decision.
+The demonstration is intentionally excluded from indexing and configured for local-only review. Any public hosting requires the user's explicit approval.
