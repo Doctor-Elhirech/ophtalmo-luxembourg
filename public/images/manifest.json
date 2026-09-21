@@ -58,27 +58,27 @@
     "source": "Img-1.png",
     "output": "public/images/consultation-480.webp",
     "width": 480,
-    "height": 479,
-    "bytes": 19582,
-    "originalWidth": 648
+    "height": 400,
+    "bytes": 17118,
+    "originalWidth": 1374
   },
   {
     "slot": "consultation",
     "source": "Img-1.png",
     "output": "public/images/consultation-960.webp",
-    "width": 648,
-    "height": 646,
-    "bytes": 31902,
-    "originalWidth": 648
+    "width": 960,
+    "height": 800,
+    "bytes": 46046,
+    "originalWidth": 1374
   },
   {
     "slot": "consultation",
     "source": "Img-1.png",
     "output": "public/images/consultation-1600.webp",
-    "width": 648,
-    "height": 646,
-    "bytes": 31902,
-    "originalWidth": 648
+    "width": 1374,
+    "height": 1145,
+    "bytes": 77214,
+    "originalWidth": 1374
   },
   {
     "slot": "examination",
@@ -86,52 +86,52 @@
     "output": "public/images/examination-480.webp",
     "width": 480,
     "height": 383,
-    "bytes": 28114,
-    "originalWidth": 716
+    "bytes": 21572,
+    "originalWidth": 1404
   },
   {
     "slot": "examination",
     "source": "Img-2.png",
     "output": "public/images/examination-960.webp",
-    "width": 716,
-    "height": 572,
-    "bytes": 54878,
-    "originalWidth": 716
+    "width": 960,
+    "height": 766,
+    "bytes": 62192,
+    "originalWidth": 1404
   },
   {
     "slot": "examination",
     "source": "Img-2.png",
     "output": "public/images/examination-1600.webp",
-    "width": 716,
-    "height": 572,
-    "bytes": 54878,
-    "originalWidth": 716
+    "width": 1404,
+    "height": 1120,
+    "bytes": 108668,
+    "originalWidth": 1404
   },
   {
     "slot": "examination-alternate",
     "source": "Img-3.png",
     "output": "public/images/examination-alternate-480.webp",
     "width": 480,
-    "height": 474,
-    "bytes": 24686,
-    "originalWidth": 867
+    "height": 406,
+    "bytes": 19692,
+    "originalWidth": 1364
   },
   {
     "slot": "examination-alternate",
     "source": "Img-3.png",
     "output": "public/images/examination-alternate-960.webp",
-    "width": 867,
-    "height": 856,
-    "bytes": 58694,
-    "originalWidth": 867
+    "width": 960,
+    "height": 811,
+    "bytes": 56132,
+    "originalWidth": 1364
   },
   {
     "slot": "examination-alternate",
     "source": "Img-3.png",
     "output": "public/images/examination-alternate-1600.webp",
-    "width": 867,
-    "height": 856,
-    "bytes": 58694,
-    "originalWidth": 867
+    "width": 1364,
+    "height": 1153,
+    "bytes": 97754,
+    "originalWidth": 1364
   }
 ]

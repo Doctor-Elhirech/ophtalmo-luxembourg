@@ -11,17 +11,17 @@
   },
   "consultation": {
     "base": "consultation",
-    "width": 648,
-    "height": 646
+    "width": 1374,
+    "height": 1145
   },
   "examination": {
     "base": "examination",
-    "width": 716,
-    "height": 572
+    "width": 1404,
+    "height": 1120
   },
   "examination-alternate": {
     "base": "examination-alternate",
-    "width": 867,
-    "height": 856
+    "width": 1364,
+    "height": 1153
   }
 }
