@@ -9,4 +9,6 @@ test-results/
 qa/*.png
 qa/screenshots/
 qa/report.json
+docs/CLIENT-BRIEF.txt
+docs/PROGRESS.md
 *.log
