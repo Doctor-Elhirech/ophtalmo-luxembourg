@@ -160,3 +160,23 @@ if (!reducedMotion.matches && 'IntersectionObserver' in window) {
     }
   });
 }
+
+// Copy to clipboard functionality
+document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach((btn) => {
+  btn.addEventListener('click', async () => {
+    const text = btn.dataset.copy;
+    if (!text) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      const originalHTML = btn.innerHTML;
+      btn.innerHTML = '<svg width="1.1em" height="1.1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+      btn.style.color = '#173c34';
+      setTimeout(() => {
+        btn.innerHTML = originalHTML;
+        btn.style.color = '';
+      }, 2000);
+    } catch (err) {
+      console.error('Failed to copy', err);
+    }
+  });
+});

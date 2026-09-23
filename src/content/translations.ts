@@ -58,6 +58,7 @@ const fr = {
     bookingNote: 'Disponibilités et réservation sur Doctena',
     caption: 'Le cabinet à Mamer',
     coordinate: '110 Route d’Arlon · Luxembourg',
+    trustCue: 'Plus de 500 patients traités',
   },
   introduction: {
     label: 'Une attention personnelle',
@@ -192,7 +193,11 @@ const fr = {
     emphasis: 'tout simplement.',
     addressLabel: 'Le cabinet',
     contactLabel: 'Nous joindre',
-    caption: 'Vue extérieure des lieux',
+    hoursLabel: 'Heures d’ouverture',
+    hoursSaturday: 'Samedi',
+    hoursTime: '08:00 – 12:00\n14:00 – 19:00',
+    hoursClosed: 'Fermé les 6 autres jours',
+    mapTitle: 'Localisation du cabinet Ophtalmo Luxembourg à Mamer',
     country: 'Luxembourg',
   },
   footer: {
@@ -256,6 +261,7 @@ const en: typeof fr = {
     bookingNote: 'Availability and booking through Doctena',
     caption: 'The practice in Mamer',
     coordinate: '110 Route d’Arlon · Luxembourg',
+    trustCue: '500+ patients treated',
   },
   introduction: {
     label: 'Personal attention',
@@ -389,7 +395,11 @@ const en: typeof fr = {
     emphasis: 'Here for you.',
     addressLabel: 'The practice',
     contactLabel: 'Get in touch',
-    caption: 'An exterior view of the premises',
+    hoursLabel: 'Opening hours',
+    hoursSaturday: 'Saturday',
+    hoursTime: '08:00 – 12:00\n14:00 – 19:00',
+    hoursClosed: 'Closed for other 6 days',
+    mapTitle: 'Location of Ophtalmo Luxembourg practice in Mamer',
     country: 'Luxembourg',
   },
   footer: {

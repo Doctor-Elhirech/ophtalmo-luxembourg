@@ -4,7 +4,7 @@ import Arrow from './Arrow.astro';
 interface Props {
   t: Translation;
   label?: string;
-  variant?: 'dark' | 'light' | 'text';
+  variant?: 'dark' | 'light' | 'text' | 'ghost';
   class?: string;
 }
 const { t, label = t.action.book, variant = 'dark', class: className } = Astro.props;
