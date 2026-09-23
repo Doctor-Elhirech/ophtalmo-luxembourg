@@ -25,6 +25,10 @@ export const practice = {
   },
   reviewSummary: { rating: '5.0', maximum: '5', count: 3, source: 'Google', suppliedInBrief: true },
   reviewers: ['Sarah E.', 'Aya Ads'],
+  reviewUrls: [
+    'https://maps.app.goo.gl/VWTVwrPauDuw95F27',
+    'https://maps.app.goo.gl/r4KZSy5kVNKfcjTy6',
+  ],
 };
 
 export const photoSlots = {

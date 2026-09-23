@@ -40,7 +40,13 @@ const { t } = Astro.props;
           </blockquote>
           <figcaption>
             <span>{t.reviewers[index]}</span>
-            <span>{t.reviews.source}</span>
+            <a
+              class="review-source-link"
+              href={t.reviewUrls[index]}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${t.reviews.source} (${t.accessibility.newTab})`}
+            >{t.reviews.source} ↗</a>
           </figcaption>
         </figure>
       ))}

@@ -308,6 +308,29 @@
   .button-light:hover {
     background: #e2e4d7;
   }
+
+/* Ghost button variant for header booking link */
+.button-ghost {
+  background: transparent;
+  border: 1px solid #173c34;
+  color: #173c34;
+  transition:
+    background-color 0.22s ease,
+    color 0.22s ease;
+}
+.button-ghost:hover {
+  background: #173c34;
+  color: #f6f5ef;
+}
+
+/* Trust cue styling for hero section */
+.trust-cue {
+  display: block;
+  font-size: 10px;
+  color: #b89a3e;
+  margin-top: 12px;
+  letter-spacing: 0.03em;
+}
   .button-text {
     border-bottom: 1px solid currentColor;
     padding: 12px 0;
@@ -848,6 +871,20 @@
     color: var(--muted);
     padding-left: 17px;
     border-left: 1px solid #bbc6b9;
+  }
+  .review-source-link {
+    color: #4a7ab5;
+    font-size: 11px;
+    padding-left: 17px;
+    border-left: 1px solid #bbc6b9;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    letter-spacing: 0.01em;
+  }
+  .review-source-link:hover {
+    color: #2f5c8e;
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
   .review-note {
     font-size: 10px;
