@@ -2052,7 +2052,11 @@
 
     .contact-map {
       margin-top: 40px;
-      border-radius: 10px;
+      margin-left: calc(var(--gutter) * -1);
+      margin-right: calc(var(--gutter) * -1);
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
     }
 
     .contact-map iframe {
