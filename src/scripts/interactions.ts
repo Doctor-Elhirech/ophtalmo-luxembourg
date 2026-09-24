@@ -180,3 +180,75 @@ document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach((btn) => {
     }
   });
 });
+
+// Journey section scroll animation — unified continuous timeline
+if (!reducedMotion.matches) {
+  const journeyList = document.querySelector<HTMLOListElement>('.journey-list');
+  const journeyItems = Array.from(document.querySelectorAll<HTMLLIElement>('.journey-list li'));
+  if (journeyList && journeyItems.length) {
+    // 4 circles + 3 lines = 7 sequential segments on one timeline
+    const segmentCount = journeyItems.length * 2 - 1;
+    const segmentSize = 1 / segmentCount;
+    let ticking = false;
+
+    const updateJourneyScroll = () => {
+      const vh = window.innerHeight;
+      const rect = journeyList.getBoundingClientRect();
+
+      // Responsive triggers: mobile/tablet bottom bars eat ~70px of viewport,
+      // and smaller screens need tighter animation travel.
+      const isMobile = window.innerWidth <= 600;
+      const isTablet = window.innerWidth > 600 && window.innerWidth <= 900;
+
+      // Start: how far down the viewport the list top must reach to begin
+      // End: where the list bottom should be when the animation finishes
+      
+      // On mobile/tablet, account for the sticky CTA bar at the bottom (~80px).
+      // On laptop, start lower down the screen (90%) and complete much faster (65%).
+      const startTrigger = isMobile ? vh * 0.75 : isTablet ? vh * 0.80 : vh * 0.90;
+      const endTrigger = isMobile ? vh * 0.45 : isTablet ? vh * 0.50 : vh * 0.65;
+      const totalTravel = rect.height + startTrigger - endTrigger;
+      let globalProgress = (startTrigger - rect.top) / totalTravel;
+      globalProgress = Math.max(0, Math.min(1, globalProgress));
+
+      journeyItems.forEach((item, i) => {
+        // Circle is segment 0, 2, 4, 6 — maps to index * 2
+        const cStart = (i * 2) * segmentSize;
+        const cEnd = (i * 2 + 1) * segmentSize;
+        const circle = Math.max(0, Math.min(1, (globalProgress - cStart) / (cEnd - cStart)));
+        item.style.setProperty('--circle-progress', circle.toString());
+
+        // Line is segment 1, 3, 5 — only for non-last items
+        if (i < journeyItems.length - 1) {
+          const lStart = (i * 2 + 1) * segmentSize;
+          const lEnd = (i * 2 + 2) * segmentSize;
+          const line = Math.max(0, Math.min(1, (globalProgress - lStart) / (lEnd - lStart)));
+          item.style.setProperty('--line-progress', line.toString());
+        }
+      });
+      ticking = false;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateJourneyScroll);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    updateJourneyScroll();
+
+    reducedMotion.addEventListener('change', (event) => {
+      if (event.matches) {
+        window.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', onScroll);
+        journeyItems.forEach((item) => {
+          item.style.removeProperty('--circle-progress');
+          item.style.removeProperty('--line-progress');
+        });
+      }
+    });
+  }
+}

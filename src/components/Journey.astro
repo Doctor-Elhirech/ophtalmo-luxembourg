@@ -19,6 +19,9 @@ const { t } = Astro.props;
     {t.journey.steps.map((step, index) => (
       <li>
         <span class="journey-number" aria-hidden="true">
+          <svg viewBox="0 0 35 35" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="17.5" cy="17.5" r="16" />
+          </svg>
           {t.numbers[index]}
         </span>
         <div>
