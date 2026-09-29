@@ -2,7 +2,7 @@
 
 ## Authoritative brief
 
-The complete client brief is retained as `docs/CLIENT-BRIEF.txt`. Business facts and photos were supplied by the user. All five photographs were opened and visually inspected before use.
+The complete client brief is retained as `docs/CLIENT-BRIEF.txt`. Business facts and photos were supplied by the user. All six photographs, including the later street view (`Img-6.png`), were opened and visually inspected before use.
 
 ## Independently checked public source
 
@@ -11,7 +11,7 @@ The complete client brief is retained as `docs/CLIENT-BRIEF.txt`. Business facts
 
 The exact requested booking URL is `https://www.doctena.lu/fr/practitioner/mhamed-el-hirech`. The English equivalent redirects to the newer practice slug. Retrieval of the exact French URL was bot-gated; this does not prove it is broken. Its intended final destination should be checked by the doctor before launch. Primary appointment CTAs retain the URL explicitly required in the brief; the user subsequently approved the secondary Doctipro option below.
 
-No claims are derived from changing reservation numbers, posted booking hours, payment options or other unrequested provider data.
+No claims are derived from changing reservation numbers, payment options or other unrequested provider data. The demonstration displays provisional opening hours that the doctor must confirm.
 
 ## Additional profile and visitor information (21 September 2026)
 
@@ -29,7 +29,7 @@ The **5.0/5, three total reviews and two written testimonials** come from the us
 
 ## Photography
 
-Source PNG files remain unchanged in `Photos/`. Optimization changes encoding/resolution only, without retouching, subject removal or attribution removal. The source of Img-3 includes Google interface controls; those remain in its complete gallery view. Layout crops are presentation only. The exterior images are used as supplied views of the premises, with no invented entrance, parking or accessibility directions. The exact entrance/facade association remains a client-confirmation item.
+Source PNG files remain unchanged in `Photos/`. Optimization changes encoding/resolution only, without retouching, subject removal or attribution removal. The source of Img-3 includes Google interface controls; those remain in its complete gallery view. Layout crops are presentation only. The supplied `Img-6.png` street view is the homepage hero, captioned as a street view rather than as the clinic entrance. Other exterior images are used as supplied views of the premises, with no invented entrance, parking or accessibility directions. The exact entrance/facade association remains a client-confirmation item.
 
 No doctor portrait was supplied, so an authentic consultation-space photograph accompanies a typographic doctor profile. No synthetic portrait or substitute stock photograph is used.
 
@@ -40,6 +40,6 @@ No doctor portrait was supplied, so an authentic consultation-space photograph a
 3. Ownership/permission for supplied photos, facade identification, and future original high-resolution photographs if available.
 4. Current Google rating/review count and exact original French testimonial text and attribution.
 5. Final domain, practice legal identity and the appropriate approved legal/privacy information. No invented legal pages or dead links have been added.
-6. Any future hours, parking, accessibility, pricing or insurance information must be supplied explicitly before adding it.
+6. Confirm the provisional opening hours, and supply parking, accessibility, pricing or insurance information before presenting any of these as final.
 
-The demonstration is intentionally excluded from indexing and configured for local-only review. Any public hosting requires the user's explicit approval.
+The demonstration is publicly hosted on Vercel with the user's approval, but remains excluded from search indexing until the doctor approves its contents.

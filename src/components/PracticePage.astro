@@ -3,20 +3,19 @@ import Hero from './Hero.astro';
 import Doctor from './Doctor.astro';
 import Expertise from './Expertise.astro';
 import PracticeGallery from './PracticeGallery.astro';
-import Journey from './Journey.astro';
 import Reviews from './Reviews.astro';
-import Contact from './Contact.astro';
-import type { Translation } from '../content/translations';
+import ContactPreview from './ContactPreview.astro';
+import type { Locale, Translation } from '../content/translations';
 interface Props {
   t: Translation;
+  locale: Locale;
 }
-const { t } = Astro.props;
+const { t, locale } = Astro.props;
 ---
 
 <Hero t={t} />
-<Doctor t={t} />
-<Expertise t={t} />
-<PracticeGallery t={t} />
-<Journey t={t} />
+<Doctor t={t} locale={locale} compact />
+<Expertise t={t} locale={locale} compact />
+<PracticeGallery t={t} locale={locale} compact />
 <Reviews t={t} />
-<Contact t={t} />
+<ContactPreview t={t} locale={locale} />

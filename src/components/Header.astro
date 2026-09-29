@@ -1,21 +1,23 @@
 ---
-import type { Locale, Translation } from '../content/translations';
+import type { Locale, PageKey, Translation } from '../content/translations';
 import { locales, localePath } from '../content/translations';
 import BookingLink from './BookingLink.astro';
 interface Props {
   t: Translation;
   locale: Locale;
+  currentPage?: PageKey;
 }
-const { t, locale } = Astro.props;
+const { t, locale, currentPage = 'home' } = Astro.props;
 const links = [
+  ['home', t.nav.home],
   ['doctor', t.nav.doctor],
   ['expertise', t.nav.expertise],
   ['practice', t.nav.practice],
   ['contact', t.nav.contact],
-];
+] as const;
 ---
 
-<header class="site-header">
+<header class="site-header" data-current-page={currentPage}>
   <a href={localePath(locale)} class="wordmark" aria-label={t.name}>
     <span class="brand-symbol" aria-hidden="true"></span>
     <span>
@@ -25,14 +27,19 @@ const links = [
   </a>
   <nav class="desktop-nav" aria-label={t.accessibility.mainNav}>
     {links.map(([id, text]) => (
-      <a href={`#${id}`}>{text}</a>
+      <a
+        class:list={['nav-link', { 'is-active': currentPage === id }]}
+        data-nav-page={id}
+        href={localePath(locale, id)}
+        aria-current={currentPage === id ? 'page' : undefined}
+      >{text}</a>
     ))}
   </nav>
   <div class="header-actions">
     <div class="language-switch" aria-label={t.accessibility.language}>
       {locales.map((lang) => (
         <a
-          href={localePath(lang)}
+          href={localePath(lang, currentPage)}
           lang={lang}
           hreflang={lang}
           class="language-link"
@@ -43,7 +50,7 @@ const links = [
         </a>
       ))}
     </div>
-    <BookingLink t={t} label="Check availability" variant="ghost" class="header-booking" />
+    <BookingLink t={t} label={t.action.availability} variant="ghost" class="header-booking" />
     <button
       class="menu-toggle"
       aria-expanded="false"
@@ -58,9 +65,14 @@ const links = [
   </div>
   <nav id="mobile-nav" class="mobile-nav" aria-label={t.accessibility.mainNav} inert>
     {links.map(([id, text], i) => (
-      <a href={`#${id}`}>
-        <span>{t.numbers[i]}</span>
-        {text}
+      <a
+        class:list={['nav-link', { 'is-active': currentPage === id }]}
+        data-nav-page={id}
+        href={localePath(locale, id)}
+        aria-current={currentPage === id ? 'page' : undefined}
+      >
+        <span class="nav-number">{t.numbers[i]}</span>
+        <span class="nav-label">{text}</span>
       </a>
     ))}
     <BookingLink t={t} />

@@ -1,0 +1,26 @@
+---
+import type { Translation } from '../content/translations';
+import Arrow from './Arrow.astro';
+interface Props {
+  t: Translation;
+  compact?: boolean;
+}
+const { t, compact = false } = Astro.props;
+---
+
+<div class:list={['booking-options', { 'booking-options-compact': compact }]}>
+  <a class="booking-option booking-option-primary" href={t.bookingUrl} target="_blank" rel="noopener noreferrer">
+    <span>
+      <small>Doctena</small>
+      {t.action.availability}
+    </span>
+    <Arrow diagonal />
+  </a>
+  <a class="booking-option" href={t.doctipro.bookingUrl} target="_blank" rel="noopener noreferrer">
+    <span>
+      <small>Doctipro</small>
+      {t.appointment.alternativeBooking}
+    </span>
+    <Arrow diagonal />
+  </a>
+</div>

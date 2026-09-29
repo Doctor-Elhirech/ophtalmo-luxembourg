@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import DoctorPage from '../../components/DoctorPage.astro';
+import { translations } from '../../content/translations';
+const t = translations.en;
+---
+<BaseLayout locale="en" page="doctor">
+  <PageHero label={t.doctorPage.label} title={t.doctorPage.title} emphasis={t.doctorPage.emphasis} intro={t.doctorPage.intro} />
+  <DoctorPage t={t} locale="en" />
+</BaseLayout>

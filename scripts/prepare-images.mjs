@@ -6,6 +6,7 @@ const slots = {
   consultation: 'Img-1.png',
   examination: 'Img-2.png',
   'examination-alternate': 'Img-3.png',
+  'street-reference': 'Img-6.png',
 };
 await mkdir('public/images', { recursive: true });
 const report = [];

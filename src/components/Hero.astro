@@ -23,11 +23,14 @@ const { t } = Astro.props;
       <p>{t.hero.intro}</p>
       <p class="hero-provider">{t.hero.provider}</p>
       <BookingLink t={t} />
+      <a class="hero-secondary-booking" href={t.doctipro.bookingUrl} target="_blank" rel="noopener noreferrer">
+        {t.appointment.alternativeBooking} <Arrow diagonal />
+      </a>
       <span class="trust-cue">{t.hero.trustCue}</span>
     </div>
   </div>
   <figure class="hero-figure container">
-    <Photo slot="exteriorWide" t={t} eager sizes="(max-width: 767px) 100vw, 94vw" />
+    <Photo slot="streetReference" t={t} eager sizes="(max-width: 767px) 100vw, 94vw" />
     <figcaption>
       <span>{t.hero.caption}</span>
       <span>{t.hero.coordinate}</span>

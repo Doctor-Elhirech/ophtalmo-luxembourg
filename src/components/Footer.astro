@@ -1,11 +1,12 @@
 ---
-import { locales, localePath, type Locale, type Translation } from '../content/translations';
+import { locales, localePath, type Locale, type PageKey, type Translation } from '../content/translations';
 import Arrow from './Arrow.astro';
 interface Props {
   t: Translation;
   locale: Locale;
+  currentPage?: PageKey;
 }
-const { t, locale } = Astro.props;
+const { t, locale, currentPage = 'home' } = Astro.props;
 ---
 
 <footer class="site-footer">
@@ -18,10 +19,10 @@ const { t, locale } = Astro.props;
         <p>{t.footer.descriptor}</p>
       </div>
       <nav aria-label={t.accessibility.footerNav}>
-        <a href="#doctor">{t.nav.doctor}</a>
-        <a href="#expertise">{t.nav.expertise}</a>
-        <a href="#practice">{t.nav.practice}</a>
-        <a href="#contact">{t.nav.contact}</a>
+        <a href={localePath(locale, 'doctor')} aria-current={currentPage === 'doctor' ? 'page' : undefined}>{t.nav.doctor}</a>
+        <a href={localePath(locale, 'expertise')} aria-current={currentPage === 'expertise' ? 'page' : undefined}>{t.nav.expertise}</a>
+        <a href={localePath(locale, 'practice')} aria-current={currentPage === 'practice' ? 'page' : undefined}>{t.nav.practice}</a>
+        <a href={localePath(locale, 'contact')} aria-current={currentPage === 'contact' ? 'page' : undefined}>{t.nav.contact}</a>
         <a href={t.bookingUrl} target="_blank" rel="noopener noreferrer">
           {t.action.book}
           <Arrow diagonal />
@@ -38,7 +39,7 @@ const { t, locale } = Astro.props;
         <div class="language-switch" aria-label={t.accessibility.language}>
           {locales.map((lang) => (
             <a
-              href={localePath(lang)}
+              href={localePath(lang, currentPage)}
               class="language-link"
               lang={lang}
               hreflang={lang}
@@ -64,19 +65,21 @@ const { t, locale } = Astro.props;
     <p class="demo-note">{t.footer.demo}</p>
   </div>
 </footer>
-<div class="mobile-contact-bar">
-  <a href={t.phoneHref} class="mobile-call" aria-label={t.action.call}>
-    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="m7 3 3 5-2 2a16 16 0 0 0 6 6l2-2 5 3-1 4C10 22 2 14 3 4Z"
-        stroke="currentColor"
-        stroke-width="1.4"
-        stroke-linejoin="round"
-      />
-    </svg>
-  </a>
-  <a href={t.bookingUrl} target="_blank" rel="noopener noreferrer">
-    {t.action.book}
-    <Arrow diagonal />
-  </a>
-</div>
+{currentPage !== 'contact' && (
+  <div class="mobile-contact-bar">
+    <a href={t.phoneHref} class="mobile-call" aria-label={t.action.call}>
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path
+          d="m7 3 3 5-2 2a16 16 0 0 0 6 6l2-2 5 3-1 4C10 22 2 14 3 4Z"
+          stroke="currentColor"
+          stroke-width="1.4"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </a>
+    <a href={t.bookingUrl} target="_blank" rel="noopener noreferrer">
+      {t.action.book}
+      <Arrow diagonal />
+    </a>
+  </div>
+)}

@@ -23,5 +23,10 @@
     "base": "examination-alternate",
     "width": 1364,
     "height": 1153
+  },
+  "street-reference": {
+    "base": "street-reference",
+    "width": 1137,
+    "height": 1383
   }
 }

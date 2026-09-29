@@ -1,0 +1,30 @@
+---
+import type { Locale, Translation } from '../content/translations';
+import { localePath } from '../content/translations';
+import Arrow from './Arrow.astro';
+import BookingOptions from './BookingOptions.astro';
+interface Props {
+  t: Translation;
+  locale: Locale;
+}
+const { t, locale } = Astro.props;
+---
+
+<section id="appointment" class="appointment-preview section-space" aria-labelledby="appointment-preview-title">
+  <div class="container appointment-preview-layout">
+    <div>
+      <p class="eyebrow">{t.appointment.label}</p>
+      <h2 id="appointment-preview-title">
+        {t.appointment.title}<br /><em>{t.appointment.emphasis}</em>
+      </h2>
+      <p class="appointment-preview-text">{t.appointment.text}</p>
+    </div>
+    <div>
+      <BookingOptions t={t} compact />
+      <a class="text-link section-more-link" href={localePath(locale, 'contact')}>
+        {locale === 'fr' ? 'Voir les coordonnées et les horaires' : 'View contact details and hours'}
+        <Arrow />
+      </a>
+    </div>
+  </div>
+</section>

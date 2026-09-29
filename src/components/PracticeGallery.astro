@@ -1,30 +1,47 @@
 ---
-import type { Translation } from '../content/translations';
+import type { Locale, Translation } from '../content/translations';
+import { localePath } from '../content/translations';
 import { photoSlots, type PhotoSlot } from '../config/practice';
 import Photo from './Photo.astro';
 import Arrow from './Arrow.astro';
 interface Props {
   t: Translation;
+  locale: Locale;
+  compact?: boolean;
 }
-const { t } = Astro.props;
-const slots: PhotoSlot[] = ['exterior', 'examination', 'examinationAlternate'];
+const { t, locale, compact = false } = Astro.props;
+const slots: PhotoSlot[] = compact
+  ? ['exterior', 'examination']
+  : ['examination', 'examinationAlternate'];
+const captions = compact
+  ? t.practiceSection.captions.slice(0, 2)
+  : t.practiceSection.captions.slice(1);
 ---
 
 <section
   id="practice"
-  class="practice-section container section-space"
+  class:list={['practice-section container section-space', { 'practice-section-detail': !compact }]}
   aria-labelledby="practice-title"
 >
   <div class="section-heading">
     <div>
-      <p class="eyebrow">{t.practiceSection.label}</p>
-      <h2 id="practice-title">
-        {t.practiceSection.title}
-        <br />
-        <em>{t.practiceSection.emphasis}</em>
-      </h2>
+      <p class="eyebrow">{compact ? t.practiceSection.label : t.practicePage.galleryLabel}</p>
+      {compact ? (
+        <h2 id="practice-title">
+          {t.practiceSection.title}<br /><em>{t.practiceSection.emphasis}</em>
+        </h2>
+      ) : (
+        <h2 id="practice-title">{t.practicePage.galleryTitle}</h2>
+      )}
     </div>
-    <p class="section-description">{t.practiceSection.intro}</p>
+    <div class="practice-heading-aside">
+      <p class="section-description">{compact ? t.practiceSection.intro : t.practicePage.galleryIntro}</p>
+      {compact && (
+        <a class="text-link section-more-link" href={localePath(locale, 'practice')}>
+          {t.practiceSection.more}<Arrow />
+        </a>
+      )}
+    </div>
   </div>
   <div class="gallery-layout">
     {slots.map((slot, index) => (
@@ -34,8 +51,8 @@ const slots: PhotoSlot[] = ['exterior', 'examination', 'examinationAlternate'];
           href={`/images/${photoSlots[slot].base}-1600.webp`}
           data-photo-index={index}
           data-photo-alt={t.photos[slot]}
-          data-photo-caption={t.practiceSection.captions[index]}
-          aria-label={`${t.accessibility.openPhoto} — ${t.practiceSection.captions[index]}`}
+          data-photo-caption={captions[index]}
+          aria-label={`${t.accessibility.openPhoto} — ${captions[index]}`}
         >
           <Photo
             slot={slot}
@@ -50,10 +67,20 @@ const slots: PhotoSlot[] = ['exterior', 'examination', 'examinationAlternate'];
         </a>
         <figcaption>
           <span>{t.numbers[index]}</span>
-          {t.practiceSection.captions[index]}
+          {captions[index]}
         </figcaption>
       </figure>
     ))}
+    {!compact && (
+      <div class="gallery-item gallery-item-3 practice-gallery-slot">
+        <div class="practice-gallery-slot-visual">
+          <span class="practice-gallery-slot-symbol" aria-hidden="true"></span>
+          <span>{t.practicePage.gallerySlotLabel}</span>
+        </div>
+        <h3>{t.practicePage.gallerySlotTitle}</h3>
+        <p>{t.practicePage.gallerySlotText}</p>
+      </div>
+    )}
     <div class="gallery-caption">
       <p>{t.practiceSection.attribution}</p>
     </div>

@@ -133,5 +133,32 @@
     "height": 1153,
     "bytes": 97754,
     "originalWidth": 1364
+  },
+  {
+    "slot": "street-reference",
+    "source": "Img-6.png",
+    "output": "public/images/street-reference-480.webp",
+    "width": 480,
+    "height": 584,
+    "bytes": 104498,
+    "originalWidth": 1137
+  },
+  {
+    "slot": "street-reference",
+    "source": "Img-6.png",
+    "output": "public/images/street-reference-960.webp",
+    "width": 960,
+    "height": 1168,
+    "bytes": 376078,
+    "originalWidth": 1137
+  },
+  {
+    "slot": "street-reference",
+    "source": "Img-6.png",
+    "output": "public/images/street-reference-1600.webp",
+    "width": 1137,
+    "height": 1383,
+    "bytes": 499098,
+    "originalWidth": 1137
   }
 ]

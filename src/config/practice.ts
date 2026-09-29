@@ -37,6 +37,7 @@ export const photoSlots = {
   consultation: imageMetadata.consultation,
   examination: imageMetadata.examination,
   examinationAlternate: imageMetadata['examination-alternate'],
+  streetReference: imageMetadata['street-reference'],
 };
 export type PhotoSlot = keyof typeof photoSlots;
 
@@ -44,9 +45,10 @@ export type PhotoSlot = keyof typeof photoSlots;
 export const siteSettings = {
   origin:
     import.meta.env.PUBLIC_SITE_ORIGIN ??
+    (import.meta.env.VERCEL_URL ? `https://${import.meta.env.VERCEL_URL}` : undefined) ??
     import.meta.env.URL ??
     import.meta.env.DEPLOY_PRIME_URL ??
     'http://127.0.0.1:4321',
   indexable: false,
-  localOnly: !import.meta.env.NETLIFY,
+  localOnly: !import.meta.env.NETLIFY && !import.meta.env.VERCEL,
 };

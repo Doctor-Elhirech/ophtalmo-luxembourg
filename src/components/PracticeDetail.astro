@@ -1,0 +1,54 @@
+---
+import type { Locale, Translation } from '../content/translations';
+import { localePath } from '../content/translations';
+import PracticeGallery from './PracticeGallery.astro';
+import BookingOptions from './BookingOptions.astro';
+import Journey from './Journey.astro';
+import Photo from './Photo.astro';
+import Arrow from './Arrow.astro';
+interface Props { t: Translation; locale: Locale }
+const { t, locale } = Astro.props;
+---
+
+<section class="practice-arrival container" aria-labelledby="practice-arrival-title">
+  <figure class="practice-arrival-media">
+    <Photo slot="exterior" t={t} eager sizes="(max-width: 600px) 90vw, (max-width: 900px) 85vw, 45vw" />
+    <span class="practice-arrival-photo-label">{t.practicePage.entrancePhotoLabel}</span>
+    <figcaption>{t.practicePage.entrancePhotoNote}</figcaption>
+  </figure>
+  <div class="practice-arrival-copy">
+    <p class="eyebrow">{t.practicePage.arrivalTitle}</p>
+    <h2 id="practice-arrival-title">{t.practicePage.arrivalHeading}</h2>
+    <address class="practice-arrival-address">
+      {t.address.street}<br />{t.address.postalCity}, {t.address.country}
+    </address>
+    <div class="practice-arrival-links">
+      <a class="text-link" href={t.directionsUrl} target="_blank" rel="noopener noreferrer" aria-label={`${t.action.directions} (${t.accessibility.newTab})`}>
+        {t.action.directions}<Arrow diagonal />
+      </a>
+      <a class="text-link" href={localePath(locale, 'contact')}>
+        {t.practicePage.hoursLink}<Arrow />
+      </a>
+    </div>
+    <div class="practice-arrival-notes">
+      {t.practicePage.arrivalNotes.map((note) => (
+        <div>
+          <h3>{note.title}</h3>
+          <p>{note.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<PracticeGallery t={t} locale={locale} />
+<Journey t={t} />
+<section class="detail-booking-band">
+  <div class="container detail-booking-layout">
+    <div>
+      <p class="eyebrow">{t.practicePage.bookingLabel}</p>
+      <h2>{t.practicePage.bookingTitle}</h2>
+      <p>{t.practicePage.bookingIntro}</p>
+    </div>
+    <BookingOptions t={t} />
+  </div>
+</section>

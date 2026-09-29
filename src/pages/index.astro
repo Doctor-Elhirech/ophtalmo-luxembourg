@@ -4,6 +4,6 @@ import PracticePage from '../components/PracticePage.astro';
 import { translations } from '../content/translations';
 ---
 
-<BaseLayout locale="fr">
-  <PracticePage t={translations.fr} />
+<BaseLayout locale="fr" page="home">
+  <PracticePage t={translations.fr} locale="fr" />
 </BaseLayout>

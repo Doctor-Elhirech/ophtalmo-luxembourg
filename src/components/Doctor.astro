@@ -1,11 +1,15 @@
 ---
-import type { Translation } from '../content/translations';
+import type { Locale, Translation } from '../content/translations';
+import { localePath } from '../content/translations';
 import Photo from './Photo.astro';
 import Arrow from './Arrow.astro';
 interface Props {
   t: Translation;
+  locale: Locale;
+  compact?: boolean;
 }
-const { t } = Astro.props;
+const { t, locale, compact = false } = Astro.props;
+const qualifications = compact ? t.doctorSection.qualifications.slice(0, 2) : t.doctorSection.qualifications;
 ---
 
 <section class="introduction container" aria-labelledby="intro-title">
@@ -31,7 +35,7 @@ const { t } = Astro.props;
     </h2>
     <p class="doctor-role">{t.doctorSection.role}</p>
     <ul class="qualifications">
-      {t.doctorSection.qualifications.map((qualification) => (
+      {qualifications.map((qualification) => (
         <li>{qualification}</li>
       ))}
     </ul>
@@ -66,5 +70,11 @@ const { t } = Astro.props;
         </li>
       </ul>
     </div>
+    {compact && (
+      <a class="text-link section-more-link" href={localePath(locale, 'doctor')}>
+        {locale === 'fr' ? 'Découvrir le parcours complet' : 'Read the full background'}
+        <Arrow />
+      </a>
+    )}
   </div>
 </section>

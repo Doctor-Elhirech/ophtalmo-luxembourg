@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactPage from '../../components/ContactPage.astro';
+import { translations } from '../../content/translations';
+const t = translations.en;
+---
+<BaseLayout locale="en" page="contact">
+  <ContactPage t={t} />
+</BaseLayout>

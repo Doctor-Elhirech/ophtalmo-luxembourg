@@ -40,6 +40,41 @@ document.querySelectorAll<HTMLAnchorElement>('.language-link').forEach((link) =>
     link.href = new URL(link.pathname + window.location.hash, window.location.origin).href;
   });
 });
+
+// On the homepage, highlight the page preview the visitor is reading.
+const siteHeader = document.querySelector<HTMLElement>('.site-header');
+if (siteHeader?.dataset.currentPage === 'home') {
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link[data-nav-page]');
+  const sectionPages = [
+    ['doctor', document.getElementById('doctor')],
+    ['expertise', document.getElementById('expertise')],
+    ['practice', document.getElementById('practice')],
+    ['contact', document.getElementById('appointment')],
+  ] as const;
+  let activeFrame = 0;
+
+  const updateActivePage = () => {
+    activeFrame = 0;
+    const readingLine = siteHeader.offsetHeight + window.innerHeight * 0.2;
+    let activePage = 'home';
+    for (const [page, section] of sectionPages) {
+      if (section && section.getBoundingClientRect().top <= readingLine) activePage = page;
+    }
+    navLinks.forEach((link) => link.classList.toggle('is-active', link.dataset.navPage === activePage));
+  };
+
+  const scheduleActivePage = () => {
+    if (!activeFrame) activeFrame = window.requestAnimationFrame(updateActivePage);
+  };
+
+  window.addEventListener('scroll', scheduleActivePage, { passive: true });
+  window.addEventListener('resize', scheduleActivePage);
+  window.addEventListener('pageshow', scheduleActivePage);
+  window.addEventListener('load', scheduleActivePage);
+  window.addEventListener('hashchange', scheduleActivePage);
+  updateActivePage();
+}
+
 function imageFallback(img: HTMLImageElement) {
   img.hidden = true;
   const fallback = img.parentElement?.querySelector<HTMLElement>('.photo-fallback');
@@ -143,7 +178,7 @@ if (!reducedMotion.matches && 'IntersectionObserver' in window) {
   );
   document
     .querySelectorAll(
-      '.doctor-photo, .doctor-copy, .section-heading, .journey-heading, .reviews-heading, .contact-content',
+      '.doctor-photo, .doctor-copy, .reviews-heading, .contact-content',
     )
     .forEach((element) => {
       if (element.getBoundingClientRect().top > innerHeight) {

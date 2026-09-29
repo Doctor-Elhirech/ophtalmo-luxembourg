@@ -1,0 +1,79 @@
+---
+import type { Locale, Translation } from '../content/translations';
+import { localePath } from '../content/translations';
+import Photo from './Photo.astro';
+import Arrow from './Arrow.astro';
+interface Props { t: Translation; locale: Locale }
+const { t, locale } = Astro.props;
+---
+
+<section class="doctor-story container" aria-labelledby="doctor-name">
+  <figure class="doctor-story-media">
+    <Photo slot="consultation" t={t} eager sizes="(max-width: 600px) 90vw, 46vw" />
+    <span class="doctor-portrait-label">{t.doctorPage.portraitSlotLabel}</span>
+    <figcaption>{t.doctorPage.photoNote}</figcaption>
+  </figure>
+
+  <div class="doctor-story-copy">
+    <p class="eyebrow">{t.doctorPage.profileTitle}</p>
+    <h2 id="doctor-name">{t.doctorSection.nameFirst}<br />{t.doctorSection.nameLast}</h2>
+    <p class="doctor-story-lead">{t.doctorPage.profileText}</p>
+    <ol class="doctor-career-list">
+      {t.doctorSection.qualifications.map((qualification, index) => (
+        <li>
+          <span aria-hidden="true">{t.numbers[index]}</span>
+          <p>{qualification}</p>
+        </li>
+      ))}
+    </ol>
+    <div class="doctor-profile-links">
+      <p class="eyebrow">{t.doctorPage.profilesTitle}</p>
+      <div>
+        <a class="text-link" href={t.profileUrl} target="_blank" rel="noopener noreferrer" aria-label={`${t.doctorPage.viewDoctena} (${t.accessibility.newTab})`}>
+          {t.doctorPage.viewDoctena}<Arrow diagonal />
+        </a>
+        <a class="text-link" href={t.doctipro.profileUrl} target="_blank" rel="noopener noreferrer" aria-label={`${t.doctorPage.viewDoctipro} (${t.accessibility.newTab})`}>
+          {t.doctorPage.viewDoctipro}<Arrow diagonal />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="doctor-proof container" aria-labelledby="doctor-proof-title">
+  <div class="doctor-proof-heading">
+    <div>
+      <p class="eyebrow">{t.doctorPage.proofLabel}</p>
+      <h2 id="doctor-proof-title">{t.doctorPage.proofTitle}</h2>
+    </div>
+    <p>{t.doctorPage.proofIntro}</p>
+  </div>
+  <div class="doctor-proof-grid">
+    {t.doctorPage.evidence.map((item, index) => (
+      <article class="doctor-proof-card">
+        <div class="doctor-proof-image-slot">
+          <span class="doctor-proof-slot-icon" aria-hidden="true"></span>
+          <span>{item.imageLabel}</span>
+        </div>
+        <div class="doctor-proof-card-copy">
+          <span class="item-number" aria-hidden="true">{t.numbers[index]}</span>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class="doctor-next">
+  <div class="container doctor-next-layout">
+    <div>
+      <p class="eyebrow">{t.doctorPage.nextLabel}</p>
+      <h2>{t.doctorPage.nextTitle}</h2>
+    </div>
+    <div class="doctor-next-actions">
+      <a class="text-link" href={localePath(locale, 'expertise')}>{t.doctorPage.nextCare}<Arrow /></a>
+      <a class="text-link" href={localePath(locale, 'contact')}>{t.action.availability}<Arrow /></a>
+    </div>
+  </div>
+</section>

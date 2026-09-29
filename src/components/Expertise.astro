@@ -1,10 +1,14 @@
 ---
-import type { Translation } from '../content/translations';
+import type { Locale, Translation } from '../content/translations';
+import { localePath } from '../content/translations';
 import BookingLink from './BookingLink.astro';
 interface Props {
   t: Translation;
+  locale: Locale;
+  compact?: boolean;
 }
-const { t } = Astro.props;
+const { t, locale, compact = false } = Astro.props;
+const items = compact ? t.expertiseSection.items.slice(0, 4) : t.expertiseSection.items;
 ---
 
 <section id="expertise" class="expertise-section section-space" aria-labelledby="expertise-title">
@@ -20,7 +24,7 @@ const { t } = Astro.props;
       <BookingLink t={t} variant="text" />
     </div>
     <ol class="expertise-list">
-      {t.expertiseSection.items.map((item, index) => (
+      {items.map((item, index) => (
         <li>
           <span class="item-number" aria-hidden="true">
             {t.numbers[index]}
@@ -31,6 +35,14 @@ const { t } = Astro.props;
           </div>
         </li>
       ))}
+      {compact && (
+        <li class="expertise-more-item">
+          <a class="text-link" href={localePath(locale, 'expertise')}>
+            {locale === 'fr' ? 'Voir toutes les expertises' : 'View all care areas'}
+            <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+      )}
     </ol>
   </div>
 </section>

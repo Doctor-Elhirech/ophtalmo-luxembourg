@@ -2,6 +2,25 @@ import { practice } from '../config/practice';
 
 export const locales = ['fr', 'en'] as const;
 export type Locale = (typeof locales)[number];
+export const pageKeys = ['home', 'doctor', 'expertise', 'practice', 'contact'] as const;
+export type PageKey = (typeof pageKeys)[number];
+
+const routes: Record<Locale, Record<PageKey, string>> = {
+  fr: {
+    home: '/',
+    doctor: '/medecin/',
+    expertise: '/expertises/',
+    practice: '/cabinet/',
+    contact: '/contact/',
+  },
+  en: {
+    home: '/en/',
+    doctor: '/en/doctor/',
+    expertise: '/en/expertise/',
+    practice: '/en/practice/',
+    contact: '/en/contact/',
+  },
+};
 const common = {
   ...practice,
   localeNames: { fr: 'Français', en: 'English' },
@@ -36,6 +55,7 @@ const fr = {
     gallery: 'Photographies du cabinet',
   },
   nav: {
+    home: 'Accueil',
     doctor: 'Le médecin',
     expertise: 'Expertises',
     practice: 'Le cabinet',
@@ -43,6 +63,7 @@ const fr = {
   },
   action: {
     book: 'Prendre rendez-vous',
+    home: 'Retour à l’accueil',
     availability: 'Voir les disponibilités',
     directions: 'Itinéraire Google Maps',
     discover: 'Découvrir le cabinet',
@@ -56,7 +77,7 @@ const fr = {
     intro: 'L’ophtalmologie pour les adultes et les enfants, dès la naissance.',
     provider: 'Avec le Dr M’Hamed EL HIRECH',
     bookingNote: 'Disponibilités et réservation sur Doctena',
-    caption: 'Le cabinet à Mamer',
+    caption: 'Vue de la rue à Mamer',
     coordinate: '110 Route d’Arlon · Luxembourg',
     trustCue: 'Plus de 500 patients traités',
   },
@@ -104,6 +125,7 @@ const fr = {
     emphasis: 'entrez un instant.',
     intro:
       'Quelques vues du cabinet et de ses espaces de consultation, au 110 Route d’Arlon à Mamer.',
+    more: 'Préparer votre visite',
     view: 'Voir les photographies',
     captions: ['La façade', 'La salle d’examen', 'Un autre regard sur le cabinet'],
     attribution: 'Photographies du cabinet fournies depuis Google Maps',
@@ -206,12 +228,163 @@ const fr = {
     top: 'Retour en haut',
     demo: 'Démonstration · Informations à confirmer avant publication publique',
   },
+  pageMeta: {
+    home: {
+      title: 'Ophtalmo Luxembourg — Dr M’Hamed EL HIRECH, Mamer',
+      description: 'Cabinet d’ophtalmologie à Mamer. Découvrez le cabinet du Dr M’Hamed EL HIRECH et prenez rendez-vous sur Doctena ou Doctipro.',
+    },
+    doctor: {
+      title: 'Le médecin — Dr M’Hamed EL HIRECH | Ophtalmo Luxembourg',
+      description: 'Découvrez le parcours publié du Dr M’Hamed EL HIRECH et les informations à confirmer pour le site final.',
+    },
+    expertise: {
+      title: 'Expertises — Ophtalmo Luxembourg à Mamer',
+      description: 'Les domaines de consultation annoncés pour les adultes et les enfants, avec des informations à confirmer par le cabinet.',
+    },
+    practice: {
+      title: 'Le cabinet et votre visite — Ophtalmo Luxembourg',
+      description: 'Préparez votre visite au cabinet d’ophtalmologie de Mamer et découvrez le parcours de rendez-vous.',
+    },
+    contact: {
+      title: 'Accès, horaires et rendez-vous — Ophtalmo Luxembourg',
+      description: 'Adresse, téléphone, horaires affichés et liens de réservation pour le cabinet d’ophtalmologie à Mamer.',
+    },
+  },
+  doctorPage: {
+    label: 'Le médecin',
+    title: 'Un parcours médical.',
+    emphasis: 'Une présence attentive.',
+    intro: 'Rencontrez le Dr M’Hamed EL HIRECH, ophtalmologue à Mamer. Découvrez son parcours publié et ses profils professionnels.',
+    portraitSlotLabel: 'Portrait du médecin à ajouter',
+    photoNote: 'Photo actuelle du cabinet. À remplacer par un portrait professionnel approuvé du médecin, au format vertical.',
+    profileTitle: 'Parcours publié',
+    profileText: 'Sa formation à Besançon et ses fonctions hospitalières en France figurent sur ses profils professionnels publiés.',
+    profilesTitle: 'Profils professionnels publiés',
+    proofLabel: 'À confirmer avec le médecin',
+    proofTitle: 'Qualifications & travaux professionnels',
+    proofIntro: 'Ces emplacements montrent les documents que le médecin peut choisir de présenter. Aucun diplôme, prix ou article non confirmé ne lui est attribué.',
+    evidence: [
+      {
+        title: 'Diplômes & certificats',
+        imageLabel: 'Emplacement : diplôme ou certificat',
+        description: 'Ajouter une copie lisible d’un diplôme de spécialité ou d’une formation complémentaire, avec intitulé, établissement et année vérifiés.',
+      },
+      {
+        title: 'Distinctions & affiliations',
+        imageLabel: 'Emplacement : attestation ou logo',
+        description: 'Si pertinent, présenter une distinction, une fonction ou l’adhésion à une société médicale avec une preuve et une date.',
+      },
+      {
+        title: 'Publications & conférences',
+        imageLabel: 'Emplacement : couverture ou première page',
+        description: 'Si le médecin en a, ajouter la référence complète et un visuel autorisé d’un article ou d’une intervention.',
+      },
+    ],
+    viewDoctena: 'Voir le profil Doctena',
+    viewDoctipro: 'Voir le profil Doctipro',
+    nextLabel: 'Poursuivre la découverte',
+    nextTitle: 'Explorez les domaines de consultation.',
+    nextCare: 'Voir les expertises',
+  },
+  // Care-area names come from the doctor's Doctena profile. Expanded text explains
+  // the topics generally, using NEI/NHS patient information; practice details need approval.
+  expertisePage: {
+    label: 'Soins & expertises',
+    title: 'Une vision claire',
+    emphasis: 'à chaque étape.',
+    intro: 'Découvrez les domaines de consultation publiés pour le Dr M’Hamed EL HIRECH à Mamer.',
+    publishedNote: 'Ces explications présentent les soins de façon générale. Les examens et les interventions proposés à Mamer restent à confirmer avec le cabinet.',
+    detailsTitle: 'Domaines annoncés',
+    expandLabel: 'En savoir plus',
+    collapseLabel: 'Réduire',
+    items: [
+      {
+        title: 'Ophtalmologie générale',
+        text: 'Consultations pour la vision et la santé des yeux.',
+        expanded: [
+          { label: 'Évaluation', text: 'Selon le motif de la visite, un examen ophtalmologique peut apprécier la clarté de la vision et la santé des yeux. Le médecin détermine quels contrôles sont utiles.' },
+          { label: 'Suivi', text: 'Si un problème doit être surveillé, les prochaines étapes sont discutées selon la situation de chaque patient.' },
+        ],
+      },
+      {
+        title: 'Ophtalmologie pédiatrique',
+        text: 'Soins de la vision des enfants, y compris les nouveau-nés, selon le profil publié.',
+        expanded: [
+          { label: 'Vision en développement', text: 'Chez l’enfant, l’examen peut s’intéresser à la vision et à l’alignement des yeux. L’évaluation est adaptée à son âge.' },
+          { label: 'Échange avec les parents', text: 'Les parents peuvent évoquer les changements qu’ils ont remarqués, comme un œil qui semble dévier ou une difficulté à voir clairement.' },
+        ],
+      },
+      {
+        title: 'Lunettes & lentilles',
+        text: 'Évaluation des besoins de correction visuelle.',
+        expanded: [
+          { label: 'Comprendre la vision', text: 'La myopie, l’hypermétropie et l’astigmatisme peuvent rendre la vision floue. Un examen aide à déterminer si une correction est utile.' },
+          { label: 'Choisir une correction', text: 'Lunettes et lentilles peuvent améliorer la vision. Le choix et la prescription dépendent des besoins et de l’évaluation de chaque personne.' },
+        ],
+      },
+      {
+        title: 'Cataracte, myopie & strabisme',
+        text: 'Domaines chirurgicaux mentionnés sur Doctena ; modalités à confirmer.',
+        expanded: [
+          { label: 'Cataracte', text: 'La cataracte trouble le cristallin et peut rendre la vision floue. Une évaluation aide à décider si une opération doit être envisagée.' },
+          { label: 'Myopie', text: 'La myopie rend les objets éloignés flous. Selon le patient, une correction optique ou une intervention peuvent être discutées après examen.' },
+          { label: 'Strabisme', text: 'Le strabisme correspond à des yeux qui ne regardent pas dans la même direction. Un examen aide à discuter des options de prise en charge.' },
+        ],
+      },
+    ],
+    visitTitle: 'Prêt à organiser votre visite ?',
+    visitIntro: 'Consultez les disponibilités et choisissez la plateforme de réservation qui vous convient.',
+    confirmationTitle: 'Informations à confirmer',
+    confirmationText: 'Le cabinet doit confirmer les examens et équipements disponibles à Mamer, ainsi que les lieux, modalités et suivis des éventuelles interventions chirurgicales.',
+    appointmentLabel: 'Choisir un rendez-vous',
+  },
+  practicePage: {
+    label: 'Le cabinet & votre visite',
+    title: 'Avant de venir,',
+    emphasis: 'savoir où vous allez.',
+    intro: 'Retrouvez l’adresse, les espaces du cabinet et les étapes essentielles de votre venue à Mamer.',
+    arrivalTitle: 'Venir au cabinet',
+    arrivalHeading: 'Nous trouver à Mamer.',
+    entrancePhotoLabel: 'Photo de l’entrée à actualiser',
+    entrancePhotoNote: 'Vue actuelle du bâtiment. À remplacer par une photo récente de l’entrée exacte du cabinet.',
+    hoursLink: 'Voir les horaires et coordonnées',
+    arrivalNotes: [
+      { title: 'Entrée & arrivée', text: 'À confirmer : entrée exacte, étage et éventuelles consignes pour l’arrivée des patients.' },
+      { title: 'Stationnement & accessibilité', text: 'À confirmer : places de stationnement, transports proches et accès adapté aux personnes à mobilité réduite.' },
+    ],
+    galleryLabel: 'À l’intérieur du cabinet',
+    galleryTitle: 'Les espaces de consultation',
+    galleryIntro: 'Deux vues actuelles de la salle d’examen. Une photographie de l’accueil pourra compléter cet aperçu.',
+    gallerySlotLabel: 'Photo à ajouter',
+    gallerySlotTitle: 'Accueil ou salle d’attente',
+    gallerySlotText: 'Ajouter ici une photo récente de l’espace où les patients sont accueillis.',
+    bookingLabel: 'Réserver avant de venir',
+    bookingTitle: 'Prêt pour votre visite ?',
+    bookingIntro: 'Consultez les disponibilités et réservez sur la plateforme de votre choix.',
+  },
+  contactPage: {
+    label: 'Accès & rendez-vous',
+    title: 'Prenez rendez‑vous.',
+    emphasis: 'Préparez votre visite.',
+    intro: 'Réservez en ligne ou retrouvez les informations utiles pour votre visite au cabinet de Mamer.',
+    bookingTitle: 'Réserver en ligne',
+    bookingPanelTitle: 'Choisissez votre plateforme',
+    bookingText: 'Consultez les disponibilités et terminez votre réservation sur la plateforme de votre choix.',
+    doctenaLabel: 'Réserver sur Doctena',
+    doctiproLabel: 'Réserver sur Doctipro',
+    phoneTitle: 'Une question avant de réserver ?',
+    detailsTitle: 'L’essentiel avant votre visite',
+    confirmationTitle: 'Horaires à confirmer',
+    confirmationText: 'Horaires à confirmer auprès du cabinet avant votre visite.',
+    directionsLabel: 'Ouvrir l’itinéraire Google Maps',
+  },
   photos: {
     exteriorWide: 'Vue panoramique extérieure des locaux à Mamer, avec la façade et la rue',
     exterior: 'Vue rapprochée de la façade des locaux du cabinet à Mamer',
     consultation: 'Espace de consultation avec bureau, fauteuil gris et drapeau luxembourgeois',
     examination: 'Salle d’examen ophtalmologique avec fauteuil rouge et bureau',
     examinationAlternate: 'Autre angle de la salle d’examen avec fauteuil rouge et instruments',
+    streetReference: 'Vue de la rue avec un panneau indiquant plusieurs commerces et le trottoir à Mamer',
   },
 };
 
@@ -239,6 +412,7 @@ const en: typeof fr = {
     gallery: 'Practice photographs',
   },
   nav: {
+    home: 'Home',
     doctor: 'The doctor',
     expertise: 'Expertise',
     practice: 'The practice',
@@ -246,6 +420,7 @@ const en: typeof fr = {
   },
   action: {
     book: 'Book an appointment',
+    home: 'Back to home',
     availability: 'View availability',
     directions: 'Google Maps directions',
     discover: 'Discover the practice',
@@ -259,7 +434,7 @@ const en: typeof fr = {
     intro: 'Eye care for adults and children, from birth onwards.',
     provider: 'With Dr M’Hamed EL HIRECH',
     bookingNote: 'Availability and booking through Doctena',
-    caption: 'The practice in Mamer',
+    caption: 'Street view in Mamer',
     coordinate: '110 Route d’Arlon · Luxembourg',
     trustCue: '500+ patients treated',
   },
@@ -306,6 +481,7 @@ const en: typeof fr = {
     title: 'Before your visit,',
     emphasis: 'take a look inside.',
     intro: 'Explore the practice and its consultation spaces at 110 Route d’Arlon in Mamer.',
+    more: 'Plan your visit',
     view: 'View the photographs',
     captions: ['The facade', 'The examination room', 'Another view of the practice'],
     attribution: 'Practice photographs supplied from Google Maps',
@@ -408,14 +584,172 @@ const en: typeof fr = {
     top: 'Back to top',
     demo: 'Demonstration · Details to confirm before public launch',
   },
+  pageMeta: {
+    home: {
+      title: 'Ophtalmo Luxembourg — Dr M’Hamed EL HIRECH, Mamer',
+      description: 'Ophthalmology practice in Mamer. Discover Dr M’Hamed EL HIRECH’s practice and book through Doctena or Doctipro.',
+    },
+    doctor: {
+      title: 'The doctor — Dr M’Hamed EL HIRECH | Ophtalmo Luxembourg',
+      description: 'Discover the published background of Dr M’Hamed EL HIRECH and the information to confirm for the final website.',
+    },
+    expertise: {
+      title: 'Care & expertise — Ophtalmo Luxembourg in Mamer',
+      description: 'The consultation areas announced for adults and children, with details to confirm with the practice.',
+    },
+    practice: {
+      title: 'The practice and your visit — Ophtalmo Luxembourg',
+      description: 'Prepare your visit to the ophthalmology practice in Mamer and follow the appointment journey.',
+    },
+    contact: {
+      title: 'Access, hours and appointments — Ophtalmo Luxembourg',
+      description: 'Address, phone, displayed hours and booking links for the ophthalmology practice in Mamer.',
+    },
+  },
+  doctorPage: {
+    label: 'The doctor',
+    title: 'Medical expertise.',
+    emphasis: 'Personal attention.',
+    intro: 'Meet Dr M’Hamed EL HIRECH, an ophthalmologist in Mamer. Explore his published background and professional profiles.',
+    portraitSlotLabel: 'Doctor portrait to add',
+    photoNote: 'Current practice photo. Replace with an approved, upright professional portrait of the doctor.',
+    profileTitle: 'Published background',
+    profileText: 'His training in Besançon and hospital roles in France are listed on his published professional profiles.',
+    profilesTitle: 'Published professional profiles',
+    proofLabel: 'To confirm with the doctor',
+    proofTitle: 'Qualifications & professional work',
+    proofIntro: 'These spaces show the documents the doctor may choose to present. No unconfirmed diploma, award or publication is attributed to him.',
+    evidence: [
+      {
+        title: 'Degrees & certificates',
+        imageLabel: 'Image slot: degree or certificate',
+        description: 'Add a clear copy of a specialist degree or further-training certificate, with its verified title, institution and year.',
+      },
+      {
+        title: 'Awards & affiliations',
+        imageLabel: 'Image slot: certificate or logo',
+        description: 'If applicable, show an award, role or medical-society membership with supporting evidence and a date.',
+      },
+      {
+        title: 'Publications & talks',
+        imageLabel: 'Image slot: cover or first page',
+        description: 'If available, add the full reference and an approved visual for a paper or professional presentation.',
+      },
+    ],
+    viewDoctena: 'View Doctena profile',
+    viewDoctipro: 'View Doctipro profile',
+    nextLabel: 'Continue exploring',
+    nextTitle: 'Explore the areas of care.',
+    nextCare: 'View care areas',
+  },
+  expertisePage: {
+    label: 'Care & expertise',
+    title: 'Clear guidance',
+    emphasis: 'at every step.',
+    intro: 'Explore the areas of care published for Dr M’Hamed EL HIRECH in Mamer.',
+    publishedNote: 'These are general explanations of the listed care areas. The practice still needs to confirm which examinations and procedures are available in Mamer.',
+    detailsTitle: 'Announced care areas',
+    expandLabel: 'Learn more',
+    collapseLabel: 'Show less',
+    items: [
+      {
+        title: 'General ophthalmology',
+        text: 'Consultations for vision and overall eye health.',
+        expanded: [
+          { label: 'Assessment', text: 'Depending on the reason for the visit, an eye examination may assess how clearly you see and the health of your eyes. The doctor decides which checks are relevant.' },
+          { label: 'Follow-up', text: 'If a concern needs monitoring, the next steps are discussed according to each patient’s situation.' },
+        ],
+      },
+      {
+        title: 'Pediatric ophthalmology',
+        text: 'Eye care for children, including newborns, according to the published profile.',
+        expanded: [
+          { label: 'Developing vision', text: 'For children, an examination may look at vision and how the eyes align. The assessment is adapted to the child’s age.' },
+          { label: 'Parents’ observations', text: 'Parents can describe changes they have noticed, such as an eye that seems to turn or difficulty seeing clearly.' },
+        ],
+      },
+      {
+        title: 'Glasses & contact lenses',
+        text: 'Assessment of visual correction needs.',
+        expanded: [
+          { label: 'Understanding vision', text: 'Nearsightedness, farsightedness and astigmatism can make vision blurry. An examination helps determine whether correction would help.' },
+          { label: 'Choosing correction', text: 'Glasses and contact lenses can improve clarity. The choice and prescription depend on each person’s needs and assessment.' },
+        ],
+      },
+      {
+        title: 'Cataract, myopia & strabismus',
+        text: 'Surgical areas listed on Doctena; arrangements still to be confirmed.',
+        expanded: [
+          { label: 'Cataract', text: 'A cataract clouds the eye’s natural lens and can make vision blurry. An assessment helps determine whether surgery should be considered.' },
+          { label: 'Myopia', text: 'Myopia makes distant objects look blurry. Depending on the patient, optical correction or surgery may be discussed after an examination.' },
+          { label: 'Strabismus', text: 'Strabismus means the eyes do not point in the same direction. An examination helps guide a discussion of care options.' },
+        ],
+      },
+    ],
+    visitTitle: 'Ready to arrange your visit?',
+    visitIntro: 'Check availability and choose the booking platform that works for you.',
+    confirmationTitle: 'Information to confirm',
+    confirmationText: 'The practice should confirm the examinations and equipment available in Mamer, plus where any surgery takes place and how follow-up is arranged.',
+    appointmentLabel: 'Choose an appointment',
+  },
+  practicePage: {
+    label: 'The practice & your visit',
+    title: 'Before you arrive,',
+    emphasis: 'know what to expect.',
+    intro: 'Find the address, explore the practice spaces and follow the essential steps for your visit in Mamer.',
+    arrivalTitle: 'Arriving at the practice',
+    arrivalHeading: 'Find us in Mamer.',
+    entrancePhotoLabel: 'Entrance photo to update',
+    entrancePhotoNote: 'Current view of the building. Replace with a recent photo of the exact practice entrance.',
+    hoursLink: 'View hours and contact details',
+    arrivalNotes: [
+      { title: 'Entrance & arrival', text: 'To confirm: the exact entrance, floor and any instructions for patients on arrival.' },
+      { title: 'Parking & accessibility', text: 'To confirm: parking, nearby transport and step-free access for visitors with reduced mobility.' },
+    ],
+    galleryLabel: 'Inside the practice',
+    galleryTitle: 'Consultation spaces',
+    galleryIntro: 'Two current views of the examination room. A reception photo can complete this introduction.',
+    gallerySlotLabel: 'Photo to add',
+    gallerySlotTitle: 'Reception or waiting area',
+    gallerySlotText: 'Add a recent photo of the space where patients are welcomed.',
+    bookingLabel: 'Book before you arrive',
+    bookingTitle: 'Ready for your visit?',
+    bookingIntro: 'Check availability and book on the platform that suits you.',
+  },
+  contactPage: {
+    label: 'Access & appointments',
+    title: 'Book an appointment.',
+    emphasis: 'Plan your visit.',
+    intro: 'Book online or find the practical details for your visit to the Mamer practice.',
+    bookingTitle: 'Book online',
+    bookingPanelTitle: 'Choose a booking platform',
+    bookingText: 'Check availability and complete your booking on the platform you prefer.',
+    doctenaLabel: 'Book on Doctena',
+    doctiproLabel: 'Book on Doctipro',
+    phoneTitle: 'A question before booking?',
+    detailsTitle: 'Everything you need before your visit',
+    confirmationTitle: 'Hours to confirm',
+    confirmationText: 'Please confirm these hours with the practice before visiting.',
+    directionsLabel: 'Open Google Maps directions',
+  },
   photos: {
     exteriorWide: 'Panoramic exterior view of the premises in Mamer, showing the facade and street',
     exterior: 'Closer view of the facade of the practice premises in Mamer',
     consultation: 'Consultation space with a desk, grey chair and Luxembourg flag',
     examination: 'Ophthalmic examination room with a red chair and desk',
     examinationAlternate: 'Another view of the examination room with its red chair and instruments',
+    streetReference: 'Street view with a sign for several businesses and the pavement in Mamer',
   },
 };
 export const translations: Record<Locale, typeof fr> = { fr, en };
 export type Translation = typeof fr;
-export const localePath = (locale: Locale) => (locale === 'fr' ? '/' : '/en/');
+export const localePath = (locale: Locale, page: PageKey = 'home') => routes[locale][page];
+export const pageFromPath = (pathname: string): PageKey => {
+  const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+  if (normalized === '/') return 'home';
+  if (normalized === '/medecin/' || normalized === '/en/doctor/') return 'doctor';
+  if (normalized === '/expertises/' || normalized === '/en/expertise/') return 'expertise';
+  if (normalized === '/cabinet/' || normalized === '/en/practice/') return 'practice';
+  if (normalized === '/contact/' || normalized === '/en/contact/') return 'contact';
+  return normalized.startsWith('/en/') ? 'home' : 'home';
+};
