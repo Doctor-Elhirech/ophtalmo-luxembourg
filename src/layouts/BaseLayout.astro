@@ -40,7 +40,7 @@ const alternateEn = new URL(localePath('en', page), siteSettings.origin);
     <meta property="og:site_name" content={t.name} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
-  <body id="top">
+  <body id="top" data-page={page}>
     <a class="skip-link" href="#main">
       {t.accessibility.skip}
     </a>

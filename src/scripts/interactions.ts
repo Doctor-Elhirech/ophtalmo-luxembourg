@@ -1,3 +1,5 @@
+import './language-navigation';
+
 const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
 const mobileNav = document.querySelector<HTMLElement>('#mobile-nav');
 function closeMenu(restoreFocus = false) {
@@ -34,11 +36,6 @@ document.addEventListener('click', (event) => {
 });
 matchMedia('(min-width: 901px)').addEventListener('change', (event) => {
   if (event.matches) closeMenu();
-});
-document.querySelectorAll<HTMLAnchorElement>('.language-link').forEach((link) => {
-  link.addEventListener('click', () => {
-    link.href = new URL(link.pathname + window.location.hash, window.location.origin).href;
-  });
 });
 
 // On the homepage, highlight the page preview the visitor is reading.

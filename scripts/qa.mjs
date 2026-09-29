@@ -105,6 +105,70 @@ try {
     }
   }
 
+  const readingTargets = [
+    '.practice-heading-aside .section-description',
+    '.doctor-proof-card:nth-child(2) h3',
+    '.care-card:nth-child(2) .care-card-detail p',
+    '.journey-list li:nth-child(2) h3',
+    '.faq-item:nth-child(2) .faq-answer p',
+  ];
+  for (const width of [375, 768, 1366]) {
+    for (const [index, path] of routes.en.entries()) {
+      await check(`language switch preserves reading position ${path} ${width}px`, async () => {
+        const context = await browser.newContext({
+          viewport: { width, height: 900 },
+          reducedMotion: 'reduce',
+        });
+        const page = await context.newPage();
+        try {
+          await page.goto(base + path);
+          await page.evaluate(() => document.fonts.ready);
+          const target = page.locator(readingTargets[index]).first();
+          await target.evaluate((element) => {
+            const detail = element.closest('details');
+            if (detail) detail.open = true;
+            const line = document.querySelector('header').getBoundingClientRect().height + 16;
+            window.scrollTo({
+              top: scrollY + element.getBoundingClientRect().top - line + 5,
+              behavior: 'instant',
+            });
+          });
+          const fraction = await target.evaluate((element) => {
+            const rect = element.getBoundingClientRect();
+            const line = document.querySelector('header').getBoundingClientRect().height + 16;
+            return (line - rect.top) / rect.height;
+          });
+          for (const locale of ['fr', 'en']) {
+            await page.locator(`.header-actions a[lang="${locale}"]`).click();
+            await page.waitForURL(base + routes[locale][index]);
+            await page.waitForLoadState('load');
+            await page.evaluate(() => document.fonts.ready);
+            await page.waitForFunction(
+              ({ selector, fraction }) => {
+                const element = document.querySelector(selector);
+                const rect = element.getBoundingClientRect();
+                const line = document.querySelector('header').getBoundingClientRect().height + 16;
+                return Math.abs(rect.top + rect.height * fraction - line) < 4;
+              },
+              { selector: readingTargets[index], fraction },
+            );
+            if ([2, 4].includes(index)) {
+              assert.equal(
+                await target.evaluate((element) => element.closest('details').open),
+                true,
+              );
+            }
+          }
+          const before = await page.evaluate(() => scrollY);
+          await page.locator('.header-actions a[lang="en"]').click();
+          assert.equal(await page.evaluate(() => scrollY), before);
+        } finally {
+          await context.close();
+        }
+      });
+    }
+  }
+
   await check('mobile navigation, back-home control and language switch', async () => {
     const context = await browser.newContext({ viewport: { width: 375, height: 812 } });
     const page = await context.newPage();
