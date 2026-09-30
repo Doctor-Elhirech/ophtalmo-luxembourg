@@ -178,7 +178,7 @@ export const lb: Translation = {
       {
         question: 'Wéi eng Sprooche ginn an der Praxis geschwat?',
         answer:
-          'Um Doctena-Profil vun der Praxis stinn Franséisch, Englesch an Arabesch. Wann Dir eng bestëmmte Sprooch braucht, kontaktéiert d’Praxis wgl. virun Ärem Besuch.',
+          'An der Praxis gi Franséisch, Englesch a Lëtzebuergesch geschwat. Wann Dir eng bestëmmte Sprooch braucht, kontaktéiert d’Praxis virun Ärem Besuch.',
         linkLabel: '',
         href: '',
       },

@@ -175,12 +175,14 @@
     transform: rotate(-45deg);
   }
 
-  a:hover .arrow {
-    transform: translateX(4px);
-  }
+  @media (hover: hover) and (pointer: fine) {
+    a:hover .arrow {
+      transform: translateX(4px);
+    }
 
-  a:hover .arrow.diagonal {
-    transform: translate(2px, -2px) rotate(-45deg);
+    a:hover .arrow.diagonal {
+      transform: translate(2px, -2px) rotate(-45deg);
+    }
   }
 
   .skip-link {
@@ -1517,9 +1519,13 @@
 
   .footer-top {
     display: grid;
-    grid-template-columns: 1.3fr 1fr 1fr;
-    gap: 6%;
+    grid-template-columns: minmax(0, 1.2fr) minmax(180px, 0.8fr) minmax(270px, 1fr);
+    gap: clamp(28px, 4vw, 64px);
     padding-bottom: 50px;
+  }
+
+  .footer-top > * {
+    min-width: 0;
   }
 
   .footer-brand {
@@ -1538,14 +1544,24 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    gap: 2px;
     font-size: 13px;
+  }
+
+  .footer-top nav > a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 44px;
+    padding-block: 8px;
+    line-height: 1.5;
   }
 
   .footer-top nav>a:last-child {
     display: flex;
     gap: 13px;
     align-items: center;
+    justify-content: space-between;
   }
 
   .footer-top nav>a,
@@ -1564,7 +1580,7 @@
     transition: color 0.2s ease, transform 0.2s ease;
   }
 
-  @media (hover: hover) {
+  @media (hover: hover) and (pointer: fine) {
     .footer-top nav>a:hover,
     .footer-contact>a:hover,
     .mobile-contact-bar>a:hover {
@@ -1578,22 +1594,56 @@
 
   .footer-top nav .arrow {
     width: 17px;
+    flex-shrink: 0;
   }
 
   .footer-contact {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 9px;
+    gap: 2px;
     font-size: 13px;
   }
 
   .footer-contact>a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
     overflow-wrap: anywhere;
+  }
+
+  .footer-contact .email-wrapper {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    gap: 6px;
+  }
+
+  .footer-contact .email-wrapper > a {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    min-height: 44px;
+    overflow-wrap: anywhere;
+  }
+
+  .footer-contact .copy-btn {
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
   }
 
   .footer-contact .language-switch {
     margin-top: 10px;
+    gap: 4px;
+  }
+
+  .footer-contact .language-switch a {
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    margin-inline: 0;
+    padding-inline: 10px;
   }
 
   .footer-bottom {
@@ -2010,24 +2060,28 @@
     border-color: var(--paper);
   }
 
-  .booking-option:hover,
   .booking-option:focus-visible {
-    background: var(--gold-light);
-    color: var(--ink);
-    border-color: var(--gold);
-    transform: translateY(-2px);
+    outline: 2px solid var(--gold-light);
+    outline-offset: 4px;
   }
 
-  .booking-option-primary:hover {
-    background: var(--forest-hover);
-    color: var(--paper);
-    border-color: var(--forest-hover);
-  }
+  /* Touch browsers can retain :hover after a tap; reserve these fills for a mouse. */
+  @media (hover: hover) and (pointer: fine) {
+    .booking-option:hover {
+      transform: translateY(-2px);
+    }
 
-  .booking-option:not(.booking-option-primary):hover {
-    background: var(--paper);
-    color: var(--ink);
-    border-color: var(--paper);
+    .booking-option-primary:hover {
+      background: var(--forest-hover);
+      color: var(--paper);
+      border-color: var(--forest-hover);
+    }
+
+    .booking-option:not(.booking-option-primary):hover {
+      background: var(--paper);
+      color: var(--ink);
+      border-color: var(--paper);
+    }
   }
 
   .booking-options-compact {
@@ -2319,7 +2373,7 @@
   .contact-essentials .contact-map {
     height: clamp(500px, 34vw, 640px);
     margin-top: clamp(40px, 5vw, 78px);
-    border: 1px solid var(--line);
+    border: 1px solid var(--gold);
     border-radius: 0;
   }
 
@@ -2359,7 +2413,7 @@
     }
 
     .footer-top {
-      gap: 5%;
+      gap: 28px;
     }
   }
 
@@ -2466,8 +2520,12 @@
     }
 
     .footer-top {
-      grid-template-columns: 1.1fr 0.8fr 1fr;
-      gap: 30px;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 1fr);
+      gap: 28px 32px;
+    }
+
+    .footer-top > div:first-child {
+      grid-column: 1 / -1;
     }
 
     .footer-brand {
@@ -2822,8 +2880,8 @@
     }
 
     .footer-top {
-      grid-template-columns: 1fr 1fr;
-      gap: 30px 16px;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 24px;
       padding-bottom: 33px;
     }
 
@@ -2836,16 +2894,30 @@
     }
 
     .footer-top nav {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4px 18px;
       font-size: 13px;
     }
 
+    .footer-top nav > a:last-child {
+      grid-column: 1 / -1;
+      min-height: 58px;
+      margin-top: 4px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
     .footer-contact {
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
       font-size: 12px;
     }
 
     .footer-bottom {
-      flex-wrap: wrap;
-      gap: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
       font-size: 11px;
     }
 
@@ -3017,22 +3089,27 @@
     }
 
     .mobile-nav > a.nav-link {
-      display: inline-flex;
+      display: flex;
       align-items: baseline;
       gap: 18px;
-      width: fit-content;
+      width: 100%;
       max-width: 100%;
+      min-height: 48px;
       transition: color 0.24s ease, transform 0.24s ease;
     }
 
-    .mobile-nav > a.nav-link:hover,
     .mobile-nav > a.nav-link:focus-visible {
       color: var(--gold-ink);
     }
 
-    @media (hover: hover) {
+    @media (hover: hover) and (pointer: fine) {
       .mobile-nav > a.nav-link:hover {
+        color: var(--gold-ink);
         transform: translateX(4px) scale(1.01);
+      }
+
+      .mobile-nav > a.nav-link:hover > .nav-label::after {
+        transform: scaleX(1);
       }
     }
 
@@ -3064,7 +3141,6 @@
     }
 
     .mobile-nav > a.nav-link.is-active > .nav-label::after,
-    .mobile-nav > a.nav-link:hover > .nav-label::after,
     .mobile-nav > a.nav-link:focus-visible > .nav-label::after {
       transform: scaleX(1);
     }
@@ -3592,13 +3668,14 @@
     color: var(--accent-text);
   }
 
-  .booking-option:hover .arrow,
-  .booking-option:focus-visible .arrow {
-    color: var(--forest);
-  }
+  @media (hover: hover) and (pointer: fine) {
+    .booking-option:hover .arrow {
+      color: var(--forest);
+    }
 
-  .booking-option-primary:hover .arrow {
-    color: var(--paper);
+    .booking-option-primary:hover .arrow {
+      color: var(--paper);
+    }
   }
 
   .text-link:hover,
@@ -3634,6 +3711,14 @@
 }
 
 @layer responsive {
+  /* Keep the iframe inside the map frame instead of clipping its bottom controls. */
+  .contact-essentials .contact-map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+
   /* Keep the care introduction compact on laptops; touch layouts retain their spacing. */
   @media (min-width: 901px) {
     body[data-page='doctor'] .page-hero {
@@ -3689,21 +3774,8 @@
   }
 
   @media (max-width: 360px) {
-    .footer-top {
-      grid-template-columns: minmax(0, 1fr);
-    }
-
-    .footer-top > div:first-child {
-      grid-column: auto;
-    }
-
-    .footer-contact .email-wrapper {
-      max-width: 100%;
-    }
-
-    .footer-contact .email-wrapper a {
-      min-width: 0;
-      overflow-wrap: anywhere;
+    .footer-top nav {
+      column-gap: 12px;
     }
   }
 
@@ -3715,7 +3787,9 @@
 
   @media (max-width: 900px) {
     .contact-essentials .contact-map {
-      height: clamp(360px, 48vw, 470px);
+      height: clamp(400px, 54vw, 500px);
+      border-block: 1px solid var(--gold);
+      border-inline: 0;
     }
 
     .doctor-story,
@@ -4044,7 +4118,7 @@
     }
 
     .contact-essentials .contact-map {
-      height: clamp(250px, 70vw, 340px);
+      height: min(80vw, 400px);
       margin-top: 42px;
     }
   }

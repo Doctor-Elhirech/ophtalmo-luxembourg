@@ -208,7 +208,7 @@ const fr = {
       {
         question: 'Quelles langues sont parlées ?',
         answer:
-          'Le français, l’anglais et l’arabe sont indiqués sur le profil Doctena du cabinet. Pour une demande particulière, contactez le cabinet avant votre visite.',
+          'Le français, l’anglais et le luxembourgeois sont parlés au cabinet. Pour une demande particulière, contactez le cabinet avant votre visite.',
         linkLabel: '',
         href: '',
       },
@@ -568,7 +568,7 @@ const en: typeof fr = {
       {
         question: 'Which languages are spoken?',
         answer:
-          'French, English and Arabic are listed on the practice’s Doctena profile. For a specific language request, please contact the practice before your visit.',
+          'French, English and Luxembourgish are spoken at the practice. For a specific language request, please contact the practice before your visit.',
         linkLabel: '',
         href: '',
       },
