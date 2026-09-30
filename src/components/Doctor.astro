@@ -72,7 +72,7 @@ const qualifications = compact ? t.doctorSection.qualifications.slice(0, 2) : t.
     </div>
     {compact && (
       <a class="text-link section-more-link" href={localePath(locale, 'doctor')}>
-        {locale === 'fr' ? 'Découvrir le parcours complet' : 'Read the full background'}
+        {t.action.moreDoctor}
         <Arrow />
       </a>
     )}

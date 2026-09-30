@@ -1,7 +1,7 @@
 ---
-import '@fontsource-variable/newsreader';
-import '@fontsource-variable/newsreader/wght-italic.css';
-import '@fontsource-variable/manrope';
+import '@fontsource-variable/literata';
+import '@fontsource-variable/literata/wght-italic.css';
+import '@fontsource-variable/plus-jakarta-sans';
 import '../styles/global.css';
 import { translations, localePath, pageFromPath, type Locale, type PageKey } from '../content/translations';
 import Header from '../components/Header.astro';
@@ -17,6 +17,7 @@ const canonical = new URL(Astro.url.pathname, siteSettings.origin);
 const pageMeta = t.pageMeta[page];
 const alternateFr = new URL(localePath('fr', page), siteSettings.origin);
 const alternateEn = new URL(localePath('en', page), siteSettings.origin);
+const alternateLb = new URL(localePath('lb', page), siteSettings.origin);
 ---
 
 <!doctype html>
@@ -30,12 +31,13 @@ const alternateEn = new URL(localePath('en', page), siteSettings.origin);
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="fr" href={alternateFr} />
     <link rel="alternate" hreflang="en" href={alternateEn} />
+    <link rel="alternate" hreflang="lb" href={alternateLb} />
     <link rel="alternate" hreflang="x-default" href={alternateFr} />
-    <meta name="theme-color" content="#173c34" />
+    <meta name="theme-color" content="#0a2218" />
     <meta property="og:title" content={pageMeta.title} />
     <meta property="og:description" content={pageMeta.description} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content={locale === 'fr' ? 'fr_LU' : 'en_GB'} />
+    <meta property="og:locale" content={locale === 'fr' ? 'fr_LU' : locale === 'lb' ? 'lb_LU' : 'en_GB'} />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={t.name} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

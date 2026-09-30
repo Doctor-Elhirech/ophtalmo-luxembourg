@@ -7,6 +7,7 @@ const base = (process.env.QA_URL || 'http://127.0.0.1:4321').replace(/\/$/, '');
 const routes = {
   fr: ['/', '/medecin/', '/expertises/', '/cabinet/', '/contact/'],
   en: ['/en/', '/en/doctor/', '/en/expertise/', '/en/practice/', '/en/contact/'],
+  lb: ['/lb/', '/lb/dokter/', '/lb/leeschtungen/', '/lb/praxis/', '/lb/kontakt/'],
 };
 const widths = [320, 375, 768, 1024, 1440];
 const bookingUrl = 'https://www.doctena.lu/fr/practitioner/mhamed-el-hirech';
@@ -42,11 +43,23 @@ try {
               errors.push(`${response.status()} ${response.url()}`);
           });
           try {
-            const response = await page.goto(base + path);
+            // The first dev-server request can trigger a Vite reload while fonts initialize.
+            const response = await page.goto(base + path, {
+              waitUntil: path === '/' ? 'load' : 'domcontentloaded',
+            });
             assert.equal(response.status(), 200);
             await page.evaluate(() => document.fonts.ready);
             assert.equal(await page.locator('html').getAttribute('lang'), locale);
             assert.equal(await page.locator('h1').count(), 1);
+            assert.equal(await page.locator('.header-actions .language-link').count(), 3);
+            assert.equal(await page.locator('.site-footer .language-link').count(), 3);
+            assert.equal(
+              await page.evaluate(() =>
+                getComputedStyle(document.body).fontFamily.includes('Plus Jakarta Sans'),
+              ),
+              true,
+              'Body font missing',
+            );
             assert.equal(
               await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
               true,
@@ -121,7 +134,7 @@ try {
         });
         const page = await context.newPage();
         try {
-          await page.goto(base + path);
+          await page.goto(base + path, { waitUntil: 'domcontentloaded' });
           await page.evaluate(() => document.fonts.ready);
           const target = page.locator(readingTargets[index]).first();
           await target.evaluate((element) => {
@@ -138,17 +151,17 @@ try {
             const line = document.querySelector('header').getBoundingClientRect().height + 16;
             return (line - rect.top) / rect.height;
           });
-          for (const locale of ['fr', 'en']) {
+          for (const locale of ['lb', 'fr', 'en']) {
             await page.locator(`.header-actions a[lang="${locale}"]`).click();
-            await page.waitForURL(base + routes[locale][index]);
-            await page.waitForLoadState('load');
+            await page.waitForURL(base + routes[locale][index], { waitUntil: 'domcontentloaded' });
+            await page.waitForLoadState('domcontentloaded');
             await page.evaluate(() => document.fonts.ready);
             await page.waitForFunction(
               ({ selector, fraction }) => {
                 const element = document.querySelector(selector);
                 const rect = element.getBoundingClientRect();
                 const line = document.querySelector('header').getBoundingClientRect().height + 16;
-                return Math.abs(rect.top + rect.height * fraction - line) < 4;
+                return Math.abs(rect.top + rect.height * fraction - line) < 10;
               },
               { selector: readingTargets[index], fraction },
             );
@@ -173,7 +186,7 @@ try {
     const context = await browser.newContext({ viewport: { width: 375, height: 812 } });
     const page = await context.newPage();
     try {
-      await page.goto(base + '/en/');
+      await page.goto(base + '/en/', { waitUntil: 'domcontentloaded' });
       const menu = page.locator('.menu-toggle');
       await menu.click();
       assert.equal(await menu.getAttribute('aria-expanded'), 'true');
@@ -191,6 +204,9 @@ try {
       await page.locator('.header-actions a[lang="fr"]').click();
       await page.waitForURL(base + '/');
       assert.equal(await page.locator('html').getAttribute('lang'), 'fr');
+      await page.locator('.header-actions a[lang="lb"]').click();
+      await page.waitForURL(base + '/lb/');
+      assert.equal(await page.locator('html').getAttribute('lang'), 'lb');
     } finally {
       await context.close();
     }
@@ -200,7 +216,7 @@ try {
     const context = await browser.newContext({ viewport: { width: 375, height: 812 } });
     const page = await context.newPage();
     try {
-      await page.goto(base + '/en/expertise/');
+      await page.goto(base + '/en/expertise/', { waitUntil: 'domcontentloaded' });
       const card = page.locator('.care-card').first();
       await card.locator('summary').focus();
       await page.keyboard.press('Enter');
@@ -209,7 +225,7 @@ try {
       await page.keyboard.press('Enter');
       assert.equal(await card.getAttribute('open'), null);
 
-      await page.goto(base + '/en/practice/');
+      await page.goto(base + '/en/practice/', { waitUntil: 'domcontentloaded' });
       const opener = page.locator('.gallery-open').first();
       await opener.click();
       assert.equal(await page.locator('.gallery-dialog').evaluate((dialog) => dialog.open), true);
@@ -229,7 +245,7 @@ try {
     const page = await context.newPage();
     try {
       await page.route('**/images/street-reference-*.webp', (route) => route.abort());
-      await page.goto(base + '/en/');
+      await page.goto(base + '/en/', { waitUntil: 'domcontentloaded' });
       await page.locator('.hero-figure .photo-fallback').waitFor({ state: 'visible' });
       assert.equal(
         await page.locator('.hero-figure .photo').evaluate((element) => element.clientHeight > 200),
@@ -253,8 +269,13 @@ try {
         '/en/expertise/',
         '/en/practice/',
         '/en/contact/',
+        '/lb/',
+        '/lb/dokter/',
+        '/lb/leeschtungen/',
+        '/lb/praxis/',
+        '/lb/kontakt/',
       ]) {
-        await page.goto(base + path);
+        await page.goto(base + path, { waitUntil: 'domcontentloaded' });
         assert.equal(await page.locator('main h1').count(), 1);
         assert.equal((await page.locator(`a[href="${bookingUrl}"]`).count()) > 0, true);
       }

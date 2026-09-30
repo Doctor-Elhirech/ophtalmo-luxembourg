@@ -21,7 +21,7 @@ No claims are derived from changing reservation numbers, payment options or othe
 - Doctipro's biography mentions 1 Val Sainte-Croix despite its Mamer header, and describes patients aged six and over while Doctena lists newborn care. Its additional treatment claims and hours are not imported. Confirm these discrepancies with the doctor before any related content changes.
 - The supplied Doctolib, PagesJaunes and Autour-de-moi profiles point to French practices in Bolbec/Sarcelles. Their connection to the Mamer doctor remains unconfirmed. The user agreed to defer those links, French-practice details and any travel claims until the doctor confirms them. French reviews are not mixed into the Mamer review section.
 
-The user approved the local bilingual profile links, secondary booking link and four-item FAQ. The two original language routes and primary Doctena destination remain in place. Confirm with the doctor that both booking services are intended for patient use before public launch.
+The user approved the local profile links, secondary booking link and four-item FAQ. The French and English routes and primary Doctena destination remain in place, with Luxembourgish routes added later. The Luxembourgish booking and profile links use the existing French destinations because a Luxembourgish Doctipro profile URL has not been confirmed. Confirm with the doctor that both booking services are intended for patient use before final handoff.
 
 ## Reviews
 

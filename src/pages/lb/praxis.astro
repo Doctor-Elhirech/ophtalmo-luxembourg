@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import PracticeDetail from '../../components/PracticeDetail.astro';
+import { translations } from '../../content/translations';
+const t = translations.lb;
+---
+
+<BaseLayout locale="lb" page="practice">
+  <PageHero
+    label={t.practicePage.label}
+    title={t.practicePage.title}
+    emphasis={t.practicePage.emphasis}
+    intro={t.practicePage.intro}
+  />
+  <PracticeDetail t={t} locale="lb" />
+</BaseLayout>

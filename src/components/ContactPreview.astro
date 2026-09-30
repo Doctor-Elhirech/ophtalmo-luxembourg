@@ -22,7 +22,7 @@ const { t, locale } = Astro.props;
     <div>
       <BookingOptions t={t} compact />
       <a class="text-link section-more-link" href={localePath(locale, 'contact')}>
-        {locale === 'fr' ? 'Voir les coordonnées et les horaires' : 'View contact details and hours'}
+        {t.action.moreContact}
         <Arrow />
       </a>
     </div>

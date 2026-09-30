@@ -1,6 +1,7 @@
 import { practice } from '../config/practice';
+import { lb } from './luxembourgish';
 
-export const locales = ['fr', 'en'] as const;
+export const locales = ['fr', 'en', 'lb'] as const;
 export type Locale = (typeof locales)[number];
 export const pageKeys = ['home', 'doctor', 'expertise', 'practice', 'contact'] as const;
 export type PageKey = (typeof pageKeys)[number];
@@ -20,11 +21,18 @@ const routes: Record<Locale, Record<PageKey, string>> = {
     practice: '/en/practice/',
     contact: '/en/contact/',
   },
+  lb: {
+    home: '/lb/',
+    doctor: '/lb/dokter/',
+    expertise: '/lb/leeschtungen/',
+    practice: '/lb/praxis/',
+    contact: '/lb/kontakt/',
+  },
 };
 const common = {
   ...practice,
-  localeNames: { fr: 'Français', en: 'English' },
-  languageShort: { fr: 'FR', en: 'EN' },
+  localeNames: { fr: 'Français', en: 'English', lb: 'Lëtzebuergesch' },
+  languageShort: { fr: 'FR', en: 'EN', lb: 'LU' },
   numbers: ['01', '02', '03', '04', '05', '06'],
   slash: '/',
   copyright: '©',
@@ -53,6 +61,7 @@ const fr = {
     newTab: 'nouvel onglet',
     imageUnavailable: 'Photographie momentanément indisponible',
     gallery: 'Photographies du cabinet',
+    copyEmail: 'Copier l’adresse e-mail',
   },
   nav: {
     home: 'Accueil',
@@ -69,6 +78,9 @@ const fr = {
     discover: 'Découvrir le cabinet',
     call: 'Appeler le cabinet',
     profile: 'Parcours sur Doctena',
+    moreDoctor: 'Découvrir le parcours complet',
+    moreExpertise: 'Voir toutes les expertises',
+    moreContact: 'Voir les coordonnées et les horaires',
   },
   hero: {
     eyebrow: 'Cabinet d’ophtalmologie · Mamer, Luxembourg',
@@ -410,6 +422,7 @@ const en: typeof fr = {
     newTab: 'new tab',
     imageUnavailable: 'Photograph temporarily unavailable',
     gallery: 'Practice photographs',
+    copyEmail: 'Copy email address',
   },
   nav: {
     home: 'Home',
@@ -426,6 +439,9 @@ const en: typeof fr = {
     discover: 'Discover the practice',
     call: 'Call the practice',
     profile: 'Background on Doctena',
+    moreDoctor: 'Read the full background',
+    moreExpertise: 'View all care areas',
+    moreContact: 'View contact details and hours',
   },
   hero: {
     eyebrow: 'Ophthalmology practice · Mamer, Luxembourg',
@@ -727,7 +743,7 @@ const en: typeof fr = {
     doctenaLabel: 'Book on Doctena',
     doctiproLabel: 'Book on Doctipro',
     phoneTitle: 'A question before booking?',
-    detailsTitle: 'Everything you need before your visit',
+    detailsTitle: 'Before your visit',
     confirmationTitle: 'Hours to confirm',
     confirmationText: 'Please confirm these hours with the practice before visiting.',
     directionsLabel: 'Open Google Maps directions',
@@ -741,15 +757,15 @@ const en: typeof fr = {
     streetReference: 'Street view with a sign for several businesses and the pavement in Mamer',
   },
 };
-export const translations: Record<Locale, typeof fr> = { fr, en };
+export const translations: Record<Locale, typeof fr> = { fr, en, lb };
 export type Translation = typeof fr;
 export const localePath = (locale: Locale, page: PageKey = 'home') => routes[locale][page];
 export const pageFromPath = (pathname: string): PageKey => {
   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
-  if (normalized === '/') return 'home';
-  if (normalized === '/medecin/' || normalized === '/en/doctor/') return 'doctor';
-  if (normalized === '/expertises/' || normalized === '/en/expertise/') return 'expertise';
-  if (normalized === '/cabinet/' || normalized === '/en/practice/') return 'practice';
-  if (normalized === '/contact/' || normalized === '/en/contact/') return 'contact';
-  return normalized.startsWith('/en/') ? 'home' : 'home';
+  for (const localeRoutes of Object.values(routes)) {
+    for (const key of pageKeys) {
+      if (localeRoutes[key] === normalized) return key;
+    }
+  }
+  return 'home';
 };

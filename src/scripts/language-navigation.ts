@@ -93,14 +93,8 @@ function restoreLanguagePosition() {
     window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
   };
   restore();
-  const loaded =
-    document.readyState === 'complete'
-      ? Promise.resolve()
-      : new Promise<void>((resolve) => {
-          window.addEventListener('load', () => resolve(), { once: true });
-        });
-  // Align again after fonts and normal hash navigation settle, unless the visitor has moved.
-  Promise.all([document.fonts.ready, loaded]).then(() =>
+  // Align after fonts settle without waiting for third-party maps or other embeds.
+  document.fonts.ready.then(() =>
     requestAnimationFrame(() => {
       restore();
       history.scrollRestoration = previousRestoration;

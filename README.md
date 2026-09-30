@@ -1,6 +1,6 @@
 # Ophtalmo Luxembourg
 
-A bilingual French/English website for the Mamer ophthalmology practice of **Dr M'Hamed EL HIRECH**. The site uses real supplied photographs and verified practice information. Doctena is the primary booking route; Doctipro is offered as a secondary option for Mamer.
+A French, English and Luxembourgish website for the Mamer ophthalmology practice of **Dr M'Hamed EL HIRECH**. The site uses real supplied photographs and practice information sourced from public profiles. Doctena is the primary booking route; Doctipro is offered as a secondary option for Mamer.
 
 The deployed site is publicly accessible. Repository visibility and deployed-site visibility are independent.
 
@@ -26,26 +26,30 @@ Install the QA browser once with `npx playwright install chromium`. Set `QA_URL`
 
 ## Architecture
 
-| Location                                                 | Responsibility                                                                                  |
-| -------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `src/pages/index.astro`                                  | French route, default language                                                                  |
-| `src/pages/en/index.astro`                               | English route                                                                                   |
-| `src/pages/{medecin,expertises,cabinet,contact}.astro`   | French detail pages                                                                             |
-| `src/pages/en/{doctor,expertise,practice,contact}.astro` | English detail pages                                                                            |
-| `src/layouts/BaseLayout.astro`                           | Document metadata, self-hosted fonts, shared header/footer                                      |
-| `src/components/`                                        | Small semantic sections and shared image/CTA controls                                           |
-| `src/config/practice.ts`                                 | Business facts, booking/profile URLs, directions, review counts, image slots, deployment origin |
-| `src/content/translations.ts`                            | All FR/EN copy, accessible labels, photo descriptions and review excerpts                       |
-| `src/styles/global.css`                                  | Documented CSS layers: reset, base tokens, components, responsive overrides                     |
-| `src/scripts/interactions.ts`                            | Mobile navigation, language anchors, native photo dialog, fallback and restrained reveals       |
-| `Photos/`                                                | Original supplied photographs; retained without alteration                                      |
-| `public/images/`                                         | Optimized local WebP variants generated from the originals                                      |
-| `scripts/prepare-images.mjs`                             | Repeatable image optimization and automatic dimension metadata                                  |
-| `scripts/qa.mjs`                                         | Responsive, accessibility, links, gallery, keyboard and fallback checks                         |
-| `docs/CONTENT-SOURCES.md`                                | Factual provenance and doctor-confirmation items                                                |
-| `docs/QA.md`                                             | Verification scope and limitations                                                              |
+| Location                                                  | Responsibility                                                                                  |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `src/pages/index.astro`                                   | French route, default language                                                                  |
+| `src/pages/en/index.astro`                                | English route                                                                                   |
+| `src/pages/lb/index.astro`                                | Luxembourgish route                                                                             |
+| `src/pages/{medecin,expertises,cabinet,contact}.astro`    | French detail pages                                                                             |
+| `src/pages/en/{doctor,expertise,practice,contact}.astro`  | English detail pages                                                                            |
+| `src/pages/lb/{dokter,leeschtungen,praxis,kontakt}.astro` | Luxembourgish detail pages                                                                      |
+| `src/layouts/BaseLayout.astro`                            | Document metadata, self-hosted fonts, shared header/footer                                      |
+| `src/components/`                                         | Small semantic sections and shared image/CTA controls                                           |
+| `src/config/practice.ts`                                  | Business facts, booking/profile URLs, directions, review counts, image slots, deployment origin |
+| `src/content/translations.ts`                             | Shared locale types, routes, FR/EN copy and accessible labels                                   |
+| `src/content/luxembourgish.ts`                            | Luxembourgish copy and accessible labels                                                        |
+| `src/scripts/language-navigation.ts`                      | Preserves the reading position when changing languages                                          |
+| `src/styles/global.css`                                   | Documented CSS layers: reset, base tokens, components, responsive overrides                     |
+| `src/scripts/interactions.ts`                             | Mobile navigation, language anchors, native photo dialog, fallback and restrained reveals       |
+| `Photos/`                                                 | Original supplied photographs; retained without alteration                                      |
+| `public/images/`                                          | Optimized local WebP variants generated from the originals                                      |
+| `scripts/prepare-images.mjs`                              | Repeatable image optimization and automatic dimension metadata                                  |
+| `scripts/qa.mjs`                                          | Responsive, accessibility, links, gallery, keyboard and fallback checks                         |
+| `docs/CONTENT-SOURCES.md`                                 | Factual provenance and doctor-confirmation items                                                |
+| `docs/QA.md`                                              | Verification scope and limitations                                                              |
 
-Astro generates complete static HTML for both languages. There is no frontend framework runtime, booking backend, database, form collection, analytics, external font request, or custom authentication. The contact page embeds Google Maps; core reading and booking remain available without JavaScript.
+Astro generates complete static HTML for all three languages. Literata and Plus Jakarta Sans are bundled locally. There is no frontend framework runtime, booking backend, database, form collection, analytics, external font request, or custom authentication. The contact page embeds Google Maps; core reading and booking remain available without JavaScript.
 
 ## Replace photographs
 
@@ -62,7 +66,7 @@ Replace the matching original in `Photos/`, keeping its filename, then run `npm 
 
 ## Customize content
 
-Edit facts and external destinations in `src/config/practice.ts`. Edit language-specific copy in `src/content/translations.ts`; English must satisfy the same TypeScript shape as French. Add another locale to `locales`, supply its dictionary, and add its static route.
+Edit facts and external destinations in `src/config/practice.ts`. Edit French and English copy in `src/content/translations.ts`, and Luxembourgish copy in `src/content/luxembourgish.ts`. All three dictionaries share one TypeScript shape, so content additions must be translated in each. The doctor or a fluent Luxembourgish reviewer should approve the final medical wording before public handoff.
 
 ## Before production handoff
 
