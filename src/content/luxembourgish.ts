@@ -59,7 +59,7 @@ export const lb: Translation = {
     line2: 'Eis Suergfalt.',
     intro: 'Aebetreiung fir Erwuessener a Kanner, vun der Gebuert un.',
     provider: 'Mam Dr M’Hamed EL HIRECH',
-    bookingNote: 'Fräi Rendez-vousen a Buchung iwwer Doctena',
+    bookingNote: 'Fräi Rendez-vousen a Reservatioun iwwer Doctena',
     caption: 'Stroossebléck zu Mamer',
     coordinate: '110 Route d’Arlon · Lëtzebuerg',
     trustCue: 'Méi wéi 500 Patiente behandelt',
@@ -109,7 +109,7 @@ export const lb: Translation = {
     intro: 'Entdeckt d’Praxis an hir Consultatiounsraim op der 110 Route d’Arlon zu Mamer.',
     more: 'Äre Besuch virbereeden',
     view: 'Fotoen ukucken',
-    captions: ['D’Fassad', 'Den Untersuchungsraum', 'Eng aner Vue op d’Praxis'],
+    captions: ['D’Fassad', 'Den Ënnersichungsraum', 'Eng aner Vue op d’Praxis'],
     attribution: 'Fotoe vun der Praxis iwwer Google Maps zur Verfügung gestallt',
   },
   journey: {
@@ -125,7 +125,7 @@ export const lb: Translation = {
         title: 'An d’Praxis kommen',
         text: 'Dir fannt eis op der 110 Route d’Arlon, L‑8210 Mamer.',
       },
-      { title: 'D’Consultatioun', text: 'E Gespréich mam Dokter an eng Untersuchung vun den Aen.' },
+      { title: 'D’Consultatioun', text: 'E Gespréich mam Dokter an eng Ënnersichung vun den Aen.' },
       {
         title: 'Déi nächst Schrëtt',
         text: 'Den Dokter erkläert Iech seng Recommandatiounen an déi passend weider Betreiung.',
@@ -154,7 +154,7 @@ export const lb: Translation = {
     text: 'Wielt Äre Rendez-vous direkt iwwer Doctena.',
     phoneLabel: 'Rufft Dir léiwer un?',
     bookingNote: 'D’Reservatioun leeft iwwer Doctena.',
-    alternativeBooking: 'Och iwwer Doctipro buchen — Mamer',
+    alternativeBooking: 'Och iwwer Doctipro reservéieren — Mamer',
   },
   faq: {
     label: 'Ier Dir kommt',
@@ -165,8 +165,8 @@ export const lb: Translation = {
       {
         question: 'Wéi maachen ech e Rendez-vous?',
         answer:
-          'Dir kënnt fir d’Praxis zu Mamer iwwer Doctena oder Doctipro reservéieren. Kuckt déi fräi Rendez-vousen a schléisst d’Buchung op der gewielter Plattform of.',
-        linkLabel: 'Buchungsméiglechkeete kucken',
+          'Dir kënnt fir d’Praxis zu Mamer iwwer Doctena oder Doctipro reservéieren. Kuckt déi fräi Rendez-vousen a schléisst d’Reservatioun op der gewielter Plattform of.',
+        linkLabel: 'Reservatiounsméiglechkeete kucken',
         href: '#appointment',
       },
       {
@@ -206,7 +206,7 @@ export const lb: Translation = {
   },
   footer: {
     descriptor: 'Aepraxis zu Mamer',
-    closing: 'Är Siicht. Eis Opmierksamkeet.',
+    closing: 'Är Siicht. Eis Suergfalt.',
     top: 'Zréck no uewen',
     demo: 'Demo · Informatiounen nach virun der definitiver Verëffentlechung ze bestätegen',
   },
@@ -234,7 +234,7 @@ export const lb: Translation = {
     contact: {
       title: 'Adress, Ëffnungszäiten a Rendez-vous — Ophtalmo Luxembourg',
       description:
-        'Adress, Telefonsnummer, ugewise Ëffnungszäiten a Buchungslinke vun der Aepraxis zu Mamer.',
+        'Adress, Telefonsnummer, ugewise Ëffnungszäiten a Linke fir e Rendez-vous an der Aepraxis zu Mamer.',
     },
   },
   doctorPage: {
@@ -251,7 +251,7 @@ export const lb: Translation = {
       'Seng Ausbildung zu Besançon a seng Aarbecht a franséische Spideeler ginn op senge publizéierte Profiller genannt.',
     profilesTitle: 'Publizéiert berufflech Profiller',
     proofLabel: 'Mam Dokter ze bestätegen',
-    proofTitle: 'Ausbildung & Beruff',
+    proofTitle: 'Ausbildung & Leeschtungen',
     proofIntro:
       'Dës Plaze weisen Dokumenter, déi den Dokter eventuell presentéiere wëllt. Et ginn him keng onbestätegt Diplomer, Auszeechnungen oder Publikatiounen zougeschriwwen.',
     evidence: [
@@ -287,7 +287,7 @@ export const lb: Translation = {
     intro:
       'Entdeckt déi publizéiert Beräicher vun der Aebetreiung beim Dr M’Hamed EL HIRECH zu Mamer.',
     publishedNote:
-      'Dës Texter erklären déi genannte Beräicher am Allgemengen. D’Praxis muss nach bestätegen, wéi eng Untersuchungen a Behandlungen zu Mamer ugebuede ginn.',
+      'Dës Texter erklären déi genannte Beräicher am Allgemengen. D’Praxis muss nach bestätegen, wéi eng Ënnersichungen a Behandlungen zu Mamer ugebuede ginn.',
     detailsTitle: 'Genannte Fachberäicher',
     expandLabel: 'Méi gewuer ginn',
     collapseLabel: 'Manner weisen',
@@ -297,8 +297,8 @@ export const lb: Translation = {
         text: 'Consultatiounen iwwer d’Siicht an d’Gesondheet vun den Aen.',
         expanded: [
           {
-            label: 'Untersuchung',
-            text: 'Jee nom Grond vum Besuch kann eng Aenuntersuchung d’Siicht an d’Gesondheet vun den Aen iwwerpréiwen. Den Dokter entscheet, wéi eng Kontrollë sënnvoll sinn.',
+            label: 'Ënnersichung',
+            text: 'Jee nom Grond vum Besuch kann eng Aenënnersichung d’Siicht an d’Gesondheet vun den Aen iwwerpréiwen. Den Dokter entscheet, wéi eng Kontrollë sënnvoll sinn.',
           },
           {
             label: 'Weider Betreiung',
@@ -312,7 +312,7 @@ export const lb: Translation = {
         expanded: [
           {
             label: 'Entwécklung vun der Siicht',
-            text: 'Bei Kanner kann d’Untersuchung d’Siicht an d’Ausriichtung vun den Aen iwwerpréiwen. Si gëtt dem Alter vum Kand ugepasst.',
+            text: 'Bei Kanner kann d’Ënnersichung d’Siicht an d’Ausriichtung vun den Aen iwwerpréiwen. Si gëtt dem Alter vum Kand ugepasst.',
           },
           {
             label: 'Gespréich mat den Elteren',
@@ -326,11 +326,11 @@ export const lb: Translation = {
         expanded: [
           {
             label: 'D’Siicht verstoen',
-            text: 'Kuerzsiichtegkeet, Wäitsiichtegkeet an Astigmatismus kënnen d’Siicht verschwomme maachen. Eng Untersuchung hëlleft festzestellen, ob eng Korrektur néideg ass.',
+            text: 'Kuerzsiichtegkeet, Wäitsiichtegkeet an Astigmatismus kënnen d’Siicht verschwomme maachen. Eng Ënnersichung hëlleft festzestellen, ob eng Korrektur néideg ass.',
           },
           {
             label: 'Eng Korrektur auswielen',
-            text: 'E Brëll oder Kontaktlënse kënnen d’Siicht verbesseren. D’Auswiel an d’Verschreiwung hänke vun der Untersuchung an de Besoine vun all Persoun of.',
+            text: 'E Brëll oder Kontaktlënse kënnen d’Siicht verbesseren. D’Auswiel an d’Verschreiwung hänke vun der Ënnersichung an de Besoine vun all Persoun of.',
           },
         ],
       },
@@ -340,24 +340,24 @@ export const lb: Translation = {
         expanded: [
           {
             label: 'Katarakt',
-            text: 'Bei engem Katarakt gëtt déi natierlech Lëns am A trüb, an d’Siicht ka verschwommen ginn. Eng Untersuchung hëlleft ze entscheeden, ob eng Operatioun a Fro kënnt.',
+            text: 'Bei engem Katarakt gëtt déi natierlech Lëns am A dréif, an d’Siicht ka verschwommen ginn. Eng Ënnersichung hëlleft ze entscheeden, ob eng Operatioun a Fro kënnt.',
           },
           {
             label: 'Kuerzsiichtegkeet',
-            text: 'Bei Kuerzsiichtegkeet gesäit ee Saachen an der Distanz onschaarf. Jee no Patient kann no enger Untersuchung eng optesch Korrektur oder eng Operatioun beschwat ginn.',
+            text: 'Bei Kuerzsiichtegkeet gesäit ee Saachen an der Distanz onschaarf. Jee no Patient kann no enger Ënnersichung eng optesch Korrektur oder eng Operatioun beschwat ginn.',
           },
           {
             label: 'Schielen',
-            text: 'Beim Schiele kucken d’Aen net an déi selwecht Richtung. Eng Untersuchung hëlleft, déi méiglech Behandlungen ze beschwätzen.',
+            text: 'Beim Schiele kucken d’Aen net an déi selwecht Richtung. Eng Ënnersichung hëlleft, déi méiglech Behandlungen ze beschwätzen.',
           },
         ],
       },
     ],
     visitTitle: 'Wëllt Dir Äre Besuch plangen?',
-    visitIntro: 'Kuckt déi fräi Rendez-vousen a wielt déi Buchungsplattform, déi Iech passt.',
+    visitIntro: 'Kuckt déi fräi Rendez-vousen a wielt déi Reservatiounsplattform, déi Iech passt.',
     confirmationTitle: 'Nach ze bestätegen',
     confirmationText:
-      'D’Praxis muss bestätegen, wéi eng Untersuchungen an Apparater zu Mamer verfügbar sinn, wou méiglech Operatioune stattfannen a wéi d’Nobetreiung organiséiert ass.',
+      'D’Praxis muss bestätegen, wéi eng Ënnersichungen an Apparater zu Mamer verfügbar sinn, wou méiglech Operatioune stattfannen a wéi d’Nobetreiung organiséiert ass.',
     appointmentLabel: 'Rendez-vous auswielen',
   },
   practicePage: {
@@ -385,7 +385,7 @@ export const lb: Translation = {
     galleryLabel: 'An der Praxis',
     galleryTitle: 'D’Raim vun der Praxis',
     galleryIntro:
-      'Zwou aktuell Fotoe vum Untersuchungsraum. Eng Foto vum Empfang kann dësen Abléck ergänzen.',
+      'Zwou aktuell Fotoe vum Ënnersichungsraum. Eng Foto vum Empfang kann dësen Abléck ergänzen.',
     gallerySlotLabel: 'Foto derbäisetzen',
     gallerySlotTitle: 'Empfang oder Waarderaum',
     gallerySlotText:
@@ -403,10 +403,10 @@ export const lb: Translation = {
     bookingTitle: 'Online reservéieren',
     bookingPanelTitle: 'Wielt Är Plattform',
     bookingText:
-      'Kuckt déi fräi Rendez-vousen a schléisst d’Buchung op der Plattform vun Ärer Wiel of.',
+      'Kuckt déi fräi Rendez-vousen a schléisst d’Reservatioun op der Plattform vun Ärer Wiel of.',
     doctenaLabel: 'Op Doctena reservéieren',
     doctiproLabel: 'Op Doctipro reservéieren',
-    phoneTitle: 'Eng Fro virun der Buchung?',
+    phoneTitle: 'Eng Fro virun der Reservatioun?',
     detailsTitle: 'Äre Besuch am Iwwerbléck',
     confirmationTitle: 'Ëffnungszäiten nach ze bestätegen',
     confirmationText:
@@ -417,8 +417,8 @@ export const lb: Translation = {
     exteriorWide: 'Breet Baussenopnam vun de Raimlechkeeten zu Mamer mat Fassad a Strooss',
     exterior: 'Vue vun no op d’Fassad vun de Raimlechkeete vun der Praxis zu Mamer',
     consultation: 'Consultatiounsraum mat Schreifdësch, groe Stull a Lëtzebuerger Fändel',
-    examination: 'Raum fir Aenuntersuchunge mat roude Stull a Schreifdësch',
-    examinationAlternate: 'Eng aner Vue op den Untersuchungsraum mat roude Stull an Instrumenter',
+    examination: 'Raum fir Aenënnersichunge mat roude Stull a Schreifdësch',
+    examinationAlternate: 'Eng aner Vue op den Ënnersichungsraum mat roude Stull an Instrumenter',
     streetReference:
       'Vue op d’Strooss zu Mamer mat engem Schëld fir verschidde Geschäfter an dem Trottoir',
   },

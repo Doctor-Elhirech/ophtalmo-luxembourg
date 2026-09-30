@@ -249,9 +249,9 @@
     height: 44px;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--gold);
+    border: 1px solid var(--forest);
     border-radius: 50%;
-    color: var(--ink);
+    color: var(--forest);
     transition: background-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
   }
 
@@ -437,13 +437,18 @@
     background: var(--forest-hover);
   }
 
+  .button-dark:focus-visible {
+    outline-color: var(--gold-ink);
+  }
+
   .button-light {
     background: var(--paper);
     color: var(--ink);
   }
 
   .button-light:hover {
-    background: var(--gold-light);
+    background: var(--forest-hover);
+    color: var(--paper);
   }
 
   /* Ghost button variant for header booking link */
@@ -453,12 +458,14 @@
     color: var(--ink);
     transition:
       background-color 0.22s ease,
-      color 0.22s ease;
+      color 0.22s ease,
+      border-color 0.22s ease;
   }
 
   .button-ghost:hover {
-    background: var(--gold);
-    color: var(--forest);
+    background: var(--forest-hover);
+    border-color: var(--forest-hover);
+    color: var(--paper);
   }
 
   /* Trust cue styling for hero section */
@@ -874,7 +881,7 @@
     display: grid;
     place-items: center;
     border-radius: 50%;
-    transition: transform 0.25s;
+    transition: background-color 0.25s, color 0.25s, transform 0.25s;
   }
 
   .gallery-open:hover .photo-enlarge {
@@ -1151,7 +1158,7 @@
   }
 
   .review-source-link {
-    color: var(--muted);
+    color: #235a91;
     font-size: 12px;
     padding-left: 17px;
     border-left: 1px solid var(--line);
@@ -1161,7 +1168,7 @@
   }
 
   .review-source-link:hover {
-    color: var(--gold-ink);
+    color: #174775;
     text-decoration: underline;
     text-underline-offset: 3px;
   }
@@ -2011,6 +2018,18 @@
     transform: translateY(-2px);
   }
 
+  .booking-option-primary:hover {
+    background: var(--forest-hover);
+    color: var(--paper);
+    border-color: var(--forest-hover);
+  }
+
+  .booking-option:not(.booking-option-primary):hover {
+    background: var(--paper);
+    color: var(--ink);
+    border-color: var(--paper);
+  }
+
   .booking-options-compact {
     max-width: 500px;
   }
@@ -2077,6 +2096,16 @@
   .expertise-more-item .text-link {
     display: inline-flex;
     gap: 10px;
+  }
+
+  .expertise-more-item .text-link span {
+    display: inline-block;
+    transition: transform 0.25s ease;
+  }
+
+  .expertise-more-item .text-link:hover span,
+  .expertise-more-item .text-link:focus-visible span {
+    transform: translate(2px, -2px);
   }
 
   .practice-location {
@@ -2288,7 +2317,7 @@
   }
 
   .contact-essentials .contact-map {
-    height: 370px;
+    height: clamp(500px, 34vw, 640px);
     margin-top: clamp(40px, 5vw, 78px);
     border: 1px solid var(--line);
     border-radius: 0;
@@ -2299,35 +2328,6 @@
     min-height: 0;
   }
 
-  .contact-map-action {
-    position: absolute;
-    right: 22px;
-    bottom: 22px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    max-width: calc(100% - 44px);
-    min-height: 48px;
-    padding: 10px 16px;
-    background: var(--forest);
-    color: var(--paper);
-    font-size: 12px;
-    font-weight: 650;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-  }
-
-  .contact-map-action:hover,
-  .contact-map-action:focus-visible {
-    background: var(--deep);
-    transform: translateY(-2px);
-  }
-
-  .contact-map-action .arrow {
-    flex: none;
-    width: 16px;
-    height: 16px;
-  }
 }
 
 @layer responsive {
@@ -3597,6 +3597,10 @@
     color: var(--forest);
   }
 
+  .booking-option-primary:hover .arrow {
+    color: var(--paper);
+  }
+
   .text-link:hover,
   .text-link:focus-visible,
   .hero-secondary-booking:hover,
@@ -3621,6 +3625,11 @@
   .gallery-open:focus-visible .photo-enlarge {
     background: var(--gold-light);
     color: var(--forest);
+  }
+
+  .gallery-open:hover .photo-enlarge {
+    background: var(--forest-hover);
+    color: var(--paper);
   }
 }
 
@@ -3705,6 +3714,10 @@
   }
 
   @media (max-width: 900px) {
+    .contact-essentials .contact-map {
+      height: clamp(360px, 48vw, 470px);
+    }
+
     .doctor-story,
     .practice-arrival {
       grid-template-columns: 1fr;
@@ -4031,14 +4044,8 @@
     }
 
     .contact-essentials .contact-map {
-      height: 300px;
+      height: clamp(250px, 70vw, 340px);
       margin-top: 42px;
-    }
-
-    .contact-map-action {
-      right: 14px;
-      bottom: 14px;
-      max-width: calc(100% - 28px);
     }
   }
 

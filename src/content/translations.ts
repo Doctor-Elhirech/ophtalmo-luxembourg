@@ -485,7 +485,7 @@ const en: typeof fr = {
     intro: 'Consultations and specialties offered by Dr M’Hamed EL HIRECH.',
     items: [
       { name: 'General ophthalmology', detail: 'Eye consultations' },
-      { name: 'Pediatric ophthalmology', detail: 'Children, including newborns' },
+      { name: 'Paediatric ophthalmology', detail: 'Children, including newborns' },
       { name: 'Glasses & contact lenses', detail: 'Vision correction' },
       { name: 'Cataract surgery', detail: 'Surgical care' },
       { name: 'Myopia surgery', detail: 'Surgical care' },
@@ -590,7 +590,7 @@ const en: typeof fr = {
     hoursLabel: 'Opening hours',
     hoursSaturday: 'Saturday',
     hoursTime: '08:00 – 12:00\n14:00 – 19:00',
-    hoursClosed: 'Closed for other 6 days',
+    hoursClosed: 'Closed the other six days',
     mapTitle: 'Location of Ophtalmo Luxembourg practice in Mamer',
     country: 'Luxembourg',
   },
@@ -677,7 +677,7 @@ const en: typeof fr = {
         ],
       },
       {
-        title: 'Pediatric ophthalmology',
+        title: 'Paediatric ophthalmology',
         text: 'Eye care for children, including newborns, according to the published profile.',
         expanded: [
           { label: 'Developing vision', text: 'For children, an examination may look at vision and how the eyes align. The assessment is adapted to the child’s age.' },
@@ -688,7 +688,7 @@ const en: typeof fr = {
         title: 'Glasses & contact lenses',
         text: 'Assessment of visual correction needs.',
         expanded: [
-          { label: 'Understanding vision', text: 'Nearsightedness, farsightedness and astigmatism can make vision blurry. An examination helps determine whether correction would help.' },
+          { label: 'Understanding vision', text: 'Short-sightedness, long-sightedness and astigmatism can make vision blurry. An examination helps determine whether correction would help.' },
           { label: 'Choosing correction', text: 'Glasses and contact lenses can improve clarity. The choice and prescription depend on each person’s needs and assessment.' },
         ],
       },
