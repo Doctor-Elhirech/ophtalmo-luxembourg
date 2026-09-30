@@ -1,0 +1,185 @@
+@layer components {
+  /* Motion changes only opacity and composited transforms, never layout or color. */
+  .motion-target {
+    --motion-duration: 640ms;
+    --motion-delay: var(--motion-stagger, 0ms);
+    --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --motion-x: 0px;
+    --motion-y: 22px;
+    --motion-scale: 1;
+    --motion-opacity: 0;
+  }
+
+  .motion-target[data-motion='left'] {
+    --motion-x: -28px;
+    --motion-y: 0px;
+  }
+
+  .motion-target[data-motion='right'] {
+    --motion-x: 28px;
+    --motion-y: 0px;
+  }
+
+  .motion-target[data-motion='image'] {
+    --motion-y: 18px;
+    --motion-scale: 0.985;
+    --motion-duration: 760ms;
+  }
+
+  .motion-target[data-motion='card'] {
+    --motion-y: 20px;
+    --motion-duration: 640ms;
+  }
+
+  .motion-target[data-motion='row'] {
+    --motion-x: 14px;
+    --motion-y: 8px;
+    --motion-duration: 540ms;
+  }
+
+  .motion-target[data-motion='fade'] {
+    --motion-y: 0px;
+    --motion-opacity: 0.35;
+    --motion-duration: 500ms;
+  }
+
+  .motion-target[data-motion='settle'] {
+    --motion-y: 10px;
+    --motion-opacity: 1;
+    --motion-duration: 440ms;
+  }
+
+  /* First-view information stays readable throughout its short entrance. */
+  .motion-target[data-motion-immediate] {
+    --motion-opacity: 1;
+    --motion-x: 0px;
+    --motion-y: 10px;
+    --motion-scale: 1;
+  }
+
+  .motion-target.motion-pending {
+    opacity: var(--motion-opacity);
+    translate: var(--motion-x) var(--motion-y);
+    scale: var(--motion-scale);
+  }
+
+  .motion-target.motion-running {
+    opacity: 1;
+    translate: none;
+    scale: none;
+    will-change: opacity, translate, scale;
+    transition:
+      opacity var(--motion-duration) ease var(--motion-delay),
+      translate var(--motion-duration) var(--motion-ease) var(--motion-delay),
+      scale var(--motion-duration) var(--motion-ease) var(--motion-delay);
+  }
+
+  .motion-target:focus-within,
+  .motion-target:target,
+  .motion-target:has(:target) {
+    opacity: 1;
+    translate: none;
+    scale: none;
+    transition: none;
+  }
+
+  /* Opening a disclosure settles only the answer; its control stays in place. */
+  .care-card.motion-disclosure-opening[open] > .care-card-body,
+  .faq-item.motion-disclosure-opening[open] > .faq-answer {
+    animation: answer-settle 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes answer-settle {
+    from { opacity: 0.7; translate: 0 6px; }
+    to { opacity: 1; translate: none; }
+  }
+}
+
+@layer responsive {
+  @media (min-width: 601px) and (max-width: 900px) {
+    .hero-heading,
+    .hero-intro {
+      --hero-enter-distance: 12px;
+      animation-duration: 560ms;
+    }
+
+    .motion-target {
+      --motion-duration: 560ms;
+      --motion-delay: min(var(--motion-stagger, 0ms), 130ms);
+      --motion-y: 18px;
+    }
+
+    .motion-target[data-motion='left'],
+    .motion-target[data-motion='right'] {
+      --motion-x: 0px;
+      --motion-y: 18px;
+    }
+
+    .motion-target[data-motion='image'] { --motion-duration: 640ms; --motion-y: 14px; --motion-scale: 0.99; }
+    .motion-target[data-motion='card'] { --motion-duration: 560ms; --motion-y: 16px; }
+    .motion-target[data-motion='row'] { --motion-duration: 460ms; --motion-x: 8px; --motion-y: 6px; }
+    .motion-target[data-motion='fade'] { --motion-duration: 420ms; --motion-y: 0px; }
+    .motion-target[data-motion='settle'] { --motion-duration: 380ms; --motion-y: 8px; }
+  }
+
+  @media (max-width: 600px) {
+    .hero-heading,
+    .hero-intro {
+      --hero-enter-distance: 10px;
+      animation-duration: 480ms;
+    }
+
+    .hero-intro { animation-delay: 40ms; }
+
+    .motion-target {
+      --motion-duration: 480ms;
+      --motion-delay: min(var(--motion-stagger, 0ms), 80ms);
+      --motion-y: 14px;
+    }
+
+    .motion-target[data-motion='left'],
+    .motion-target[data-motion='right'] {
+      --motion-x: 0px;
+      --motion-y: 14px;
+    }
+
+    .motion-target[data-motion='image'] { --motion-duration: 560ms; --motion-y: 12px; --motion-scale: 0.992; }
+    .motion-target[data-motion='card'] { --motion-duration: 480ms; --motion-y: 14px; }
+    .motion-target[data-motion='row'] { --motion-duration: 400ms; --motion-x: 0px; --motion-y: 10px; }
+    .motion-target[data-motion='fade'] { --motion-duration: 360ms; --motion-y: 0px; }
+    .motion-target[data-motion='settle'] { --motion-duration: 340ms; --motion-y: 6px; }
+
+    .care-card.motion-disclosure-opening[open] > .care-card-body,
+    .faq-item.motion-disclosure-opening[open] > .faq-answer { animation-duration: 220ms; }
+  }
+
+  @media (max-width: 900px) {
+    .motion-target[data-motion-immediate] {
+      --motion-x: 0px;
+      --motion-y: 6px;
+      --motion-scale: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .motion-target {
+      opacity: 1 !important;
+      translate: none !important;
+      scale: none !important;
+      will-change: auto !important;
+      transition: none !important;
+    }
+
+    .care-card.motion-disclosure-opening[open] > .care-card-body,
+    .faq-item.motion-disclosure-opening[open] > .faq-answer { animation: none !important; }
+  }
+}
+
+@media print {
+  .motion-target {
+    opacity: 1 !important;
+    translate: none !important;
+    scale: none !important;
+    transition: none !important;
+  }
+}

@@ -1,4 +1,5 @@
 import './language-navigation';
+import './section-motion';
 
 const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
 const mobileNav = document.querySelector<HTMLElement>('#mobile-nav');
@@ -160,38 +161,7 @@ dialog?.addEventListener('close', () => {
   galleryOpener?.focus({ preventScroll: true });
 });
 
-// Content remains visible if JavaScript or IntersectionObserver is unavailable.
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-if (!reducedMotion.matches && 'IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(
-    (entries) =>
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.replace('reveal-pending', 'reveal-visible');
-          observer.unobserve(entry.target);
-        }
-      }),
-    { threshold: 0.08 },
-  );
-  document
-    .querySelectorAll(
-      '.doctor-photo, .doctor-copy, .reviews-heading, .contact-content',
-    )
-    .forEach((element) => {
-      if (element.getBoundingClientRect().top > innerHeight) {
-        element.classList.add('reveal-pending');
-        observer.observe(element);
-      }
-    });
-  reducedMotion.addEventListener('change', (event) => {
-    if (event.matches) {
-      document
-        .querySelectorAll('.reveal-pending')
-        .forEach((el) => el.classList.remove('reveal-pending'));
-      observer.disconnect();
-    }
-  });
-}
 
 // Copy to clipboard functionality
 document.querySelectorAll<HTMLButtonElement>('.copy-btn').forEach((btn) => {
