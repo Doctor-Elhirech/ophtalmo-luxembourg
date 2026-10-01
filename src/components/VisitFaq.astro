@@ -18,13 +18,13 @@ const { t } = Astro.props;
     <p class="faq-intro">{t.faq.intro}</p>
   </div>
   <div class="faq-list">
-    {t.faq.items.map((item) => (
+    {t.faq.items.map((item, index) => (
       <details class="faq-item">
         <summary>
           <span>{item.question}</span>
           <span class="faq-toggle" aria-hidden="true" />
         </summary>
-        <div class="faq-answer">
+        <div class="faq-answer" data-nosnippet={index === 2 ? true : undefined}>
           <p>{item.answer}</p>
           {item.href && (
             <a class="text-link" href={item.href}>

@@ -4,11 +4,12 @@ interface Props {
   title: string;
   emphasis: string;
   intro: string;
+  class?: string;
 }
-const { label, title, emphasis, intro } = Astro.props;
+const { label, title, emphasis, intro, class: className } = Astro.props;
 ---
 
-<section class="page-hero container" aria-labelledby="page-title">
+<section class:list={['page-hero container', className]} aria-labelledby="page-title">
   <p class="eyebrow">{label}</p>
   <h1 id="page-title">{title}<br /><em>{emphasis}</em></h1>
   <p class="page-hero-intro">{intro}</p>

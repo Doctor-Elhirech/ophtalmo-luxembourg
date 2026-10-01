@@ -9,6 +9,8 @@
     "preview": "astro preview --host 127.0.0.1",
     "images": "node scripts/prepare-images.mjs",
     "qa": "node scripts/qa.mjs",
+    "qa:seo": "node scripts/qa-seo.mjs",
+    "seo:submit": "node scripts/submit-indexnow.mjs",
     "format": "prettier --write src scripts docs *.json *.mjs README.md"
   },
   "dependencies": {

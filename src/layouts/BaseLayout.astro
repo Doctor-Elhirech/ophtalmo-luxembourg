@@ -8,17 +8,25 @@ import { translations, localePath, pageFromPath, type Locale, type PageKey } fro
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { siteSettings } from '../config/practice';
+import { careGuides, type CareGuideId } from '../content/care-guides';
+import { absoluteUrl, pageAlternates, pagePath, sharingImage, structuredData } from '../config/seo';
 interface Props {
   locale: Locale;
   page?: PageKey;
+  guide?: CareGuideId;
 }
-const { locale, page = pageFromPath(Astro.url.pathname) } = Astro.props;
+const { locale, page = pageFromPath(Astro.url.pathname), guide } = Astro.props;
 const t = translations[locale];
-const canonical = new URL(Astro.url.pathname, siteSettings.origin);
-const pageMeta = t.pageMeta[page];
-const alternateFr = new URL(localePath('fr', page), siteSettings.origin);
-const alternateEn = new URL(localePath('en', page), siteSettings.origin);
-const alternateLb = new URL(localePath('lb', page), siteSettings.origin);
+const canonical = absoluteUrl(pagePath(locale, page, guide));
+const pageMeta = guide ? careGuides[locale][guide] : t.pageMeta[page];
+const alternates = pageAlternates(page, guide);
+const alternateFr = absoluteUrl(alternates.fr);
+const alternateEn = absoluteUrl(alternates.en);
+const alternateLb = absoluteUrl(alternates.lb);
+const graph = JSON.stringify(structuredData(locale, page, guide)).replace(/</g, '\\u003c');
+const ogLocales = { fr: 'fr_LU', en: 'en_GB', lb: 'lb_LU' };
+const googleVerification = import.meta.env.GOOGLE_SITE_VERIFICATION?.trim();
+const bingVerification = import.meta.env.BING_SITE_VERIFICATION?.trim();
 ---
 
 <!doctype html>
@@ -28,7 +36,9 @@ const alternateLb = new URL(localePath('lb', page), siteSettings.origin);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageMeta.title}</title>
     <meta name="description" content={pageMeta.description} />
-    <meta name="robots" content={siteSettings.indexable ? 'index, follow' : 'noindex, nofollow'} />
+    <meta name="robots" content={siteSettings.indexable ? 'index, follow, max-image-preview:large' : 'noindex, follow'} />
+    {googleVerification && <meta name="google-site-verification" content={googleVerification} />}
+    {bingVerification && <meta name="msvalidate.01" content={bingVerification} />}
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="fr" href={alternateFr} />
     <link rel="alternate" hreflang="en" href={alternateEn} />
@@ -38,16 +48,30 @@ const alternateLb = new URL(localePath('lb', page), siteSettings.origin);
     <meta property="og:title" content={pageMeta.title} />
     <meta property="og:description" content={pageMeta.description} />
     <meta property="og:type" content="website" />
-    <meta property="og:locale" content={locale === 'fr' ? 'fr_LU' : locale === 'lb' ? 'lb_LU' : 'en_GB'} />
+    <meta property="og:locale" content={ogLocales[locale]} />
+    {Object.entries(ogLocales).filter(([lang]) => lang !== locale).map(([, value]) => (
+      <meta property="og:locale:alternate" content={value} />
+    ))}
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={t.name} />
+    <meta property="og:image" content={sharingImage.url} />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content={String(sharingImage.width)} />
+    <meta property="og:image:height" content={String(sharingImage.height)} />
+    <meta property="og:image:alt" content={t.photos.examination} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageMeta.title} />
+    <meta name="twitter:description" content={pageMeta.description} />
+    <meta name="twitter:image" content={sharingImage.url} />
+    <meta name="twitter:image:alt" content={t.photos.examination} />
+    <script type="application/ld+json" set:html={graph} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body id="top" data-page={page}>
     <a class="skip-link" href="#main">
       {t.accessibility.skip}
     </a>
-    <Header t={t} locale={locale} currentPage={page} />
+    <Header t={t} locale={locale} currentPage={page} alternates={alternates} />
     <main id="main" tabindex="-1">
       {page !== 'home' && (
         <div class="back-home-row container">
@@ -65,7 +89,7 @@ const alternateLb = new URL(localePath('lb', page), siteSettings.origin);
       )}
       <slot />
     </main>
-    <Footer t={t} locale={locale} currentPage={page} />
+    <Footer t={t} locale={locale} currentPage={page} alternates={alternates} />
     <script src="../scripts/interactions.ts"></script>
   </body>
 </html>

@@ -5,8 +5,9 @@ interface Props {
   t: Translation;
   locale: Locale;
   currentPage?: PageKey;
+  alternates?: Record<Locale, string>;
 }
-const { t, locale, currentPage = 'home' } = Astro.props;
+const { t, locale, currentPage = 'home', alternates } = Astro.props;
 ---
 
 <footer class="site-footer">
@@ -39,7 +40,7 @@ const { t, locale, currentPage = 'home' } = Astro.props;
         <div class="language-switch" aria-label={t.accessibility.language}>
           {locales.map((lang) => (
             <a
-              href={localePath(lang, currentPage)}
+              href={alternates?.[lang] ?? localePath(lang, currentPage)}
               class="language-link"
               lang={lang}
               hreflang={lang}
@@ -62,7 +63,7 @@ const { t, locale, currentPage = 'home' } = Astro.props;
         <Arrow />
       </a>
     </div>
-    <p class="demo-note">{t.footer.demo}</p>
+    <p class="demo-note"><span data-nosnippet>{t.footer.demo}</span></p>
   </div>
 </footer>
 {currentPage !== 'contact' && (

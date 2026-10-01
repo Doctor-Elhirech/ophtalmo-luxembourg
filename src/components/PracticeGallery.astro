@@ -35,7 +35,7 @@ const captions = compact
       )}
     </div>
     <div class="practice-heading-aside">
-      <p class="section-description">{compact ? t.practiceSection.intro : t.practicePage.galleryIntro}</p>
+      <p class="section-description">{compact ? t.practiceSection.intro : <span data-nosnippet>{t.practicePage.galleryIntro}</span>}</p>
       {compact && (
         <a class="text-link section-more-link" href={localePath(locale, 'practice')}>
           {t.practiceSection.more}<Arrow />
@@ -72,7 +72,7 @@ const captions = compact
       </figure>
     ))}
     {!compact && (
-      <div class="gallery-item gallery-item-3 practice-gallery-slot">
+      <div class="gallery-item gallery-item-3 practice-gallery-slot" data-nosnippet>
         <div class="practice-gallery-slot-visual">
           <span class="practice-gallery-slot-symbol" aria-hidden="true"></span>
           <span>{t.practicePage.gallerySlotLabel}</span>

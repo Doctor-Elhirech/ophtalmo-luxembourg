@@ -24,7 +24,7 @@ const qualifications = compact ? t.doctorSection.qualifications.slice(0, 2) : t.
 <section id="doctor" class="doctor-section container section-space" aria-labelledby="doctor-title">
   <figure class="doctor-photo">
     <Photo slot="consultation" t={t} />
-    <figcaption>{t.doctorSection.caption}</figcaption>
+    <figcaption><span data-nosnippet>{t.doctorSection.caption}</span></figcaption>
   </figure>
   <div class="doctor-copy">
     <p class="eyebrow">{t.doctorSection.label}</p>

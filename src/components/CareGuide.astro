@@ -1,0 +1,165 @@
+---
+import type { Locale, Translation } from '../content/translations';
+import { localePath } from '../content/translations';
+import { careGuideIds, careGuides, careGuidePath, careGuideUi, type CareGuideId } from '../content/care-guides';
+import PageHero from './PageHero.astro';
+import BookingOptions from './BookingOptions.astro';
+import Arrow from './Arrow.astro';
+
+interface Props { locale: Locale; t: Translation; guide: CareGuideId }
+const { locale, t, guide } = Astro.props;
+const entry = careGuides[locale][guide];
+const ui = careGuideUi[locale];
+const related = careGuideIds.filter((id) => id !== guide);
+---
+
+<nav class="guide-breadcrumb container" aria-label={ui.breadcrumb}>
+  <ol>
+    <li><a href={localePath(locale)}>{t.nav.home}</a></li>
+    <li><a href={localePath(locale, 'expertise')}>{t.nav.expertise}</a></li>
+    <li aria-current="page">{entry.name}</li>
+  </ol>
+</nav>
+
+<PageHero class="care-guide-hero" label={entry.heroLabel} title={entry.heroTitle} emphasis={entry.heroEmphasis} intro={entry.intro} />
+
+<div class="guide-layout container">
+  <aside class="guide-sidebar">
+    <nav aria-label={ui.contents}>
+      <p class="eyebrow">{ui.contents}</p>
+      <ol class="guide-contents">
+        {entry.sections.map((section, index) => (
+          <li><a href={`#guide-section-${index + 1}`}>{section.heading}</a></li>
+        ))}
+        <li><a href="#guide-questions">{ui.questions}</a></li>
+      </ol>
+    </nav>
+    <div class="guide-context">
+      <p>{entry.profileNote}</p>
+      <a class="text-link" href={t.profileUrl} target="_blank" rel="noopener noreferrer">{ui.profile}<Arrow diagonal /></a>
+      <p class="guide-information">{ui.information}</p>
+    </div>
+  </aside>
+
+  <article class="guide-content" aria-label={entry.name}>
+    {entry.sections.map((section, index) => (
+      <section class="guide-section" id={`guide-section-${index + 1}`} aria-labelledby={`guide-heading-${index + 1}`}>
+        <h2 id={`guide-heading-${index + 1}`}>{section.heading}</h2>
+        {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        {section.bullets && <ul class="guide-bullets">{section.bullets.map((bullet) => <li>{bullet}</li>)}</ul>}
+        {section.source && (
+          <p class="guide-source">
+            <span>{ui.source} : </span>
+            <a href={section.source.url} target="_blank" rel="noopener noreferrer">{section.source.label}</a>
+          </p>
+        )}
+      </section>
+    ))}
+
+    <section class="guide-section guide-questions" id="guide-questions" aria-labelledby="guide-questions-title">
+      <h2 id="guide-questions-title">{ui.questions}</h2>
+      {entry.questions.map((question) => (
+        <details class="guide-question">
+          <summary>{question.question}<span aria-hidden="true">+</span></summary>
+          <div>
+            <p>{question.answer}</p>
+            {question.source && (
+              <p class="guide-source">
+                <span>{ui.source} : </span>
+                <a href={question.source.url} target="_blank" rel="noopener noreferrer">{question.source.label}</a>
+              </p>
+            )}
+          </div>
+        </details>
+      ))}
+    </section>
+  </article>
+</div>
+
+<section class="guide-next container" aria-labelledby="guide-practical-title">
+  <div>
+    <h2 id="guide-practical-title">{ui.practical}</h2>
+    <ul class="guide-practical-links">
+      <li><a class="text-link" href={localePath(locale, 'doctor')}>{ui.doctor}<Arrow /></a></li>
+      <li><a class="text-link" href={localePath(locale, 'practice')}>{ui.practice}<Arrow /></a></li>
+      <li><a class="text-link" href={localePath(locale, 'contact')}>{ui.contact}<Arrow /></a></li>
+    </ul>
+  </div>
+  <div>
+    <p class="eyebrow">{ui.related}</p>
+    <ul class="guide-related">
+      {related.map((id) => (
+        <li><a class="text-link" href={careGuidePath(locale, id)}><span>{careGuides[locale][id].name}</span><Arrow /></a></li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<section class="detail-booking-band">
+  <div class="container detail-booking-layout">
+    <div>
+      <p class="eyebrow">{t.appointment.label}</p>
+      <h2>{ui.booking}</h2>
+      <p>{entry.bookingIntro}</p>
+    </div>
+    <BookingOptions t={t} />
+  </div>
+</section>
+
+<style>
+  :global(.care-guide-hero h1) { overflow-wrap: anywhere; }
+  .guide-breadcrumb { padding-top: 28px; color: var(--muted); font-size: 14px; }
+  .guide-breadcrumb ol { display: flex; flex-wrap: wrap; gap: 8px 12px; }
+  .guide-breadcrumb li + li::before { content: '/'; margin-right: 12px; color: var(--gold-ink); }
+  .guide-layout { display: grid; grid-template-columns: minmax(210px, .7fr) minmax(0, 1.65fr); gap: clamp(36px, 7vw, 112px); padding-bottom: clamp(64px, 8vw, 112px); }
+  .guide-sidebar { align-self: start; min-width: 0; }
+  .guide-contents { display: grid; margin-top: 22px; border-top: 1px solid var(--line); }
+  .guide-contents a { display: block; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14px; line-height: 1.55; }
+  .guide-context { margin-top: 32px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+  .guide-context > a { display: inline-flex; align-items: center; gap: 10px; margin-top: 14px; color: var(--forest); text-decoration: underline; text-underline-offset: 4px; }
+  .guide-context :global(.arrow) { width: 18px; height: 18px; flex-shrink: 0; }
+  .guide-information { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .guide-content { min-width: 0; }
+  .guide-section { padding: 32px 0 38px; border-top: 1px solid var(--line); }
+  .guide-section h2, .guide-next h2 { font-size: clamp(30px, 3vw, 46px); line-height: 1.15; }
+  .guide-section h2 { margin-bottom: 22px; }
+  .guide-section p + p { margin-top: 16px; }
+  .guide-section > p, .guide-bullets, .guide-question p { color: var(--muted); }
+  .guide-bullets { display: grid; gap: 10px; list-style: disc; padding-left: 22px; margin-top: 22px; }
+  .guide-section .guide-source { margin-top: 22px; font-size: 14px; line-height: 1.65; }
+  .guide-source a { color: var(--gold-ink); text-decoration: underline; text-underline-offset: 3px; overflow-wrap: anywhere; }
+  .guide-questions { padding-bottom: 0; }
+  .guide-question { border-bottom: 1px solid var(--line); }
+  .guide-question summary { display: flex; justify-content: space-between; align-items: baseline; gap: 22px; padding: 20px 0; cursor: pointer; list-style: none; font-size: 17px; }
+  .guide-question summary::-webkit-details-marker { display: none; }
+  .guide-question summary span { flex-shrink: 0; color: var(--gold-ink); font-size: 24px; line-height: 1; }
+  .guide-question[open] summary span { transform: rotate(45deg); }
+  .guide-question > div { padding: 0 0 24px; }
+  .guide-next { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 7vw, 112px); padding-bottom: var(--section); }
+  .guide-practical-links { display: grid; gap: 18px; margin-top: 28px; }
+  .guide-practical-links a { max-width: 100%; }
+  .guide-practical-links :global(.arrow) { flex-shrink: 0; }
+  .guide-related { display: grid; margin-top: 22px; border-top: 1px solid var(--line); }
+  .guide-related a { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+  .guide-related :global(.arrow) { flex-shrink: 0; width: 24px; height: 24px; }
+  @media (hover: hover) and (pointer: fine) {
+    .guide-breadcrumb a:hover { color: var(--forest); text-decoration: underline; text-underline-offset: 4px; }
+    .guide-contents a:hover, .guide-related a:hover { color: var(--gold-ink); }
+  }
+  @media (max-width: 900px) {
+    .guide-layout { grid-template-columns: 1fr; gap: 38px; }
+    .guide-sidebar { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .guide-context { margin-top: 0; }
+    .guide-section p { max-width: none; }
+  }
+  @media (max-width: 600px) {
+    :global(.care-guide-hero h1) { font-size: clamp(34px, 10vw, 48px); }
+    .guide-breadcrumb { padding-top: 22px; }
+    .guide-sidebar, .guide-next { grid-template-columns: 1fr; }
+    .guide-context { max-width: 65ch; }
+    .guide-section { padding: 28px 0 32px; }
+    .guide-question summary { font-size: 16px; }
+    .guide-next { gap: 42px; }
+    .guide-practical-links a { font-size: 14px; }
+  }
+</style>

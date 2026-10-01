@@ -20,13 +20,13 @@ const { t } = Astro.props;
       </h1>
     </div>
     <div class="hero-intro">
-      <p>{t.hero.intro}</p>
+      <p><span data-nosnippet>{t.hero.intro}</span></p>
       <p class="hero-provider">{t.hero.provider}</p>
       <BookingLink t={t} />
       <a class="hero-secondary-booking" href={t.doctipro.bookingUrl} target="_blank" rel="noopener noreferrer">
         {t.appointment.alternativeBooking} <Arrow diagonal />
       </a>
-      <span class="trust-cue">{t.hero.trustCue}</span>
+      <span class="trust-cue" data-nosnippet>{t.hero.trustCue}</span>
     </div>
   </div>
   <figure class="hero-figure container">

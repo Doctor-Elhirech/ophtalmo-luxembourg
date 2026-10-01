@@ -1,10 +1,16 @@
 ---
 import type { Locale, Translation } from '../content/translations';
 import { localePath } from '../content/translations';
+import { careGuides, careGuidePath, type CareGuideId } from '../content/care-guides';
 import BookingOptions from './BookingOptions.astro';
 import Arrow from './Arrow.astro';
 interface Props { t: Translation; locale: Locale }
 const { t, locale } = Astro.props;
+const guideForCard: Partial<Record<number, CareGuideId>> = {
+  0: 'eye-examination',
+  2: 'glasses-contact-lenses',
+  3: 'cataract',
+};
 ---
 
 <section class="detail-page container">
@@ -22,7 +28,7 @@ const { t, locale } = Astro.props;
             <span class="item-number" aria-hidden="true">{t.numbers[index]}</span>
             <span class="care-card-title">{item.title}</span>
           </span>
-          <span class="care-card-preview">{item.text}</span>
+          <span class="care-card-preview" data-nosnippet={index === 1 ? true : undefined}>{item.text}</span>
           <span class="care-card-action" aria-hidden="true">
             <span class="care-card-open-label">{t.expertisePage.expandLabel}</span>
             <span class="care-card-close-label">{t.expertisePage.collapseLabel}</span>
@@ -40,17 +46,27 @@ const { t, locale } = Astro.props;
               <p>{detail.text}</p>
             </div>
           ))}
+          {guideForCard[index] && (
+            <a class="text-link care-guide-link" href={careGuidePath(locale, guideForCard[index]!)}>
+              {careGuides[locale][guideForCard[index]!].name}<Arrow />
+            </a>
+          )}
         </div>
       </details>
     ))}
   </div>
 </section>
 <section class="detail-note-section container">
-  <div class="placeholder-panel">
+  <div class="placeholder-panel" data-nosnippet>
     <p class="eyebrow">{t.expertisePage.confirmationTitle}</p>
     <p>{t.expertisePage.confirmationText}</p>
   </div>
 </section>
+
+<style>
+  .care-guide-link { grid-column: 1 / -1; justify-self: start; max-width: 100%; }
+  .care-guide-link :global(.arrow) { flex-shrink: 0; }
+</style>
 <section class="detail-booking-band">
   <div class="container detail-booking-layout">
     <div>

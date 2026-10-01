@@ -10,8 +10,8 @@ const { t, locale } = Astro.props;
 <section class="doctor-story container" aria-labelledby="doctor-name">
   <figure class="doctor-story-media">
     <Photo slot="consultation" t={t} eager sizes="(max-width: 600px) 90vw, 46vw" />
-    <span class="doctor-portrait-label">{t.doctorPage.portraitSlotLabel}</span>
-    <figcaption>{t.doctorPage.photoNote}</figcaption>
+    <span class="doctor-portrait-label" data-nosnippet>{t.doctorPage.portraitSlotLabel}</span>
+    <figcaption><span data-nosnippet>{t.doctorPage.photoNote}</span></figcaption>
   </figure>
 
   <div class="doctor-story-copy">
@@ -40,7 +40,7 @@ const { t, locale } = Astro.props;
   </div>
 </section>
 
-<section class="doctor-proof container" aria-labelledby="doctor-proof-title">
+<section class="doctor-proof container" aria-labelledby="doctor-proof-title" data-nosnippet>
   <div class="doctor-proof-heading">
     <div>
       <p class="eyebrow">{t.doctorPage.proofLabel}</p>

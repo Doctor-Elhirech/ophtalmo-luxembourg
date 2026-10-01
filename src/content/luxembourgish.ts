@@ -14,9 +14,9 @@ export const lb: Translation = {
   copyright: '©',
   year: '2026',
   meta: {
-    title: 'Ophtalmo Luxembourg — Dr M’Hamed EL HIRECH, Mamer',
+    title: 'Aendokter zu Mamer, Lëtzebuerg | Dr M’Hamed EL HIRECH',
     description:
-      'Aepraxis zu Mamer. Entdeckt d’Praxis vum Dr M’Hamed EL HIRECH a maacht e Rendez-vous iwwer Doctena.',
+      'Den Dr M’Hamed EL HIRECH empfänkt Erwuessener a Kanner a senger Aepraxis zu Mamer, Lëtzebuerg. Kuckt déi fräi Rendez-vousen a reservéiert online.',
   },
   accessibility: {
     skip: 'Bei den Inhalt sprangen',
@@ -68,7 +68,7 @@ export const lb: Translation = {
     label: 'Perséinlech Betreiung',
     title: 'Zäit fir Är Aen.',
     emphasis: 'Opmierksam fir Iech.',
-    text: 'Den Dr M’Hamed EL HIRECH empfänkt Iech a senger Aepraxis zu Mamer.',
+    text: 'Den Dr M’Hamed EL HIRECH, Aendokter zu Mamer, Lëtzebuerg, empfänkt Iech fir Är Siicht an d’Gesondheet vun Ären Aen.',
   },
   doctorSection: {
     label: 'Ären Aendokter',
@@ -92,7 +92,7 @@ export const lb: Translation = {
     label: 'Beräicher vun der Aebetreiung',
     title: 'Fir all Alter,',
     emphasis: 'Är Siicht.',
-    intro: 'Consultatiounen a Fachberäicher vum Dr M’Hamed EL HIRECH.',
+    intro: 'Entdeckt d’Fachberäicher vun Ärem Aendokter zu Mamer.',
     items: [
       { name: 'Allgemeng Ophtalmologie', detail: 'Consultatiounen iwwer d’Aen an d’Siicht' },
       { name: 'Ophtalmologie fir Kanner', detail: 'Kanner, och Neigebueren' },
@@ -212,37 +212,37 @@ export const lb: Translation = {
   },
   pageMeta: {
     home: {
-      title: 'Ophtalmo Luxembourg — Dr M’Hamed EL HIRECH, Mamer',
+      title: 'Aendokter zu Mamer, Lëtzebuerg | Dr M’Hamed EL HIRECH',
       description:
-        'Aepraxis zu Mamer. Entdeckt d’Praxis vum Dr M’Hamed EL HIRECH a reservéiert iwwer Doctena oder Doctipro.',
+        'Den Dr M’Hamed EL HIRECH empfänkt Erwuessener a Kanner a senger Aepraxis zu Mamer, Lëtzebuerg. Kuckt déi fräi Rendez-vousen a reservéiert online.',
     },
     doctor: {
-      title: 'Den Dokter — Dr M’Hamed EL HIRECH | Ophtalmo Luxembourg',
+      title: 'Dr M’Hamed EL HIRECH | Aendokter zu Mamer',
       description:
-        'Liest iwwer de publizéierte beruffleche Wee vum Dr M’Hamed EL HIRECH an iwwer d’Informatiounen, déi nach ze bestätege sinn.',
+        'Léiert den Dr M’Hamed EL HIRECH, Aendokter zu Mamer, kennen: seng Ausbildung zu Besançon, seng Spidolserfarung a Frankräich a seng berufflech Profiller.',
     },
     expertise: {
-      title: 'Aebetreiung & Leeschtungen — Ophtalmo Luxembourg zu Mamer',
+      title: 'Aebetreiung zu Mamer | Ophtalmo Luxembourg',
       description:
-        'Déi publizéiert Beräicher vun der Aebetreiung fir Erwuessener a Kanner, mat Detailer, déi d’Praxis nach bestätege muss.',
+        'Aebetreiung fir Erwuessener a Kanner, Brëller a Kontaktlënsen: entdeckt d’Fachberäicher vum Dr M’Hamed EL HIRECH zu Mamer, Lëtzebuerg.',
     },
     practice: {
-      title: 'D’Praxis an Äre Besuch — Ophtalmo Luxembourg',
+      title: 'Aepraxis zu Mamer | Ophtalmo Luxembourg',
       description:
-        'Bereet Äre Besuch an der Aepraxis zu Mamer vir an entdeckt, wéi e Rendez-vous ofleeft.',
+        'Entdeckt d’Aepraxis vum Dr M’Hamed EL HIRECH op der 110 Route d’Arlon zu Mamer, Lëtzebuerg. Kuckt d’Fotoen a bereet Äre Besuch vir.',
     },
     contact: {
-      title: 'Adress, Ëffnungszäiten a Rendez-vous — Ophtalmo Luxembourg',
+      title: 'Rendez-vous beim Aendokter zu Mamer | Wee & Kontakt',
       description:
-        'Adress, Telefonsnummer, ugewise Ëffnungszäiten a Linke fir e Rendez-vous an der Aepraxis zu Mamer.',
+        'Maacht e Rendez-vous beim Dr M’Hamed EL HIRECH, Aendokter zu Mamer. Fannt d’Adress, den Telefon, de Wee an d’Linke fir Doctena an Doctipro.',
     },
   },
   doctorPage: {
-    label: 'Den Dokter',
+    label: 'Ären Aendokter zu Mamer',
     title: 'Medezinesch Erfarung.',
     emphasis: 'Perséinlech Betreiung.',
     intro:
-      'Léiert den Dr M’Hamed EL HIRECH kennen, Aendokter zu Mamer. Entdeckt säi publizéierte beruffleche Wee a seng Profiller.',
+      'Léiert den Dr M’Hamed EL HIRECH kennen, Aendokter zu Mamer, Lëtzebuerg. Entdeckt seng Ausbildung a seng Spidolserfarung.',
     portraitSlotLabel: 'Portrait vum Dokter derbäisetzen',
     photoNote:
       'Aktuell Foto vun der Praxis. Duerch en aktuelle Portrait vum Dokter am Héichformat ersetzen, deen hien zougestëmmt huet.',
@@ -281,11 +281,11 @@ export const lb: Translation = {
     nextCare: 'Leeschtungen ukucken',
   },
   expertisePage: {
-    label: 'Aebetreiung & Leeschtungen',
+    label: 'Ophtalmologie & Aebetreiung',
     title: 'Eng kloer Siicht',
     emphasis: 'op all Schrëtt.',
     intro:
-      'Entdeckt déi publizéiert Beräicher vun der Aebetreiung beim Dr M’Hamed EL HIRECH zu Mamer.',
+      'Siicht, Brëller a Kontaktlënsen: entdeckt d’Fachberäicher vum Dr M’Hamed EL HIRECH, Aendokter zu Mamer.',
     publishedNote:
       'Dës Texter erklären déi genannte Beräicher am Allgemengen. D’Praxis muss nach bestätegen, wéi eng Ënnersichungen a Behandlungen zu Mamer ugebuede ginn.',
     detailsTitle: 'Genannte Fachberäicher',
@@ -361,11 +361,11 @@ export const lb: Translation = {
     appointmentLabel: 'Rendez-vous auswielen',
   },
   practicePage: {
-    label: 'D’Praxis & Äre Besuch',
+    label: 'D’Praxis zu Mamer',
     title: 'Ier Dir kommt,',
     emphasis: 'wësst Dir, wat Iech erwaart.',
     intro:
-      'Fannt d’Adress, entdeckt d’Raim vun der Praxis a kuckt déi wichtegst Schrëtt fir Äre Besuch zu Mamer.',
+      'Entdeckt d’Raim vun der Aepraxis op der 110 Route d’Arlon zu Mamer a bereet Äre Besuch vir.',
     arrivalTitle: 'Bei d’Praxis kommen',
     arrivalHeading: 'Hei fannt Dir eis zu Mamer.',
     entrancePhotoLabel: 'Foto vun der Entrée aktualiséieren',
@@ -395,11 +395,11 @@ export const lb: Translation = {
     bookingIntro: 'Kuckt déi fräi Rendez-vousen a reservéiert op der Plattform vun Ärer Wiel.',
   },
   contactPage: {
-    label: 'Adress & Rendez-vous',
+    label: 'Rendez-vous zu Mamer',
     title: 'Äre Besuch.',
     emphasis: 'Gutt virbereet.',
     intro:
-      'Reservéiert online oder fannt déi praktesch Informatioune fir Äre Besuch an der Praxis zu Mamer.',
+      'Maacht e Rendez-vous bei Ärem Aendokter zu Mamer a fannt d’Adress, d’Telefonsnummer an de Wee bei d’Praxis.',
     bookingTitle: 'Online reservéieren',
     bookingPanelTitle: 'Wielt Är Plattform',
     bookingText:

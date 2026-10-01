@@ -47,7 +47,7 @@ const { t } = Astro.props;
       <a class="contact-info-email" href={`mailto:${t.email}`}>{t.email}</a>
     </div>
 
-    <div class="contact-info-card">
+    <div class="contact-info-card" data-nosnippet>
       <h3>{t.contactSection.hoursLabel}</h3>
       <div class="contact-info-hours">
         <span>{t.contactSection.hoursSaturday}</span>

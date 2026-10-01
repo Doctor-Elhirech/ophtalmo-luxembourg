@@ -43,9 +43,9 @@ const fr = {
   ...common,
   doctipro: practice.doctipro.fr,
   meta: {
-    title: 'Ophtalmo Luxembourg — Dr M’Hamed EL HIRECH, Mamer',
+    title: 'Ophtalmologue à Mamer, Luxembourg | Dr M’Hamed EL HIRECH',
     description:
-      'Cabinet d’ophtalmologie à Mamer. Découvrez le cabinet du Dr M’Hamed EL HIRECH et prenez rendez-vous sur Doctena.',
+      'Le Dr M’Hamed EL HIRECH, ophtalmologue à Mamer, au Luxembourg, reçoit adultes et enfants. Consultez les disponibilités et réservez en ligne.',
   },
   accessibility: {
     skip: 'Aller au contenu',
@@ -97,7 +97,7 @@ const fr = {
     label: 'Une attention personnelle',
     title: 'Votre regard mérite',
     emphasis: 'toute notre attention.',
-    text: 'Le Dr M’Hamed EL HIRECH vous reçoit dans son cabinet d’ophtalmologie à Mamer.',
+    text: 'Le Dr M’Hamed EL HIRECH, ophtalmologue à Mamer, au Luxembourg, vous reçoit pour la vision et la santé des yeux.',
   },
   doctorSection: {
     label: 'Votre ophtalmologue',
@@ -121,7 +121,7 @@ const fr = {
     label: 'Les domaines de consultation',
     title: 'À chaque âge,',
     emphasis: 'votre vision.',
-    intro: 'Consultations et spécialités du Dr M’Hamed EL HIRECH.',
+    intro: 'Les domaines de consultation de votre ophtalmologue à Mamer.',
     items: [
       { name: 'Ophtalmologie générale', detail: 'Consultation ophtalmologique' },
       { name: 'Ophtalmologie pédiatrique', detail: 'Enfants, y compris les nouveau-nés' },
@@ -242,31 +242,31 @@ const fr = {
   },
   pageMeta: {
     home: {
-      title: 'Ophtalmo Luxembourg — Dr M’Hamed EL HIRECH, Mamer',
-      description: 'Cabinet d’ophtalmologie à Mamer. Découvrez le cabinet du Dr M’Hamed EL HIRECH et prenez rendez-vous sur Doctena ou Doctipro.',
+      title: 'Ophtalmologue à Mamer, Luxembourg | Dr M’Hamed EL HIRECH',
+      description: 'Le Dr M’Hamed EL HIRECH, ophtalmologue à Mamer, au Luxembourg, reçoit adultes et enfants. Consultez les disponibilités et réservez en ligne.',
     },
     doctor: {
-      title: 'Le médecin — Dr M’Hamed EL HIRECH | Ophtalmo Luxembourg',
-      description: 'Découvrez le parcours publié du Dr M’Hamed EL HIRECH et les informations à confirmer pour le site final.',
+      title: 'Dr M’Hamed EL HIRECH | Ophtalmologue à Mamer',
+      description: 'Découvrez le parcours du Dr M’Hamed EL HIRECH, ophtalmologue à Mamer : formation à Besançon, expérience hospitalière en France et profils professionnels.',
     },
     expertise: {
-      title: 'Expertises — Ophtalmo Luxembourg à Mamer',
-      description: 'Les domaines de consultation annoncés pour les adultes et les enfants, avec des informations à confirmer par le cabinet.',
+      title: 'Soins des yeux à Mamer | Ophtalmo Luxembourg',
+      description: 'Ophtalmologie générale et pédiatrique, lunettes et lentilles : découvrez les domaines de consultation du Dr M’Hamed EL HIRECH à Mamer, au Luxembourg.',
     },
     practice: {
-      title: 'Le cabinet et votre visite — Ophtalmo Luxembourg',
-      description: 'Préparez votre visite au cabinet d’ophtalmologie de Mamer et découvrez le parcours de rendez-vous.',
+      title: 'Cabinet d’ophtalmologie à Mamer | Ophtalmo Luxembourg',
+      description: 'Visitez en images le cabinet d’ophtalmologie du Dr M’Hamed EL HIRECH au 110 Route d’Arlon, à Mamer, et préparez votre venue au Luxembourg.',
     },
     contact: {
-      title: 'Accès, horaires et rendez-vous — Ophtalmo Luxembourg',
-      description: 'Adresse, téléphone, horaires affichés et liens de réservation pour le cabinet d’ophtalmologie à Mamer.',
+      title: 'Rendez-vous ophtalmologue à Mamer | Accès & contact',
+      description: 'Prenez rendez-vous avec le Dr M’Hamed EL HIRECH, ophtalmologue à Mamer. Téléphone, adresse, itinéraire et réservation sur Doctena ou Doctipro.',
     },
   },
   doctorPage: {
-    label: 'Le médecin',
+    label: 'Votre ophtalmologue à Mamer',
     title: 'Un parcours médical.',
     emphasis: 'Une présence attentive.',
-    intro: 'Rencontrez le Dr M’Hamed EL HIRECH, ophtalmologue à Mamer. Découvrez son parcours publié et ses profils professionnels.',
+    intro: 'Rencontrez le Dr M’Hamed EL HIRECH, ophtalmologue à Mamer, au Luxembourg. Découvrez sa formation et son parcours hospitalier.',
     portraitSlotLabel: 'Portrait du médecin à ajouter',
     photoNote: 'Photo actuelle du cabinet. À remplacer par un portrait professionnel approuvé du médecin, au format vertical.',
     profileTitle: 'Parcours publié',
@@ -301,10 +301,10 @@ const fr = {
   // Care-area names come from the doctor's Doctena profile. Expanded text explains
   // the topics generally, using NEI/NHS patient information; practice details need approval.
   expertisePage: {
-    label: 'Soins & expertises',
+    label: 'Soins ophtalmologiques',
     title: 'Une vision claire',
     emphasis: 'à chaque étape.',
-    intro: 'Découvrez les domaines de consultation publiés pour le Dr M’Hamed EL HIRECH à Mamer.',
+    intro: 'Vision, lunettes et lentilles : découvrez les domaines de consultation du Dr M’Hamed EL HIRECH, ophtalmologue à Mamer.',
     publishedNote: 'Ces explications présentent les soins de façon générale. Les examens et les interventions proposés à Mamer restent à confirmer avec le cabinet.',
     detailsTitle: 'Domaines annoncés',
     expandLabel: 'En savoir plus',
@@ -351,10 +351,10 @@ const fr = {
     appointmentLabel: 'Choisir un rendez-vous',
   },
   practicePage: {
-    label: 'Le cabinet & votre visite',
+    label: 'Le cabinet à Mamer',
     title: 'Avant de venir,',
     emphasis: 'savoir où vous allez.',
-    intro: 'Retrouvez l’adresse, les espaces du cabinet et les étapes essentielles de votre venue à Mamer.',
+    intro: 'Découvrez les espaces du cabinet d’ophtalmologie au 110 Route d’Arlon à Mamer et préparez votre visite.',
     arrivalTitle: 'Venir au cabinet',
     arrivalHeading: 'Nous trouver à Mamer.',
     entrancePhotoLabel: 'Photo de l’entrée à actualiser',
@@ -375,10 +375,10 @@ const fr = {
     bookingIntro: 'Consultez les disponibilités et réservez sur la plateforme de votre choix.',
   },
   contactPage: {
-    label: 'Accès & rendez-vous',
+    label: 'Accès & rendez-vous à Mamer',
     title: 'Prenez rendez‑vous.',
     emphasis: 'Préparez votre visite.',
-    intro: 'Réservez en ligne ou retrouvez les informations utiles pour votre visite au cabinet de Mamer.',
+    intro: 'Prenez rendez-vous avec votre ophtalmologue à Mamer et retrouvez l’adresse, le téléphone et l’itinéraire du cabinet.',
     bookingTitle: 'Réserver en ligne',
     bookingPanelTitle: 'Choisissez votre plateforme',
     bookingText: 'Consultez les disponibilités et terminez votre réservation sur la plateforme de votre choix.',
@@ -404,9 +404,9 @@ const en: typeof fr = {
   ...common,
   doctipro: practice.doctipro.en,
   meta: {
-    title: 'Ophtalmo Luxembourg — Dr M’Hamed EL HIRECH, Mamer',
+    title: 'Ophthalmologist in Mamer, Luxembourg | Dr M’Hamed EL HIRECH',
     description:
-      'Ophthalmology practice in Mamer, Luxembourg. Discover Dr M’Hamed EL HIRECH’s practice and book your appointment through Doctena.',
+      'Dr M’Hamed EL HIRECH provides eye consultations for adults and children in Mamer, Luxembourg. View the practice and book an appointment online.',
   },
   accessibility: {
     skip: 'Skip to content',
@@ -458,7 +458,7 @@ const en: typeof fr = {
     label: 'Personal attention',
     title: 'Your vision deserves',
     emphasis: 'our full attention.',
-    text: 'Dr M’Hamed EL HIRECH welcomes you to his ophthalmology practice in Mamer.',
+    text: 'Dr M’Hamed EL HIRECH, an English-speaking ophthalmologist, welcomes you to his practice in Mamer, Luxembourg.',
   },
   doctorSection: {
     label: 'Your ophthalmologist',
@@ -482,7 +482,7 @@ const en: typeof fr = {
     label: 'Areas of expertise',
     title: 'At every age,',
     emphasis: 'your vision.',
-    intro: 'Consultations and specialties offered by Dr M’Hamed EL HIRECH.',
+    intro: 'Explore the care areas of your ophthalmologist in Mamer.',
     items: [
       { name: 'General ophthalmology', detail: 'Eye consultations' },
       { name: 'Paediatric ophthalmology', detail: 'Children, including newborns' },
@@ -602,31 +602,31 @@ const en: typeof fr = {
   },
   pageMeta: {
     home: {
-      title: 'Ophtalmo Luxembourg — Dr M’Hamed EL HIRECH, Mamer',
-      description: 'Ophthalmology practice in Mamer. Discover Dr M’Hamed EL HIRECH’s practice and book through Doctena or Doctipro.',
+      title: 'Ophthalmologist in Mamer, Luxembourg | Dr M’Hamed EL HIRECH',
+      description: 'Dr M’Hamed EL HIRECH provides eye consultations for adults and children in Mamer, Luxembourg. View the practice and book an appointment online.',
     },
     doctor: {
-      title: 'The doctor — Dr M’Hamed EL HIRECH | Ophtalmo Luxembourg',
-      description: 'Discover the published background of Dr M’Hamed EL HIRECH and the information to confirm for the final website.',
+      title: 'Dr M’Hamed EL HIRECH | Ophthalmologist in Mamer',
+      description: 'Meet Dr M’Hamed EL HIRECH, ophthalmologist in Mamer, Luxembourg. Explore his training in Besançon, hospital background in France and professional profiles.',
     },
     expertise: {
-      title: 'Care & expertise — Ophtalmo Luxembourg in Mamer',
-      description: 'The consultation areas announced for adults and children, with details to confirm with the practice.',
+      title: 'Eye Care in Mamer | Ophtalmo Luxembourg',
+      description: 'Explore general and paediatric ophthalmology, glasses and contact lenses with Dr M’Hamed EL HIRECH in Mamer, Luxembourg. Learn about the areas of care.',
     },
     practice: {
-      title: 'The practice and your visit — Ophtalmo Luxembourg',
-      description: 'Prepare your visit to the ophthalmology practice in Mamer and follow the appointment journey.',
+      title: 'Ophthalmology Practice in Mamer | Ophtalmo Luxembourg',
+      description: 'See Dr M’Hamed EL HIRECH’s ophthalmology practice at 110 Route d’Arlon in Mamer, Luxembourg. Explore the consultation spaces and prepare for your visit.',
     },
     contact: {
-      title: 'Access, hours and appointments — Ophtalmo Luxembourg',
-      description: 'Address, phone, displayed hours and booking links for the ophthalmology practice in Mamer.',
+      title: 'Ophthalmology Appointments in Mamer | Contact',
+      description: 'Book an appointment with Dr M’Hamed EL HIRECH, ophthalmologist in Mamer. Find the address, phone, directions and booking links for Doctena and Doctipro.',
     },
   },
   doctorPage: {
-    label: 'The doctor',
+    label: 'Your ophthalmologist in Mamer',
     title: 'Medical expertise.',
     emphasis: 'Personal attention.',
-    intro: 'Meet Dr M’Hamed EL HIRECH, an ophthalmologist in Mamer. Explore his published background and professional profiles.',
+    intro: 'Meet Dr M’Hamed EL HIRECH, an ophthalmologist in Mamer, Luxembourg. Explore his medical training and hospital background.',
     portraitSlotLabel: 'Doctor portrait to add',
     photoNote: 'Current practice photo. Replace with an approved, upright professional portrait of the doctor.',
     profileTitle: 'Published background',
@@ -659,10 +659,10 @@ const en: typeof fr = {
     nextCare: 'View care areas',
   },
   expertisePage: {
-    label: 'Care & expertise',
+    label: 'Ophthalmology & eye care',
     title: 'Clear guidance',
     emphasis: 'at every step.',
-    intro: 'Explore the areas of care published for Dr M’Hamed EL HIRECH in Mamer.',
+    intro: 'Vision, glasses and contact lenses: explore the care areas of Dr M’Hamed EL HIRECH, ophthalmologist in Mamer.',
     publishedNote: 'These are general explanations of the listed care areas. The practice still needs to confirm which examinations and procedures are available in Mamer.',
     detailsTitle: 'Announced care areas',
     expandLabel: 'Learn more',
@@ -709,10 +709,10 @@ const en: typeof fr = {
     appointmentLabel: 'Choose an appointment',
   },
   practicePage: {
-    label: 'The practice & your visit',
+    label: 'The practice in Mamer',
     title: 'Before you arrive,',
     emphasis: 'know what to expect.',
-    intro: 'Find the address, explore the practice spaces and follow the essential steps for your visit in Mamer.',
+    intro: 'Explore the ophthalmology practice at 110 Route d’Arlon in Mamer and prepare for your eye appointment.',
     arrivalTitle: 'Arriving at the practice',
     arrivalHeading: 'Find us in Mamer.',
     entrancePhotoLabel: 'Entrance photo to update',
@@ -733,10 +733,10 @@ const en: typeof fr = {
     bookingIntro: 'Check availability and book on the platform that suits you.',
   },
   contactPage: {
-    label: 'Access & appointments',
+    label: 'Appointments in Mamer',
     title: 'Book an appointment.',
     emphasis: 'Plan your visit.',
-    intro: 'Book online or find the practical details for your visit to the Mamer practice.',
+    intro: 'Book an appointment with your ophthalmologist in Mamer and find the practice address, phone number and directions.',
     bookingTitle: 'Book online',
     bookingPanelTitle: 'Choose a booking platform',
     bookingText: 'Check availability and complete your booking on the platform you prefer.',

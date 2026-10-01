@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CareGuide from '../../../components/CareGuide.astro';
+import { careGuideIds, careGuides, type CareGuideId } from '../../../content/care-guides';
+import { translations } from '../../../content/translations';
+
+export function getStaticPaths() {
+  return careGuideIds.map((guide) => ({ params: { slug: careGuides.en[guide].slug }, props: { guide } }));
+}
+
+interface Props { guide: CareGuideId }
+const { guide } = Astro.props;
+---
+
+<BaseLayout locale="en" page="expertise" guide={guide}>
+  <CareGuide locale="en" t={translations.en} guide={guide} />
+</BaseLayout>

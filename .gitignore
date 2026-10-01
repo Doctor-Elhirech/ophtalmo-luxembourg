@@ -4,7 +4,7 @@ dist/
 .sites-runtime/
 .env
 .env.*
-!\.env.example
+!.env.example
 test-results/
 qa/*.png
 qa/screenshots/

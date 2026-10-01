@@ -6,8 +6,9 @@ interface Props {
   t: Translation;
   locale: Locale;
   currentPage?: PageKey;
+  alternates?: Record<Locale, string>;
 }
-const { t, locale, currentPage = 'home' } = Astro.props;
+const { t, locale, currentPage = 'home', alternates } = Astro.props;
 const links = [
   ['home', t.nav.home],
   ['doctor', t.nav.doctor],
@@ -39,7 +40,7 @@ const links = [
     <div class="language-switch" aria-label={t.accessibility.language}>
       {locales.map((lang) => (
         <a
-          href={localePath(lang, currentPage)}
+          href={alternates?.[lang] ?? localePath(lang, currentPage)}
           lang={lang}
           hreflang={lang}
           class="language-link"

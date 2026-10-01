@@ -1,4 +1,5 @@
 import imageMetadata from './image-metadata.json';
+import { resolveSiteSettings } from './site.mjs';
 /** Single source of truth for factual information and external destinations. */
 export const practice = {
   name: 'Ophtalmo Luxembourg',
@@ -41,14 +42,13 @@ export const photoSlots = {
 };
 export type PhotoSlot = keyof typeof photoSlots;
 
-/** The local fallback keeps previews accurate; Netlify supplies URL during builds. */
-export const siteSettings = {
-  origin:
-    import.meta.env.PUBLIC_SITE_ORIGIN ??
-    (import.meta.env.VERCEL_URL ? `https://${import.meta.env.VERCEL_URL}` : undefined) ??
-    import.meta.env.URL ??
-    import.meta.env.DEPLOY_PRIME_URL ??
-    'http://127.0.0.1:4321',
-  indexable: false,
-  localOnly: !import.meta.env.NETLIFY && !import.meta.env.VERCEL,
-};
+export const siteSettings = resolveSiteSettings({
+  PUBLIC_SITE_ORIGIN: import.meta.env.PUBLIC_SITE_ORIGIN,
+  PUBLIC_SITE_INDEXABLE: import.meta.env.PUBLIC_SITE_INDEXABLE,
+  DEV: import.meta.env.DEV,
+  VERCEL: import.meta.env.VERCEL,
+  VERCEL_ENV: import.meta.env.VERCEL_ENV,
+  VERCEL_TARGET_ENV: import.meta.env.VERCEL_TARGET_ENV,
+  NETLIFY: import.meta.env.NETLIFY,
+  CONTEXT: import.meta.env.CONTEXT,
+});
