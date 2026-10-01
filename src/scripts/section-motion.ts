@@ -129,9 +129,13 @@ function initializeEntrances() {
     });
   });
 
-  targets.forEach((element) => {
-    const rect = element.getBoundingClientRect();
-    const focused = element.contains(document.activeElement);
+  // Read all positions before adding starting transforms, avoiding repeated layout.
+  const positions = targets.map((element) => ({
+    element,
+    rect: element.getBoundingClientRect(),
+    focused: element.contains(document.activeElement),
+  }));
+  positions.forEach(({ element, rect, focused }) => {
     // Never reanimate content restored by a language switch, history, or deep link.
     if (rect.bottom <= edges.top || focused || (rect.top < edges.bottom && !atPageStart)) return;
     if (rect.top < edges.bottom) element.dataset.motionImmediate = 'true';

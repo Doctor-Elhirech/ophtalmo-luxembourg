@@ -3,6 +3,7 @@ import type { Translation } from '../content/translations';
 import Photo from './Photo.astro';
 import BookingLink from './BookingLink.astro';
 import Arrow from './Arrow.astro';
+import { photoSizes } from '../config/photo-sizes';
 interface Props {
   t: Translation;
 }
@@ -30,7 +31,7 @@ const { t } = Astro.props;
     </div>
   </div>
   <figure class="hero-figure container">
-    <Photo slot="streetReference" t={t} eager sizes="(max-width: 767px) 100vw, 94vw" />
+    <Photo slot="streetReference" t={t} eager sizes={photoSizes.hero} />
     <figcaption>
       <span>{t.hero.caption}</span>
       <span>{t.hero.coordinate}</span>

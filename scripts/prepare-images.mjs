@@ -15,7 +15,7 @@ for (const [slot, source] of Object.entries(slots)) {
   const file = `Photos/${source}`;
   const metadata = await sharp(file).metadata();
   slotMetadata[slot] = { base: slot, width: metadata.width, height: metadata.height };
-  for (const size of [480, 960, 1600]) {
+  for (const size of [480, 640, 800, 960, 1600]) {
     const output = `public/images/${slot}-${size}.webp`;
     const info = await sharp(file)
       .rotate()

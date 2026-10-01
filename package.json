@@ -10,6 +10,9 @@
     "images": "node scripts/prepare-images.mjs",
     "qa": "node scripts/qa.mjs",
     "qa:seo": "node scripts/qa-seo.mjs",
+    "qa:performance": "node scripts/qa-performance.mjs",
+    "qa:preservation": "node scripts/qa-preservation.mjs",
+    "measure:performance": "node scripts/measure-performance.mjs",
     "seo:submit": "node scripts/submit-indexnow.mjs",
     "format": "prettier --write src scripts docs *.json *.mjs README.md"
   },

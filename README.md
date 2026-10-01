@@ -20,6 +20,7 @@ npm run build     # Optimize local photos, check types, generate static HTML
 npm run preview   # Serve the generated dist/ folder
 npm run qa        # Browser checks against http://127.0.0.1:4321
 npm run qa:seo    # Care-guide layouts, links, metadata and indexing checks
+npm run qa:performance # Responsive image sharpness, fonts and scroll behavior
 npm run format    # Format the source and documentation
 ```
 
@@ -61,6 +62,8 @@ Astro generates complete static HTML for all three languages. Literata and Plus 
 ## Replace photographs
 
 Replace the matching original in `Photos/`, keeping its filename, then run `npm run build`. Image variants and source dimensions regenerate automatically.
+
+Photos use 480, 640, 800, 960 and 1600-pixel WebP variants at the same quality setting, capped at the original resolution. Download hints in `src/config/photo-sizes.ts` match the current layout and cover crops; run `npm run qa:performance` after replacing a photograph to check its resolution. Self-hosted font declarations retain the original Latin and Latin-ext variable files for all three site languages.
 
 | Original    | Slot                   | Use                                |
 | ----------- | ---------------------- | ---------------------------------- |

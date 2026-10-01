@@ -50,6 +50,7 @@ if (siteHeader?.dataset.currentPage === 'home') {
     ['contact', document.getElementById('appointment')],
   ] as const;
   let activeFrame = 0;
+  let previousActivePage: string | undefined;
 
   const updateActivePage = () => {
     activeFrame = 0;
@@ -58,7 +59,10 @@ if (siteHeader?.dataset.currentPage === 'home') {
     for (const [page, section] of sectionPages) {
       if (section && section.getBoundingClientRect().top <= readingLine) activePage = page;
     }
-    navLinks.forEach((link) => link.classList.toggle('is-active', link.dataset.navPage === activePage));
+    if (activePage !== previousActivePage) {
+      navLinks.forEach((link) => link.classList.toggle('is-active', link.dataset.navPage === activePage));
+      previousActivePage = activePage;
+    }
   };
 
   const scheduleActivePage = () => {
@@ -192,8 +196,10 @@ if (!reducedMotion.matches) {
     const segmentCount = journeyItems.length * 2 - 1;
     const segmentSize = 1 / segmentCount;
     let ticking = false;
+    let previousProgress: number | undefined;
 
     const updateJourneyScroll = () => {
+      ticking = false;
       const vh = window.innerHeight;
       const rect = journeyList.getBoundingClientRect();
 
@@ -213,6 +219,10 @@ if (!reducedMotion.matches) {
       let globalProgress = (startTrigger - rect.top) / totalTravel;
       globalProgress = Math.max(0, Math.min(1, globalProgress));
 
+      // Outside the timeline, scrolling does not change any circle or line.
+      if (globalProgress === previousProgress) return;
+      previousProgress = globalProgress;
+
       journeyItems.forEach((item, i) => {
         // Circle is segment 0, 2, 4, 6 — maps to index * 2
         const cStart = (i * 2) * segmentSize;
@@ -228,7 +238,6 @@ if (!reducedMotion.matches) {
           item.style.setProperty('--line-progress', line.toString());
         }
       });
-      ticking = false;
     };
 
     const onScroll = () => {

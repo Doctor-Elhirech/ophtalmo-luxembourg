@@ -16,7 +16,7 @@ const {
   class: className,
 } = Astro.props;
 const photo = photoSlots[slot];
-const widths = [480, 960, 1600]
+const widths = [480, 640, 800, 960, 1600]
   .map((size) => ({ file: size, width: Math.min(size, photo.width) }))
   .filter((item, index, all) => all.findIndex((other) => other.width === item.width) === index);
 ---

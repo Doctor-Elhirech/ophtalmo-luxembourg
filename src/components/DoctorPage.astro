@@ -2,6 +2,7 @@
 import type { Locale, Translation } from '../content/translations';
 import { localePath } from '../content/translations';
 import Photo from './Photo.astro';
+import { photoSizes } from '../config/photo-sizes';
 import Arrow from './Arrow.astro';
 interface Props { t: Translation; locale: Locale }
 const { t, locale } = Astro.props;
@@ -9,7 +10,7 @@ const { t, locale } = Astro.props;
 
 <section class="doctor-story container" aria-labelledby="doctor-name">
   <figure class="doctor-story-media">
-    <Photo slot="consultation" t={t} eager sizes="(max-width: 600px) 90vw, 46vw" />
+    <Photo slot="consultation" t={t} eager sizes={photoSizes.doctor} />
     <span class="doctor-portrait-label" data-nosnippet>{t.doctorPage.portraitSlotLabel}</span>
     <figcaption><span data-nosnippet>{t.doctorPage.photoNote}</span></figcaption>
   </figure>

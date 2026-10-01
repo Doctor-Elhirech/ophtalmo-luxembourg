@@ -5,6 +5,7 @@ import PracticeGallery from './PracticeGallery.astro';
 import BookingOptions from './BookingOptions.astro';
 import Journey from './Journey.astro';
 import Photo from './Photo.astro';
+import { photoSizes } from '../config/photo-sizes';
 import Arrow from './Arrow.astro';
 interface Props { t: Translation; locale: Locale }
 const { t, locale } = Astro.props;
@@ -12,7 +13,7 @@ const { t, locale } = Astro.props;
 
 <section class="practice-arrival container" aria-labelledby="practice-arrival-title">
   <figure class="practice-arrival-media">
-    <Photo slot="exterior" t={t} eager sizes="(max-width: 600px) 90vw, (max-width: 900px) 85vw, 45vw" />
+    <Photo slot="exterior" t={t} eager sizes={photoSizes.arrival} />
     <span class="practice-arrival-photo-label" data-nosnippet>{t.practicePage.entrancePhotoLabel}</span>
     <figcaption><span data-nosnippet>{t.practicePage.entrancePhotoNote}</span></figcaption>
   </figure>

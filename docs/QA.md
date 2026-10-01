@@ -19,3 +19,35 @@ All nine care guides are exercised at 320, 375, 768, 1024, 1366 and 1920 pixels,
 The review fixed two sharing-image metadata type errors, long guide headings clipping on narrow phones, unnecessary heading hyphenation, and several Luxembourgish grammar/spelling issues. All eleven primary medical source destinations were checked. Doctipro links responded successfully; Doctena's automated-request protection prevents treating every HTTP response as a conclusive booking test.
 
 Automated accessibility checks and desktop Chromium screenshots do not replace testing on physical devices and assistive technology. The doctor should confirm provisional content, opening hours, the exact entrance and the suitability of the supplied street photo before final handoff. A fluent Luxembourgish speaker should also review the new medical wording. No real appointment was created during testing.
+
+## Performance release review — 2 October 2026
+
+The release retains the existing content, typography, colors, layout and animation durations. Changes add same-quality 640/800-pixel image variants, correct responsive download hints (including cover-crop height), retain only the original Latin/Latin-ext font declarations, batch entrance-position reads and skip unchanged navigation/timeline writes. Existing image files and original photographs are unchanged. The map already loads lazily; its behavior and the existing hosting cache policy remain unchanged. Two trial font preloads were removed because they delayed text-heavy pages in the measurements.
+
+The production build passes with 24 pages and zero errors, warnings or hints. The existing core and SEO suites pass 94 and 90 checks. `npm run qa:performance` passes 30 additional checks, covering 72 displayed photo densities, original font files/families/styles without duplicate downloads, and normal-motion navigation, entrances, timeline reversal and reduced-motion cleanup at phone, tablet and laptop widths. Content, links, accessible labels, computed typography/colors and bounding rectangles match the pre-change baseline across all 24 pages at 375, 768 and 1366 pixels (72 comparisons). Representative screenshots were also inspected.
+
+Cold Chromium measurements use a simulated 1.6 Mbps connection with 150ms latency, DPR 2 and 4x CPU throttling for phone/tablet, and DPR 1/native CPU for laptop. Each page/profile has three fresh-context runs; the table shows median LCP in milliseconds. Resource totals are encoded bodies delivered by local Astro preview, not a live Vercel PageSpeed score.
+
+| Page | Phone: before → after | Tablet: before → after | Laptop: before → after |
+| --- | --- | --- | --- |
+| French homepage | 3312 → 2788 | 3932 → 3864 | 3928 → 3816 |
+| French practice | 1272 → 1272 | 1308 → 1424 | 1652 → 1608 |
+| English eye-examination guide | 1136 → 1060 | 1168 → 1040 | 568 → 604 |
+
+The clearest measured improvement is the phone homepage: initial image bodies fall from 422,124 to 314,508 bytes (25.5%), and median LCP improves by 15.8%. The phone hero selects an 800-pixel image instead of 960 at the same encoder quality, with sufficient pixels for its displayed crop and DPR. Initial practice image bodies decrease by 10.4%, 14.6% and 24.5% on phone, tablet and laptop. The shared compressed stylesheet decreases from 14,580 to 12,035 bytes; font transfer remains the same because browsers already selected the needed font subsets. Other timing differences are small or mixed in these three-run samples; this does not establish faster rendering on every page or real-user Core Web Vitals.
+
+For another before/after review, capture a baseline before editing, then compare the optimized build using the same preview address and environment. In PowerShell:
+
+```powershell
+$env:QA_URL = 'http://127.0.0.1:4321'
+$env:PERF_LABEL = 'baseline'
+npm run measure:performance
+npm run qa:preservation
+# Make the performance changes and rebuild; keep other work idle for timed runs.
+$env:PERF_LABEL = 'final'
+npm run measure:performance
+npm run qa:preservation
+npm run qa:performance
+```
+
+Measurements, snapshots and screenshots are stored under ignored `qa/screenshots/performance/` and are not committed. The preservation comparison requires that local baseline; it is separate from the reusable performance regression suite.

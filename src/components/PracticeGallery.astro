@@ -4,6 +4,7 @@ import { localePath } from '../content/translations';
 import { photoSlots, type PhotoSlot } from '../config/practice';
 import Photo from './Photo.astro';
 import Arrow from './Arrow.astro';
+import { photoSizes } from '../config/photo-sizes';
 interface Props {
   t: Translation;
   locale: Locale;
@@ -57,7 +58,7 @@ const captions = compact
           <Photo
             slot={slot}
             t={t}
-            sizes={index === 0 ? '(max-width: 600px) 90vw, 54vw' : '(max-width: 600px) 90vw, 35vw'}
+            sizes={compact ? (slot === 'exterior' ? photoSizes.homeGalleryExterior : photoSizes.homeGallery) : photoSizes.practiceGallery}
           />
           <span class="photo-enlarge" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
