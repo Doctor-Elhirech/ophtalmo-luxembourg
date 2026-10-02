@@ -111,7 +111,7 @@ const related = careGuideIds.filter((id) => id !== guide);
   .guide-breadcrumb { padding-top: 28px; color: var(--muted); font-size: 14px; }
   .guide-breadcrumb ol { display: flex; flex-wrap: wrap; gap: 8px 12px; }
   .guide-breadcrumb li + li::before { content: '/'; margin-right: 12px; color: var(--gold-ink); }
-  .guide-layout { display: grid; grid-template-columns: minmax(210px, .7fr) minmax(0, 1.65fr); gap: clamp(36px, 7vw, 112px); padding-bottom: clamp(64px, 8vw, 112px); }
+  .guide-layout { display: grid; grid-template-columns: minmax(210px, .7fr) minmax(0, 1.65fr); gap: clamp(36px, 7vw, 112px); padding-bottom: calc(clamp(64px, 8vw, 112px) * var(--section-spacing-scale, 1)); }
   .guide-sidebar { align-self: start; min-width: 0; }
   .guide-contents { display: grid; margin-top: 22px; border-top: 1px solid var(--line); }
   .guide-contents a { display: block; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14px; line-height: 1.55; }

@@ -2,8 +2,9 @@
   /* Motion changes only opacity and composited transforms, never layout or color. */
   .motion-target {
     --motion-duration: 640ms;
+    --motion-duration-scale: 1.25;
     --motion-delay: var(--motion-stagger, 0ms);
-    --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --motion-ease: cubic-bezier(0.22, 0.65, 0.36, 1);
     --motion-x: 0px;
     --motion-y: 22px;
     --motion-scale: 1;
@@ -49,12 +50,36 @@
     --motion-duration: 440ms;
   }
 
+  .motion-target[data-motion='flip'] {
+    --motion-y: 12px;
+    --motion-opacity: 1;
+    --motion-duration: 1170ms;
+    --motion-tilt: -8deg;
+    --motion-ease: cubic-bezier(0.22, 0.65, 0.36, 1);
+    transform-origin: 50% 0;
+  }
+
+  /* The green flips and the visit timeline already have their own tuned pace. */
+  .motion-target[data-motion='flip'],
+  .journey-section .motion-target {
+    --motion-duration-scale: 1;
+  }
+
+  .journey-section .motion-target {
+    --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
   /* First-view information stays readable throughout its short entrance. */
   .motion-target[data-motion-immediate] {
     --motion-opacity: 1;
     --motion-x: 0px;
     --motion-y: 10px;
     --motion-scale: 1;
+  }
+
+  .motion-target[data-motion-immediate]:not([data-motion='flip']) {
+    --motion-duration-scale: 1;
+    --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .motion-target.motion-pending {
@@ -69,9 +94,22 @@
     scale: none;
     will-change: opacity, translate, scale;
     transition:
-      opacity var(--motion-duration) ease var(--motion-delay),
-      translate var(--motion-duration) var(--motion-ease) var(--motion-delay),
-      scale var(--motion-duration) var(--motion-ease) var(--motion-delay);
+      opacity calc(var(--motion-duration) * var(--motion-duration-scale)) ease var(--motion-delay),
+      translate calc(var(--motion-duration) * var(--motion-duration-scale)) var(--motion-ease) var(--motion-delay),
+      scale calc(var(--motion-duration) * var(--motion-duration-scale)) var(--motion-ease) var(--motion-delay);
+  }
+
+  /* Receding perspective keeps full-width green surfaces inside the viewport. */
+  .motion-target[data-motion='flip'].motion-pending {
+    transform: perspective(1600px) rotateX(var(--motion-tilt));
+  }
+
+  .motion-target[data-motion='flip'].motion-running {
+    transform: perspective(1600px) rotateX(0deg);
+    will-change: transform, translate;
+    transition:
+      transform var(--motion-duration) var(--motion-ease) var(--motion-delay),
+      translate var(--motion-duration) var(--motion-ease) var(--motion-delay);
   }
 
   .motion-target:focus-within,
@@ -80,6 +118,11 @@
     opacity: 1;
     translate: none;
     scale: none;
+    transition: none;
+  }
+
+  .motion-target[data-motion='flip']:is(:focus-within, :target, :has(:target)) {
+    transform: none;
     transition: none;
   }
 
@@ -120,6 +163,7 @@
     .motion-target[data-motion='row'] { --motion-duration: 460ms; --motion-x: 8px; --motion-y: 6px; }
     .motion-target[data-motion='fade'] { --motion-duration: 420ms; --motion-y: 0px; }
     .motion-target[data-motion='settle'] { --motion-duration: 380ms; --motion-y: 8px; }
+    .motion-target[data-motion='flip'] { --motion-duration: 1040ms; --motion-y: 10px; --motion-tilt: -6deg; }
   }
 
   @media (max-width: 600px) {
@@ -148,6 +192,7 @@
     .motion-target[data-motion='row'] { --motion-duration: 400ms; --motion-x: 0px; --motion-y: 10px; }
     .motion-target[data-motion='fade'] { --motion-duration: 360ms; --motion-y: 0px; }
     .motion-target[data-motion='settle'] { --motion-duration: 340ms; --motion-y: 6px; }
+    .motion-target[data-motion='flip'] { --motion-duration: 910ms; --motion-y: 8px; --motion-tilt: -5deg; }
 
     .care-card.motion-disclosure-opening[open] > .care-card-body,
     .faq-item.motion-disclosure-opening[open] > .faq-answer { animation-duration: 220ms; }
@@ -161,7 +206,93 @@
     }
   }
 
+  /* Opening content moves together without waiting for a scroll gesture.
+     Keep text readable, and leave green flips and the visit timeline untouched. */
+  .motion-target[data-motion-immediate]:not(:where([data-motion='flip'], .journey-section .motion-target)) {
+    --motion-duration: 860ms;
+    --motion-duration-scale: 1;
+    --motion-ease: cubic-bezier(0.22, 0.65, 0.36, 1);
+    --motion-opacity: 0.85;
+    --motion-y: 18px;
+  }
+
+  .page-hero > h1[data-motion-immediate],
+  .contact-hero-copy[data-motion-immediate] {
+    --motion-x: -26px;
+    --motion-y: 8px;
+  }
+
+  .page-hero-intro[data-motion-immediate],
+  .motion-target[data-motion='right'][data-motion-immediate] {
+    --motion-x: 26px;
+    --motion-y: 8px;
+  }
+
+  .motion-target[data-motion='image'][data-motion-immediate] {
+    --motion-scale: 0.99;
+  }
+
+  /* The homepage already has a CSS entrance: tune that rather than nesting one. */
+  .hero-heading,
+  .hero-intro {
+    --opening-distance: -26px;
+    animation-name: opening-settle;
+    animation-duration: 860ms;
+    animation-timing-function: cubic-bezier(0.22, 0.65, 0.36, 1);
+  }
+
+  .hero-intro {
+    --opening-distance: 26px;
+    animation-delay: 100ms;
+  }
+
+  @keyframes opening-settle {
+    from { opacity: 0.85; translate: var(--opening-distance) 8px; }
+    to { opacity: 1; translate: none; }
+  }
+
+  @media (max-width: 900px) {
+    .motion-target[data-motion-immediate]:not(:where([data-motion='flip'], .journey-section .motion-target)) {
+      --motion-duration: 780ms;
+      --motion-y: 14px;
+    }
+
+    .page-hero > h1[data-motion-immediate],
+    .contact-hero-copy[data-motion-immediate] { --motion-x: -16px; --motion-y: 6px; }
+
+    .page-hero-intro[data-motion-immediate],
+    .motion-target[data-motion='right'][data-motion-immediate] { --motion-x: 16px; --motion-y: 6px; }
+
+    .hero-heading,
+    .hero-intro { animation-duration: 780ms; }
+
+    .hero-heading { --opening-distance: -16px; }
+    .hero-intro { --opening-distance: 16px; }
+  }
+
+  @media (max-width: 600px) {
+    .motion-target[data-motion-immediate]:not(:where([data-motion='flip'], .journey-section .motion-target)) {
+      --motion-duration: 700ms;
+      --motion-y: 12px;
+    }
+
+    .page-hero > h1[data-motion-immediate],
+    .contact-hero-copy[data-motion-immediate] { --motion-x: -12px; --motion-y: 6px; }
+
+    .page-hero-intro[data-motion-immediate],
+    .motion-target[data-motion='right'][data-motion-immediate] { --motion-x: 12px; --motion-y: 6px; }
+
+    .hero-heading,
+    .hero-intro { animation-duration: 700ms; }
+
+    .hero-heading { --opening-distance: -12px; }
+    .hero-intro { --opening-distance: 12px; animation-delay: 80ms; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
+    .hero-heading,
+    .hero-intro { animation: none; }
+
     .motion-target {
       opacity: 1 !important;
       translate: none !important;
@@ -169,6 +300,8 @@
       will-change: auto !important;
       transition: none !important;
     }
+
+    .motion-target[data-motion='flip'] { transform: none !important; }
 
     .care-card.motion-disclosure-opening[open] > .care-card-body,
     .faq-item.motion-disclosure-opening[open] > .faq-answer { animation: none !important; }
@@ -182,4 +315,6 @@
     scale: none !important;
     transition: none !important;
   }
+
+  .motion-target[data-motion='flip'] { transform: none !important; }
 }

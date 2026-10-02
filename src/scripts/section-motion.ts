@@ -1,7 +1,7 @@
 // Section entrances share the same timing and work without a motion library.
 // Nothing is hidden until this enhancement is ready; each entrance runs once.
 export {};
-type MotionKind = 'rise' | 'left' | 'right' | 'image' | 'card' | 'row' | 'fade' | 'settle';
+type MotionKind = 'rise' | 'left' | 'right' | 'image' | 'card' | 'row' | 'fade' | 'settle' | 'flip';
 interface MotionRule {
   selector: string;
   kind: MotionKind;
@@ -9,6 +9,8 @@ interface MotionRule {
 }
 
 const motionRules: MotionRule[] = [
+  // Register green surfaces first so their content settles together, without nested entrances.
+  { selector: '.expertise-section, .appointment-section, .appointment-preview, .detail-booking-band, .contact-booking-panel, .doctor-next', kind: 'flip' },
   { selector: '.hero-figure', kind: 'image' },
   { selector: '.page-hero > .eyebrow, .page-hero > h1, .page-hero-intro', kind: 'rise', stagger: true },
   { selector: '.introduction > .eyebrow, .introduction > h2, .intro-description', kind: 'rise', stagger: true },
@@ -24,7 +26,7 @@ const motionRules: MotionRule[] = [
   { selector: '.review', kind: 'card', stagger: true },
   { selector: '.appointment-preview-layout > div:first-child, .appointment-layout > div:first-child, .detail-booking-layout > div:not(.booking-options)', kind: 'left' },
   // Animate the container, leaving its individual button hover/focus effects intact.
-  { selector: '.appointment-preview-layout > div:last-child, .appointment-actions, .detail-booking-layout > .booking-options, .contact-booking-panel', kind: 'settle' },
+  { selector: '.appointment-preview-layout > div:last-child, .appointment-actions, .detail-booking-layout > .booking-options', kind: 'settle' },
   { selector: '.doctor-proof-heading > div, .doctor-next-layout > div:first-child', kind: 'rise' },
   { selector: '.doctor-proof-heading > p', kind: 'fade' },
   { selector: '.doctor-proof-card', kind: 'card', stagger: true },
@@ -48,6 +50,12 @@ const pending = new Set<HTMLElement>();
 const running = new Set<HTMLElement>();
 const cleanupTimers = new Map<HTMLElement, number>();
 let entranceObserver: IntersectionObserver | undefined;
+let flipObserver: IntersectionObserver | undefined;
+let journeyObserver: IntersectionObserver | undefined;
+
+function isJourneyEntrance(element: HTMLElement) {
+  return element.closest('.journey-section') !== null;
+}
 
 function completeEntrance(element: HTMLElement) {
   const timer = cleanupTimers.get(element);
@@ -56,6 +64,8 @@ function completeEntrance(element: HTMLElement) {
   pending.delete(element);
   running.delete(element);
   entranceObserver?.unobserve(element);
+  flipObserver?.unobserve(element);
+  journeyObserver?.unobserve(element);
   element.classList.remove('motion-pending', 'motion-running');
   element.removeAttribute('data-motion-immediate');
 }
@@ -68,16 +78,21 @@ function reveal(element: HTMLElement, instant = false) {
   }
   pending.delete(element);
   entranceObserver?.unobserve(element);
+  flipObserver?.unobserve(element);
+  journeyObserver?.unobserve(element);
   running.add(element);
   element.classList.add('motion-running');
   element.classList.remove('motion-pending');
   // Release compositing hints when the longest entrance and its stagger finish.
-  cleanupTimers.set(element, window.setTimeout(() => completeEntrance(element), 1100));
+  const cleanupDelay = isJourneyEntrance(element) ? 1100 : 1300;
+  cleanupTimers.set(element, window.setTimeout(() => completeEntrance(element), cleanupDelay));
 }
 
 function finishAllEntrances() {
   [...pending, ...running].forEach(completeEntrance);
   entranceObserver?.disconnect();
+  flipObserver?.disconnect();
+  journeyObserver?.disconnect();
 }
 
 function viewportEdges() {
@@ -85,26 +100,50 @@ function viewportEdges() {
   const bar = document.querySelector<HTMLElement>('.mobile-contact-bar');
   const headerHeight = header?.getBoundingClientRect().height || 0;
   const barHeight = bar?.getBoundingClientRect().height || 0;
-  // Touch layouts reveal sooner, leaving time before a card reaches the reading area.
+  // Keep the original boundary for first-view readability and the visit timeline.
   const inset = window.innerWidth <= 600 ? 24 : window.innerWidth <= 900 ? 38 : 56;
-  return { top: headerHeight, bottom: window.innerHeight - barHeight - inset, barHeight, inset };
+  // Green sections have generous inner padding: wait until their content is visible.
+  // A viewport-based inset also works when a section is taller than a phone screen.
+  const usableHeight = Math.max(0, window.innerHeight - headerHeight - barHeight);
+  const entranceInset = Math.min(180, usableHeight * (window.innerWidth <= 600 ? 0.18 : 0.22));
+  const flipInset = Math.min(240, usableHeight * (window.innerWidth <= 600 ? 0.28 : 0.34));
+  return {
+    top: headerHeight,
+    bottom: window.innerHeight - barHeight - inset,
+    flipBottom: window.innerHeight - barHeight - flipInset,
+    barHeight,
+    inset,
+    entranceInset,
+    flipInset,
+  };
 }
 
 function observePending() {
   entranceObserver?.disconnect();
+  flipObserver?.disconnect();
+  journeyObserver?.disconnect();
   const edges = viewportEdges();
-  entranceObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) reveal(entry.target as HTMLElement);
-      });
-    },
-    {
-      rootMargin: `-${Math.round(edges.top)}px 0px -${Math.round(edges.barHeight + edges.inset)}px 0px`,
-      threshold: 0,
-    },
-  );
-  pending.forEach((element) => entranceObserver?.observe(element));
+  const onEnter: IntersectionObserverCallback = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) reveal(entry.target as HTMLElement);
+    });
+  };
+  entranceObserver = new IntersectionObserver(onEnter, {
+    rootMargin: `-${Math.round(edges.top)}px 0px -${Math.round(edges.barHeight + edges.entranceInset)}px 0px`,
+    threshold: 0,
+  });
+  flipObserver = new IntersectionObserver(onEnter, {
+    rootMargin: `-${Math.round(edges.top)}px 0px -${Math.round(edges.barHeight + edges.flipInset)}px 0px`,
+    threshold: 0,
+  });
+  journeyObserver = new IntersectionObserver(onEnter, {
+    rootMargin: `-${Math.round(edges.top)}px 0px -${Math.round(edges.barHeight + edges.inset)}px 0px`,
+    threshold: 0,
+  });
+  pending.forEach((element) => {
+    const observer = isJourneyEntrance(element) ? journeyObserver : element.dataset.motion === 'flip' ? flipObserver : entranceObserver;
+    observer?.observe(element);
+  });
 }
 
 function initializeEntrances() {
@@ -138,7 +177,8 @@ function initializeEntrances() {
   positions.forEach(({ element, rect, focused }) => {
     // Never reanimate content restored by a language switch, history, or deep link.
     if (rect.bottom <= edges.top || focused || (rect.top < edges.bottom && !atPageStart)) return;
-    if (rect.top < edges.bottom) element.dataset.motionImmediate = 'true';
+    const entranceBottom = element.dataset.motion === 'flip' ? edges.flipBottom : edges.bottom;
+    if (rect.top < entranceBottom) element.dataset.motionImmediate = 'true';
     pending.add(element);
     element.classList.add('motion-pending');
   });
