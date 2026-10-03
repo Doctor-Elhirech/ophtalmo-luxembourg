@@ -53,7 +53,7 @@ The Luxembourgish medical wording remains subject to review by the doctor or a f
 
 ## Reviews
 
-The **5.0/5, three total reviews and two written testimonials** come from the user's brief, not an independent current Google verification. Sarah E.'s excerpt is shortened faithfully. Aya Ads' excerpt preserves the supplied review. French excerpts are translations of the English renderings supplied in the brief, not claimed verbatim original French. A visible note explains that these are translated excerpts. Only these two written reviews appear.
+The **5.0/5, three total reviews and two written testimonials** come from the user's brief, not an independent current Google verification. Sarah E.'s excerpt is shortened faithfully. Aya Ads' excerpt preserves the supplied review. French excerpts are translations of the English renderings supplied in the brief, not claimed verbatim original French. A visible note explains that these are translated excerpts. The original section and “500+ patients” hero claim were restored at the user's explicit request on 3 October 2026; this does not establish factual verification or medical-publication compliance.
 
 ## Photography
 
@@ -66,10 +66,22 @@ No doctor portrait was supplied, so an authentic consultation-space photograph a
 1. Doctor display name and capitalization; qualifications, specialties and preferred surgical wording. Do not imply that surgery is performed onsite without confirmation.
 2. Current Doctena practitioner destination, address, telephone and email.
 3. Ownership/permission for supplied photos, facade identification, and future original high-resolution photographs if available.
-4. Current Google rating/review count and exact original French testimonial text and attribution.
-5. Final domain, practice legal identity and the appropriate approved legal/privacy information. No invented legal pages or dead links have been added.
-6. Confirm the provisional opening hours and patient-count claim, patient age eligibility and spoken languages; supply parking, accessibility, pricing or insurance information before presenting any of these as final.
+4. The doctor personally operates the site, as confirmed by the user on 3 October 2026. “Ophtalmo Luxembourg” is a display brand, not a separate legal operator. The current public Collège médical register lists EL HIRECH M’hamed in ophthalmology at the Mamer address. The Doctena profile supports medical training in Besançon, France, but does not establish the country granting his specialist title. Confirm that country and any applicable professional authorization identifiers without inventing a registration number or using booking-platform IDs.
+5. Final domain and the remaining operational privacy facts: practice handling of requests sent to its existing email and the hosting account's business-use/data-processing terms. The new legal/privacy notices describe only implemented site services; they do not certify the practice's medical-record handling or an unverified hosting contract.
+6. Confirm the provisional opening hours, patient-count claim, displayed review rating/count and wording, patient age eligibility and spoken languages; supply parking, accessibility, pricing or insurance information before presenting any of these as final.
 
 The demonstration is publicly hosted on Vercel with the user's approval. On 1 October 2026 the user authorized production indexing in code while retaining the unresolved content above. Production indexing is enabled by default in the source configuration; development and preview environments remain `noindex, follow`, with an optional production opt-out. Indexing and ranking results have not been measured.
 
 The initial implementation omitted verification at the user's request. The user then authorized review, build and release. The 1 October 2026 production build passes with zero errors or warnings; 94 core browser checks and 90 guide/SEO checks pass. All nine guide variants were visually reviewed at phone, tablet and laptop sizes, and the primary medical source links were checked. Several Luxembourgish wording issues were corrected; this is not doctor approval or native-language certification. Doctipro destinations responded successfully; Doctena rejects some automated requests, so those responses alone do not establish a broken booking link. No appointment, search-engine submission or account mutation was made. Final-domain configuration, redirects, search-property verification and Google Business Profile updates remain deferred. The SEO working plan is kept outside the repository.
+
+## Technical privacy notice sources (3 October 2026)
+
+The French, English and Luxembourgish notices describe the current Vercel hosting and unchanged direct Google Maps embed. The map section states the practice's location/arrival purpose and selected Article 6(1)(f) basis for the technical connection; it does not claim that every Google processing operation is covered by that basis, that automatic loading is strictly necessary, or that all visitors' map sessions are cookie-free. Provider transfer statements are attributed and linked, without asserting an unverified hosting-account contract is in force.
+
+- [Vercel privacy notice](https://vercel.com/legal/privacy-notice): visitor technical data, international processing, published EU–US Data Privacy Framework participation and retention criteria.
+- [Vercel data processing terms](https://vercel.com/legal/dpa): contractual safeguards for covered accounts; the published addendum currently names Pro/Enterprise. Its existence does not establish this project's actual plan or agreement.
+- [Google privacy policy](https://policies.google.com/privacy): embedded Maps, request metadata, EEA responsible entity and Google's separate processing purposes.
+- [Google transfer frameworks](https://policies.google.com/privacy/frameworks): adequacy decisions, Google LLC's framework participation, standard contractual clauses and how to request a copy.
+- [CNPD lawful processing bases](https://cnpd.public.lu/fr/professionnels/obligations/obligations-rgpd/liceite.html) and [visitor information duties](https://cnpd.public.lu/fr/particuliers/vos-droits/droit-a-information.html): purpose/basis and safeguard disclosures.
+
+The map assessment and remaining doctor/account questions are retained in a private working note outside this repository. Normal real-browser map tests found no cookie activity, with limitations including unverified signed-in EEA usage; no full compliance certification is claimed. A planned move to Netlify does not change the current provider disclosure: update it when the host actually changes. No consumer Gmail processor contract or unconfirmed professional identifier is asserted.

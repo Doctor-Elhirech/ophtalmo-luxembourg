@@ -1,9 +1,10 @@
 import { practice } from '../config/practice';
 import { lb } from './luxembourgish';
+import { legalContent } from './legal';
 
 export const locales = ['fr', 'en', 'lb'] as const;
 export type Locale = (typeof locales)[number];
-export const pageKeys = ['home', 'doctor', 'expertise', 'practice', 'contact'] as const;
+export const pageKeys = ['home', 'doctor', 'expertise', 'practice', 'contact', 'legal', 'privacy'] as const;
 export type PageKey = (typeof pageKeys)[number];
 
 const routes: Record<Locale, Record<PageKey, string>> = {
@@ -13,6 +14,8 @@ const routes: Record<Locale, Record<PageKey, string>> = {
     expertise: '/expertises/',
     practice: '/cabinet/',
     contact: '/contact/',
+    legal: '/mentions-legales/',
+    privacy: '/confidentialite/',
   },
   en: {
     home: '/en/',
@@ -20,6 +23,8 @@ const routes: Record<Locale, Record<PageKey, string>> = {
     expertise: '/en/expertise/',
     practice: '/en/practice/',
     contact: '/en/contact/',
+    legal: '/en/legal-notice/',
+    privacy: '/en/privacy/',
   },
   lb: {
     home: '/lb/',
@@ -27,6 +32,8 @@ const routes: Record<Locale, Record<PageKey, string>> = {
     expertise: '/lb/leeschtungen/',
     practice: '/lb/praxis/',
     contact: '/lb/kontakt/',
+    legal: '/lb/rechtlech-hiweiser/',
+    privacy: '/lb/dateschutz/',
   },
 };
 const common = {
@@ -69,6 +76,8 @@ const fr = {
     expertise: 'Expertises',
     practice: 'Le cabinet',
     contact: 'Accès & contact',
+    legal: legalContent.fr.pages.legal.title,
+    privacy: legalContent.fr.pages.privacy.title,
   },
   action: {
     book: 'Prendre rendez-vous',
@@ -236,11 +245,14 @@ const fr = {
   },
   footer: {
     descriptor: 'Cabinet d’ophtalmologie à Mamer',
+    rightsReserved: 'Tous droits réservés.',
     closing: 'L’attention, à chaque regard.',
     top: 'Retour en haut',
     demo: 'Démonstration · Informations à confirmer avant publication publique',
   },
   pageMeta: {
+    legal: { title: `${legalContent.fr.pages.legal.title} | ${practice.name}`, description: legalContent.fr.pages.legal.description },
+    privacy: { title: `${legalContent.fr.pages.privacy.title} | ${practice.name}`, description: legalContent.fr.pages.privacy.description },
     home: {
       title: 'Ophtalmologue à Mamer, Luxembourg | Dr M’Hamed EL HIRECH',
       description: 'Le Dr M’Hamed EL HIRECH, ophtalmologue à Mamer, au Luxembourg, reçoit adultes et enfants. Consultez les disponibilités et réservez en ligne.',
@@ -430,6 +442,8 @@ const en: typeof fr = {
     expertise: 'Expertise',
     practice: 'The practice',
     contact: 'Find & contact us',
+    legal: legalContent.en.pages.legal.title,
+    privacy: legalContent.en.pages.privacy.title,
   },
   action: {
     book: 'Book an appointment',
@@ -596,11 +610,14 @@ const en: typeof fr = {
   },
   footer: {
     descriptor: 'Ophthalmology practice in Mamer',
+    rightsReserved: 'All rights reserved.',
     closing: 'Your vision. Our attention.',
     top: 'Back to top',
     demo: 'Demonstration · Details to confirm before public launch',
   },
   pageMeta: {
+    legal: { title: `${legalContent.en.pages.legal.title} | ${practice.name}`, description: legalContent.en.pages.legal.description },
+    privacy: { title: `${legalContent.en.pages.privacy.title} | ${practice.name}`, description: legalContent.en.pages.privacy.description },
     home: {
       title: 'Ophthalmologist in Mamer, Luxembourg | Dr M’Hamed EL HIRECH',
       description: 'Dr M’Hamed EL HIRECH provides eye consultations for adults and children in Mamer, Luxembourg. View the practice and book an appointment online.',

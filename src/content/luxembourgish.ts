@@ -1,4 +1,5 @@
 import { practice } from '../config/practice';
+import { legalContent } from './legal';
 import type { Translation } from './translations';
 
 // Working Luxembourgish copy. Medical wording and practice facts should be reviewed
@@ -40,6 +41,8 @@ export const lb: Translation = {
     expertise: 'Leeschtungen',
     practice: 'D’Praxis',
     contact: 'Wee & Kontakt',
+    legal: legalContent.lb.pages.legal.title,
+    privacy: legalContent.lb.pages.privacy.title,
   },
   action: {
     book: 'Rendez-vous maachen',
@@ -206,11 +209,14 @@ export const lb: Translation = {
   },
   footer: {
     descriptor: 'Aepraxis zu Mamer',
+    rightsReserved: 'All Rechter virbehalen.',
     closing: 'Är Siicht. Eis Suergfalt.',
     top: 'Zréck no uewen',
     demo: 'Demo · Informatiounen nach virun der definitiver Verëffentlechung ze bestätegen',
   },
   pageMeta: {
+    legal: { title: `${legalContent.lb.pages.legal.title} | ${practice.name}`, description: legalContent.lb.pages.legal.description },
+    privacy: { title: `${legalContent.lb.pages.privacy.title} | ${practice.name}`, description: legalContent.lb.pages.privacy.description },
     home: {
       title: 'Aendokter zu Mamer, Lëtzebuerg | Dr M’Hamed EL HIRECH',
       description:

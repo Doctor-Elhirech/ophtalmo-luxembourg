@@ -90,9 +90,11 @@ The user subsequently authorized release verification on 1 October 2026. The pro
 
 ## Before production handoff
 
-Confirm the doctor's preferred displayed name, qualifications and surgical-service wording; final booking destinations; opening hours and exact entrance; rights to use all photography; current Google rating/count and original French review wording; and the final domain, legal notice and applicable privacy information. See `docs/CONTENT-SOURCES.md` for details.
+Confirm the doctor's preferred displayed name, qualifications and surgical-service wording; final booking destinations; opening hours and exact entrance; rights to use all photography; and the final domain and outstanding professional/legal facts. See `docs/CONTENT-SOURCES.md` for details. The existing testimonials, displayed rating/count and “500+ patients” claim remain in place at the user's request, pending factual review and the remaining medical-publication decision.
 
-The user has authorized production indexing in code; doctor confirmation of the remaining factual items is still outstanding. Choose the final domain, set `PUBLIC_SITE_ORIGIN` if it changes, configure domain redirects, replace the demonstration footer wording and add the approved legal/privacy content. Google Business Profile ownership and practice details require a separate account-owner update.
+The user has authorized production indexing in code; doctor confirmation of the remaining factual items is still outstanding. Legal and privacy pages are available in all three languages. Before final handoff, confirm the country granting the specialist title and any applicable authorization identifiers, practice handling of privacy requests, and the Vercel account's business-use/data-processing terms. Choose the final domain with the medical profession's naming guidance in mind, set `PUBLIC_SITE_ORIGIN` if it changes, configure domain redirects and replace the demonstration footer wording once the remaining site content is approved. Google Business Profile ownership and practice details require a separate account-owner update.
+
+Google Maps uses the original direct embed on the contact page, with native lazy loading and no added consent or hide-map controls. The privacy page describes this automatic connection to Google. `npm run qa:legal` checks the built legal pages and map integration without requesting the live Google service; it starts and stops its own temporary static server.
 
 ## Deploy to Vercel
 

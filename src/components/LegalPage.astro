@@ -1,0 +1,58 @@
+---
+import { legalContent, type LegalPage } from '../content/legal';
+import { localePath, translations, type Locale } from '../content/translations';
+import '../styles/legal.css';
+
+interface Props { locale: Locale; page: LegalPage }
+const { locale, page } = Astro.props;
+const copy = legalContent[locale];
+const entry = copy.pages[page];
+const t = translations[locale];
+---
+
+<article class="legal-document container" aria-labelledby="legal-title">
+  <header class="legal-heading">
+    <p class="eyebrow">{copy.label}</p>
+    <h1 id="legal-title">{entry.title}</h1>
+    <p class="legal-intro">{entry.intro}</p>
+    <p class="legal-updated">{copy.updatedLabel} <time datetime="2026-10-03">{copy.updatedDate}</time></p>
+  </header>
+
+  <div class="legal-layout">
+    <nav class="legal-contents" aria-label={copy.navigationLabel}>
+      <p class="eyebrow">{copy.navigationLabel}</p>
+      <ol>
+        {entry.sections.map((section) => (
+          <li><a href={`#${section.id}`}>{section.title}</a></li>
+        ))}
+      </ol>
+    </nav>
+    <div class="legal-body">
+      {entry.sections.map((section) => (
+        <section id={section.id} class="legal-section" aria-labelledby={`heading-${section.id}`}>
+          <h2 id={`heading-${section.id}`}>{section.title}</h2>
+          {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          {(section.id === 'publisher' || section.id === 'controller') && (
+            <address class="legal-contact">
+              <strong>{t.doctor}</strong>
+              <span>{t.address.street}, {t.address.postalCity}, {t.contactSection.country}</span>
+              <a href={t.phoneHref}>{t.phone}</a>
+              <a href={`mailto:${t.email}`}>{t.email}</a>
+            </address>
+          )}
+          {section.links && (
+            <ul class="legal-reference-links">
+              {section.links.map((link) => (
+                <li><a href={link.href} target="_blank" rel="noopener noreferrer" aria-label={`${link.label} (${t.accessibility.newTab})`}>{link.label}<span aria-hidden="true"> ↗</span></a></li>
+              ))}
+            </ul>
+          )}
+        </section>
+      ))}
+      <nav class="legal-related" aria-label={copy.relatedNavigationLabel}>
+        <a href={localePath(locale, page === 'legal' ? 'privacy' : 'legal')}>{page === 'legal' ? t.nav.privacy : t.nav.legal}</a>
+        <a href={localePath(locale, 'contact')}>{copy.contactLabel}</a>
+      </nav>
+    </div>
+  </div>
+</article>

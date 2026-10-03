@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LegalPage from '../../components/LegalPage.astro';
+import { localePath } from '../../content/translations';
+
+export function getStaticPaths() {
+  return (['legal', 'privacy'] as const).map((page) => ({
+    params: { legalPage: localePath('lb', page).split('/').filter(Boolean).at(-1) },
+    props: { page },
+  }));
+}
+const { page } = Astro.props;
+---
+<BaseLayout locale="lb" page={page}>
+  <LegalPage locale="lb" page={page} />
+</BaseLayout>

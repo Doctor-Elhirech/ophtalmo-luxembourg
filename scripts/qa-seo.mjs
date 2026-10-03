@@ -21,7 +21,12 @@ const core = {
   en: ['/en/', '/en/doctor/', '/en/expertise/', '/en/practice/', '/en/contact/'],
   lb: ['/lb/', '/lb/dokter/', '/lb/leeschtungen/', '/lb/praxis/', '/lb/kontakt/'],
 };
-const paths = locales.flatMap((locale) => [...core[locale], ...guides[locale]]);
+const legal = {
+  fr: ['/mentions-legales/', '/confidentialite/'],
+  en: ['/en/legal-notice/', '/en/privacy/'],
+  lb: ['/lb/rechtlech-hiweiser/', '/lb/dateschutz/'],
+};
+const paths = locales.flatMap((locale) => [...core[locale], ...guides[locale], ...legal[locale]]);
 const sizes = [
   { width: 320, height: 812, touch: true },
   { width: 375, height: 812, touch: true },

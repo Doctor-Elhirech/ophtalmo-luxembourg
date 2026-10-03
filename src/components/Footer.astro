@@ -24,6 +24,8 @@ const { t, locale, currentPage = 'home', alternates } = Astro.props;
         <a href={localePath(locale, 'expertise')} aria-current={currentPage === 'expertise' ? 'page' : undefined}>{t.nav.expertise}</a>
         <a href={localePath(locale, 'practice')} aria-current={currentPage === 'practice' ? 'page' : undefined}>{t.nav.practice}</a>
         <a href={localePath(locale, 'contact')} aria-current={currentPage === 'contact' ? 'page' : undefined}>{t.nav.contact}</a>
+        <a class="footer-legal-link" href={localePath(locale, 'legal')} aria-current={currentPage === 'legal' ? 'page' : undefined}>{t.nav.legal}</a>
+        <a class="footer-legal-link" href={localePath(locale, 'privacy')} aria-current={currentPage === 'privacy' ? 'page' : undefined}>{t.nav.privacy}</a>
         <a href={t.bookingUrl} target="_blank" rel="noopener noreferrer">
           {t.action.book}
           <Arrow diagonal />
@@ -55,7 +57,8 @@ const { t, locale, currentPage = 'home', alternates } = Astro.props;
     </div>
     <div class="footer-bottom">
       <p>
-        {t.copyright} {t.year} {t.name}
+        {t.copyright} {t.year} {t.doctorSection.nameFirst} {t.doctorSection.nameLast}<br />
+        {t.footer.rightsReserved}
       </p>
       <p>{t.footer.closing}</p>
       <a href="#top">
@@ -66,7 +69,7 @@ const { t, locale, currentPage = 'home', alternates } = Astro.props;
     <p class="demo-note"><span data-nosnippet>{t.footer.demo}</span></p>
   </div>
 </footer>
-{currentPage !== 'contact' && (
+{!['contact', 'legal', 'privacy'].includes(currentPage) && (
   <div class="mobile-contact-bar">
     <a href={t.phoneHref} class="mobile-call" aria-label={t.action.call}>
       <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true">
