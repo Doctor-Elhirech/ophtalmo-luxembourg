@@ -2,7 +2,9 @@
   /* Motion changes only opacity and composited transforms, never layout or color. */
   .motion-target {
     --motion-duration: 640ms;
-    --motion-duration-scale: 1.25;
+    --motion-duration-scale: 1.7;
+    --motion-distance-scale: 1.75;
+    --motion-side-limit: calc(var(--gutter) - 4px);
     --motion-delay: var(--motion-stagger, 0ms);
     --motion-ease: cubic-bezier(0.22, 0.65, 0.36, 1);
     --motion-x: 0px;
@@ -59,13 +61,13 @@
     transform-origin: 50% 0;
   }
 
-  /* The green flips and the visit timeline already have their own tuned pace. */
-  .motion-target[data-motion='flip'],
-  .journey-section .motion-target {
-    --motion-duration-scale: 1;
+  .motion-target[data-motion='flip'] {
+    --motion-duration-scale: 1.3;
   }
 
+  /* Preserve the visit section's original entrances and scroll-driven timeline. */
   .journey-section .motion-target {
+    --motion-duration-scale: 1;
     --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
@@ -77,14 +79,16 @@
     --motion-scale: 1;
   }
 
-  .motion-target[data-motion-immediate]:not([data-motion='flip']) {
+  .motion-target[data-motion-immediate]:not(:where([data-motion='flip'], .journey-section .motion-target)) {
     --motion-duration-scale: 1;
     --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .motion-target.motion-pending {
     opacity: var(--motion-opacity);
-    translate: var(--motion-x) var(--motion-y);
+    translate:
+      clamp(calc(-1 * var(--motion-side-limit)), calc(var(--motion-x) * var(--motion-distance-scale)), var(--motion-side-limit))
+      calc(var(--motion-y) * var(--motion-distance-scale));
     scale: var(--motion-scale);
   }
 
@@ -108,8 +112,8 @@
     transform: perspective(1600px) rotateX(0deg);
     will-change: transform, translate;
     transition:
-      transform var(--motion-duration) var(--motion-ease) var(--motion-delay),
-      translate var(--motion-duration) var(--motion-ease) var(--motion-delay);
+      transform calc(var(--motion-duration) * var(--motion-duration-scale)) var(--motion-ease) var(--motion-delay),
+      translate calc(var(--motion-duration) * var(--motion-duration-scale)) var(--motion-ease) var(--motion-delay);
   }
 
   .motion-target:focus-within,
@@ -139,6 +143,10 @@
 }
 
 @layer responsive {
+  .journey-section .motion-target {
+    --motion-distance-scale: 1;
+  }
+
   @media (min-width: 601px) and (max-width: 900px) {
     .hero-heading,
     .hero-intro {
@@ -148,6 +156,7 @@
 
     .motion-target {
       --motion-duration: 560ms;
+      --motion-distance-scale: 1.6;
       --motion-delay: min(var(--motion-stagger, 0ms), 130ms);
       --motion-y: 18px;
     }
@@ -177,6 +186,7 @@
 
     .motion-target {
       --motion-duration: 480ms;
+      --motion-distance-scale: 1.5;
       --motion-delay: min(var(--motion-stagger, 0ms), 80ms);
       --motion-y: 14px;
     }
@@ -207,10 +217,10 @@
   }
 
   /* Opening content moves together without waiting for a scroll gesture.
-     Keep text readable, and leave green flips and the visit timeline untouched. */
+     Keep text readable and preserve the visit timeline's existing pace. */
   .motion-target[data-motion-immediate]:not(:where([data-motion='flip'], .journey-section .motion-target)) {
     --motion-duration: 860ms;
-    --motion-duration-scale: 1;
+    --motion-duration-scale: 1.3;
     --motion-ease: cubic-bezier(0.22, 0.65, 0.36, 1);
     --motion-opacity: 0.85;
     --motion-y: 18px;
@@ -235,14 +245,14 @@
   /* The homepage already has a CSS entrance: tune that rather than nesting one. */
   .hero-heading,
   .hero-intro {
-    --opening-distance: -26px;
+    --opening-distance: calc(-1 * min(42px, calc(var(--gutter) - 4px)));
     animation-name: opening-settle;
-    animation-duration: 860ms;
+    animation-duration: 1120ms;
     animation-timing-function: cubic-bezier(0.22, 0.65, 0.36, 1);
   }
 
   .hero-intro {
-    --opening-distance: 26px;
+    --opening-distance: min(42px, calc(var(--gutter) - 4px));
     animation-delay: 100ms;
   }
 
@@ -264,10 +274,10 @@
     .motion-target[data-motion='right'][data-motion-immediate] { --motion-x: 16px; --motion-y: 6px; }
 
     .hero-heading,
-    .hero-intro { animation-duration: 780ms; }
+    .hero-intro { animation-duration: 1020ms; }
 
-    .hero-heading { --opening-distance: -16px; }
-    .hero-intro { --opening-distance: 16px; }
+    .hero-heading { --opening-distance: calc(-1 * min(26px, calc(var(--gutter) - 4px))); }
+    .hero-intro { --opening-distance: min(26px, calc(var(--gutter) - 4px)); }
   }
 
   @media (max-width: 600px) {
@@ -283,10 +293,37 @@
     .motion-target[data-motion='right'][data-motion-immediate] { --motion-x: 12px; --motion-y: 6px; }
 
     .hero-heading,
-    .hero-intro { animation-duration: 700ms; }
+    .hero-intro { animation-duration: 920ms; }
 
-    .hero-heading { --opening-distance: -12px; }
-    .hero-intro { --opening-distance: 12px; animation-delay: 80ms; }
+    .hero-heading { --opening-distance: calc(-1 * min(18px, calc(var(--gutter) - 4px))); }
+    .hero-intro { --opening-distance: min(18px, calc(var(--gutter) - 4px)); animation-delay: 80ms; }
+  }
+
+  /* Keep the map fully visible: glide the complete frame without fading or resizing.
+     Isolate its pace from other entrances, including restored first-view content. */
+  .contact-map.motion-target[data-motion='map'] {
+    --motion-opacity: 1;
+    --motion-x: 0px;
+    --motion-y: 14px;
+    --motion-scale: 1;
+    --motion-distance-scale: 1;
+    --motion-duration: 1100ms;
+    --motion-duration-scale: 1;
+    --motion-delay: 0ms;
+  }
+
+  @media (max-width: 900px) {
+    .contact-map.motion-target[data-motion='map'] {
+      --motion-y: 10px;
+      --motion-duration: 1000ms;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .contact-map.motion-target[data-motion='map'] {
+      --motion-y: 8px;
+      --motion-duration: 900ms;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

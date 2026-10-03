@@ -1,5 +1,5 @@
 @layer components {
-  .footer-top nav > .footer-legal-link {
+  .footer-navigation .footer-legal-link {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
@@ -11,8 +11,8 @@
     transition: color 0.2s ease;
   }
 
-  .footer-top nav > .footer-legal-link[aria-current],
-  .footer-top nav > .footer-legal-link:focus-visible {
+  .footer-navigation .footer-legal-link[aria-current],
+  .footer-navigation .footer-legal-link:focus-visible {
     color: var(--forest);
     text-decoration-color: currentColor;
   }
@@ -151,7 +151,7 @@
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .footer-top nav > .footer-legal-link:hover,
+    .footer-navigation .footer-legal-link:hover,
     .legal-document a:hover {
       color: var(--forest);
       text-decoration-color: currentColor;

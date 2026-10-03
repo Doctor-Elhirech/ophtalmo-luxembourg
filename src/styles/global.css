@@ -1521,7 +1521,7 @@
 
   .footer-top {
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(180px, 0.8fr) minmax(270px, 1fr);
+    grid-template-columns: minmax(0, 1.1fr) minmax(300px, 1.3fr) minmax(270px, 1fr);
     gap: clamp(28px, 4vw, 64px);
     padding-bottom: 50px;
   }
@@ -1543,14 +1543,21 @@
   }
 
   .footer-top nav {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 4px clamp(18px, 2vw, 32px);
     font-size: 13px;
   }
 
-  .footer-top nav > a {
+  .footer-link-column {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    gap: 2px;
+  }
+
+  .footer-top nav a {
     display: flex;
     align-items: center;
     width: 100%;
@@ -1559,14 +1566,15 @@
     line-height: 1.5;
   }
 
-  .footer-top nav>a:last-child {
+  .footer-top .footer-booking {
+    grid-column: 1 / -1;
     display: flex;
     gap: 13px;
     align-items: center;
     justify-content: space-between;
   }
 
-  .footer-top nav>a,
+  .footer-top nav a,
   .footer-contact>a,
   .mobile-contact-bar>a {
     transform-origin: left center;
@@ -1583,7 +1591,7 @@
   }
 
   @media (hover: hover) and (pointer: fine) {
-    .footer-top nav>a:hover,
+    .footer-top nav a:hover,
     .footer-contact>a:hover,
     .mobile-contact-bar>a:hover {
       transform: translateY(-2px) scale(1.025);
@@ -2896,7 +2904,7 @@
       font-size: 13px;
     }
 
-    .footer-top nav > a:last-child {
+    .footer-top .footer-booking {
       grid-column: 1 / -1;
       min-height: 44px;
       margin-top: 2px;
@@ -3662,8 +3670,8 @@
 
   .desktop-nav a.nav-link.is-active,
   .mobile-nav > a.nav-link.is-active,
-  .footer-top nav > a[aria-current],
-  .footer-top nav > a:last-child,
+  .footer-top nav a[aria-current],
+  .footer-top .footer-booking,
   .footer-bottom > p:nth-child(2),
   .gallery-item figcaption > span {
     color: var(--gold-ink);
@@ -3702,7 +3710,7 @@
   .hero-secondary-booking:hover,
   .hero-secondary-booking:focus-visible,
   .hero-figure figcaption a:hover,
-  .footer-top nav > a:hover,
+  .footer-top nav a:hover,
   .footer-contact > a:hover,
   .copy-btn:hover,
   .copy-btn:focus-visible {

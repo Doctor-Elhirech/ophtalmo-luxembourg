@@ -1,7 +1,7 @@
 // Section entrances share the same timing and work without a motion library.
 // Nothing is hidden until this enhancement is ready; each entrance runs once.
 export {};
-type MotionKind = 'rise' | 'left' | 'right' | 'image' | 'card' | 'row' | 'fade' | 'settle' | 'flip';
+type MotionKind = 'rise' | 'left' | 'right' | 'image' | 'card' | 'row' | 'fade' | 'settle' | 'flip' | 'map';
 interface MotionRule {
   selector: string;
   kind: MotionKind;
@@ -40,7 +40,7 @@ const motionRules: MotionRule[] = [
   { selector: '.contact-hero-copy, .contact-essentials-heading, .faq-heading', kind: 'rise' },
   { selector: '.contact-content', kind: 'settle' },
   { selector: '.contact-info-card', kind: 'settle', stagger: true },
-  { selector: '.contact-map', kind: 'fade' },
+  { selector: '.contact-map', kind: 'map' },
   { selector: '.faq-item', kind: 'row', stagger: true },
   { selector: '.footer-top > *, .footer-bottom, .demo-note', kind: 'settle', stagger: true },
 ];
@@ -55,6 +55,21 @@ let journeyObserver: IntersectionObserver | undefined;
 
 function isJourneyEntrance(element: HTMLElement) {
   return element.closest('.journey-section') !== null;
+}
+
+function entranceCleanupDelay(element: HTMLElement) {
+  if (isJourneyEntrance(element)) return 1100;
+  // Read each entrance once, so slower transitions and their stagger can finish.
+  const style = getComputedStyle(element);
+  const milliseconds = (value: string) => value.split(',').map((time) =>
+    Number.parseFloat(time) * (time.trim().endsWith('ms') ? 1 : 1000),
+  );
+  const durations = milliseconds(style.transitionDuration);
+  const delays = milliseconds(style.transitionDelay);
+  const end = durations.reduce((longest, duration, index) =>
+    Math.max(longest, duration + delays[index % delays.length]), 0,
+  );
+  return Math.ceil(end + 100);
 }
 
 function completeEntrance(element: HTMLElement) {
@@ -84,7 +99,7 @@ function reveal(element: HTMLElement, instant = false) {
   element.classList.add('motion-running');
   element.classList.remove('motion-pending');
   // Release compositing hints when the longest entrance and its stagger finish.
-  const cleanupDelay = isJourneyEntrance(element) ? 1100 : 1300;
+  const cleanupDelay = entranceCleanupDelay(element);
   cleanupTimers.set(element, window.setTimeout(() => completeEntrance(element), cleanupDelay));
 }
 

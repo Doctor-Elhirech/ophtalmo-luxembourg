@@ -103,8 +103,8 @@ try {
       const { context, page } = await localPage(sizes[1]);
       try {
         await page.goto(base + routes[locale].home);
-        assert.equal(await page.locator(`.footer-top nav > .footer-legal-link[href="${routes[locale].legal}"]`).count(), 1);
-        assert.equal(await page.locator(`.footer-top nav > .footer-legal-link[href="${routes[locale].privacy}"]`).count(), 1);
+        assert.equal(await page.locator(`.footer-legal-links > .footer-legal-link[href="${routes[locale].legal}"]`).count(), 1);
+        assert.equal(await page.locator(`.footer-legal-links > .footer-legal-link[href="${routes[locale].privacy}"]`).count(), 1);
       } finally { await context.close(); }
     });
     for (const size of sizes.filter((size) => size.width !== 320)) {

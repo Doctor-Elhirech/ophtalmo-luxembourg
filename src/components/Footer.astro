@@ -19,14 +19,18 @@ const { t, locale, currentPage = 'home', alternates } = Astro.props;
         </a>
         <p>{t.footer.descriptor}</p>
       </div>
-      <nav aria-label={t.accessibility.footerNav}>
-        <a href={localePath(locale, 'doctor')} aria-current={currentPage === 'doctor' ? 'page' : undefined}>{t.nav.doctor}</a>
-        <a href={localePath(locale, 'expertise')} aria-current={currentPage === 'expertise' ? 'page' : undefined}>{t.nav.expertise}</a>
-        <a href={localePath(locale, 'practice')} aria-current={currentPage === 'practice' ? 'page' : undefined}>{t.nav.practice}</a>
-        <a href={localePath(locale, 'contact')} aria-current={currentPage === 'contact' ? 'page' : undefined}>{t.nav.contact}</a>
-        <a class="footer-legal-link" href={localePath(locale, 'legal')} aria-current={currentPage === 'legal' ? 'page' : undefined}>{t.nav.legal}</a>
-        <a class="footer-legal-link" href={localePath(locale, 'privacy')} aria-current={currentPage === 'privacy' ? 'page' : undefined}>{t.nav.privacy}</a>
-        <a href={t.bookingUrl} target="_blank" rel="noopener noreferrer">
+      <nav class="footer-navigation" aria-label={t.accessibility.footerNav}>
+        <div class="footer-link-column footer-main-links">
+          <a href={localePath(locale, 'doctor')} aria-current={currentPage === 'doctor' ? 'page' : undefined}>{t.nav.doctor}</a>
+          <a href={localePath(locale, 'expertise')} aria-current={currentPage === 'expertise' ? 'page' : undefined}>{t.nav.expertise}</a>
+          <a href={localePath(locale, 'practice')} aria-current={currentPage === 'practice' ? 'page' : undefined}>{t.nav.practice}</a>
+          <a href={localePath(locale, 'contact')} aria-current={currentPage === 'contact' ? 'page' : undefined}>{t.nav.contact}</a>
+        </div>
+        <div class="footer-link-column footer-legal-links">
+          <a class="footer-legal-link" href={localePath(locale, 'legal')} aria-current={currentPage === 'legal' ? 'page' : undefined}>{t.nav.legal}</a>
+          <a class="footer-legal-link" href={localePath(locale, 'privacy')} aria-current={currentPage === 'privacy' ? 'page' : undefined}>{t.nav.privacy}</a>
+        </div>
+        <a class="footer-booking" href={t.bookingUrl} target="_blank" rel="noopener noreferrer">
           {t.action.book}
           <Arrow diagonal />
         </a>
