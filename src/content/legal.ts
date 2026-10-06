@@ -26,7 +26,7 @@ interface LegalLocaleContent {
 
 const email = `mailto:${practice.email}`;
 const sources = {
-  register: 'https://collegemedical.lu/fr/professionals',
+  register: 'https://collegemedical.lu/fr/professionals?id=44',
   medicalRules: 'https://strapi.collegemedical.lu/uploads/Code_de_deontologie_medicale_2025_b50d842a47.pdf',
   medicalPublic: 'https://collegemedical.lu/fr/documentation/public',
   healthMinistry: 'https://m3s.gouvernement.lu/fr.html',
@@ -38,6 +38,7 @@ const sources = {
   doctenaPrivacy: 'https://trust.doctena.com/privacy-policy/',
   doctiproPrivacy: 'https://www.doctipro.lu/fr/about-us',
   cnpd: 'https://cnpd.public.lu/fr/particuliers/faire-valoir.html',
+  erasure: 'https://cnpd.public.lu/fr/particuliers/vos-droits/droit-oubli.html',
 };
 
 /** Public notices for the website's implemented services, not patient medical records. */
@@ -45,7 +46,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
   fr: {
     label: 'Informations légales',
     updatedLabel: 'Dernière mise à jour',
-    updatedDate: '3 octobre 2026',
+    updatedDate: '6 octobre 2026',
     navigationLabel: 'Dans cette page',
     relatedNavigationLabel: 'Pages utiles',
     contactLabel: 'Contacter le cabinet',
@@ -70,7 +71,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
               'Son profil professionnel mentionne une formation médicale à Besançon, en France. Les informations sur son parcours figurent sur la page « Le médecin ». Les règles professionnelles applicables sont accessibles auprès du Collège médical.',
             ],
             links: [
-              { label: 'Registre ordinal du Collège médical', href: sources.register },
+              { label: 'Registre ordinal du Collège médical — ophtalmologie', href: sources.register },
               { label: 'Code de déontologie médicale', href: sources.medicalRules },
               { label: 'Informations du Collège médical pour le public', href: sources.medicalPublic },
               { label: 'Ministère de la Santé et de la Sécurité sociale', href: sources.healthMinistry },
@@ -142,6 +143,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             title: 'Lorsque vous contactez le cabinet',
             paragraphs: [
               'Si vous appelez ou écrivez, vos coordonnées et les informations que vous fournissez sont utilisées pour vous répondre et traiter votre demande. Vous les communiquez volontairement ; seules les informations nécessaires pour vous répondre sont requises. Selon la nature de votre demande, le traitement repose sur les démarches précontractuelles demandées par vous (article 6, paragraphe 1, point b), du RGPD) ou sur l’intérêt légitime de répondre aux demandes d’information (article 6, paragraphe 1, point f)).',
+              `Au sein du cabinet, seul ${practice.doctor} accède à la boîte de messagerie utilisée pour les demandes de renseignements.`,
               'L’adresse de contact utilise Gmail, un service de Google qui assure l’acheminement et l’hébergement des messages. Le site ne collecte pas le contenu de ces échanges. Évitez d’envoyer des documents ou détails médicaux sensibles par courriel ordinaire ; appelez le cabinet pour convenir d’un moyen de communication adapté.',
             ],
             links: [{ label: 'Informations de confidentialité de Google', href: sources.googlePrivacy }],
@@ -186,7 +188,8 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             paragraphs: [
               'Les services d’hébergement, de messagerie et de cartographie peuvent traiter des données hors de l’Espace économique européen, notamment aux États-Unis. Vercel indique participer au cadre de protection des données UE–États-Unis. Google décrit le recours aux décisions d’adéquation, la participation de Google LLC à ce cadre et, lorsque nécessaire, aux clauses contractuelles types. Les conditions de traitement de Vercel décrivent également ces clauses pour les comptes auxquels elles s’appliquent.',
               'Les documents des fournisseurs, liés ci-dessous, expliquent ces garanties. Vous pouvez demander au cabinet ou au fournisseur concerné des précisions ou une copie des garanties applicables. La page de Google sur les transferts indique notamment comment demander une copie de ses clauses contractuelles types.',
-              'Les données techniques sont conservées pour la durée nécessaire à la diffusion, à la sécurité et au traitement des incidents, selon les services et règles de conservation de l’hébergeur. Les échanges avec le cabinet sont conservés le temps nécessaire pour répondre et assurer le suivi de votre demande, ainsi que pour satisfaire aux obligations légales lorsqu’elles s’appliquent.',
+              'Les données techniques sont conservées pour la durée nécessaire à la diffusion, à la sécurité et au traitement des incidents, selon les services et règles de conservation de l’hébergeur.',
+              'Le médecin indique conserver actuellement la correspondance électronique du cabinet indéfiniment, sans délai de suppression prédéfini. Vous pouvez demander l’effacement de vos données dans les conditions expliquées ci-dessous.',
               'Les services de carte et de réservation appliquent leurs propres durées de conservation. Le stockage fonctionnel du site suit les limites décrites ci-dessus. Pour connaître les données conservées dans votre cas, vous pouvez contacter le cabinet ou le fournisseur concerné.',
             ],
             links: [
@@ -200,11 +203,13 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             title: 'Vos droits',
             paragraphs: [
               'Selon les conditions prévues par le RGPD, vous pouvez demander l’accès à vos données, leur rectification ou leur effacement, la limitation du traitement et, lorsque cela s’applique, leur portabilité. Vous pouvez vous opposer à un traitement fondé sur l’intérêt légitime pour des raisons liées à votre situation et retirer un consentement sans remettre en cause les traitements antérieurs licites.',
+              'Le droit à l’effacement n’est pas absolu : certaines données peuvent devoir être conservées pour respecter une obligation légale ou pour la constatation, l’exercice ou la défense de droits en justice.',
               `Adressez votre demande à ${practice.email} ou à l’adresse professionnelle indiquée ci-dessus. Une vérification proportionnée de votre identité peut être nécessaire. Vous pouvez également déposer une réclamation auprès de la Commission nationale pour la protection des données (CNPD), au Luxembourg.`,
               'Ce site ne prend aucune décision automatisée produisant des effets juridiques ou comparables à votre égard et ne réalise aucun profilage.',
             ],
             links: [
               { label: 'Contacter le responsable du traitement', href: email },
+              { label: 'Droit à l’effacement : informations de la CNPD', href: sources.erasure },
               { label: 'Faire valoir vos droits auprès de la CNPD', href: sources.cnpd },
             ],
           },
@@ -222,7 +227,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
   en: {
     label: 'Legal information',
     updatedLabel: 'Last updated',
-    updatedDate: '3 October 2026',
+    updatedDate: '6 October 2026',
     navigationLabel: 'On this page',
     relatedNavigationLabel: 'Related pages',
     contactLabel: 'Contact the practice',
@@ -247,7 +252,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
               'His professional profile describes medical training in Besançon, France. Information about his background appears on “The doctor” page. The applicable professional rules are available from the Collège médical.',
             ],
             links: [
-              { label: 'Collège médical professional register', href: sources.register },
+              { label: 'Collège médical professional register — ophthalmology', href: sources.register },
               { label: 'Medical code of ethics', href: sources.medicalRules },
               { label: 'Collège médical information for the public', href: sources.medicalPublic },
               { label: 'Ministry of Health and Social Security', href: sources.healthMinistry },
@@ -319,6 +324,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             title: 'When you contact the practice',
             paragraphs: [
               'If you call or write, your contact details and the information you provide are used to respond and handle your request. Providing them is voluntary; only the information needed to reply is required. Depending on the request, processing relies on steps you ask us to take before entering a contract (Article 6(1)(b) GDPR) or the legitimate interest in answering information enquiries (Article 6(1)(f)).',
+              `Within the practice, only ${practice.doctor} accesses the email account used for enquiries.`,
               'The contact address uses Gmail, a Google service that delivers and stores messages. The website does not collect the content of these exchanges. Avoid sending sensitive medical details or documents through ordinary email; call the practice to arrange an appropriate communication method.',
             ],
             links: [{ label: 'Google privacy information', href: sources.googlePrivacy }],
@@ -363,7 +369,8 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             paragraphs: [
               'Hosting, email and map services may process data outside the European Economic Area, including in the United States. Vercel states that it participates in the EU–US Data Privacy Framework. Google describes using adequacy decisions, Google LLC’s participation in that framework and, where needed, standard contractual clauses. Vercel’s published data processing terms also describe these clauses for accounts covered by those terms.',
               'The linked provider documents explain these safeguards. You can ask the practice or the relevant provider for further information or a copy of applicable safeguards. Google’s transfer page explains how to request a copy of its standard contractual clauses.',
-              'Technical data is retained for as long as needed for delivery, security and incident handling, according to the host’s services and retention rules. Correspondence with the practice is kept for the time needed to answer and follow up your request and to meet legal obligations where they apply.',
+              'Technical data is retained for as long as needed for delivery, security and incident handling, according to the host’s services and retention rules.',
+              'The doctor states that the practice currently keeps email correspondence indefinitely, without a predefined deletion period. You can request deletion of your personal data under the conditions explained below.',
               'Map and booking services apply their own retention periods. The website’s functional storage follows the limits explained above. To ask which data is retained in your case, contact the practice or the relevant provider.',
             ],
             links: [
@@ -377,11 +384,13 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             title: 'Your rights',
             paragraphs: [
               'Subject to the GDPR’s conditions, you can request access, correction or deletion of your data, restriction of processing and, where applicable, data portability. You can object to processing based on legitimate interests for reasons relating to your circumstances and withdraw consent without affecting earlier lawful processing.',
+              'The right to deletion is not absolute: some data may need to be kept to comply with a legal obligation or to establish, exercise or defend legal claims.',
               `Send your request to ${practice.email} or the professional address above. A proportionate identity check may be needed. You can also complain to Luxembourg’s National Commission for Data Protection (CNPD).`,
               'This website does not make automated decisions with legal or similarly significant effects on you and does not carry out profiling.',
             ],
             links: [
               { label: 'Contact the data controller', href: email },
+              { label: 'Right to deletion: CNPD information', href: sources.erasure },
               { label: 'Exercise your rights through the CNPD', href: sources.cnpd },
             ],
           },
@@ -399,7 +408,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
   lb: {
     label: 'Rechtlech Informatiounen',
     updatedLabel: 'Lescht Aktualiséierung',
-    updatedDate: '3. Oktober 2026',
+    updatedDate: '6. Oktober 2026',
     navigationLabel: 'Op dëser Säit',
     relatedNavigationLabel: 'Weider Säiten',
     contactLabel: 'D’Praxis kontaktéieren',
@@ -424,7 +433,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
               'Säi beruffleche Profil nennt eng medezinesch Ausbildung zu Besançon, a Frankräich. Informatiounen iwwer säi Parcours stinn op der Säit „Den Dokter“. Déi uwendbar berufflech Reegelen si beim Collège médical disponibel.',
             ],
             links: [
-              { label: 'Beruffsregister vum Collège médical', href: sources.register },
+              { label: 'Beruffsregister vum Collège médical — Ophtalmologie', href: sources.register },
               { label: 'Medezinesche Beruffskodex', href: sources.medicalRules },
               { label: 'Informatioune vum Collège médical fir de Public', href: sources.medicalPublic },
               { label: 'Ministère fir Gesondheet a sozial Sécherheet', href: sources.healthMinistry },
@@ -496,6 +505,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             title: 'Wann Dir d’Praxis kontaktéiert',
             paragraphs: [
               'Wann Dir urufft oder schreift, ginn Är Kontaktdetailer an déi Informatiounen, déi Dir gitt, benotzt, fir Iech ze äntweren an Är Ufro ze behandelen. Dir gitt se fräiwëlleg un; nëmmen déi Informatiounen, déi fir eng Äntwert néideg sinn, gi gebraucht. Jee no der Ufro berout d’Veraarbechtung op de Schrëtt virum Ofschloss vun engem Kontrakt, déi Dir ufrot (Artikel 6, Paragraf 1, Buschtaf b), vum RGPD), oder op dem berechtegten Interessi, Informatiounsufroen ze beäntweren (Artikel 6, Paragraf 1, Buschtaf f)).',
+              `An der Praxis huet nëmmen ${practice.doctor} Zougang zum E-Mail-Kont, dee fir Informatiounsufroe benotzt gëtt.`,
               'D’Kontaktadress benotzt Gmail, e Service vu Google, deen d’Messagen iwwerdréit a späichert. D’Websäit sammelt den Inhalt vun dësen Austausch net. Schéckt keng sensibel medezinesch Detailer oder Dokumenter per normaler E-Mail; rufft d’Praxis un, fir e passende Kommunikatiounswee ze wielen.',
             ],
             links: [{ label: 'Google seng Dateschutzinformatiounen', href: sources.googlePrivacy }],
@@ -540,7 +550,8 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             paragraphs: [
               'Hosting-, E-Mail- a Kaarteservicer kënnen Donnéeën ausserhalb vum Europäesche Wirtschaftsraum veraarbechten, ënner anerem an den USA. Vercel erkläert, datt et um EU–US-Dateschutzkader deelhëlt. Google beschreift d’Benotzung vun Adäquatiounsbescheeder, d’Participatioun vu Google LLC un dësem Kader an, wann néideg, Standardvertragsklauselen. Déi verëffentlecht Dateveraarbechtungskonditioune vu Vercel beschreiwen dës Klauselen och fir déi Konten, fir déi dës Konditioune gëllen.',
               'Déi hei verlinkt Dokumenter vun den Ubidder erklären dës Garantien. Dir kënnt d’Praxis oder de betraffenen Ubidder ëm méi Informatiounen oder eng Kopie vun den uwendbare Garantien froen. D’Säit vu Google iwwer Dateiwwerdroungen erkläert, wéi Dir eng Kopie vu senge Standardvertragsklauselen ufroe kënnt.',
-              'Technesch Donnéeë gi sou laang gespäichert, wéi et fir d’Liwwerung, d’Sécherheet an d’Behandlung vun techneschen Tëschefäll néideg ass, no de Servicer a Späicherreegele vum Hosting-Ubidder. D’Korrespondenz mat der Praxis gëtt sou laang gespäichert, wéi et fir d’Äntwert an de Suivi vun Ärer Ufro néideg ass, an och fir gesetzlech Obligatiounen ze erfëllen, wa se uwendbar sinn.',
+              'Technesch Donnéeë gi sou laang gespäichert, wéi et fir d’Liwwerung, d’Sécherheet an d’Behandlung vun techneschen Tëschefäll néideg ass, no de Servicer a Späicherreegele vum Hosting-Ubidder.',
+              'Den Dokter erkläert, datt d’E-Mail-Korrespondenz vun der Praxis aktuell ouni Zäitlimitt gespäichert gëtt, ouni eng virdefinéiert Frist fir d’Läschung. Dir kënnt d’Läschung vun Äre perséinlechen Donnéeën ënner de Konditiounen hei ënnendrënner ufroen.',
               'Kaarten- a Reservatiounsservicer hunn hir eege Späicherfristen. De funktionelle Späicher vun der Websäit hält sech un déi uewe beschriwwe Grenzen. Fir ze wëssen, wéi eng Donnéeën an Ärem Fall gespäichert ginn, kontaktéiert d’Praxis oder dee betraffenen Ubidder.',
             ],
             links: [
@@ -554,11 +565,13 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             title: 'Är Rechter',
             paragraphs: [
               'Ënner de Konditioune vum RGPD kënnt Dir den Zougang zu Ären Donnéeën, hir Berichtegung oder Läschung, d’Aschränkung vun der Veraarbechtung an, wann et uwendbar ass, hir Portabilitéit ufroen. Dir kënnt géint eng Veraarbechtung op Basis vum berechtegten Interessi Widdersproch aleeën, aus Grënn, déi mat Ärer Situatioun ze dinn hunn, an eng Zoustëmmung zeréckzéien, ouni déi virdrun rechtméisseg Veraarbechtung a Fro ze stellen.',
+              'D’Recht op Läschung gëllt net ouni Ausnamen: verschidden Donnéeë mussen eventuell gespäichert bleiwen, fir eng gesetzlech Obligatioun ze erfëllen oder fir rechtlech Uspréch festzestellen, geltend ze maachen oder ze verdeedegen.',
               `Schéckt Är Ufro un ${practice.email} oder un déi uewe genannte berufflech Adress. Eng proportionéiert Iwwerpréiwung vun Ärer Identitéit kann néideg sinn. Dir kënnt och eng Reklamatioun bei der Commission nationale pour la protection des données (CNPD), zu Lëtzebuerg, areechen.`,
               'Dës Websäit hëlt keng automatiséiert Entscheedungen, déi rechtlech oder änlech bedeitend Auswierkungen op Iech hunn, a mécht kee Profiling.',
             ],
             links: [
               { label: 'De Verantwortleche fir d’Veraarbechtung kontaktéieren', href: email },
+              { label: 'Recht op Läschung: Informatioune vun der CNPD', href: sources.erasure },
               { label: 'Informatiounen iwwer Är Rechter bei der CNPD', href: sources.cnpd },
             ],
           },
