@@ -153,11 +153,12 @@ const related = careGuideIds.filter((id) => id !== guide);
     .guide-section p { max-width: none; }
   }
   @media (max-width: 600px) {
-    :global(.care-guide-hero h1) { font-size: clamp(34px, 10vw, 48px); }
+    :global(.care-guide-hero h1) { font-size: var(--mobile-page-title); overflow-wrap: normal; }
     .guide-breadcrumb { padding-top: 22px; }
     .guide-sidebar, .guide-next { grid-template-columns: 1fr; }
     .guide-context { max-width: 65ch; }
     .guide-section { padding: 28px 0 32px; }
+    .guide-section h2, .guide-next h2 { font-size: var(--mobile-article-title); text-wrap: balance; }
     .guide-question summary { font-size: 16px; }
     .guide-next { gap: 42px; }
     .guide-practical-links a { font-size: 14px; }
