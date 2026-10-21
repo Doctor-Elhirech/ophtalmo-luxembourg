@@ -1,95 +1,83 @@
-# Content provenance and client confirmation
+# Content sources
 
-## Authoritative brief
+Last factual review: 20 October 2026.
 
-The complete client brief is retained as `docs/CLIENT-BRIEF.txt`. Business facts and photos were supplied by the user. All six photographs, including the later street view (`Img-6.png`), were opened and visually inspected before use.
+This record distinguishes public evidence, information supplied by the client and editorial choices. It is provenance documentation, not a claim that the doctor has clinically reviewed every translation.
 
-## Independently checked public source
+## Practice identity and registration
 
-- [Current Doctena practice listing](https://www.doctena.lu/fr/practitioner/cabinet-ophtalmologique-mamer): practice address, telephone, doctor identity, six service areas, Besançon medical degree and previous hospital roles.
-- [Doctena specialty listing](https://www.doctena.lu/fr/specialite/ophthalmologie-pedriatique/cabinet-ophtalmologique-mamer-2095093): matching email and Collège médical affiliation. The affiliation is not promoted in the website copy.
+- [Collège médical ophthalmology register](https://collegemedical.lu/fr/professionals?id=44): checked in a browser on 20 October. Lists EL HIRECH M’hamed, Cabinet d’Ophtalmologie, 110 route d’Arlon, L-8210 Mamer. This is Luxembourg's professional regulator, not a university. The number `44` filters the profession; it is not his licence number. The website links to the register without inventing an individual registration identifier.
+- [Doctena practice profile](https://www.doctena.lu/fr/practitioner/cabinet-ophtalmologique-mamer): identifies the doctor, Mamer address, existing telephone and email, medical training at the Faculty of Medicine of Besançon, former hospital assistant/practitioner roles and former hospital attaché role in Paris. The biography uses these facts without inventing graduation dates, named hospitals, years of experience, awards or publications.
+- [Doctipro French profile](https://www.doctipro.lu/fr/doctor-profile/254/el-hirech-mhamed) and [English profile](https://www.doctipro.lu/en/doctor-profile/254/el-hirech-mhamed): the practice header and booking destination identify Mamer. The biography also contains an older 1 Val Sainte-Croix address, so its additional equipment and treatment claims have not been imported as Mamer facts.
 
-The exact requested booking URL is `https://www.doctena.lu/fr/practitioner/mhamed-el-hirech`. The English equivalent redirects to the newer practice slug. Retrieval of the exact French URL was bot-gated; this does not prove it is broken. Its intended final destination should be checked by the doctor before launch. Primary appointment CTAs retain the URL explicitly required in the brief; the user subsequently approved the secondary Doctipro option below.
+Doctipro was retrieved live and the official register checked in a browser. Doctena's public search copy was available, but direct requests can encounter automated-request protection. Such protection alone does not establish a broken patient booking link.
 
-No claims are derived from changing reservation numbers, payment options or other unrequested provider data. The demonstration displays provisional opening hours that the doctor must confirm.
+The original primary booking destination remains `https://www.doctena.lu/fr/practitioner/mhamed-el-hirech`. Secondary booking uses [Doctipro French](https://www.doctipro.lu/fr/rendez-vous/254?hospital=90) or [Doctipro English](https://www.doctipro.lu/en/rendez-vous/254?hospital=90), explicitly selecting the Mamer practice. Luxembourgish uses the French provider destination because no Luxembourgish provider page is established. No appointment was created and no calendar synchronization is assumed.
 
-## Additional profile and visitor information (21 September 2026)
+## Hours and practical information
 
-- [Doctipro French profile](https://www.doctipro.lu/fr/doctor-profile/254/el-hirech-mhamed) and [English profile](https://www.doctipro.lu/en/doctor-profile/254/el-hirech-mhamed): matching doctor name, ophthalmology specialty and practice header at 110 Route d'Arlon, Mamer. These support the additional profile links beneath the qualifications.
-- The profile's own appointment button leads to [French booking](https://www.doctipro.lu/fr/rendez-vous/254?hospital=90) or [English booking](https://www.doctipro.lu/en/rendez-vous/254?hospital=90). Both pages identify the doctor and Mamer practice. The demo uses these exact URLs for its secondary booking link. Availability was observed, but no slot was selected and no patient appointment was created. No assumption is made that Doctena and Doctipro calendars are synchronized.
-- [Doctena Mamer specialty listing](https://www.doctena.lu/en/specialty/ophthalmologist-eye-doctor/cabinet-ophtalmologique-mamer-2095093): lists French, English and Arabic. The FAQ was subsequently changed at the user's request to French, English and Luxembourgish. That current FAQ wording is retained, but the public profiles do not establish spoken Luxembourgish. The address and contact answers reuse existing practice details.
-- Doctipro's biography mentions 1 Val Sainte-Croix despite its Mamer header, and describes patients aged six and over while Doctena lists newborn care. Its additional treatment claims and hours are not imported. Confirm these discrepancies with the doctor before any related content changes.
-- The supplied Doctolib, PagesJaunes and Autour-de-moi profiles point to French practices in Bolbec/Sarcelles. Their connection to the Mamer doctor remains unconfirmed. The user agreed to defer those links, French-practice details and any travel claims until the doctor confirms them. French reviews are not mixed into the Mamer review section.
+The contact page presents **practice opening hours published on Doctena**, with a source link and a reminder to follow the time confirmed in the patient's booking:
 
-The user approved the local profile links, secondary booking link and four-item FAQ. The French and English routes and primary Doctena destination remain in place, with Luxembourgish routes added later. The Luxembourgish booking and profile links use the existing French destinations because a Luxembourgish Doctipro profile URL has not been confirmed. Confirm with the doctor that both booking services are intended for patient use before final handoff.
+| Day | Morning | Afternoon/evening |
+| --- | --- | --- |
+| Friday | 09:00–12:00 | 15:00–21:00 |
+| Saturday | 08:00–12:00 | 14:00–21:00 |
+| Sunday | 08:00–12:00 | 14:00–21:00 |
 
-The supplied Gmail address and a dotted spelling of the same Gmail username identify the same mailbox. The dot variation is not a conflicting email destination; the displayed spelling should follow the doctor's preference.
+Doctipro explicitly labels a different **practitioner's consultation schedule**: Friday 09:00–12:00 and 14:00–20:00; Saturday 08:00–12:00 and 14:00–20:00; Sunday 08:00–12:00 and 14:00–16:00; Monday–Thursday closed. These schedules are not merged into an invented timetable. The old Saturday-only schedule ending at 19:00 has been replaced. Hours remain excluded from structured data while the provider discrepancy exists.
 
-## SEO editorial sources and retained facts (1 October 2026)
+Doctena lists a ground-floor practice. Ground floor does not establish wheelchair accessibility, reserved parking or the exact entrance. Patient-facing copy gives the verified address/floor, a directions link, general preparation advice and a telephone route for access or parking questions. No unverified bus route, parking entitlement, fee or reimbursement promise was added.
 
-The new page metadata and concise visible introductions use the [current Doctena practice listing](https://www.doctena.lu/fr/practitioner/cabinet-ophtalmologique-mamer) for the doctor's identity, ophthalmology specialty, Mamer address, general and paediatric care areas, glasses and contact lenses, Besançon training and previous hospital roles in France. Its explicit English-language listing supports one English-speaking reference in the English homepage introduction. No new claim of spoken Luxembourgish was added. The [Doctipro English profile](https://www.doctipro.lu/en/doctor-profile/254/el-hirech-mhamed) supports the matching Mamer practice header, address and booking destination; the inconsistent biography was not used to expand practice claims.
+## Services and consultation languages
 
-The existing opening hours and “500+ patients treated” claim remain exactly as requested by the user, pending the doctor's reply. Existing newborn-care wording is also retained despite the conflicting age threshold in Doctipro. No new age-eligibility claim was added to metadata or structured data. No new claims about equipment, hospital affiliations, where surgery takes place or patient totals were introduced. Existing evidence and photography placeholders remain visible; none has been converted into a claimed qualification or doctor approval.
+Doctena lists general and paediatric ophthalmology, glasses/contact lenses, and cataract, myopia and strabismus surgical care. The site retains these care areas and explains the distinction between consultation and an individually discussed surgical pathway. It does not claim that surgery occurs onsite or identify an unverified surgeon, hospital, equipment model or current hospital affiliation.
 
-Unconfirmed hours, age eligibility, ratings and spoken Luxembourgish are excluded from the new structured data. Draft/evidence content and retained provisional claims use `data-nosnippet` where applicable to reduce their inclusion in Google snippets. This attribute does not establish accuracy or prevent the underlying page content from being indexed.
+Doctena mentions newborn care while Doctipro describes patients aged six and over. Public copy therefore says **adults and children**, with no unsupported minimum-age promise. Neither conflicting threshold has been presented as settled fact.
 
-## Patient guide sources (1 October 2026)
+Doctena lists French, English and Arabic; Doctipro lists French. The website remains available in **French, English and Luxembourgish**. Its FAQ now distinguishes website translations from consultations in French/English, rather than claiming the doctor speaks Luxembourgish. Additional Arabic promotional copy was not introduced, in line with the user's language preference.
 
-`src/content/care-guides.ts` contains three guides—eye consultation, glasses/contact lenses, and cataracts—in French, English and Luxembourgish, giving nine new pages. They provide general information for a discussion with a clinician. They do not claim doctor review, guarantee a treatment outcome, establish examination equipment at Mamer, or assert that surgery is performed there. Practice-specific care-area references are attributed to Doctena; general medical explanations link to these primary patient-information sources:
+## Patient guides and medical explanations
 
-- [National Eye Institute: Get a Dilated Eye Exam](https://www.nei.nih.gov/eye-health-information/healthy-vision/finding-eye-doctor/get-dilated-eye-exam).
-- [National Eye Institute: Talking with Your Eye Doctor](https://www.nei.nih.gov/eye-health-information/healthy-vision/finding-eye-doctor/talking-your-eye-doctor).
-- [University Hospitals Plymouth NHS Trust: Dilating drops](https://www.plymouthhospitals.nhs.uk/display-pil/pil-dilating-drops-6823).
-- [NHS: Vision loss](https://www.nhs.uk/conditions/vision-loss/).
-- [National Eye Institute: Refractive Errors](https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/refractive-errors).
-- [National Eye Institute: Contact Lenses](https://www.nei.nih.gov/eye-health-information/healthy-vision/contact-lenses).
-- [Moorfields Eye Hospital, NHS: Care of your soft contact lenses](https://www.moorfields.nhs.uk/for-patients/visual-aids/contact-lenses/care-of-your-soft-contact-lenses).
-- [NHS: Red eye](https://www.nhs.uk/symptoms/red-eye/).
-- [National Eye Institute: Cataracts](https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/cataracts).
-- [NHS: Cataracts in adults](https://www.nhs.uk/conditions/cataracts/).
-- [National Eye Institute: Cataract Surgery](https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/cataracts/cataract-surgery).
+The three guides—eye consultation, glasses/contact lenses and cataracts—are available in all three site languages. General information is separate from individual diagnosis and advice. Existing primary sources were checked again on 20 October; guide structured data cites the same visible references.
 
-The Luxembourgish medical wording remains subject to review by the doctor or a fluent Luxembourgish reviewer. Source links are provenance, not evidence that the doctor has reviewed or endorsed these summaries.
+- [National Eye Institute: Get a Dilated Eye Exam](https://www.nei.nih.gov/eye-health-information/healthy-vision/finding-eye-doctor/get-dilated-eye-exam)
+- [National Eye Institute: Talking with Your Eye Doctor](https://www.nei.nih.gov/eye-health-information/healthy-vision/finding-eye-doctor/talking-your-eye-doctor)
+- [University Hospitals Plymouth NHS Trust: Dilating drops](https://www.plymouthhospitals.nhs.uk/display-pil/pil-dilating-drops-6823)
+- [NHS: Vision loss](https://www.nhs.uk/conditions/vision-loss/)
+- [National Eye Institute: Refractive Errors](https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/refractive-errors)
+- [National Eye Institute: Contact Lenses](https://www.nei.nih.gov/eye-health-information/healthy-vision/contact-lenses)
+- [Moorfields Eye Hospital: Care of your soft contact lenses](https://www.moorfields.nhs.uk/for-patients/visual-aids/contact-lenses/care-of-your-soft-contact-lenses)
+- [NHS: Red eye](https://www.nhs.uk/symptoms/red-eye/)
+- [National Eye Institute: Cataracts](https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/cataracts)
+- [NHS: Cataracts in adults](https://www.nhs.uk/conditions/cataracts/)
+- [National Eye Institute: Cataract Surgery](https://www.nei.nih.gov/eye-health-information/eye-conditions-and-diseases/cataracts/cataract-surgery)
 
-## Reviews
+No clinical-review signature, date or endorsement is manufactured. Sources are available for readers; they do not establish the doctor's endorsement of the summaries.
 
-The **5.0/5, three total reviews and two written testimonials** come from the user's brief, not an independent current Google verification. Sarah E.'s excerpt is shortened faithfully. Aya Ads' excerpt preserves the supplied review. French excerpts are translations of the English renderings supplied in the brief, not claimed verbatim original French. A visible note explains that these are translated excerpts. The original section and “500+ patients” hero claim were restored at the user's explicit request on 3 October 2026; this does not establish factual verification or medical-publication compliance.
+## Supplied claims and reviews
 
-## Photography
+The **500+ patients** statement remains under the user's explicit instruction on 20 October. No public source or direct doctor reply has verified that number. The user's earlier message to the doctor proposed omitting it; the current instruction expressly retains it. It is excluded from metadata and structured data, and its existing snippet control is preserved. Snippet control does not establish accuracy or prevent every search engine from using the text.
 
-Source PNG files remain unchanged in `Photos/`. Optimization changes encoding/resolution only, without retouching, subject removal or attribution removal. The source of Img-3 includes Google interface controls; those remain in its complete gallery view. Layout crops are presentation only. The supplied `Img-6.png` street view is the homepage hero, captioned as a street view rather than as the clinic entrance. Other exterior images are used as supplied views of the premises, with no invented entrance, parking or accessibility directions. The exact entrance/facade association remains a client-confirmation item.
+The **5.0/5 rating, three total reviews and two written testimonials** were supplied in the original brief, not independently established as a current Google total. The named excerpts and their existing original Google review links remain. Visible notes explain that excerpts are translated; they are not labelled verbatim originals in French or Luxembourgish. No rating schema or new testimonial is added.
 
-No doctor portrait was supplied, so an authentic consultation-space photograph accompanies a typographic doctor profile. No synthetic portrait or substitute stock photograph is used.
+## Photographs
 
-## Outstanding client confirmations
+The six supplied originals remain unchanged in `Photos/`. WebP variants alter encoding/resolution without retouching or removing attribution. `Img-6.png` is accurately captioned as a street view, not the entrance. The doctor profile uses an actual consultation-office image, labelled as a room rather than a portrait. The full practice gallery now contains the two examination-room views and the existing consultation-office photograph, replacing the empty reception-photo placeholder.
 
-1. Doctor display name and capitalization; qualifications, specialties and preferred surgical wording. Do not imply that surgery is performed onsite without confirmation.
-2. Current Doctena practitioner destination, address, telephone and email.
-3. Ownership/permission for supplied photos, facade identification, and future original high-resolution photographs if available.
-4. The doctor personally operates the site, as confirmed by the user on 3 October 2026. “Ophtalmo Luxembourg” is a display brand, not a separate legal operator. On 6 October, the doctor reaffirmed his Collège médical registration. The ophthalmology register at `https://collegemedical.lu/fr/professionals?id=44` lists EL HIRECH M’hamed at 110 route d’Arlon, L-8210 Mamer; `44` selects a profession and is not his personal authorisation number. No formal authorisation reference was supplied or invented. The Doctena profile supports medical training in Besançon, France, but does not establish the country granting his specialist title; use the pending qualifications documents to establish it.
-5. Final domain, hosting account business-use/data-processing arrangements, and the doctor's final review of the notices. His 6 October reply confirms that he alone accesses the enquiry mailbox within the practice and that email correspondence is kept indefinitely. The notices disclose that practice and retain qualified deletion rights; they do not certify indefinite retention as lawful. Necessity and any applicable retention duties still need the doctor's review. His reply does not expressly approve the privacy-request email or the complete notices; the existing email and professional address remain the published request channels, without claiming explicit approval. The notices do not describe patient medical-record management or certify an unverified hosting contract.
-6. Confirm the provisional opening hours, patient-count claim, displayed review rating/count and wording, patient age eligibility and spoken languages; supply parking, accessibility, pricing or insurance information before presenting any of these as final.
+No artificial portrait, fake patient scene, fabricated diploma scan or stock image implying a real consultation has been introduced. The user has stated that image permissions will be secured; no independently verified licence or patient image consent is claimed here. An authentic portrait or new entrance photograph can be supplied later without leaving a public placeholder now.
 
-The demonstration is publicly hosted on Vercel with the user's approval. On 1 October 2026 the user authorized production indexing in code while retaining the unresolved content above. Production indexing is enabled by default in the source configuration; development and preview environments remain `noindex, follow`, with an optional production opt-out. Indexing and ranking results have not been measured.
+## Operator, email and privacy
 
-The initial implementation omitted verification at the user's request. The user then authorized review, build and release. The 1 October 2026 production build passes with zero errors or warnings; 94 core browser checks and 90 guide/SEO checks pass. All nine guide variants were visually reviewed at phone, tablet and laptop sizes, and the primary medical source links were checked. Several Luxembourgish wording issues were corrected; this is not doctor approval or native-language certification. Doctipro destinations responded successfully; Doctena rejects some automated requests, so those responses alone do not establish a broken booking link. No appointment, search-engine submission or account mutation was made. Final-domain configuration, redirects, search-property verification and Google Business Profile updates remain deferred. The SEO working plan is kept outside the repository.
+The user confirmed that the doctor operates the site personally; the brand is not a separate publishing company. The doctor's supplied 6 October reply confirms professional registration, sole access within the practice to the enquiry mailbox, and indefinite email retention. Notices disclose that reported retention practice with qualified erasure rights and applicable legal exceptions; disclosure alone does not certify indefinite storage as compliant.
 
-## Technical privacy notice sources (3 October 2026)
+The patient contact remains **ophtalmo.luxembourg@gmail.com**. A future administration Gmail is for hosting/search/analytics ownership only. No new administrative address appears as a patient contact.
 
-The French, English and Luxembourgish notices describe the current Vercel hosting and unchanged direct Google Maps embed. The map section states the practice's location/arrival purpose and selected Article 6(1)(f) basis for the technical connection; it does not claim that every Google processing operation is covered by that basis, that automatic loading is strictly necessary, or that all visitors' map sessions are cookie-free. Provider transfer statements are attributed and linked, without asserting an unverified hosting-account contract is in force.
+The notices describe current Vercel hosting, local fonts/images, the direct lazy-loaded Google Maps embed, external booking links and functional language-position storage. No analytics is installed. Provider references include [Vercel privacy](https://vercel.com/legal/privacy-notice), [Vercel data processing terms](https://vercel.com/legal/dpa), [Google privacy](https://policies.google.com/privacy), [Google transfers](https://policies.google.com/privacy/frameworks) and [CNPD erasure guidance](https://cnpd.public.lu/fr/particuliers/vos-droits/droit-oubli.html).
 
-- [Vercel privacy notice](https://vercel.com/legal/privacy-notice): visitor technical data, international processing, published EU–US Data Privacy Framework participation and retention criteria.
-- [Vercel data processing terms](https://vercel.com/legal/dpa): contractual safeguards for covered accounts; the published addendum currently names Pro/Enterprise. Its existence does not establish this project's actual plan or agreement.
-- [Google privacy policy](https://policies.google.com/privacy): embedded Maps, request metadata, EEA responsible entity and Google's separate processing purposes.
-- [Google transfer frameworks](https://policies.google.com/privacy/frameworks): adequacy decisions, Google LLC's framework participation, standard contractual clauses and how to request a copy.
-- [CNPD lawful processing bases](https://cnpd.public.lu/fr/professionnels/obligations/obligations-rgpd/liceite.html) and [visitor information duties](https://cnpd.public.lu/fr/particuliers/vos-droits/droit-a-information.html): purpose/basis and safeguard disclosures.
+Map privacy testing does not certify all browser/sign-in/region combinations. The project does not assert that a future hosting contract or analytics consent setup already exists. Hosting/analytics disclosures must change when those services actually change.
 
-The map assessment and remaining doctor/account questions are retained in a private working note outside this repository. Normal real-browser map tests found no cookie activity, with limitations including unverified signed-in EEA usage; no full compliance certification is claimed. A planned move to Netlify does not change the current provider disclosure: update it when the host actually changes. No consumer Gmail processor contract or unconfirmed professional identifier is asserted.
+## Release scope
 
-## Doctor's legal/privacy reply (6 October 2026)
+The current content pass removes public demonstration text, empty evidence/photo panels and developer instructions. Verified information is patient-facing in all three languages. Optional credentials, images or later corrections are enhancements rather than public placeholders. No government approval, guaranteed ranking, independently verified patient count or complete legal certification is claimed.
 
-The client's supplied screenshot of the doctor's French reply confirms Collège médical registration, sole practice access to the email account, and indefinite email retention. It does not supply an authorisation number, a specialist-title granting country, or a review of the two notices. The word “non” before his explanation of sole access is not treated as an explicit rejection or approval of a privacy-request address.
-
-The current official [ophthalmology register](https://collegemedical.lu/fr/professionals?id=44) was checked in a real browser: its heading is “Ophtalmologie” and EL HIRECH M’hamed is listed at the Mamer practice address. The URL is a category-filtered register, not an individual doctor's page or licence identifier. The notices link to that exact register in all three languages.
-
-The email-retention copy now states the doctor's actual reported practice rather than promising an unconfirmed deletion schedule. Access within the practice is distinguished from Gmail's technical processing. The notices retain the right to request deletion, expressly explain legal-obligation and legal-claim exceptions, and link to [CNPD erasure guidance](https://cnpd.public.lu/fr/particuliers/vos-droits/droit-oubli.html). [GDPR Article 5(1)(e), reproduced by the CNPD](https://cnpd.public.lu/fr/legislation/droit-europ/union-europeenne/rgpd/chapitre-2.html), still limits retention to what is necessary: disclosure and requests for deletion alone do not make blanket indefinite retention compliant. No mailbox setting, medical record, map behaviour, design, or hosting configuration was changed.
+Account creation, ownership verification, sitemap submission, analytics activation, hosting migration, final-domain connection and external listing edits are separate deployment tasks. The detailed remaining task plan is private and outside this repository.

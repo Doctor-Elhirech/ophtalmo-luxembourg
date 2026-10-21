@@ -3,6 +3,7 @@ import type { Translation } from '../content/translations';
 import BookingLink from './BookingLink.astro';
 import Arrow from './Arrow.astro';
 import VisitFaq from './VisitFaq.astro';
+import OpeningHours from './OpeningHours.astro';
 interface Props {
   t: Translation;
 }
@@ -85,13 +86,9 @@ const { t } = Astro.props;
           </button>
         </div>
       </div>
-      <div class="opening-hours" data-nosnippet>
+      <div class="opening-hours">
         <h3 class="eyebrow">{t.contactSection.hoursLabel}</h3>
-        <div class="hours-row">
-          <span class="hours-day">{t.contactSection.hoursSaturday}</span>
-          <span class="hours-time">{t.contactSection.hoursTime}</span>
-        </div>
-        <p class="hours-closed">{t.contactSection.hoursClosed}</p>
+        <OpeningHours t={t} compact />
       </div>
     </div>
     <a

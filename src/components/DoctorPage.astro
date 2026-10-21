@@ -11,8 +11,8 @@ const { t, locale } = Astro.props;
 <section class="doctor-story container" aria-labelledby="doctor-name">
   <figure class="doctor-story-media">
     <Photo slot="consultation" t={t} eager sizes={photoSizes.doctor} />
-    <span class="doctor-portrait-label" data-nosnippet>{t.doctorPage.portraitSlotLabel}</span>
-    <figcaption><span data-nosnippet>{t.doctorPage.photoNote}</span></figcaption>
+    <span class="doctor-portrait-label">{t.doctorPage.photoLabel}</span>
+    <figcaption>{t.doctorPage.photoNote}</figcaption>
   </figure>
 
   <div class="doctor-story-copy">
@@ -41,7 +41,7 @@ const { t, locale } = Astro.props;
   </div>
 </section>
 
-<section class="doctor-proof container" aria-labelledby="doctor-proof-title" data-nosnippet>
+<section class="doctor-proof container" aria-labelledby="doctor-proof-title">
   <div class="doctor-proof-heading">
     <div>
       <p class="eyebrow">{t.doctorPage.proofLabel}</p>
@@ -52,14 +52,13 @@ const { t, locale } = Astro.props;
   <div class="doctor-proof-grid">
     {t.doctorPage.evidence.map((item, index) => (
       <article class="doctor-proof-card">
-        <div class="doctor-proof-image-slot">
-          <span class="doctor-proof-slot-icon" aria-hidden="true"></span>
-          <span>{item.imageLabel}</span>
-        </div>
         <div class="doctor-proof-card-copy">
           <span class="item-number" aria-hidden="true">{t.numbers[index]}</span>
           <h3>{item.title}</h3>
           <p>{item.description}</p>
+          <a class="text-link doctor-evidence-source" href={item.sourceUrl} target="_blank" rel="noopener noreferrer" aria-label={`${item.sourceLabel} (${t.accessibility.newTab})`}>
+            {item.sourceLabel}<Arrow diagonal />
+          </a>
         </div>
       </article>
     ))}

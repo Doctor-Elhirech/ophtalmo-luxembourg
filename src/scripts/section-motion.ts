@@ -33,7 +33,7 @@ const motionRules: MotionRule[] = [
   { selector: '.doctor-next-actions', kind: 'settle' },
   { selector: '.detail-intro-row', kind: 'settle' },
   { selector: '.care-card', kind: 'card', stagger: true },
-  { selector: '.placeholder-panel', kind: 'fade' },
+  { selector: '.care-information-panel', kind: 'fade' },
   { selector: '.journey-heading', kind: 'left' },
   // Keep the existing scroll-driven circles and connecting lines unchanged.
   { selector: '.journey-list li > div', kind: 'row' },
@@ -42,7 +42,7 @@ const motionRules: MotionRule[] = [
   { selector: '.contact-info-card', kind: 'settle', stagger: true },
   { selector: '.contact-map', kind: 'map' },
   { selector: '.faq-item', kind: 'row', stagger: true },
-  { selector: '.footer-top > *, .footer-bottom, .demo-note', kind: 'settle', stagger: true },
+  { selector: '.footer-top > *, .footer-bottom', kind: 'settle', stagger: true },
 ];
 
 const reducedMotionPreference = matchMedia('(prefers-reduced-motion: reduce)');

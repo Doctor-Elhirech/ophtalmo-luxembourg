@@ -238,6 +238,12 @@ async function expectSettledReadingArea(page) {
         const bounds = element.getBoundingClientRect();
         if (bounds.bottom <= top || bounds.top >= bottom || !bounds.width || !bounds.height)
           return true;
+        // A padded green surface can reach this zone before any of its text does.
+        // Check its reading content so the deliberately later flip remains valid.
+        if (element.dataset.motion === 'flip') {
+          const content = element.querySelector('h1, h2, h3, p, a')?.getBoundingClientRect();
+          if (content && content.top >= bottom) return true;
+        }
         const style = getComputedStyle(element);
         return (
           !element.classList.contains('motion-pending') &&

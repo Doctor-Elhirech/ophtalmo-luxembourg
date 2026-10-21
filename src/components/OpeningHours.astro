@@ -1,0 +1,30 @@
+---
+import type { Translation } from '../content/translations';
+interface Props { t: Translation; compact?: boolean }
+const { t, compact = false } = Astro.props;
+---
+
+<dl class:list={['practice-hours-list', { 'practice-hours-compact': compact }]}>
+  {t.openingHours.map(({ day, periods }) => (
+    <div class="practice-hours-entry">
+      <dt>{t.contactSection.hoursDays[day]}</dt>
+      <dd>{periods.join('\n')}</dd>
+    </div>
+  ))}
+</dl>
+<p class="practice-hours-note">{t.contactSection.hoursNote}</p>
+<a class="practice-hours-source" href={t.profileUrl} target="_blank" rel="noopener noreferrer" aria-label={`${t.contactSection.hoursSource} (${t.accessibility.newTab})`}>
+  {t.contactSection.hoursSource}<span aria-hidden="true"> ↗</span>
+</a>
+
+<style>
+  .practice-hours-list { display: grid; gap: 12px; font-size: 16px; line-height: 1.6; }
+  .practice-hours-entry { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px; }
+  dt { font-weight: 500; }
+  dd { margin: 0; text-align: right; white-space: pre-line; font-variant-numeric: tabular-nums; }
+  .practice-hours-compact { max-width: 280px; font-size: 14px; }
+  .practice-hours-note, .practice-hours-source { color: var(--muted); font-size: 12px; line-height: 1.6; }
+  .practice-hours-note { margin-top: 14px; }
+  .practice-hours-source { display: inline-block; margin-top: 6px; text-decoration: underline; text-underline-offset: 3px; }
+  .practice-hours-source:hover, .practice-hours-source:focus-visible { color: var(--ink); }
+</style>

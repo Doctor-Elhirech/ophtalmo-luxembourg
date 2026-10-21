@@ -1717,12 +1717,6 @@
     transform: translateY(-3px) rotate(-90deg);
   }
 
-  .demo-note {
-    font-size: 11px;
-    color: var(--muted);
-    margin-top: 20px;
-  }
-
   .mobile-contact-bar {
     display: none;
   }
@@ -1848,13 +1842,13 @@
     padding-bottom: var(--section);
   }
 
-  .placeholder-panel {
+  .care-information-panel {
     border: 1px solid var(--line);
     padding: clamp(24px, 4vw, 52px);
     background: rgba(255, 255, 255, 0.28);
   }
 
-  .placeholder-panel > p:not(.eyebrow) {
+  .care-information-panel > p:not(.eyebrow) {
     color: var(--muted);
     max-width: 70ch;
   }
@@ -1862,12 +1856,6 @@
   .detail-list-columns {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 22px;
-  }
-
-  .provisional-note {
-    font-size: 12px;
-    color: var(--muted);
-    margin-top: 28px;
   }
 
   .detail-intro-row {
@@ -2949,11 +2937,6 @@
       display: none;
     }
 
-    .demo-note {
-      font-size: 11px;
-      margin-top: 12px;
-    }
-
     .mobile-contact-bar {
       display: flex;
       position: fixed;
@@ -3450,56 +3433,21 @@
 
   .doctor-proof-card {
     min-width: 0;
-  }
-
-  .doctor-proof-image-slot,
-  .practice-gallery-slot-visual {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 19px;
-    aspect-ratio: 4 / 3;
-    border: 1px dashed var(--gold);
-    background: var(--surface);
-    padding: 22px;
-    color: var(--muted);
-    text-align: center;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .doctor-proof-slot-icon,
-  .practice-gallery-slot-symbol {
-    position: relative;
-    display: block;
-    width: 54px;
-    height: 68px;
-    border: 1px solid var(--gold);
-    background: var(--paper);
-  }
-
-  .doctor-proof-slot-icon::after,
-  .practice-gallery-slot-symbol::after {
-    content: '';
-    position: absolute;
-    inset: 16px 12px auto;
-    height: 24px;
-    border-top: 1px solid var(--gold);
-    border-bottom: 1px solid var(--gold);
+    border-top: 1px solid var(--line);
   }
 
   .doctor-proof-card-copy {
     display: grid;
     grid-template-columns: 30px minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    align-items: start;
     gap: 4px 12px;
     padding-top: 20px;
+    height: 100%;
   }
 
   .doctor-proof-card-copy .item-number {
-    grid-row: 1 / 3;
+    grid-row: 1 / 4;
     color: var(--gold-ink);
   }
 
@@ -3516,6 +3464,18 @@
     color: var(--muted);
     font-size: 13px;
     line-height: 1.7;
+  }
+
+  .doctor-evidence-source {
+    grid-column: 2;
+    justify-self: start;
+    max-width: 100%;
+    margin-top: 16px;
+    font-size: 12px;
+  }
+
+  .doctor-evidence-source .arrow {
+    flex-shrink: 0;
   }
 
   .doctor-next {
@@ -3626,20 +3586,6 @@
     grid-row: auto;
     justify-content: flex-start;
     padding-top: 0;
-  }
-
-  .practice-gallery-slot h3 {
-    margin-top: 15px;
-    font-family: var(--sans);
-    font-size: 16px;
-    font-weight: 600;
-  }
-
-  .practice-gallery-slot p {
-    margin-top: 7px;
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.6;
   }
 
   .practice-section-detail + .journey-section {
@@ -4000,27 +3946,19 @@
     }
 
     .doctor-proof-card {
-      display: grid;
-      grid-template-columns: minmax(200px, 0.7fr) minmax(0, 1fr);
-      align-items: start;
-      gap: 28px;
+      display: block;
     }
 
     .doctor-proof-card-copy {
-      padding-top: 2px;
+      padding-top: 20px;
     }
 
     .practice-section-detail .gallery-layout {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .practice-section-detail .practice-gallery-slot {
+    .practice-section-detail .gallery-item-3 {
       grid-column: 1 / -1;
-    }
-
-    .practice-section-detail .practice-gallery-slot-visual {
-      min-height: 220px;
-      aspect-ratio: auto;
     }
 
     .care-card-summary {
@@ -4127,10 +4065,6 @@
       display: block;
     }
 
-    .doctor-proof-image-slot {
-      aspect-ratio: 16 / 10;
-    }
-
     .doctor-proof-card-copy {
       padding-top: 18px;
     }
@@ -4162,10 +4096,6 @@
     .practice-section-detail .gallery-item-2,
     .practice-section-detail .gallery-item-3 {
       margin-top: 0;
-    }
-
-    .practice-section-detail .practice-gallery-slot {
-      grid-column: auto;
     }
 
     .page-hero {
@@ -4398,7 +4328,6 @@
     .doctor-proof-heading > p,
     .doctor-proof-card p,
     .practice-arrival-notes p,
-    .practice-gallery-slot p,
     .appointment-preview-text,
     .appointment-actions > p,
     .detail-lead,

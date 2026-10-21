@@ -13,6 +13,14 @@ export const practice = {
   directionsUrl:
     "https://www.google.com/maps/dir/?api=1&destination=110+Rte+d'Arlon,+8210+Mamer,+Luxembourg",
   profileUrl: 'https://www.doctena.lu/fr/practitioner/cabinet-ophtalmologique-mamer',
+  registrationUrl: 'https://collegemedical.lu/fr/professionals?id=44',
+  // Mamer practice opening hours published on Doctena, checked 20 October 2026.
+  // Doctipro publishes a different consultation schedule; never merge the two.
+  openingHours: [
+    { day: 'friday', periods: ['09:00 – 12:00', '15:00 – 21:00'] },
+    { day: 'saturday', periods: ['08:00 – 12:00', '14:00 – 21:00'] },
+    { day: 'sunday', periods: ['08:00 – 12:00', '14:00 – 21:00'] },
+  ] as const,
   // Each Doctipro booking URL selects the Mamer practice (hospital=90).
   doctipro: {
     fr: {

@@ -14,8 +14,8 @@ const { t, locale } = Astro.props;
 <section class="practice-arrival container" aria-labelledby="practice-arrival-title">
   <figure class="practice-arrival-media">
     <Photo slot="exterior" t={t} eager sizes={photoSizes.arrival} />
-    <span class="practice-arrival-photo-label" data-nosnippet>{t.practicePage.entrancePhotoLabel}</span>
-    <figcaption><span data-nosnippet>{t.practicePage.entrancePhotoNote}</span></figcaption>
+    <span class="practice-arrival-photo-label">{t.practicePage.entrancePhotoLabel}</span>
+    <figcaption>{t.practicePage.entrancePhotoNote}</figcaption>
   </figure>
   <div class="practice-arrival-copy">
     <p class="eyebrow">{t.practicePage.arrivalTitle}</p>
@@ -31,7 +31,7 @@ const { t, locale } = Astro.props;
         {t.practicePage.hoursLink}<Arrow />
       </a>
     </div>
-    <div class="practice-arrival-notes" data-nosnippet>
+    <div class="practice-arrival-notes">
       {t.practicePage.arrivalNotes.map((note) => (
         <div>
           <h3>{note.title}</h3>

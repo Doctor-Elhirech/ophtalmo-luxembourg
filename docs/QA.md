@@ -51,3 +51,19 @@ npm run qa:performance
 ```
 
 Measurements, snapshots and screenshots are stored under ignored `qa/screenshots/performance/` and are not committed. The preservation comparison requires that local baseline; it is separate from the reusable performance regression suite.
+
+## Content completion review — 20 October 2026
+
+The three-language content pass replaces public editorial/demonstration wording with sourced patient information. Doctor evidence cards link to published training/background and the official professional register; the practice gallery uses three existing real photographs. Contact hours show Doctena's practice opening schedule with a source link, keeping it separate from Doctipro's differing consultation schedule. Website translations are distinguished from consultation languages, and no minimum patient age is promised where the profiles disagree.
+
+`npm run build` passes with 30 pages and zero errors, warnings or hints. The core browser suite passes 94 checks and the SEO/guide suite passes 90 checks. These cover phone, tablet and laptop layouts, image loading, accessibility, navigation, language switching, gallery/disclosure controls, metadata, sitemap, schema, links and essential operation without JavaScript. All eleven existing primary medical source destinations resolve.
+
+A focused content check covers all 30 routes at 320, 390, 768 and 1366 pixels (120 layouts). It checks actual text bounds, horizontal overflow, remaining public draft instructions, the unchanged contact email, source links, three real practice-gallery images including the third image's lightbox, and the three published opening-hour rows. A long Luxembourgish phrase in the care-information panel was rewritten after a narrow-phone text-bound failure; the final focused check passes. Screenshots of the changed cards, care note, gallery and hours are retained in ignored `qa/screenshots/publish-ready-oct20/`.
+
+No patient booking, email, analytics request, search-engine submission, account creation, deployment, staging or push was performed. Source checking and browser QA do not constitute doctor approval, a current Google review-count verification, full legal certification or a ranking guarantee. The retained 500+ statement is a user-directed assumption; its existing snippet exclusion is preserved and it is absent from structured data.
+
+## Pre-push review — 21 October 2026
+
+Reviewed the full pending content/component/style diff. Corrected the new third practice-gallery photo's `sizes` hint: it spans the tablet row and must not request the smaller half-column source. The source photograph, encoder quality and visible layout are unchanged.
+
+The production build passes with 30 pages and zero errors, warnings or hints. The core suite passes 94 checks, the SEO/guide suite passes 90, and the performance regression suite passes all 30 checks, including 81 displayed-photo density checks across phone, tablet and laptop profiles. The motion assertion was refined to inspect a green surface's first reading content rather than its empty upper padding; the site's animation timing and behavior were preserved. No remaining issue was found in the reviewed change scope. Private plans, screenshots and diagnostic helpers are excluded from the release.

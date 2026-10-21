@@ -28,7 +28,7 @@ const guideForCard: Partial<Record<number, CareGuideId>> = {
             <span class="item-number" aria-hidden="true">{t.numbers[index]}</span>
             <span class="care-card-title">{item.title}</span>
           </span>
-          <span class="care-card-preview" data-nosnippet={index === 1 ? true : undefined}>{item.text}</span>
+          <span class="care-card-preview">{item.text}</span>
           <span class="care-card-action" aria-hidden="true">
             <span class="care-card-open-label">{t.expertisePage.expandLabel}</span>
             <span class="care-card-close-label">{t.expertisePage.collapseLabel}</span>
@@ -57,9 +57,9 @@ const guideForCard: Partial<Record<number, CareGuideId>> = {
   </div>
 </section>
 <section class="detail-note-section container">
-  <div class="placeholder-panel" data-nosnippet>
-    <p class="eyebrow">{t.expertisePage.confirmationTitle}</p>
-    <p>{t.expertisePage.confirmationText}</p>
+  <div class="care-information-panel">
+    <p class="eyebrow">{t.expertisePage.careNoteTitle}</p>
+    <p>{t.expertisePage.careNoteText}</p>
   </div>
 </section>
 

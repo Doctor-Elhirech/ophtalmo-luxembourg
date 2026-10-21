@@ -3,6 +3,7 @@ import type { Translation } from '../content/translations';
 import VisitFaq from './VisitFaq.astro';
 import BookingOptions from './BookingOptions.astro';
 import Arrow from './Arrow.astro';
+import OpeningHours from './OpeningHours.astro';
 interface Props { t: Translation }
 const { t } = Astro.props;
 ---
@@ -47,14 +48,10 @@ const { t } = Astro.props;
       <a class="contact-info-email" href={`mailto:${t.email}`}>{t.email}</a>
     </div>
 
-    <div class="contact-info-card" data-nosnippet>
+    <div class="contact-info-card">
       <h3>{t.contactSection.hoursLabel}</h3>
-      <div class="contact-info-hours">
-        <span>{t.contactSection.hoursSaturday}</span>
-        <span>{t.contactSection.hoursTime}</span>
-      </div>
-      <p class="contact-info-closed">{t.contactSection.hoursClosed}</p>
-      <p class="contact-hours-note">{t.contactPage.confirmationText}</p>
+      <OpeningHours t={t} />
+      <p class="contact-hours-note">{t.contactPage.hoursText}</p>
     </div>
   </div>
 

@@ -2,8 +2,7 @@ import { practice } from '../config/practice';
 import { legalContent } from './legal';
 import type { Translation } from './translations';
 
-// Working Luxembourgish copy. Medical wording and practice facts should be reviewed
-// with the doctor or a fluent Luxembourgish speaker before the final public launch.
+// Luxembourgish patient information follows the same factual scope as French and English.
 export const lb: Translation = {
   ...practice,
   // Doctipro has no confirmed Luxembourgish URL for this profile; retain its French destination.
@@ -60,7 +59,7 @@ export const lb: Translation = {
     eyebrow: 'Aepraxis · Mamer, Lëtzebuerg',
     line1: 'Är Siicht.',
     line2: 'Eis Suergfalt.',
-    intro: 'Aebetreiung fir Erwuessener a Kanner, vun der Gebuert un.',
+    intro: 'Aebetreiung fir Erwuessener a Kanner zu Mamer.',
     provider: 'Mam Dr M’Hamed EL HIRECH',
     bookingNote: 'Fräi Rendez-vousen a Reservatioun iwwer Doctena',
     caption: 'Stroossebléck zu Mamer',
@@ -71,7 +70,7 @@ export const lb: Translation = {
     label: 'Perséinlech Betreiung',
     title: 'Zäit fir Är Aen.',
     emphasis: 'Opmierksam fir Iech.',
-    text: 'Den Dr M’Hamed EL HIRECH, Aendokter zu Mamer, Lëtzebuerg, empfänkt Iech fir Är Siicht an d’Gesondheet vun Ären Aen.',
+    text: 'A menger Praxis zu Mamer empfänken ech Iech fir Är Siicht an d’Gesondheet vun Ären Aen. Bei der Consultatioun schwätze mir iwwer Är Problemer mat den Aen, Är Siichtkorrektur an déi nächst Schrëtt an Ärer Betreiung.',
   },
   doctorSection: {
     label: 'Ären Aendokter',
@@ -83,7 +82,7 @@ export const lb: Translation = {
     qualifications: [
       'Ofschloss op der medezinescher Fakultéit zu Besançon, Frankräich',
       'Fréiere Spidolsassistent a Spidolsdokter',
-      'Fréier als Dokter u Paräisser Spideeler verbonnen',
+      'Fréier als Dokter u Paräisser Spideeler täteg',
     ],
     caption: 'An der Praxis · Consultatiounsraum',
     source: 'Beruffleche Wee op Doctena publizéiert',
@@ -98,7 +97,7 @@ export const lb: Translation = {
     intro: 'Entdeckt d’Fachberäicher vun Ärem Aendokter zu Mamer.',
     items: [
       { name: 'Allgemeng Ophtalmologie', detail: 'Consultatiounen iwwer d’Aen an d’Siicht' },
-      { name: 'Ophtalmologie fir Kanner', detail: 'Kanner, och Neigebueren' },
+      { name: 'Ophtalmologie fir Kanner', detail: 'Siicht a visuell Entwécklung vum Kand' },
       { name: 'Brëller & Kontaktlënsen', detail: 'Korrektur vun der Siicht' },
       { name: 'Kataraktchirurgie', detail: 'Chirurgesch Behandlung' },
       { name: 'Chirurgie bei Kuerzsiichtegkeet', detail: 'Chirurgesch Behandlung' },
@@ -148,7 +147,7 @@ export const lb: Translation = {
       'Ech war wéinst Aeschmäerzen do. Den Aendokter war ganz kompetent an huet gutt nogelauschtert. Ech kann hie recommandéieren.',
     ],
     source: 'Google-Bewäertung',
-    note: 'Iwwersate Passagen aus de zur Verfügung gestallte Bewäertungen.',
+    note: 'Auszich aus Google-Bewäertungen, op Lëtzebuergesch iwwersat. Déi ursprénglech Bewäertunge fannt Dir iwwer d’Linken hei uewen.',
   },
   appointment: {
     label: 'Ären nächste Rendez-vous',
@@ -174,14 +173,14 @@ export const lb: Translation = {
       },
       {
         question: 'Wou ass d’Praxis?',
-        answer: `D’Praxis ass op der ${practice.address.street}, ${practice.address.postalCity}, zu Lëtzebuerg. D’Kontaktdaten an de Wee fannt Dir hei drënner.`,
+        answer: `D’Praxis ass op der ${practice.address.street}, ${practice.address.postalCity}, zu Lëtzebuerg. D’Kontaktdaten an de Wee fannt Dir op der Säit Wee & Kontakt.`,
         linkLabel: 'Adress a Wee',
         href: '#contact',
       },
       {
         question: 'Wéi eng Sprooche ginn an der Praxis geschwat?',
         answer:
-          'An der Praxis gi Franséisch, Englesch a Lëtzebuergesch geschwat. Wann Dir eng bestëmmte Sprooch braucht, kontaktéiert d’Praxis virun Ärem Besuch.',
+          'D’Consultatioune kënnen op Franséisch oder Englesch stattfannen. Dës Websäit ass op Franséisch, Englesch a Lëtzebuergesch disponibel. Fir eng aner Consultatiounssprooch, kontaktéiert d’Praxis beim Reservéieren.',
         linkLabel: '',
         href: '',
       },
@@ -201,9 +200,9 @@ export const lb: Translation = {
     addressLabel: 'D’Praxis',
     contactLabel: 'Kontakt',
     hoursLabel: 'Ëffnungszäiten',
-    hoursSaturday: 'Samschdeg',
-    hoursTime: '08:00 – 12:00\n14:00 – 19:00',
-    hoursClosed: 'Déi aner 6 Deeg zou',
+    hoursDays: { friday: 'Freideg', saturday: 'Samschdeg', sunday: 'Sonndeg' },
+    hoursNote: 'Consultatiounen op Rendez-vous.',
+    hoursSource: 'Ëffnungszäite vun der Praxis op Doctena',
     mapTitle: 'Lag vun der Praxis Ophtalmo Luxembourg zu Mamer',
     country: 'Lëtzebuerg',
   },
@@ -212,7 +211,6 @@ export const lb: Translation = {
     rightsReserved: 'All Rechter virbehalen.',
     closing: 'Är Siicht. Eis Suergfalt.',
     top: 'Zréck no uewen',
-    demo: 'Demo · Informatiounen nach virun der definitiver Verëffentlechung ze bestätegen',
   },
   pageMeta: {
     legal: { title: `${legalContent.lb.pages.legal.title} | ${practice.name}`, description: legalContent.lb.pages.legal.description },
@@ -248,36 +246,39 @@ export const lb: Translation = {
     title: 'Medezinesch Erfarung.',
     emphasis: 'Perséinlech Betreiung.',
     intro:
-      'Léiert den Dr M’Hamed EL HIRECH kennen, Aendokter zu Mamer, Lëtzebuerg. Entdeckt seng Ausbildung a seng Spidolserfarung.',
-    portraitSlotLabel: 'Portrait vum Dokter derbäisetzen',
+      'Ech sinn den Dr M’Hamed EL HIRECH, Aendokter zu Mamer, Lëtzebuerg. Ech empfänken Iech fir eng Aebetreiung, déi op Är Situatioun ofgestëmmt ass.',
+    photoLabel: 'An der Praxis zu Mamer',
     photoNote:
-      'Aktuell Foto vun der Praxis. Duerch en aktuelle Portrait vum Dokter am Héichformat ersetzen, deen hien zougestëmmt huet.',
-    profileTitle: 'Publizéierte Parcours',
+      'De Consultatiounsbüro vun der Praxis op der 110 Route d’Arlon.',
+    profileTitle: 'Ären Aespezialist',
     profileText:
-      'Seng Ausbildung zu Besançon a seng Aarbecht a franséische Spideeler ginn op senge publizéierte Profiller genannt.',
-    profilesTitle: 'Publizéiert berufflech Profiller',
-    proofLabel: 'Mam Dokter ze bestätegen',
-    proofTitle: 'Ausbildung & Leeschtungen',
+      'Ech hunn op der medezinescher Fakultéit zu Besançon ofgeschloss a war als Spidolsassistent, Spidolsdokter an als Dokter u Paräisser Spideeler täteg. Haut empfänken ech Erwuessener a Kanner a menger Praxis zu Mamer.',
+    profilesTitle: 'Meng berufflech Profiller',
+    proofLabel: 'Ausbildung & berufflech Praxis',
+    proofTitle: 'Erfarung fir Är Aegesondheet.',
     proofIntro:
-      'Dës Plaze weisen Dokumenter, déi den Dokter eventuell presentéiere wëllt. Et ginn him keng onbestätegt Diplomer, Auszeechnungen oder Publikatiounen zougeschriwwen.',
+      'Eng medezinesch Ausbildung zu Besançon, Spidolserfarung a Frankräich an eng Aschreiwung beim Collège médical vu Lëtzebuerg.',
     evidence: [
       {
-        title: 'Diplomer & Certificaten',
-        imageLabel: 'Plaz fir e Bild: Diplom oder Certificat',
+        title: 'Medezinesch Ausbildung',
         description:
-          'Hei kann eng gutt liesbar Kopie vun engem Fachdiplom oder enger Zousazausbildung dobäikommen, mat iwwerpréiftem Titel, Etablissement a Joer.',
+          'Ofschloss op der medezinescher Fakultéit zu Besançon, a Frankräich. Mäi beruffleche Parcours steet op mengem Doctena-Profil.',
+        sourceLabel: 'Parcours op Doctena',
+        sourceUrl: practice.profileUrl,
       },
       {
-        title: 'Auszeechnungen & Memberschaften',
-        imageLabel: 'Plaz fir e Bild: Noweis oder Logo',
+        title: 'Spidolserfarung',
         description:
-          'Wann et zoutrëfft: eng Auszeechnung, eng Funktioun oder d’Memberschaft an enger medezinescher Gesellschaft mat Noweis an Datum weisen.',
+          'Fréier Spidolsassistent a Spidolsdokter, an och als Dokter u Paräisser Spideeler täteg.',
+        sourceLabel: 'Beruffleche Profil',
+        sourceUrl: practice.profileUrl,
       },
       {
-        title: 'Publikatiounen & Virträg',
-        imageLabel: 'Plaz fir e Bild: Cover oder éischt Säit',
+        title: 'Berufflech Aschreiwung',
         description:
-          'Wa verfügbar: déi komplett Referenz an en autoriséiert Bild vun engem Artikel oder engem Fachvirtrag derbäisetzen.',
+          'Beim Collège médical vu Lëtzebuerg als Fachdokter fir Ophtalmologie ageschriwwen, mat enger Praxis zu Mamer.',
+        sourceLabel: 'Register vum Collège médical',
+        sourceUrl: practice.registrationUrl,
       },
     ],
     viewDoctena: 'Doctena-Profil ukucken',
@@ -293,8 +294,8 @@ export const lb: Translation = {
     intro:
       'Siicht, Brëller a Kontaktlënsen: entdeckt d’Fachberäicher vum Dr M’Hamed EL HIRECH, Aendokter zu Mamer.',
     publishedNote:
-      'Dës Texter erklären déi genannte Beräicher am Allgemengen. D’Praxis muss nach bestätegen, wéi eng Ënnersichungen a Behandlungen zu Mamer ugebuede ginn.',
-    detailsTitle: 'Genannte Fachberäicher',
+      'Eng Ännerung vun der Siicht, eng nei Korrektur oder eng Aekontroll: entdeckt déi verschidde Consultatiounsberäicher. D’Ënnersichungen an d’Behandlunge ginn no Ärer perséinlecher Situatioun gewielt.',
+    detailsTitle: 'Consultatiounsberäicher',
     expandLabel: 'Méi gewuer ginn',
     collapseLabel: 'Manner weisen',
     items: [
@@ -314,7 +315,7 @@ export const lb: Translation = {
       },
       {
         title: 'Ophtalmologie fir Kanner',
-        text: 'Aebetreiung fir Kanner, och Neigebueren, laut dem publizéierte Profil.',
+        text: 'Ënnersichung vun der Siicht an der visueller Entwécklung vum Kand.',
         expanded: [
           {
             label: 'Entwécklung vun der Siicht',
@@ -342,7 +343,7 @@ export const lb: Translation = {
       },
       {
         title: 'Katarakt, Kuerzsiichtegkeet & Schielen',
-        text: 'Chirurgesch Beräicher, déi op Doctena genannt ginn; d’Modalitéite sinn nach ze bestätegen.',
+        text: 'Ënnersichung, Behandlungsméiglechkeeten a Begleedung bei enger méiglecher Operatioun.',
         expanded: [
           {
             label: 'Katarakt',
@@ -361,9 +362,9 @@ export const lb: Translation = {
     ],
     visitTitle: 'Wëllt Dir Äre Besuch plangen?',
     visitIntro: 'Kuckt déi fräi Rendez-vousen a wielt déi Reservatiounsplattform, déi Iech passt.',
-    confirmationTitle: 'Nach ze bestätegen',
-    confirmationText:
-      'D’Praxis muss bestätegen, wéi eng Ënnersichungen an Apparater zu Mamer verfügbar sinn, wou méiglech Operatioune stattfannen a wéi d’Nobetreiung organiséiert ass.',
+    careNoteTitle: 'Eng Betreiung fir Är Situatioun',
+    careNoteText:
+      'Eng Consultatioun hëlleft, eng Diagnos ze stellen an déi méiglech Behandlungen ze beschwätzen. Wann eng Operatioun a Fro kënnt, erkläert den Dokter Iech hiren Notzen, hir Risiken, de Standuert an d’Nobetreiung. D’Informatiounen op dëser Säit bedeiten net, datt eng Operatioun an der Praxis zu Mamer stattfënnt.',
     appointmentLabel: 'Rendez-vous auswielen',
   },
   practicePage: {
@@ -374,28 +375,25 @@ export const lb: Translation = {
       'Entdeckt d’Raim vun der Aepraxis op der 110 Route d’Arlon zu Mamer a bereet Äre Besuch vir.',
     arrivalTitle: 'Bei d’Praxis kommen',
     arrivalHeading: 'Hei fannt Dir eis zu Mamer.',
-    entrancePhotoLabel: 'Foto vun der Entrée aktualiséieren',
+    entrancePhotoLabel: 'D’Praxis zu Mamer',
     entrancePhotoNote:
-      'Aktuell Vue op d’Gebai. Duerch eng nei Foto vun der richteger Entrée vun der Praxis ersetzen.',
+      'D’Gebai vun der Praxis op der 110 Route d’Arlon zu Mamer.',
     hoursLink: 'Ëffnungszäiten a Kontaktdaten ukucken',
     arrivalNotes: [
       {
         title: 'Entrée & Ukonft',
-        text: 'Nach ze bestätegen: déi richteg Entrée, de Stack an eventuell Hiweiser fir Patienten, déi ukommen.',
+        text: 'D’Praxis läit um Rez-de-chaussée op der 110 Route d’Arlon. Plangt Äre Wee mam Itinéraire an haalt Är Rendez-vous-Bestätegung prett.',
       },
       {
-        title: 'Parken & Barriärfräiheet',
-        text: 'Nach ze bestätegen: Parkméiglechkeeten, ëffentlechen Transport an en Accès ouni Trapen fir Persoune mat ageschränkter Mobilitéit.',
+        title: 'Äre Besuch virbereeden',
+        text: 'Bréngt Äre Brëll, Är Verschreiwung a fréier Rapporte vun Aenënnersichunge mat, wann Dir der hutt. Fir Froen iwwer d’Parken oder e spezielle Besoin beim Accès, rufft d’Praxis virum Besuch un.',
       },
     ],
     galleryLabel: 'An der Praxis',
     galleryTitle: 'D’Raim vun der Praxis',
     galleryIntro:
-      'Zwou aktuell Fotoe vum Ënnersichungsraum. Eng Foto vum Empfang kann dësen Abléck ergänzen.',
-    gallerySlotLabel: 'Foto derbäisetzen',
-    gallerySlotTitle: 'Empfang oder Waarderaum',
-    gallerySlotText:
-      'Hei eng aktuell Foto vum Raum derbäisetzen, an deem d’Patienten empfaange ginn.',
+      'Entdeckt den Ënnersichungsraum an de Consultatiounsbüro vun der Praxis zu Mamer.',
+    galleryCaptions: ['Den Ënnersichungsraum', 'Eng aner Vue vum Ënnersichungsraum', 'De Consultatiounsbüro'],
     bookingLabel: 'Virum Besuch reservéieren',
     bookingTitle: 'Prett fir Äre Besuch?',
     bookingIntro: 'Kuckt déi fräi Rendez-vousen a reservéiert op der Plattform vun Ärer Wiel.',
@@ -414,9 +412,8 @@ export const lb: Translation = {
     doctiproLabel: 'Op Doctipro reservéieren',
     phoneTitle: 'Eng Fro virun der Reservatioun?',
     detailsTitle: 'Äre Besuch am Iwwerbléck',
-    confirmationTitle: 'Ëffnungszäiten nach ze bestätegen',
-    confirmationText:
-      'Frot wgl. virun Ärem Besuch bei der Praxis no, ob dës Ëffnungszäite stëmmen.',
+    hoursText:
+      'Ëffnungszäite vun der Praxis, wéi se op Doctena stinn. D’Disponibilitéite kënnen tëscht de Plattformen ofwäichen: kommt zu der Zäit, déi an Ärer Reservatioun bestätegt ass.',
     directionsLabel: 'Wee op Google Maps opmaachen',
   },
   photos: {

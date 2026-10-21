@@ -13,10 +13,10 @@ interface Props {
 const { t, locale, compact = false } = Astro.props;
 const slots: PhotoSlot[] = compact
   ? ['exterior', 'examination']
-  : ['examination', 'examinationAlternate'];
+  : ['examination', 'examinationAlternate', 'consultation'];
 const captions = compact
   ? t.practiceSection.captions.slice(0, 2)
-  : t.practiceSection.captions.slice(1);
+  : t.practicePage.galleryCaptions;
 ---
 
 <section
@@ -36,7 +36,7 @@ const captions = compact
       )}
     </div>
     <div class="practice-heading-aside">
-      <p class="section-description">{compact ? t.practiceSection.intro : <span data-nosnippet>{t.practicePage.galleryIntro}</span>}</p>
+      <p class="section-description">{compact ? t.practiceSection.intro : t.practicePage.galleryIntro}</p>
       {compact && (
         <a class="text-link section-more-link" href={localePath(locale, 'practice')}>
           {t.practiceSection.more}<Arrow />
@@ -58,7 +58,9 @@ const captions = compact
           <Photo
             slot={slot}
             t={t}
-            sizes={compact ? (slot === 'exterior' ? photoSizes.homeGalleryExterior : photoSizes.homeGallery) : photoSizes.practiceGallery}
+            sizes={compact
+              ? (slot === 'exterior' ? photoSizes.homeGalleryExterior : photoSizes.homeGallery)
+              : (slot === 'consultation' ? photoSizes.practiceGalleryOffice : photoSizes.practiceGallery)}
           />
           <span class="photo-enlarge" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -72,16 +74,6 @@ const captions = compact
         </figcaption>
       </figure>
     ))}
-    {!compact && (
-      <div class="gallery-item gallery-item-3 practice-gallery-slot" data-nosnippet>
-        <div class="practice-gallery-slot-visual">
-          <span class="practice-gallery-slot-symbol" aria-hidden="true"></span>
-          <span>{t.practicePage.gallerySlotLabel}</span>
-        </div>
-        <h3>{t.practicePage.gallerySlotTitle}</h3>
-        <p>{t.practicePage.gallerySlotText}</p>
-      </div>
-    )}
     <div class="gallery-caption">
       <p>{t.practiceSection.attribution}</p>
     </div>

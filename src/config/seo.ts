@@ -37,7 +37,13 @@ export const sharingImage = {
 /** Only supported identity facts belong here; hours, counts and clinical promises are omitted. */
 export function structuredData(locale: Locale, page: PageKey, guide?: CareGuideId) {
   const t = translations[locale];
-  const metadata = guide ? careGuides[locale][guide] : t.pageMeta[page];
+  const guideContent = guide ? careGuides[locale][guide] : undefined;
+  const metadata = guideContent ?? t.pageMeta[page];
+  // Use the same sources readers can open on the guide, without claiming clinical review.
+  const citations = guideContent
+    ? [...new Set([...guideContent.sections, ...guideContent.questions]
+      .flatMap(({ source }) => source ? [source.url] : []))]
+    : [];
   const url = absoluteUrl(pagePath(locale, page, guide));
   const practiceId = absoluteUrl('/#practice');
   const doctorId = absoluteUrl('/#doctor');
@@ -111,7 +117,10 @@ export function structuredData(locale: Locale, page: PageKey, guide?: CareGuideI
         isPartOf: { '@id': websiteId },
         publisher: { '@id': practiceId },
         ...(page === 'doctor' ? { mainEntity: { '@id': doctorId } } : {}),
-        ...(guide ? { about: { '@type': 'Thing', name: careGuides[locale][guide].name } } : {}),
+        ...(guideContent ? {
+          about: { '@type': 'Thing', name: guideContent.name },
+          citation: citations,
+        } : {}),
         ...(page !== 'home' ? { breadcrumb: { '@id': breadcrumbId } } : {}),
       },
       ...(page !== 'home' ? [{ '@type': 'BreadcrumbList', '@id': breadcrumbId, itemListElement: breadcrumbs }] : []),

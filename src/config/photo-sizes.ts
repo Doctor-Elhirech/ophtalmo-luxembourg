@@ -16,4 +16,6 @@ export const photoSizes = {
   homeGallery: `(max-width: 600px) ${container}, calc(${container} * 0.475)`,
   homeGalleryExterior: `(max-width: 600px) calc(${container} * ${exteriorCover}), calc(${container} * 0.475 * ${exteriorCover})`,
   practiceGallery: `(max-width: 600px) ${container}, (max-width: 900px) calc((${container} - ${galleryGap}) / 2), calc((${container} - ${galleryGap} * 2) / 3)`,
+  // The third practice photo spans both columns on tablets.
+  practiceGalleryOffice: `(max-width: 900px) ${container}, calc((${container} - ${galleryGap} * 2) / 3)`,
 };

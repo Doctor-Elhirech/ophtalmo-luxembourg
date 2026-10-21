@@ -76,7 +76,7 @@ const fr: Record<CareGuideId, CareGuide> = {
     heroTitle: 'Votre examen de la vue,',
     heroEmphasis: 'à Mamer.',
     intro: 'Une difficulté à lire, une gêne visuelle ou un contrôle prévu : voici des repères pour préparer une consultation avec le Dr M’Hamed EL HIRECH à Mamer, au Luxembourg.',
-    profileNote: 'L’ophtalmologie générale figure sur le profil public du cabinet.',
+    profileNote: 'Une consultation d’ophtalmologie générale permet de faire le point sur votre vision, votre correction et la santé de vos yeux.',
     sections: [
       {
         heading: 'Décrire ce qui vous amène',
@@ -121,7 +121,7 @@ const fr: Record<CareGuideId, CareGuide> = {
     heroTitle: 'Lunettes et lentilles,',
     heroEmphasis: 'pour votre quotidien.',
     intro: 'Lecture, travail sur écran, déplacements : vos habitudes comptent lorsque vous parlez de lunettes ou de lentilles. Préparez vos questions pour une consultation avec le Dr M’Hamed EL HIRECH à Mamer.',
-    profileNote: 'Les lunettes et les lentilles de contact figurent parmi les domaines publiés sur le profil du cabinet.',
+    profileNote: 'Le choix de votre correction se discute en fonction de l’examen, de votre confort et des activités de votre quotidien.',
     sections: [
       {
         heading: 'Comprendre le besoin de correction',
@@ -166,7 +166,7 @@ const fr: Record<CareGuideId, CareGuide> = {
     heroTitle: 'Comprendre la cataracte,',
     heroEmphasis: 'en consultation.',
     intro: 'Lorsque la vision devient moins confortable, un examen aide à en rechercher la cause. Ces repères vous permettent d’aborder la cataracte et les prochaines étapes avec le Dr M’Hamed EL HIRECH à Mamer.',
-    profileNote: 'La chirurgie de la cataracte figure sur le profil public du médecin. Le lieu, l’équipe et les modalités d’une éventuelle intervention sont à préciser lors de la consultation.',
+    profileNote: 'La consultation permet de discuter du diagnostic, du suivi et d’une éventuelle chirurgie. Le lieu de l’intervention, l’équipe et les étapes du suivi sont précisés avec le médecin selon votre situation.',
     sections: [
       {
         heading: 'Ce que désigne la cataracte',
@@ -213,7 +213,7 @@ const en: Record<CareGuideId, CareGuide> = {
     heroTitle: 'Your eye examination,',
     heroEmphasis: 'in Mamer.',
     intro: 'A reading difficulty, a change in vision or a planned check: these pointers help you prepare for an appointment with Dr M’Hamed EL HIRECH in Mamer, Luxembourg.',
-    profileNote: 'General ophthalmology is listed on the practice’s public profile.',
+    profileNote: 'A general ophthalmology consultation is an opportunity to review your vision, your prescription and the health of your eyes.',
     sections: [
       {
         heading: 'Explain what brings you in',
@@ -221,7 +221,7 @@ const en: Record<CareGuideId, CareGuide> = {
       },
       {
         heading: 'What an examination may explore',
-        paragraphs: ['Depending on your needs, an examination may assess visual sharpness and your prescription, measure eye pressure and examine eye structures. Dilating the pupil can help the doctor look at the back of the eye. Your doctor chooses the appropriate tests and follow-up interval; clear vision alone does not rule out every eye condition.'],
+        paragraphs: ['Depending on your needs, an examination may assess how clearly you see and your prescription, measure eye pressure and examine eye structures. Dilating the pupil can help the doctor look at the back of the eye. Your doctor chooses the appropriate tests and follow-up interval; clear vision alone does not rule out every eye condition.'],
         source: sources.exam,
       },
       {
@@ -258,7 +258,7 @@ const en: Record<CareGuideId, CareGuide> = {
     heroTitle: 'Glasses and contacts,',
     heroEmphasis: 'for everyday life.',
     intro: 'Reading, working at a screen and getting around all shape what you need from your vision. Prepare your questions about glasses or contact lenses for Dr M’Hamed EL HIRECH in Mamer.',
-    profileNote: 'Glasses and contact lenses are among the areas listed on the practice’s public profile.',
+    profileNote: 'The choice of vision correction takes account of your examination, comfort and the activities that matter in your daily life.',
     sections: [
       {
         heading: 'Understand the need for correction',
@@ -303,7 +303,7 @@ const en: Record<CareGuideId, CareGuide> = {
     heroTitle: 'Understanding cataracts,',
     heroEmphasis: 'one step at a time.',
     intro: 'When seeing becomes less comfortable, an examination helps explore the cause. These pointers help you discuss cataracts and possible next steps with Dr M’Hamed EL HIRECH in Mamer.',
-    profileNote: 'Cataract surgery is listed on the doctor’s public profile. The location, team and arrangements for any proposed operation should be clarified during the consultation.',
+    profileNote: 'The consultation is an opportunity to discuss the diagnosis, monitoring and possible surgery. The location, team and follow-up for any operation are discussed with the doctor according to your needs.',
     sections: [
       {
         heading: 'What a cataract means',
@@ -352,7 +352,7 @@ const lb: Record<CareGuideId, CareGuide> = {
     heroTitle: 'Är Aenënnersichung,',
     heroEmphasis: 'zu Mamer.',
     intro: 'Schwieregkeete beim Liesen, eng Verännerung vun der Siicht oder eng geplangte Kontroll: dës Informatiounen hëllefen Iech, eng Consultatioun beim Dr M’Hamed EL HIRECH zu Mamer virzebereeden.',
-    profileNote: 'Allgemeng Ophtalmologie steet um ëffentleche Profil vun der Praxis.',
+    profileNote: 'Bei enger Consultatioun an der allgemenger Ophtalmologie kënnt Dir Är Siicht, Är Korrektur an d’Gesondheet vun Ären Aen iwwerpréiwe loossen.',
     sections: [
       {
         heading: 'Beschreiwen, wat Iech opfält',
@@ -397,7 +397,7 @@ const lb: Record<CareGuideId, CareGuide> = {
     heroTitle: 'Brëll a Kontaktlënsen,',
     heroEmphasis: 'fir Ären Alldag.',
     intro: 'Liesen, um Ecran schaffen an ënnerwee sinn: Är Gewunnechte si wichteg, wann Dir iwwer Brëll oder Kontaktlënsen schwätzt. Bereet Är Froen un den Dr M’Hamed EL HIRECH zu Mamer vir.',
-    profileNote: 'Brëll a Kontaktlënse gehéieren zu de Beräicher, déi um ëffentleche Profil vun der Praxis stinn.',
+    profileNote: 'Bei der Wiel vun Ärer Korrektur ginn d’Resultater vun der Ënnersichung, Äre Komfort an Är Aktivitéiten am Alldag berücksichtegt.',
     sections: [
       {
         heading: 'De Besoin u Korrektur verstoen',
@@ -442,7 +442,7 @@ const lb: Record<CareGuideId, CareGuide> = {
     heroTitle: 'De groe Star,',
     heroEmphasis: 'verständlech erkläert.',
     intro: 'Wann d’Siicht manner komfortabel gëtt, hëlleft eng Ënnersichung, d’Ursaach ze sichen. Dës Informatiounen hëllefen Iech, mam Dr M’Hamed EL HIRECH zu Mamer iwwer de groe Star an déi nächst Schrëtt ze schwätzen.',
-    profileNote: 'Kataraktchirurgie steet um ëffentleche Profil vum Dokter. D’Plaz, d’Ekipp an d’Organisatioun vun enger méiglecher Operatioun gi bei der Consultatioun gekläert.',
+    profileNote: 'Bei der Consultatioun kënnt Dir iwwer d’Diagnos, d’Kontrollen an eng méiglech Operatioun schwätzen. D’Plaz vun der Operatioun, d’Ekipp an d’Nokontrolle ginn zesumme mam Dokter jee no Ärer Situatioun gekläert.',
     sections: [
       {
         heading: 'Wat ass de groe Star?',
