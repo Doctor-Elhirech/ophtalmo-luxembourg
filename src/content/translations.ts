@@ -645,7 +645,7 @@ const en: typeof fr = {
     photoLabel: 'At the practice in Mamer',
     photoNote: 'The consultation office at 110 Route d’Arlon.',
     profileTitle: 'Your eye specialist',
-    profileText: 'A graduate of the Faculty of Medicine of Besançon, I previously worked as a hospital assistant, hospital practitioner and hospital attaché in Paris. Today, I see adults and children at my practice in Mamer.',
+    profileText: 'I graduated from the Faculty of Medicine of Besançon and worked as a hospital assistant and hospital practitioner. I was also a hospital attaché in Paris. Today, I see adults and children at my practice in Mamer.',
     profilesTitle: 'Explore my professional profiles',
     proofLabel: 'Training & professional practice',
     proofTitle: 'A background in eye care.',
