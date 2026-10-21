@@ -3,9 +3,11 @@ import '../styles/fonts.css';
 import '../styles/global.css';
 import '../styles/motion.css';
 import '../styles/legal.css';
+import analyticsStyles from '../styles/analytics.css?url';
 import { translations, localePath, pageFromPath, type Locale, type PageKey } from '../content/translations';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import AnalyticsConsent from '../components/AnalyticsConsent.astro';
 import { siteSettings } from '../config/practice';
 import { careGuides, type CareGuideId } from '../content/care-guides';
 import { absoluteUrl, pageAlternates, pagePath, sharingImage, structuredData } from '../config/seo';
@@ -26,6 +28,13 @@ const graph = JSON.stringify(structuredData(locale, page, guide)).replace(/</g, 
 const ogLocales = { fr: 'fr_LU', en: 'en_GB', lb: 'lb_LU' };
 const googleVerification = import.meta.env.GOOGLE_SITE_VERIFICATION?.trim();
 const bingVerification = import.meta.env.BING_SITE_VERIFICATION?.trim();
+const analyticsId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim() ?? '';
+if (analyticsId && !/^G-[A-Z0-9]+$/.test(analyticsId)) {
+  throw new Error('PUBLIC_GA_MEASUREMENT_ID must be a valid GA4 measurement ID (G-...).');
+}
+if (analyticsId && import.meta.env.PUBLIC_GA_PRIVACY_NOTICE_READY !== 'true') {
+  throw new Error('Update the three privacy notices before enabling GA4, then set PUBLIC_GA_PRIVACY_NOTICE_READY=true.');
+}
 ---
 
 <!doctype html>
@@ -65,6 +74,7 @@ const bingVerification = import.meta.env.BING_SITE_VERIFICATION?.trim();
     <meta name="twitter:image:alt" content={t.photos.examination} />
     <script type="application/ld+json" set:html={graph} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {analyticsId && <link rel="stylesheet" href={analyticsStyles} />}
   </head>
   <body id="top" data-page={page}>
     <a class="skip-link" href="#main">
@@ -88,7 +98,9 @@ const bingVerification = import.meta.env.BING_SITE_VERIFICATION?.trim();
       )}
       <slot />
     </main>
-    <Footer t={t} locale={locale} currentPage={page} alternates={alternates} />
+    <Footer t={t} locale={locale} currentPage={page} alternates={alternates} analyticsEnabled={Boolean(analyticsId)} />
+    {analyticsId && <AnalyticsConsent locale={locale} measurementId={analyticsId} privacyHref={localePath(locale, 'privacy')} />}
     <script src="../scripts/interactions.ts"></script>
+    {analyticsId && <script is:inline defer src="/analytics.js"></script>}
   </body>
 </html>

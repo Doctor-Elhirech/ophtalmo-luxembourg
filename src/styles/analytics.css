@@ -1,0 +1,106 @@
+@layer reset, base, components, responsive;
+
+@layer components {
+  .footer-top nav .footer-privacy-settings {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 0;
+    background: none;
+    color: inherit;
+    text-align: left;
+    font-size: inherit;
+    line-height: 1.5;
+    transition: color 0.2s ease;
+  }
+
+  .footer-top nav .footer-privacy-settings:hover,
+  .footer-top nav .footer-privacy-settings:focus-visible {
+    color: var(--gold-ink);
+  }
+
+  .analytics-consent {
+    position: fixed;
+    inset: auto 20px 20px auto;
+    z-index: 80;
+    width: min(480px, calc(100vw - 40px));
+    display: grid;
+    gap: 20px;
+    padding: 24px;
+    border: 1px solid var(--gold);
+    background: var(--paper);
+    color: var(--ink);
+    box-shadow: 0 18px 60px #07191230;
+  }
+
+  .analytics-consent-copy {
+    display: grid;
+    gap: 8px;
+  }
+
+  .analytics-consent-title {
+    font-family: var(--serif);
+    font-size: 25px;
+    line-height: 1.2;
+  }
+
+  .analytics-consent-copy > p:last-child {
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  .analytics-consent-copy a {
+    color: var(--forest);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .analytics-consent-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .analytics-consent-actions button {
+    min-height: 44px;
+    padding: 9px 14px;
+    border: 1px solid var(--forest);
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .analytics-consent-actions button:first-child {
+    background: transparent;
+    color: var(--forest);
+  }
+
+  .analytics-consent-actions button:last-child {
+    background: var(--forest);
+    color: var(--paper);
+  }
+
+  .analytics-consent-actions button:first-child:hover,
+  .analytics-consent-actions button:first-child:focus-visible {
+    background: var(--surface);
+  }
+
+  .analytics-consent-actions button:last-child:hover,
+  .analytics-consent-actions button:last-child:focus-visible {
+    background: var(--forest-hover);
+  }
+}
+
+@layer responsive {
+  @media (max-width: 600px) {
+    .analytics-consent {
+      inset: auto 12px calc(78px + env(safe-area-inset-bottom)) 12px;
+      width: auto;
+      max-height: calc(100dvh - 112px - env(safe-area-inset-bottom));
+      overflow-y: auto;
+      padding: 20px;
+      gap: 16px;
+    }
+  }
+}

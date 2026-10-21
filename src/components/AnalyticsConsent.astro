@@ -1,0 +1,48 @@
+---
+import type { Locale } from '../content/translations';
+
+interface Props {
+  locale: Locale;
+  measurementId: string;
+  privacyHref: string;
+}
+
+const { locale, measurementId, privacyHref } = Astro.props;
+const copy = {
+  fr: {
+    label: 'Choix de mesure d’audience',
+    title: 'Mesure d’audience',
+    description: 'Avec votre accord, Google Analytics compte les visites et les clics vers la réservation, l’appel, l’e-mail ou l’itinéraire. Le contenu de vos messages et les détails de vos rendez-vous ne sont pas envoyés.',
+    accept: 'Accepter',
+    reject: 'Refuser',
+    privacy: 'Confidentialité',
+  },
+  en: {
+    label: 'Audience measurement choice',
+    title: 'Audience measurement',
+    description: 'With your permission, Google Analytics counts visits and clicks on booking, call, email and directions links. Message contents and appointment details are not sent.',
+    accept: 'Accept',
+    reject: 'Reject',
+    privacy: 'Privacy',
+  },
+  lb: {
+    label: 'Auswiel fir d’Visiteursmoossung',
+    title: 'Visiteursmoossung',
+    description: 'Mat Ärer Zoustëmmung zielt Google Analytics Visiten a Klicks op Linke fir Rendez-vousen, Uruff, E-Mailen a Weeër. Den Inhalt vun Noriichten an Detailer vun Äre Rendez-vouse ginn net geschéckt.',
+    accept: 'Akzeptéieren',
+    reject: 'Ofleenen',
+    privacy: 'Dateschutz',
+  },
+}[locale];
+---
+
+<aside class="analytics-consent" data-analytics-consent data-measurement-id={measurementId} aria-label={copy.label} hidden>
+  <div class="analytics-consent-copy">
+    <p class="analytics-consent-title">{copy.title}</p>
+    <p>{copy.description} <a href={privacyHref}>{copy.privacy}</a></p>
+  </div>
+  <div class="analytics-consent-actions">
+    <button type="button" data-analytics-reject>{copy.reject}</button>
+    <button type="button" data-analytics-accept>{copy.accept}</button>
+  </div>
+</aside>

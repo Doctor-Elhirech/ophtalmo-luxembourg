@@ -57,7 +57,7 @@ Install the QA browser once with `npx playwright install chromium`. Set `QA_URL`
 | `docs/CONTENT-SOURCES.md`                                 | Factual provenance, source conflicts and supplied-claim limits                                   |
 | `docs/QA.md`                                              | Verification scope and limitations                                                              |
 
-Astro generates complete static HTML for all three languages. Literata and Plus Jakarta Sans are bundled locally. There is no frontend framework runtime, booking backend, database, form collection, analytics, external font request, or custom authentication. The contact page embeds Google Maps; core reading and booking remain available without JavaScript.
+Astro generates complete static HTML for all three languages. Literata and Plus Jakarta Sans are bundled locally. There is no frontend framework runtime, booking backend, database, form collection, active analytics, external font request, or custom authentication. The contact page embeds Google Maps; core reading and booking remain available without JavaScript.
 
 ## Replace photographs
 
@@ -84,7 +84,7 @@ The source defines 30 localized page routes: five main pages, two legal/privacy 
 
 The `/robots.txt` and `/sitemap.xml` endpoints are generated with the configured production origin. Production indexing is enabled by default, as authorized by the user. Preview and development environments use `noindex, follow`; `PUBLIC_SITE_INDEXABLE=false` can explicitly keep production non-indexable. `PUBLIC_SITE_ORIGIN` selects the canonical origin, with the existing stable Vercel address as the fallback.
 
-Patient-facing copy uses the public practice profiles and official professional register. There are no demonstration footers, empty credential/photo panels or editorial instructions on the public pages. The existing patient-count claim and supplied rating snapshot retain `data-nosnippet` controls. These do not establish accuracy or guarantee omission by every search engine. No tracking or analytics has been installed.
+Patient-facing copy uses the public practice profiles and official professional register. There are no demonstration footers, empty credential/photo panels or editorial instructions on the public pages. The existing patient-count claim and supplied rating snapshot retain `data-nosnippet` controls. These do not establish accuracy or guarantee omission by every search engine. Analytics preparation is inactive by default; no tracking tag is loaded without its configuration.
 
 See `docs/QA.md` for verification scope and limits. No search-engine submission or webmaster-account setup is implied by a successful local build.
 
@@ -94,7 +94,7 @@ The doctor's final review should cover the published hours, service wording, sup
 
 Production indexing is authorized in code. Legal and privacy pages are available in all three languages. Before handover, resolve the actual hosting account's business-use/data-processing arrangements and retain an operator review of the notices. A formal authorization identifier or specialist-title document has not been invented. When the final stable free or paid address is selected, set `PUBLIC_SITE_ORIGIN`, configure any hostname redirects, verify the search property and submit its sitemap. Google Business Profile changes require the existing profile's account access; do not create a duplicate listing.
 
-The patient contact email is unchanged. A separate administrative Gmail can own hosting, Search Console and future analytics. Adding analytics will require the real measurement configuration, appropriate consent/privacy handling and tests; it is not activated by merely creating the account. If hosting moves to Netlify, update the provider disclosures when the move occurs.
+The patient contact email is unchanged. A separate administrative Gmail can own hosting, Search Console and analytics. The prepared GA4 integration requires a valid `PUBLIC_GA_MEASUREMENT_ID` and `PUBLIC_GA_PRIVACY_NOTICE_READY=true` after all three privacy notices describe the active setup. The build rejects incomplete activation settings. With the ID blank, the consent panel, analytics stylesheet and script are omitted. When configured, the Google tag loads only after acceptance, with advertising consent denied; the footer provides a choice/withdrawal control. Events use generic page groups and CTA types, a generic page location/title and only the referrer's origin. Confirm the stream settings, consent behavior and reporting before activating it. If hosting moves to Netlify, update the provider disclosures when the move occurs.
 
 Google Maps uses the original direct embed on the contact page, with native lazy loading and no added consent or hide-map controls. The privacy page describes this automatic connection to Google. `npm run qa:legal` checks the built legal pages and map integration without requesting the live Google service; it starts and stops its own temporary static server.
 

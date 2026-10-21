@@ -6,8 +6,10 @@ interface Props {
   locale: Locale;
   currentPage?: PageKey;
   alternates?: Record<Locale, string>;
+  analyticsEnabled?: boolean;
 }
-const { t, locale, currentPage = 'home', alternates } = Astro.props;
+const { t, locale, currentPage = 'home', alternates, analyticsEnabled = false } = Astro.props;
+const analyticsSettingsLabel = { fr: 'Choix des cookies', en: 'Cookie settings', lb: 'Cookie-Astellungen' }[locale];
 ---
 
 <footer class="site-footer">
@@ -29,6 +31,7 @@ const { t, locale, currentPage = 'home', alternates } = Astro.props;
         <div class="footer-link-column footer-legal-links">
           <a class="footer-legal-link" href={localePath(locale, 'legal')} aria-current={currentPage === 'legal' ? 'page' : undefined}>{t.nav.legal}</a>
           <a class="footer-legal-link" href={localePath(locale, 'privacy')} aria-current={currentPage === 'privacy' ? 'page' : undefined}>{t.nav.privacy}</a>
+          {analyticsEnabled && <button class="footer-privacy-settings" type="button" data-analytics-settings>{analyticsSettingsLabel}</button>}
         </div>
         <a class="footer-booking" href={t.bookingUrl} target="_blank" rel="noopener noreferrer">
           {t.action.book}
