@@ -32,7 +32,7 @@ export const practice = {
       bookingUrl: 'https://www.doctipro.lu/en/rendez-vous/254?hospital=90',
     },
   },
-  reviewSummary: { rating: '5.0', maximum: '5', count: 3, source: 'Google', suppliedInBrief: true },
+  reviewSummary: { rating: '5.0', maximum: '5', count: 4, source: 'Google', suppliedInBrief: true },
   reviewers: ['Sarah E.', 'Aya Ads'],
   reviewUrls: [
     'https://maps.app.goo.gl/VWTVwrPauDuw95F27',
