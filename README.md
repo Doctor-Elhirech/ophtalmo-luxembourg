@@ -9,7 +9,7 @@ The current public address is [ophtalmo-luxembourg.vercel.app](https://ophtalmo-
 | Part                                         | What it does                                                                                 |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | Astro 7, TypeScript, HTML and CSS            | Builds fast, static pages without a patient database or application server.                  |
-| Locally hosted fonts and WebP photographs    | Keeps the main design assets within the site and prepares images for different screen sizes. |
+| Locally hosted fonts and responsive photographs | Keeps the main design assets within the site and prepares images for different screen sizes. |
 | Sharp                                        | Produces optimized images from the files in `Photos/`.                                       |
 | Playwright and axe                           | Check layouts, links, keyboard use, accessibility and image behavior.                        |
 | Vercel, with Netlify configuration available | Hosts the generated pages; the site currently deploys through Vercel.                        |
@@ -60,7 +60,7 @@ Install the QA browser once with `npx playwright install chromium`. Set `QA_URL`
 | `src/styles/global.css`                                   | Documented CSS layers: reset, base tokens, components, responsive overrides               |
 | `src/scripts/interactions.ts`                             | Mobile navigation, language anchors, native photo dialog, fallback and restrained reveals |
 | `Photos/`                                                 | Approved project photo sources, kept as provided                                          |
-| `public/images/`                                          | Optimized local WebP images generated from those sources                                  |
+| `public/images/`                                          | Optimized local AVIF and WebP images generated from those sources                         |
 | `scripts/prepare-images.mjs`                              | Repeatable image optimization and automatic dimension metadata                            |
 | `scripts/qa.mjs`                                          | Responsive, accessibility, links, gallery, keyboard and fallback checks                   |
 | `scripts/qa-seo.mjs`                                      | Localized guide layouts, navigation, metadata, schema and discovery checks                |
@@ -75,7 +75,7 @@ Astro generates complete static HTML for all three languages. Literata and Plus 
 
 Replace the matching original in `Photos/`, keeping its filename, then run `npm run build`. Image variants and source dimensions regenerate automatically.
 
-The six original photo slots use 480, 640, 800, 960 and 1600-pixel WebP variants, capped at the source resolution. The approved entrance crop (`Img-7.png`) produces one 751 × 616 WebP image and is not enlarged. Download hints in `src/config/photo-sizes.ts` match the other photo layouts and cover crops; run `npm run qa:performance` after replacing a photograph to check its resolution. Self-hosted font declarations retain the original Latin and Latin-ext variable files for all three site languages.
+The six original photo slots use 480, 640, 800, 960 and 1600-pixel WebP variants, capped at the source resolution. The two heavier outdoor photo slots also offer smaller AVIF files; browsers select a supported format through a native `picture` element, with WebP as the fallback. The approved entrance crop (`Img-7.png`) produces one 751 × 616 WebP image and is not enlarged. Download hints in `src/config/photo-sizes.ts` match the other photo layouts and cover crops; run `npm run qa:performance` after replacing a photograph to check its resolution. Self-hosted font declarations retain the original Latin and Latin-ext variable files for all three site languages.
 
 | Original    | Slot                   | Use                                |
 | ----------- | ---------------------- | ---------------------------------- |

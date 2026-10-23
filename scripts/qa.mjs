@@ -51,6 +51,17 @@ try {
             await page.evaluate(() => document.fonts.ready);
             assert.equal(await page.locator('html').getAttribute('lang'), locale);
             assert.equal(await page.locator('h1').count(), 1);
+            const skippedHeadings = await page
+              .locator('main h1, main h2, main h3, main h4')
+              .evaluateAll((headings) =>
+                headings.flatMap((heading, index) =>
+                  index > 0 &&
+                  Number(heading.tagName[1]) > Number(headings[index - 1].tagName[1]) + 1
+                    ? [heading.textContent.trim()]
+                    : [],
+                ),
+              );
+            assert.deepEqual(skippedHeadings, [], 'Main heading hierarchy skips a level');
             assert.equal(await page.locator('.header-actions .language-link').count(), 3);
             assert.equal(await page.locator('.site-footer .language-link').count(), 3);
             assert.equal(
@@ -95,7 +106,7 @@ try {
                 assert.equal(await image.evaluate((element) => element.naturalWidth > 0), true);
               }
               const axe = await new AxeBuilder({ page })
-                .withTags(['wcag2a', 'wcag2aa', 'wcag21aa'])
+                .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
                 .analyze();
               assert.deepEqual(
                 axe.violations.map((violation) => ({
@@ -244,7 +255,9 @@ try {
     const context = await browser.newContext({ viewport: { width: 375, height: 812 } });
     const page = await context.newPage();
     try {
-      await page.route('**/images/street-reference-*.webp', (route) => route.abort());
+      await page.route(/\/images\/street-reference-[^/?]+\.(?:webp|avif)(?:\?|$)/, (route) =>
+        route.abort(),
+      );
       await page.goto(base + '/en/', { waitUntil: 'domcontentloaded' });
       await page.locator('.hero-figure .photo-fallback').waitFor({ state: 'visible' });
       assert.equal(
@@ -255,6 +268,38 @@ try {
       await context.close();
     }
   });
+
+  await check(
+    'AVIF images retain a working WebP fallback without duplicate downloads',
+    async () => {
+      const context = await browser.newContext({ viewport: { width: 375, height: 812 } });
+      const page = await context.newPage();
+      const requests = [];
+      page.on('request', (request) => {
+        if (/\/images\/street-reference-/.test(request.url())) requests.push(request.url());
+      });
+      try {
+        await page.goto(base + '/en/', { waitUntil: 'domcontentloaded' });
+        const hero = page.locator('.hero-figure img');
+        await hero.evaluate((image) => image.decode());
+        assert.match(await hero.evaluate((image) => image.currentSrc), /\.avif$/);
+        assert.ok(requests.length > 0 && requests.every((url) => url.endsWith('.avif')));
+        await page.route(base + '/en/', async (route) => {
+          const response = await route.fetch();
+          const body = (await response.text()).replaceAll(
+            'type="image/avif"',
+            'type="image/x-unsupported"',
+          );
+          await route.fulfill({ response, body });
+        });
+        await page.reload({ waitUntil: 'domcontentloaded' });
+        await hero.evaluate((image) => image.decode());
+        assert.match(await hero.evaluate((image) => image.currentSrc), /\.webp$/);
+      } finally {
+        await context.close();
+      }
+    },
+  );
 
   await check('essential pages and booking links work without JavaScript', async () => {
     const context = await browser.newContext({

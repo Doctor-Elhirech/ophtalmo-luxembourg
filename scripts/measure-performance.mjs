@@ -73,7 +73,7 @@ try {
               ...window.__lab,
               fcp: performance.getEntriesByName('first-contentful-paint')[0]?.startTime || 0,
               loaded: navigation.loadEventEnd,
-              imageBytes: sum(/\.webp(?:\?|$)/),
+              imageBytes: sum(/\.(?:webp|avif)(?:\?|$)/),
               fontBytes: sum(/\.woff2(?:\?|$)/),
               cssBytes: sum(/\.css(?:\?|$)/),
               javascriptBytes: sum(/\.js(?:\?|$)/),

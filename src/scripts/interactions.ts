@@ -79,7 +79,7 @@ if (siteHeader?.dataset.currentPage === 'home') {
 
 function imageFallback(img: HTMLImageElement) {
   img.hidden = true;
-  const fallback = img.parentElement?.querySelector<HTMLElement>('.photo-fallback');
+  const fallback = img.closest('.photo')?.querySelector<HTMLElement>('.photo-fallback');
   if (fallback) fallback.hidden = false;
 }
 document.querySelectorAll<HTMLImageElement>('.photo img').forEach((img) => {

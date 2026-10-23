@@ -11,11 +11,17 @@ const slots = {
 await mkdir('public/images', { recursive: true });
 const report = [];
 const slotMetadata = {};
+const imageWidths = [480, 640, 800, 960, 1600];
 for (const [slot, source] of Object.entries(slots)) {
   const file = `Photos/${source}`;
   const metadata = await sharp(file).metadata();
-  slotMetadata[slot] = { base: slot, width: metadata.width, height: metadata.height };
-  for (const size of [480, 640, 800, 960, 1600]) {
+  slotMetadata[slot] = {
+    base: slot,
+    width: metadata.width,
+    height: metadata.height,
+    avif: slot === 'street-reference' || slot === 'exterior',
+  };
+  for (const size of imageWidths) {
     const output = `public/images/${slot}-${size}.webp`;
     const info = await sharp(file)
       .rotate()
@@ -31,6 +37,30 @@ for (const [slot, source] of Object.entries(slots)) {
       bytes: info.size,
       originalWidth: metadata.width,
     });
+  }
+  if (slotMetadata[slot].avif) {
+    const widths = imageWidths.filter(
+      (size, index) =>
+        index === 0 ||
+        Math.min(size, metadata.width) > Math.min(imageWidths[index - 1], metadata.width),
+    );
+    for (const size of widths) {
+      const output = `public/images/${slot}-${size}.avif`;
+      const info = await sharp(file)
+        .rotate()
+        .resize({ width: size, withoutEnlargement: true })
+        .avif({ quality: 55, effort: 6 })
+        .toFile(output);
+      report.push({
+        slot,
+        source,
+        output,
+        width: info.width,
+        height: info.height,
+        bytes: info.size,
+        originalWidth: metadata.width,
+      });
+    }
   }
 }
 // Keep the newer entrance reference intact; CSS fits it to each layout's

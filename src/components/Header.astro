@@ -22,7 +22,7 @@ const links = [
   <a href={localePath(locale)} class="wordmark" aria-label={t.fullName}>
     <span class="brand-symbol" aria-hidden="true"></span>
     <span>
-      {t.name.split(' ')[0]}
+      {t.name.split(' ')[0]}{' '}
       <small>{t.name.split(' ')[1]}</small>
     </span>
   </a>
@@ -45,7 +45,7 @@ const links = [
           hreflang={lang}
           class="language-link"
           aria-current={lang === locale ? 'page' : undefined}
-          aria-label={t.localeNames[lang]}
+          aria-label={`${t.languageShort[lang]} — ${t.localeNames[lang]}`}
         >
           {t.languageShort[lang]}
         </a>

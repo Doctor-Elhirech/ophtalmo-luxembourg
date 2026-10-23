@@ -2,32 +2,38 @@
   "exterior-wide": {
     "base": "exterior-wide",
     "width": 2020,
-    "height": 778
+    "height": 778,
+    "avif": false
   },
   "exterior": {
     "base": "exterior",
     "width": 772,
-    "height": 546
+    "height": 546,
+    "avif": true
   },
   "consultation": {
     "base": "consultation",
     "width": 1374,
-    "height": 1145
+    "height": 1145,
+    "avif": false
   },
   "examination": {
     "base": "examination",
     "width": 1404,
-    "height": 1120
+    "height": 1120,
+    "avif": false
   },
   "examination-alternate": {
     "base": "examination-alternate",
     "width": 1364,
-    "height": 1153
+    "height": 1153,
+    "avif": false
   },
   "street-reference": {
     "base": "street-reference",
     "width": 1137,
-    "height": 1383
+    "height": 1383,
+    "avif": true
   },
   "entrance-detail": {
     "base": "entrance-detail",

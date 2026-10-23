@@ -188,7 +188,7 @@ try {
             await page.keyboard.press('Enter');
             assert.equal(await question.locator('div').isVisible(), false);
             if ([375, 768].includes(size.width)) {
-              const axe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+              const axe = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
               assert.deepEqual(axe.violations.map(({ id, nodes }) => ({ id, targets: nodes.map((node) => node.target) })), []);
             }
             if ([375, 768, 1366].includes(size.width)) {

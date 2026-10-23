@@ -67,3 +67,21 @@ No patient booking, email, analytics request, search-engine submission, account 
 Reviewed the full pending content/component/style diff. Corrected the new third practice-gallery photo's `sizes` hint: it spans the tablet row and must not request the smaller half-column source. The source photograph, encoder quality and visible layout are unchanged.
 
 The production build passes with 30 pages and zero errors, warnings or hints. The core suite passes 94 checks, the SEO/guide suite passes 90, and the performance regression suite passes all 30 checks, including 81 displayed-photo density checks across phone, tablet and laptop profiles. The motion assertion was refined to inspect a green surface's first reading content rather than its empty upper padding; the site's animation timing and behavior were preserved. No remaining issue was found in the reviewed change scope. Private plans, screenshots and diagnostic helpers are excluded from the release.
+
+## Technical SEO audit fixes — 23 October 2026
+
+The two heavier outdoor photo slots now offer AVIF sources with their existing WebP files as native browser fallbacks. Source photographs, crops, displayed dimensions, loading priorities and lazy-loading behavior are retained. Side-by-side visual review covered the outdoor encodings. The image-error handler now finds its fallback within the photo container after introducing the `picture` wrapper.
+
+Header and footer language labels include their visible abbreviations, brand text has explicit word spacing for accessible-name matching, and header language targets measure at least 26 × 44 CSS pixels on the narrowest tested phone. Expertise overview cards use H2 headings before their H3 details; font inheritance preserves the previous visible treatment. These shared changes apply to all three languages.
+
+The production build passes for 30 pages with zero errors or warnings. There is one unused-variable hint in an ignored local diagnostic file. The core suite passes 95 checks, including heading order, image failures, AVIF selection, WebP fallback and essential operation without JavaScript. The SEO/guide suite passes 90 checks; the performance suite passes 30 checks and 81 displayed-photo density checks. Accessibility scans now include WCAG 2.1 A and WCAG 2.2 AA rules. Header measurements and screenshots were reviewed at 320, 390, 412, 768 and 1366 pixels.
+
+A controlled homepage comparison alternates WebP and AVIF in three fresh Chromium contexts per format and device profile, using the same local production preview, HTML interception, 1.6 Mbps connection and 150 ms latency. Phone/tablet use DPR 2 and 4× CPU throttling; laptop uses DPR 1 and native CPU. Median lab LCP and initial image bodies are:
+
+| Profile | WebP → AVIF median LCP | WebP → AVIF image bodies |
+| --- | --- | --- |
+| Phone | 2696 → 1208 ms | 314,508 → 183,950 bytes |
+| Tablet | 3744 → 2392 ms | 535,070 → 276,809 bytes |
+| Laptop | 3684 → 2384 ms | 525,348 → 267,087 bytes |
+
+These are controlled local measurements, not live PageSpeed scores or real-user Core Web Vitals. Evidence and the diagnostic comparison script remain in ignored `qa/screenshots/audit-fixes-oct23/`. Existing hours, the user-directed 500+ assumption and medical wording are unchanged; this technical review does not establish independent factual verification or clinician approval. Search Console crawl requests are a separate service action and do not guarantee indexing.

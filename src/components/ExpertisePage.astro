@@ -24,10 +24,10 @@ const guideForCard: Partial<Record<number, CareGuideId>> = {
     {t.expertisePage.items.map((item, index) => (
       <details class="care-card" name="care-areas">
         <summary class="care-card-summary">
-          <span class="care-card-heading">
+          <h2 class="care-card-heading">
             <span class="item-number" aria-hidden="true">{t.numbers[index]}</span>
             <span class="care-card-title">{item.title}</span>
-          </span>
+          </h2>
           <span class="care-card-preview">{item.text}</span>
           <span class="care-card-action" aria-hidden="true">
             <span class="care-card-open-label">{t.expertisePage.expandLabel}</span>

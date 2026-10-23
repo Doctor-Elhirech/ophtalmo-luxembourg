@@ -17,7 +17,7 @@ const analyticsSettingsLabel = { fr: 'Choix des cookies', en: 'Cookie settings',
     <div class="footer-top">
       <div>
         <a class="footer-brand" href={localePath(locale)} aria-label={t.fullName}>
-          {t.name}
+          {t.name}{' '}
           <span class="footer-brand-subname">{t.brandName}</span>
         </a>
         <p>{t.footer.descriptor}</p>
@@ -55,7 +55,7 @@ const analyticsSettingsLabel = { fr: 'Choix des cookies', en: 'Cookie settings',
               lang={lang}
               hreflang={lang}
               aria-current={lang === locale ? 'page' : undefined}
-              aria-label={t.localeNames[lang]}
+              aria-label={`${t.languageShort[lang]} — ${t.localeNames[lang]}`}
             >
               {t.languageShort[lang]}
             </a>

@@ -90,6 +90,33 @@
     "originalWidth": 772
   },
   {
+    "slot": "exterior",
+    "source": "Img-4.png",
+    "output": "public/images/exterior-480.avif",
+    "width": 480,
+    "height": 339,
+    "bytes": 17177,
+    "originalWidth": 772
+  },
+  {
+    "slot": "exterior",
+    "source": "Img-4.png",
+    "output": "public/images/exterior-640.avif",
+    "width": 640,
+    "height": 453,
+    "bytes": 28223,
+    "originalWidth": 772
+  },
+  {
+    "slot": "exterior",
+    "source": "Img-4.png",
+    "output": "public/images/exterior-800.avif",
+    "width": 772,
+    "height": 546,
+    "bytes": 39957,
+    "originalWidth": 772
+  },
+  {
     "slot": "consultation",
     "source": "Img-1.png",
     "output": "public/images/consultation-480.webp",
@@ -267,6 +294,51 @@
     "width": 1137,
     "height": 1383,
     "bytes": 499098,
+    "originalWidth": 1137
+  },
+  {
+    "slot": "street-reference",
+    "source": "Img-6.png",
+    "output": "public/images/street-reference-480.avif",
+    "width": 480,
+    "height": 584,
+    "bytes": 56587,
+    "originalWidth": 1137
+  },
+  {
+    "slot": "street-reference",
+    "source": "Img-6.png",
+    "output": "public/images/street-reference-640.avif",
+    "width": 640,
+    "height": 778,
+    "bytes": 100344,
+    "originalWidth": 1137
+  },
+  {
+    "slot": "street-reference",
+    "source": "Img-6.png",
+    "output": "public/images/street-reference-800.avif",
+    "width": 800,
+    "height": 973,
+    "bytes": 147978,
+    "originalWidth": 1137
+  },
+  {
+    "slot": "street-reference",
+    "source": "Img-6.png",
+    "output": "public/images/street-reference-960.avif",
+    "width": 960,
+    "height": 1168,
+    "bytes": 189920,
+    "originalWidth": 1137
+  },
+  {
+    "slot": "street-reference",
+    "source": "Img-6.png",
+    "output": "public/images/street-reference-1600.avif",
+    "width": 1137,
+    "height": 1383,
+    "bytes": 240837,
     "originalWidth": 1137
   },
   {
