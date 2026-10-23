@@ -1,8 +1,12 @@
 import imageMetadata from './image-metadata.json';
 import { resolveSiteSettings } from './site.mjs';
+const name = 'Ophtalmo Luxembourg';
+const brandName = 'Ophta Vision';
 /** Single source of truth for factual information and external destinations. */
 export const practice = {
-  name: 'Ophtalmo Luxembourg',
+  name,
+  brandName,
+  fullName: `${name} ${brandName}`,
   doctor: 'Dr M’Hamed EL HIRECH',
   listingName: 'Cabinet Ophtalmologique Mamer',
   address: { street: '110 Route d’Arlon', postalCity: 'L-8210 Mamer', country: 'Luxembourg' },

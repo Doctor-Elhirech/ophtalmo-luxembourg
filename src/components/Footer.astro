@@ -16,8 +16,9 @@ const analyticsSettingsLabel = { fr: 'Choix des cookies', en: 'Cookie settings',
   <div class="container">
     <div class="footer-top">
       <div>
-        <a class="footer-brand" href={localePath(locale)}>
+        <a class="footer-brand" href={localePath(locale)} aria-label={t.fullName}>
           {t.name}
+          <span class="footer-brand-subname">{t.brandName}</span>
         </a>
         <p>{t.footer.descriptor}</p>
       </div>

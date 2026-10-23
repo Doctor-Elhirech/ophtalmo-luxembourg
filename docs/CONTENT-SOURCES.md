@@ -1,11 +1,12 @@
 # Content sources
 
-Last factual review: 20 October 2026.
+Practice-source review: 20 October 2026. Google Maps branding and review-count evidence updated on 23 October 2026.
 
 This record distinguishes public evidence, information supplied by the client and editorial choices. It is provenance documentation, not a claim that the doctor has clinically reviewed every translation.
 
 ## Practice identity and registration
 
+- A Google Maps screenshot supplied by the user on 23 October shows the practice name **Ophtalmo Luxembourg Ophta Vision**, at the existing Mamer address and telephone number. The homepage label and footer include Ophta Vision; site-name metadata and practice/website structured data use the full listing name. Ophtalmo Luxembourg remains the short logo name and an alternate name, while Cabinet Ophtalmologique Mamer remains the Doctena listing name. This branding does not establish a separate legal entity or change the doctor's identity.
 - [Collège médical ophthalmology register](https://collegemedical.lu/fr/professionals?id=44): checked in a browser on 20 October. Lists EL HIRECH M’hamed, Cabinet d’Ophtalmologie, 110 route d’Arlon, L-8210 Mamer. This is Luxembourg's professional regulator, not a university. The number `44` filters the profession; it is not his licence number. The website links to the register without inventing an individual registration identifier.
 - [Doctena practice profile](https://www.doctena.lu/fr/practitioner/cabinet-ophtalmologique-mamer): identifies the doctor, Mamer address, existing telephone and email, medical training at the Faculty of Medicine of Besançon, former hospital assistant/practitioner roles and former hospital attaché role in Paris. The biography uses these facts without inventing graduation dates, named hospitals, years of experience, awards or publications.
 - [Doctipro French profile](https://www.doctipro.lu/fr/doctor-profile/254/el-hirech-mhamed) and [English profile](https://www.doctipro.lu/en/doctor-profile/254/el-hirech-mhamed): the practice header and booking destination identify Mamer. The biography also contains an older 1 Val Sainte-Croix address, so its additional equipment and treatment claims have not been imported as Mamer facts.
@@ -58,7 +59,7 @@ No clinical-review signature, date or endorsement is manufactured. Sources are a
 
 The **500+ patients** statement remains under the user's explicit instruction on 20 October. No public source or direct doctor reply has verified that number. The user's earlier message to the doctor proposed omitting it; the current instruction expressly retains it. It is excluded from metadata and structured data, and its existing snippet control is preserved. Snippet control does not establish accuracy or prevent every search engine from using the text.
 
-The **5.0/5 rating, three total reviews and two written testimonials** were supplied in the original brief, not independently established as a current Google total. The named excerpts and their existing original Google review links remain. Visible notes explain that excerpts are translated; they are not labelled verbatim originals in French or Luxembourgish. No rating schema or new testimonial is added.
+The original brief supplied a **5.0/5 rating, three total reviews and two written testimonials**. The user's Google Maps screenshot on 23 October shows **5.0/5 with four reviews**, and the displayed total now reflects that screenshot. The named excerpts and their existing original Google review links remain. Visible notes explain that excerpts are translated; they are not labelled verbatim originals in French or Luxembourgish. No rating schema or new testimonial is added.
 
 ## Photographs
 

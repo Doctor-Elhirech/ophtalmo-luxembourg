@@ -1533,9 +1533,23 @@
   }
 
   .footer-brand {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    max-width: 100%;
     font-family: var(--serif);
     font-size: 31px;
+    line-height: 1.25;
     letter-spacing: -0.04em;
+  }
+
+  .footer-brand-subname {
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    color: var(--gold-ink);
   }
 
   .footer-top>div>p {
@@ -2893,7 +2907,7 @@
     }
 
     .footer-brand {
-      font-size: 30px;
+      font-size: clamp(25px, 7.7vw, 30px);
     }
 
     .footer-top nav {

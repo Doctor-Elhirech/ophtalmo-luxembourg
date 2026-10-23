@@ -92,7 +92,7 @@ const fr = {
     moreContact: 'Voir les coordonnées et les horaires',
   },
   hero: {
-    eyebrow: 'Cabinet d’ophtalmologie · Mamer, Luxembourg',
+    eyebrow: `${practice.brandName} · Ophtalmologie à Mamer`,
     line1: 'L’attention,',
     line2: 'à chaque regard.',
     intro: 'L’ophtalmologie pour les adultes et les enfants, à Mamer.',
@@ -459,7 +459,7 @@ const en: typeof fr = {
     moreContact: 'View contact details and hours',
   },
   hero: {
-    eyebrow: 'Ophthalmology practice · Mamer, Luxembourg',
+    eyebrow: `${practice.brandName} · Ophthalmology in Mamer`,
     line1: 'Your vision.',
     line2: 'Our attention.',
     intro: 'Eye care for adults and children in Mamer.',

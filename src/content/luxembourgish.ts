@@ -56,7 +56,7 @@ export const lb: Translation = {
     moreContact: 'Kontakt an Ëffnungszäite kucken',
   },
   hero: {
-    eyebrow: 'Aepraxis · Mamer, Lëtzebuerg',
+    eyebrow: `${practice.brandName} · Aepraxis zu Mamer`,
     line1: 'Är Siicht.',
     line2: 'Eis Suergfalt.',
     intro: 'Aebetreiung fir Erwuessener a Kanner zu Mamer.',
