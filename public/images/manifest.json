@@ -268,5 +268,14 @@
     "height": 1383,
     "bytes": 499098,
     "originalWidth": 1137
+  },
+  {
+    "slot": "entrance-detail",
+    "source": "Img-7.png",
+    "output": "public/images/entrance-detail.webp",
+    "width": 751,
+    "height": 616,
+    "bytes": 113028,
+    "originalWidth": 751
   }
 ]

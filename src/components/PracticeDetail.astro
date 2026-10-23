@@ -5,8 +5,10 @@ import PracticeGallery from './PracticeGallery.astro';
 import BookingOptions from './BookingOptions.astro';
 import Journey from './Journey.astro';
 import Arrow from './Arrow.astro';
+import imageMetadata from '../config/image-metadata.json';
 interface Props { t: Translation; locale: Locale }
 const { t, locale } = Astro.props;
+const entrancePhoto = imageMetadata['entrance-detail'];
 ---
 
 <section class="practice-arrival container" aria-labelledby="practice-arrival-title">
@@ -18,11 +20,11 @@ const { t, locale } = Astro.props;
       data-photo-caption={t.practicePage.entranceDetailCaption}
       aria-label={`${t.accessibility.openPhoto} — ${t.practicePage.entranceDetailCaption}`}
     >
-      <div class="photo" style="--photo-ratio: 751 / 616">
+      <div class="photo" style={`--photo-ratio: ${entrancePhoto.width} / ${entrancePhoto.height}`}>
         <img
           src="/images/entrance-detail.webp"
-          width="751"
-          height="616"
+          width={entrancePhoto.width}
+          height={entrancePhoto.height}
           alt={t.practicePage.entranceDetailAlt}
           loading="eager"
           decoding="async"

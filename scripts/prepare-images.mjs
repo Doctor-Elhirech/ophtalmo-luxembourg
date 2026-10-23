@@ -35,10 +35,26 @@ for (const [slot, source] of Object.entries(slots)) {
 }
 // Keep the newer entrance reference intact; CSS fits it to each layout's
 // existing photo frame without modifying the source image.
-await sharp('Photos/Img-7.png')
+const entranceMetadata = await sharp('Photos/Img-7.png').metadata();
+slotMetadata['entrance-detail'] = {
+  base: 'entrance-detail',
+  width: entranceMetadata.width,
+  height: entranceMetadata.height,
+};
+const entranceOutput = 'public/images/entrance-detail.webp';
+const entranceInfo = await sharp('Photos/Img-7.png')
   .rotate()
   .webp({ quality: 88, effort: 5 })
-  .toFile('public/images/entrance-detail.webp');
+  .toFile(entranceOutput);
+report.push({
+  slot: 'entrance-detail',
+  source: 'Img-7.png',
+  output: entranceOutput,
+  width: entranceInfo.width,
+  height: entranceInfo.height,
+  bytes: entranceInfo.size,
+  originalWidth: entranceMetadata.width,
+});
 await writeFile('public/images/manifest.json', JSON.stringify(report, null, 2) + '\n');
 await writeFile('src/config/image-metadata.json', JSON.stringify(slotMetadata, null, 2) + '\n');
 console.log(

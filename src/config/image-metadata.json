@@ -28,5 +28,10 @@
     "base": "street-reference",
     "width": 1137,
     "height": 1383
+  },
+  "entrance-detail": {
+    "base": "entrance-detail",
+    "width": 751,
+    "height": 616
   }
 }
