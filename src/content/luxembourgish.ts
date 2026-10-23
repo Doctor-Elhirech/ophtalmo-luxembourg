@@ -82,7 +82,7 @@ export const lb: Translation = {
     qualifications: [
       'Ofschloss op der medezinescher Fakultéit zu Besançon, Frankräich',
       'Fréiere Spidolsassistent a Spidolsdokter',
-      'Fréier als Dokter u Paräisser Spideeler täteg',
+      'Fréier als « attaché des hôpitaux de Paris » täteg',
     ],
     caption: 'An der Praxis · Consultatiounsraum',
     source: 'Beruffleche Wee op Doctena publizéiert',
@@ -252,7 +252,7 @@ export const lb: Translation = {
       'De Consultatiounsbüro vun der Praxis op der 110 Route d’Arlon.',
     profileTitle: 'Ären Aespezialist',
     profileText:
-      'Ech hunn op der medezinescher Fakultéit zu Besançon ofgeschloss a war als Spidolsassistent, Spidolsdokter an als Dokter u Paräisser Spideeler täteg. Haut empfänken ech Erwuessener a Kanner a menger Praxis zu Mamer.',
+      'Ech hunn op der medezinescher Fakultéit zu Besançon ofgeschloss a war als Spidolsassistent, Spidolsdokter an als « attaché des hôpitaux de Paris » täteg. Haut empfänken ech Erwuessener a Kanner a menger Praxis zu Mamer.',
     profilesTitle: 'Meng berufflech Profiller',
     proofLabel: 'Ausbildung & berufflech Praxis',
     proofTitle: 'Erfarung fir Är Aegesondheet.',
@@ -269,7 +269,7 @@ export const lb: Translation = {
       {
         title: 'Spidolserfarung',
         description:
-          'Fréier Spidolsassistent a Spidolsdokter, an och als Dokter u Paräisser Spideeler täteg.',
+          'Fréier Spidolsassistent a Spidolsdokter, souwéi als « attaché des hôpitaux de Paris » täteg.',
         sourceLabel: 'Beruffleche Profil',
         sourceUrl: practice.profileUrl,
       },
@@ -402,8 +402,8 @@ export const lb: Translation = {
   },
   contactPage: {
     label: 'Rendez-vous zu Mamer',
-    title: 'Äre Besuch.',
-    emphasis: 'Gutt virbereet.',
+    title: 'Maacht e Rendez-vous.',
+    emphasis: 'Bereet Äre Besuch vir.',
     intro:
       'Maacht e Rendez-vous bei Ärem Aendokter zu Mamer a fannt d’Adress, d’Telefonsnummer an de Wee bei d’Praxis.',
     bookingTitle: 'Online reservéieren',

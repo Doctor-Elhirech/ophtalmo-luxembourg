@@ -75,7 +75,7 @@ const fr: Record<CareGuideId, CareGuide> = {
     heroLabel: 'Ophtalmologie générale · Mamer',
     heroTitle: 'Votre examen de la vue,',
     heroEmphasis: 'à Mamer.',
-    intro: 'Une difficulté à lire, une gêne visuelle ou un contrôle prévu : voici des repères pour préparer une consultation avec le Dr M’Hamed EL HIRECH à Mamer, au Luxembourg.',
+    intro: 'Une difficulté à lire, un changement dans votre vision ou un contrôle prévu : voici des repères pour préparer une consultation avec le Dr M’Hamed EL HIRECH à Mamer, au Luxembourg.',
     profileNote: 'Une consultation d’ophtalmologie générale permet de faire le point sur votre vision, votre correction et la santé de vos yeux.',
     sections: [
       {
@@ -107,7 +107,7 @@ const fr: Record<CareGuideId, CareGuide> = {
       },
       {
         question: 'Quel motif indiquer lors de la réservation ?',
-        answer: 'Décrivez votre besoin principal avec vos propres mots : premier avis, contrôle, baisse de vision ou question sur votre correction. Si le motif proposé sur la plateforme ne correspond pas, contactez le cabinet pour orienter votre demande.',
+        answer: 'Décrivez votre besoin principal avec vos propres mots : premier avis, contrôle, changement dans votre vision ou question sur votre correction. Si le motif proposé sur la plateforme ne correspond pas, contactez le cabinet pour orienter votre demande.',
       },
     ],
     bookingIntro: 'Consultez les disponibilités ou les coordonnées du cabinet pour organiser votre consultation et préciser votre motif de visite.',
@@ -163,7 +163,7 @@ const fr: Record<CareGuideId, CareGuide> = {
     description: 'Comprendre la cataracte et préparer une consultation à Mamer : symptômes, retentissement au quotidien, suivi et questions sur une éventuelle opération.',
     name: 'Cataracte : comprendre et consulter',
     heroLabel: 'Cataracte · Consultation à Mamer',
-    heroTitle: 'Comprendre la cataracte,',
+    heroTitle: 'Comprendre la cataracte',
     heroEmphasis: 'en consultation.',
     intro: 'Lorsque la vision devient moins confortable, un examen aide à en rechercher la cause. Ces repères vous permettent d’aborder la cataracte et les prochaines étapes avec le Dr M’Hamed EL HIRECH à Mamer.',
     profileNote: 'La consultation permet de discuter du diagnostic, du suivi et d’une éventuelle chirurgie. Le lieu de l’intervention, l’équipe et les étapes du suivi sont précisés avec le médecin selon votre situation.',
@@ -175,7 +175,7 @@ const fr: Record<CareGuideId, CareGuide> = {
       },
       {
         heading: 'Décrire l’impact sur votre quotidien',
-        paragraphs: ['Préparez des exemples précis de ce qui a changé : lire une étiquette, suivre des sous-titres, distinguer les marches ou supporter les phares la nuit. Notez les activités que vous avez réduites et celles que vous souhaitez conserver. Indiquez si vous avez déjà changé de lunettes pour tenter d’améliorer la situation.', 'Apportez vos comptes rendus antérieurs, vos lunettes et une liste de vos traitements. Si un autre professionnel a évoqué une cataracte, reprenez ses conclusions et les questions qui restent ouvertes. Cela vous aide à présenter votre demande sans oublier votre priorité.'],
+        paragraphs: ['Préparez des exemples précis de ce qui a changé : lire une étiquette, suivre des sous-titres, distinguer les marches ou supporter les phares la nuit. Notez les activités que vous avez réduites et celles que vous souhaitez conserver. Indiquez si vous avez déjà changé de lunettes pour tenter d’améliorer la situation.', 'Apportez vos comptes rendus antérieurs, vos lunettes et une liste de vos médicaments. Si un autre professionnel a évoqué une cataracte, reprenez ses conclusions et les questions qui restent ouvertes. Cela vous aide à présenter votre demande sans oublier votre priorité.'],
       },
       {
         heading: 'Discuter du suivi ou d’une opération',
@@ -217,7 +217,7 @@ const en: Record<CareGuideId, CareGuide> = {
     sections: [
       {
         heading: 'Explain what brings you in',
-        paragraphs: ['Before your appointment, think of one or two situations that describe the problem: recognising a face at a distance, reading a screen or switching from reading to driving. Note when it started, whether it is constant and whether one eye or both are affected. These observations can start the conversation without needing to identify a condition yourself.'],
+        paragraphs: ['Before your appointment, note one or two situations that describe the problem: recognising a face at a distance, reading a screen or switching from reading to driving. Note when it started, whether it is constant and whether one eye or both are affected. These observations can start the conversation without needing to identify a condition yourself.'],
       },
       {
         heading: 'What an examination may explore',
@@ -300,8 +300,8 @@ const en: Record<CareGuideId, CareGuide> = {
     description: 'Prepare a cataract consultation in Mamer: understand symptoms, describe everyday difficulties and discuss monitoring or possible surgery.',
     name: 'Cataract information and consultation',
     heroLabel: 'Cataract · Consultation in Mamer',
-    heroTitle: 'Understanding cataracts,',
-    heroEmphasis: 'one step at a time.',
+    heroTitle: 'Understanding cataracts',
+    heroEmphasis: 'at your consultation.',
     intro: 'When seeing becomes less comfortable, an examination helps explore the cause. These pointers help you discuss cataracts and possible next steps with Dr M’Hamed EL HIRECH in Mamer.',
     profileNote: 'The consultation is an opportunity to discuss the diagnosis, monitoring and possible surgery. The location, team and follow-up for any operation are discussed with the doctor according to your needs.',
     sections: [
@@ -316,7 +316,7 @@ const en: Record<CareGuideId, CareGuide> = {
       },
       {
         heading: 'Discuss monitoring or an operation',
-        paragraphs: ['A cataract does not always require an immediate operation. Its effect on daily activities matters when deciding what to do. An updated prescription or improved lighting may help temporarily. The consultation is an opportunity to assess the situation and discuss when treatment may be appropriate.'],
+        paragraphs: ['A cataract does not always require an immediate operation. Its effect on daily activities matters when deciding what to do. Suitable vision correction or improved lighting may help temporarily. The consultation is an opportunity to assess the situation and discuss when treatment may be appropriate.'],
         source: sources.cataractChoices,
       },
       {
@@ -332,7 +332,7 @@ const en: Record<CareGuideId, CareGuide> = {
         answer: 'No. You can come to discuss a possible cataract, understand an existing diagnosis or work through your questions. An appointment is an opportunity to receive explanations and talk about your circumstances.',
       },
       {
-        question: 'What if I already have a cataract care plan?',
+        question: 'What if I already have cataract records?',
         answer: 'Explain your current stage: an initial opinion, monitoring or discussion of a proposed procedure. Collect the documents you have received and note what needs clarification, including the role of each professional involved.',
       },
     ],
@@ -391,7 +391,7 @@ const lb: Record<CareGuideId, CareGuide> = {
   'glasses-contact-lenses': {
     slug: 'brell-kontaktlensen',
     title: 'Brëll a Kontaktlënsen zu Mamer | Dr EL HIRECH',
-    description: 'Informatiounen iwwer Brëll a Kontaktlënsen zu Mamer: Korrektur vun der Siicht, Virbereedung vun der Consultatioun, Komfort a Fleeg.',
+    description: 'Informatiounen iwwer Brëll a Kontaktlënsen zu Mamer: Korrektur vun der Siicht, Virbereedung vun der Consultatioun, Komfort, Upassung a Fleeg.',
     name: 'Brëll a Kontaktlënsen',
     heroLabel: 'Korrektur vun der Siicht · Mamer',
     heroTitle: 'Brëll a Kontaktlënsen,',
@@ -436,11 +436,11 @@ const lb: Record<CareGuideId, CareGuide> = {
   cataract: {
     slug: 'groe-star',
     title: 'Groe Star: Informatioun a Consultatioun zu Mamer | Dr EL HIRECH',
-    description: 'De groe Star verstoen an eng Consultatioun zu Mamer virbereeden: Symptomer, Auswierkungen am Alldag a Froen iwwer eng méiglech Operatioun.',
+    description: 'De groe Star verstoen an eng Consultatioun zu Mamer virbereeden: Symptomer, Auswierkungen am Alldag, Kontrollen a Froen iwwer eng méiglech Operatioun.',
     name: 'Groe Star: verstoen a consultéieren',
     heroLabel: 'Katarakt · Consultatioun zu Mamer',
-    heroTitle: 'De groe Star,',
-    heroEmphasis: 'verständlech erkläert.',
+    heroTitle: 'De groe Star verstoen',
+    heroEmphasis: 'bei der Consultatioun.',
     intro: 'Wann d’Siicht manner komfortabel gëtt, hëlleft eng Ënnersichung, d’Ursaach ze sichen. Dës Informatiounen hëllefen Iech, mam Dr M’Hamed EL HIRECH zu Mamer iwwer de groe Star an déi nächst Schrëtt ze schwätzen.',
     profileNote: 'Bei der Consultatioun kënnt Dir iwwer d’Diagnos, d’Kontrollen an eng méiglech Operatioun schwätzen. D’Plaz vun der Operatioun, d’Ekipp an d’Nokontrolle ginn zesumme mam Dokter jee no Ärer Situatioun gekläert.',
     sections: [
