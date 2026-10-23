@@ -18,11 +18,11 @@ The original primary booking destination remains `https://www.doctena.lu/fr/prac
 
 The contact page presents **practice opening hours published on Doctena**, with a source link and a reminder to follow the time confirmed in the patient's booking:
 
-| Day | Morning | Afternoon/evening |
-| --- | --- | --- |
-| Friday | 09:00–12:00 | 15:00–21:00 |
-| Saturday | 08:00–12:00 | 14:00–21:00 |
-| Sunday | 08:00–12:00 | 14:00–21:00 |
+| Day      | Morning     | Afternoon/evening |
+| -------- | ----------- | ----------------- |
+| Friday   | 09:00–12:00 | 15:00–21:00       |
+| Saturday | 08:00–12:00 | 14:00–21:00       |
+| Sunday   | 08:00–12:00 | 14:00–21:00       |
 
 Doctipro explicitly labels a different **practitioner's consultation schedule**: Friday 09:00–12:00 and 14:00–20:00; Saturday 08:00–12:00 and 14:00–20:00; Sunday 08:00–12:00 and 14:00–16:00; Monday–Thursday closed. These schedules are not merged into an invented timetable. The old Saturday-only schedule ending at 19:00 has been replaced. Hours remain excluded from structured data while the provider discrepancy exists.
 
@@ -62,9 +62,9 @@ The **5.0/5 rating, three total reviews and two written testimonials** were supp
 
 ## Photographs
 
-The six supplied originals remain unchanged in `Photos/`. WebP variants alter encoding/resolution without retouching or removing attribution. `Img-6.png` is accurately captioned as a street view, not the entrance. The doctor profile uses an actual consultation-office image, labelled as a room rather than a portrait. The full practice gallery now contains the two examination-room views and the existing consultation-office photograph, replacing the empty reception-photo placeholder.
+The six earlier project photographs remain unchanged in `Photos/`. A seventh file, `Img-7.png`, is the entrance crop approved by the user for the practice arrival section. Its generated WebP changes the encoding without further retouching or upscaling. `Img-6.png` is accurately captioned as a street view, not the entrance. The doctor profile uses an actual consultation-office image, labelled as a room rather than a portrait. The full practice gallery contains the two examination-room views and the existing consultation-office photograph.
 
-No artificial portrait, fake patient scene, fabricated diploma scan or stock image implying a real consultation has been introduced. The user has stated that image permissions will be secured; no independently verified licence or patient image consent is claimed here. An authentic portrait or new entrance photograph can be supplied later without leaving a public placeholder now.
+No artificial portrait, fake patient scene, fabricated diploma scan or stock image implying a real consultation has been introduced. The user has stated that image permissions will be secured; no independently verified licence or patient image consent is claimed here. The entrance crop and other photographs remain subject to the doctor's final review.
 
 ## Operator, email and privacy
 

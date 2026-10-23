@@ -1,8 +1,20 @@
 # Ophtalmo Luxembourg
 
-A French, English and Luxembourgish website for the Mamer ophthalmology practice of **Dr M'Hamed EL HIRECH**. The site uses real supplied photographs and practice information sourced from public profiles. Doctena is the primary booking route; Doctipro is offered as a secondary option for Mamer.
+A French, English and Luxembourgish website for the Mamer ophthalmology practice of **Dr M'Hamed EL HIRECH**. It presents the doctor, eye care information, the practice location and contact details. Visitors can follow external links to book through Doctena or Doctipro. The site does not collect appointment requests or medical records.
 
-The deployed site is publicly accessible. Repository visibility and deployed-site visibility are independent.
+The current public address is [ophtalmo-luxembourg.vercel.app](https://ophtalmo-luxembourg.vercel.app/). A final custom domain can be connected later. The doctor's final review of hours, clinical wording, photographs and legal pages remains part of handoff.
+
+## Technology at a glance
+
+| Part                                         | What it does                                                                                 |
+| -------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Astro 7, TypeScript, HTML and CSS            | Builds fast, static pages without a patient database or application server.                  |
+| Locally hosted fonts and WebP photographs    | Keeps the main design assets within the site and prepares images for different screen sizes. |
+| Sharp                                        | Produces optimized images from the files in `Photos/`.                                       |
+| Playwright and axe                           | Check layouts, links, keyboard use, accessibility and image behavior.                        |
+| Vercel, with Netlify configuration available | Hosts the generated pages; the site currently deploys through Vercel.                        |
+
+Analytics is prepared in the code but remains off until it is explicitly configured with the matching privacy information. The patient-facing email and external booking links are separate from the account used to manage hosting and search tools.
 
 ## Run locally
 
@@ -28,34 +40,34 @@ Install the QA browser once with `npx playwright install chromium`. Set `QA_URL`
 
 ## Architecture
 
-| Location                                                  | Responsibility                                                                                  |
-| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `src/pages/index.astro`                                   | French route, default language                                                                  |
-| `src/pages/en/index.astro`                                | English route                                                                                   |
-| `src/pages/lb/index.astro`                                | Luxembourgish route                                                                             |
-| `src/pages/{medecin,expertises,cabinet,contact}.astro`    | French detail pages                                                                             |
-| `src/pages/en/{doctor,expertise,practice,contact}.astro`  | English detail pages                                                                            |
-| `src/pages/lb/{dokter,leeschtungen,praxis,kontakt}.astro` | Luxembourgish detail pages                                                                      |
-| `src/layouts/BaseLayout.astro`                            | Document metadata, self-hosted fonts, shared header/footer                                      |
-| `src/components/`                                         | Small semantic sections and shared image/CTA controls                                           |
-| `src/config/practice.ts`                                  | Business facts, booking/profile URLs, directions, review counts and image slots                 |
-| `src/config/site.mjs`                                     | Production origin and environment-aware indexing settings                                      |
-| `src/config/seo.ts`                                       | Localized route inventory, canonical/hreflang URLs and structured data                          |
-| `src/content/translations.ts`                             | Shared locale types, routes, FR/EN copy and accessible labels                                   |
-| `src/content/luxembourgish.ts`                            | Luxembourgish copy and accessible labels                                                        |
-| `src/content/care-guides.ts`                              | Three patient guides in three languages, including primary medical source links                |
-| `src/scripts/language-navigation.ts`                      | Preserves the reading position when changing languages                                          |
-| `src/styles/global.css`                                   | Documented CSS layers: reset, base tokens, components, responsive overrides                     |
-| `src/scripts/interactions.ts`                             | Mobile navigation, language anchors, native photo dialog, fallback and restrained reveals       |
-| `Photos/`                                                 | Original supplied photographs; retained without alteration                                      |
-| `public/images/`                                          | Optimized local WebP variants generated from the originals                                      |
-| `scripts/prepare-images.mjs`                              | Repeatable image optimization and automatic dimension metadata                                  |
-| `scripts/qa.mjs`                                          | Responsive, accessibility, links, gallery, keyboard and fallback checks                         |
-| `scripts/qa-seo.mjs`                                      | Localized guide layouts, navigation, metadata, schema and discovery checks                       |
-| `scripts/submit-indexnow.mjs`                             | Explicit post-deployment URL submission to participating IndexNow search engines                |
-| `.env.example`                                            | Optional production origin, indexing and search-property verification configuration            |
-| `docs/CONTENT-SOURCES.md`                                 | Factual provenance, source conflicts and supplied-claim limits                                   |
-| `docs/QA.md`                                              | Verification scope and limitations                                                              |
+| Location                                                  | Responsibility                                                                            |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `src/pages/index.astro`                                   | French route, default language                                                            |
+| `src/pages/en/index.astro`                                | English route                                                                             |
+| `src/pages/lb/index.astro`                                | Luxembourgish route                                                                       |
+| `src/pages/{medecin,expertises,cabinet,contact}.astro`    | French detail pages                                                                       |
+| `src/pages/en/{doctor,expertise,practice,contact}.astro`  | English detail pages                                                                      |
+| `src/pages/lb/{dokter,leeschtungen,praxis,kontakt}.astro` | Luxembourgish detail pages                                                                |
+| `src/layouts/BaseLayout.astro`                            | Document metadata, self-hosted fonts, shared header/footer                                |
+| `src/components/`                                         | Small semantic sections and shared image/CTA controls                                     |
+| `src/config/practice.ts`                                  | Business facts, booking/profile URLs, directions, review counts and image slots           |
+| `src/config/site.mjs`                                     | Production origin and environment-aware indexing settings                                 |
+| `src/config/seo.ts`                                       | Localized route inventory, canonical/hreflang URLs and structured data                    |
+| `src/content/translations.ts`                             | Shared locale types, routes, FR/EN copy and accessible labels                             |
+| `src/content/luxembourgish.ts`                            | Luxembourgish copy and accessible labels                                                  |
+| `src/content/care-guides.ts`                              | Three patient guides in three languages, including primary medical source links           |
+| `src/scripts/language-navigation.ts`                      | Preserves the reading position when changing languages                                    |
+| `src/styles/global.css`                                   | Documented CSS layers: reset, base tokens, components, responsive overrides               |
+| `src/scripts/interactions.ts`                             | Mobile navigation, language anchors, native photo dialog, fallback and restrained reveals |
+| `Photos/`                                                 | Approved project photo sources, kept as provided                                          |
+| `public/images/`                                          | Optimized local WebP images generated from those sources                                  |
+| `scripts/prepare-images.mjs`                              | Repeatable image optimization and automatic dimension metadata                            |
+| `scripts/qa.mjs`                                          | Responsive, accessibility, links, gallery, keyboard and fallback checks                   |
+| `scripts/qa-seo.mjs`                                      | Localized guide layouts, navigation, metadata, schema and discovery checks                |
+| `scripts/submit-indexnow.mjs`                             | Explicit post-deployment URL submission to participating IndexNow search engines          |
+| `.env.example`                                            | Optional production origin, indexing and search-property verification configuration       |
+| `docs/CONTENT-SOURCES.md`                                 | Factual provenance, source conflicts and supplied-claim limits                            |
+| `docs/QA.md`                                              | Verification scope and limitations                                                        |
 
 Astro generates complete static HTML for all three languages. Literata and Plus Jakarta Sans are bundled locally. There is no frontend framework runtime, booking backend, database, form collection, active analytics, external font request, or custom authentication. The contact page embeds Google Maps; core reading and booking remain available without JavaScript.
 
@@ -63,7 +75,7 @@ Astro generates complete static HTML for all three languages. Literata and Plus 
 
 Replace the matching original in `Photos/`, keeping its filename, then run `npm run build`. Image variants and source dimensions regenerate automatically.
 
-Photos use 480, 640, 800, 960 and 1600-pixel WebP variants at the same quality setting, capped at the original resolution. Download hints in `src/config/photo-sizes.ts` match the current layout and cover crops; run `npm run qa:performance` after replacing a photograph to check its resolution. Self-hosted font declarations retain the original Latin and Latin-ext variable files for all three site languages.
+The six original photo slots use 480, 640, 800, 960 and 1600-pixel WebP variants, capped at the source resolution. The approved entrance crop (`Img-7.png`) produces one 751 × 616 WebP image and is not enlarged. Download hints in `src/config/photo-sizes.ts` match the other photo layouts and cover crops; run `npm run qa:performance` after replacing a photograph to check its resolution. Self-hosted font declarations retain the original Latin and Latin-ext variable files for all three site languages.
 
 | Original    | Slot                   | Use                                |
 | ----------- | ---------------------- | ---------------------------------- |
@@ -73,6 +85,7 @@ Photos use 480, 640, 800, 960 and 1600-pixel WebP variants at the same quality s
 | `Img-4.png` | `exterior`             | Gallery and location               |
 | `Img-2.png` | `examination`          | Examination room gallery           |
 | `Img-3.png` | `examinationAlternate` | Alternate room view                |
+| `Img-7.png` | `entrance-detail`      | Practice arrival photo             |
 
 ## Customize content
 
@@ -100,23 +113,23 @@ Google Maps uses the original direct embed on the contact page, with native lazy
 
 ## Deploy to Vercel
 
-The project is connected to Vercel with the following configuration:
+The project currently deploys through Vercel. For a new deployment or a review of its settings, use:
 
-| Setting          | Value                           |
-| ---------------- | ------------------------------- |
-| Framework Preset | Astro                           |
-| Build Command    | `npm run images && astro build` |
-| Output Directory | `dist`                          |
-| Node.js Version  | 22.x                            |
+| Setting          | Value           |
+| ---------------- | --------------- |
+| Framework Preset | Astro           |
+| Build Command    | `npm run build` |
+| Output Directory | `dist`          |
+| Node.js Version  | 22.x            |
 
 **Optional environment variables:** use `.env.example` as a reference. The site can build without search-property credentials.
 
-| Key                        | Purpose                                                                                         |
-| -------------------------- | ----------------------------------------------------------------------------------------------- |
-| `PUBLIC_SITE_ORIGIN`       | Final production origin; defaults to the stable Vercel origin                                    |
-| `PUBLIC_SITE_INDEXABLE`    | Production indexing defaults to `true`; set `false` to opt out                                    |
-| `GOOGLE_SITE_VERIFICATION` | Optional HTML verification token supplied by Google Search Console                               |
-| `BING_SITE_VERIFICATION`   | Optional HTML verification token supplied by Bing Webmaster Tools                                |
+| Key                        | Purpose                                                            |
+| -------------------------- | ------------------------------------------------------------------ |
+| `PUBLIC_SITE_ORIGIN`       | Final production origin; defaults to the stable Vercel origin      |
+| `PUBLIC_SITE_INDEXABLE`    | Production indexing defaults to `true`; set `false` to opt out     |
+| `GOOGLE_SITE_VERIFICATION` | Optional HTML verification token supplied by Google Search Console |
+| `BING_SITE_VERIFICATION`   | Optional HTML verification token supplied by Bing Webmaster Tools  |
 
 Vercel auto-deploys on every push to `main`. The repository may remain private; Vercel retains OAuth access regardless of repository visibility.
 
