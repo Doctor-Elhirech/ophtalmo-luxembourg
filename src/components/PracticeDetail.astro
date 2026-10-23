@@ -4,8 +4,6 @@ import { localePath } from '../content/translations';
 import PracticeGallery from './PracticeGallery.astro';
 import BookingOptions from './BookingOptions.astro';
 import Journey from './Journey.astro';
-import Photo from './Photo.astro';
-import { photoSizes } from '../config/photo-sizes';
 import Arrow from './Arrow.astro';
 interface Props { t: Translation; locale: Locale }
 const { t, locale } = Astro.props;
@@ -13,8 +11,26 @@ const { t, locale } = Astro.props;
 
 <section class="practice-arrival container" aria-labelledby="practice-arrival-title">
   <figure class="practice-arrival-media">
-    <Photo slot="exterior" t={t} eager sizes={photoSizes.arrival} />
-    <span class="practice-arrival-photo-label">{t.practicePage.entrancePhotoLabel}</span>
+    <a
+      class="practice-arrival-photo gallery-open"
+      href="/images/entrance-detail.webp"
+      data-photo-alt={t.practicePage.entranceDetailAlt}
+      data-photo-caption={t.practicePage.entranceDetailCaption}
+      aria-label={`${t.accessibility.openPhoto} — ${t.practicePage.entranceDetailCaption}`}
+    >
+      <div class="photo" style="--photo-ratio: 751 / 616">
+        <img
+          src="/images/entrance-detail.webp"
+          width="751"
+          height="616"
+          alt={t.practicePage.entranceDetailAlt}
+          loading="eager"
+          decoding="async"
+        />
+        <span class="photo-fallback" hidden>{t.accessibility.imageUnavailable}</span>
+      </div>
+      <span class="practice-arrival-photo-label">{t.practicePage.entrancePhotoLabel}</span>
+    </a>
     <figcaption>{t.practicePage.entrancePhotoNote}</figcaption>
   </figure>
   <div class="practice-arrival-copy">

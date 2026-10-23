@@ -373,6 +373,8 @@ const fr = {
     arrivalHeading: 'Nous trouver à Mamer.',
     entrancePhotoLabel: 'Le cabinet à Mamer',
     entrancePhotoNote: 'Vue du bâtiment du cabinet, au 110 Route d’Arlon à Mamer.',
+    entranceDetailCaption: 'L’entrée du bâtiment',
+    entranceDetailAlt: 'Vue de la porte vitrée à encadrement rouge et de la façade du bâtiment à Mamer',
     hoursLink: 'Voir les horaires et coordonnées',
     arrivalNotes: [
       { title: 'Entrée & arrivée', text: 'Le cabinet se situe au rez-de-chaussée du 110 Route d’Arlon. Utilisez l’itinéraire pour préparer votre trajet et gardez votre confirmation de rendez-vous à portée de main.' },
@@ -735,6 +737,8 @@ const en: typeof fr = {
     arrivalHeading: 'Find us in Mamer.',
     entrancePhotoLabel: 'The practice in Mamer',
     entrancePhotoNote: 'The practice building at 110 Route d’Arlon in Mamer.',
+    entranceDetailCaption: 'The building entrance',
+    entranceDetailAlt: 'View of the red-framed glass door and building facade in Mamer',
     hoursLink: 'View hours and contact details',
     arrivalNotes: [
       { title: 'Entrance & arrival', text: 'The practice is on the ground floor at 110 Route d’Arlon. Use the directions to plan your journey and keep your appointment confirmation to hand.' },

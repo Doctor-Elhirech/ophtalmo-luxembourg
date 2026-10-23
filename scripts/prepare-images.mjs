@@ -33,6 +33,12 @@ for (const [slot, source] of Object.entries(slots)) {
     });
   }
 }
+// Keep the newer entrance reference intact; CSS fits it to each layout's
+// existing photo frame without modifying the source image.
+await sharp('Photos/Img-7.png')
+  .rotate()
+  .webp({ quality: 88, effort: 5 })
+  .toFile('public/images/entrance-detail.webp');
 await writeFile('public/images/manifest.json', JSON.stringify(report, null, 2) + '\n');
 await writeFile('src/config/image-metadata.json', JSON.stringify(slotMetadata, null, 2) + '\n');
 console.log(

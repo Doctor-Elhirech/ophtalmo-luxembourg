@@ -378,6 +378,8 @@ export const lb: Translation = {
     entrancePhotoLabel: 'D’Praxis zu Mamer',
     entrancePhotoNote:
       'D’Gebai vun der Praxis op der 110 Route d’Arlon zu Mamer.',
+    entranceDetailCaption: 'D’Entrée vum Gebai',
+    entranceDetailAlt: 'Vue vun der rout agerummter Glasdier an der Fassad vum Gebai zu Mamer',
     hoursLink: 'Ëffnungszäiten a Kontaktdaten ukucken',
     arrivalNotes: [
       {
