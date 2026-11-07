@@ -12,6 +12,7 @@ export const practice = {
   address: { street: '110 Route d’Arlon', postalCity: 'L-8210 Mamer', country: 'Luxembourg' },
   phone: '+352 691 641 064',
   phoneHref: 'tel:+352691641064',
+  whatsappNumber: '352691641064',
   email: 'ophtalmo.luxembourg@gmail.com',
   bookingUrl: 'https://www.doctena.lu/fr/practitioner/mhamed-el-hirech',
   directionsUrl:
@@ -36,7 +37,7 @@ export const practice = {
       bookingUrl: 'https://www.doctipro.lu/en/rendez-vous/254?hospital=90',
     },
   },
-  reviewSummary: { rating: '5.0', maximum: '5', count: 4, source: 'Google', suppliedInBrief: true },
+  reviewListingUrl: 'https://www.google.com/maps/search/?api=1&query=Cabinet+Ophtalmologique+Mamer%2C+110+Route+d%27Arlon%2C+L-8210+Mamer%2C+Luxembourg',
   reviewers: ['Sarah E.', 'Aya Ads'],
   reviewUrls: [
     'https://maps.app.goo.gl/VWTVwrPauDuw95F27',

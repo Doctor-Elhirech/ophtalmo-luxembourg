@@ -22,7 +22,7 @@ const motionRules: MotionRule[] = [
   { selector: '.gallery-item', kind: 'image', stagger: true },
   { selector: '.gallery-caption, .review-note', kind: 'fade' },
   { selector: '.reviews-heading > div:first-child', kind: 'rise' },
-  { selector: '.rating', kind: 'fade' },
+  { selector: '.reviews-live', kind: 'fade' },
   { selector: '.review', kind: 'card', stagger: true },
   { selector: '.appointment-preview-layout > div:first-child, .appointment-layout > div:first-child, .detail-booking-layout > div:not(.booking-options)', kind: 'left' },
   // Animate the container, leaving its individual button hover/focus effects intact.
@@ -190,7 +190,7 @@ function initializeEntrances() {
     focused: element.contains(document.activeElement),
   }));
   positions.forEach(({ element, rect, focused }) => {
-    // Never reanimate content restored by a language switch, history, or deep link.
+    // Restored content remains readable without a replayed entrance.
     if (rect.bottom <= edges.top || focused || (rect.top < edges.bottom && !atPageStart)) return;
     const entranceBottom = element.dataset.motion === 'flip' ? edges.flipBottom : edges.bottom;
     if (rect.top < entranceBottom) element.dataset.motionImmediate = 'true';

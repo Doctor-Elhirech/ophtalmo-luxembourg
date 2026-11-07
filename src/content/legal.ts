@@ -46,7 +46,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
   fr: {
     label: 'Informations légales',
     updatedLabel: 'Dernière mise à jour',
-    updatedDate: '6 octobre 2026',
+    updatedDate: '7 novembre 2026',
     navigationLabel: 'Dans cette page',
     relatedNavigationLabel: 'Pages utiles',
     contactLabel: 'Contacter le cabinet',
@@ -126,7 +126,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             title: 'Responsable du traitement',
             paragraphs: [
               `${practice.doctor} est responsable des traitements liés à ce site. Pour toute question ou demande relative à vos données, utilisez le courriel ou l’adresse professionnelle ci-dessous.`,
-              'Le site ne propose ni compte utilisateur ni formulaire de contact et n’intègre pas d’outil de mesure d’audience ou de publicité. Ses polices de caractères et ses images sont servies avec les fichiers du site, sans chargement depuis une plateforme de polices externe.',
+              'Le site ne propose pas de compte utilisateur et n’intègre pas d’outil de mesure d’audience ou de publicité. Ses polices de caractères et ses images sont servies avec les fichiers du site, sans chargement depuis une plateforme de polices externe.',
             ],
           },
           {
@@ -145,6 +145,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
               'Si vous appelez ou écrivez, vos coordonnées et les informations que vous fournissez sont utilisées pour vous répondre et traiter votre demande. Vous les communiquez volontairement ; seules les informations nécessaires pour vous répondre sont requises. Selon la nature de votre demande, le traitement repose sur les démarches précontractuelles demandées par vous (article 6, paragraphe 1, point b), du RGPD) ou sur l’intérêt légitime de répondre aux demandes d’information (article 6, paragraphe 1, point f)).',
               `Au sein du cabinet, seul ${practice.doctor} accède à la boîte de messagerie utilisée pour les demandes de renseignements.`,
               'L’adresse de contact utilise Gmail, un service de Google qui assure l’acheminement et l’hébergement des messages. Le site ne collecte pas le contenu de ces échanges. Évitez d’envoyer des documents ou détails médicaux sensibles par courriel ordinaire ; appelez le cabinet pour convenir d’un moyen de communication adapté.',
+              'Le formulaire WhatsApp prépare le message dans votre navigateur et ouvre WhatsApp uniquement lorsque vous appuyez sur le bouton. Le site ne reçoit ni ne conserve le texte saisi. Vous vérifiez puis envoyez vous-même le message dans WhatsApp ; ce service traite alors les informations selon ses propres règles. Ne transmettez pas de données médicales sensibles par ce formulaire.',
             ],
             links: [{ label: 'Informations de confidentialité de Google', href: sources.googlePrivacy }],
           },
@@ -227,7 +228,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
   en: {
     label: 'Legal information',
     updatedLabel: 'Last updated',
-    updatedDate: '6 October 2026',
+    updatedDate: '7 November 2026',
     navigationLabel: 'On this page',
     relatedNavigationLabel: 'Related pages',
     contactLabel: 'Contact the practice',
@@ -307,7 +308,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             title: 'Data controller',
             paragraphs: [
               `${practice.doctor} is responsible for data processing associated with this website. For questions or requests about your data, use the email or professional address below.`,
-              'The website has no user account or contact form and includes no audience analytics or advertising tool. Its fonts and images are served with the website files, without loading fonts from an external font platform.',
+              'The website has no user account and includes no audience analytics or advertising tool. Its fonts and images are served with the website files, without loading fonts from an external font platform.',
             ],
           },
           {
@@ -326,6 +327,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
               'If you call or write, your contact details and the information you provide are used to respond and handle your request. Providing them is voluntary; only the information needed to reply is required. Depending on the request, processing relies on steps you ask us to take before entering a contract (Article 6(1)(b) GDPR) or the legitimate interest in answering information enquiries (Article 6(1)(f)).',
               `Within the practice, only ${practice.doctor} accesses the email account used for enquiries.`,
               'The contact address uses Gmail, a Google service that delivers and stores messages. The website does not collect the content of these exchanges. Avoid sending sensitive medical details or documents through ordinary email; call the practice to arrange an appropriate communication method.',
+              'The WhatsApp form prepares your message in your browser and opens WhatsApp only when you press the button. This website does not receive or store the text you enter. You review and send the message yourself in WhatsApp, which then processes the information under its own rules. Do not share sensitive medical details through this form.',
             ],
             links: [{ label: 'Google privacy information', href: sources.googlePrivacy }],
           },
@@ -408,7 +410,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
   lb: {
     label: 'Rechtlech Informatiounen',
     updatedLabel: 'Lescht Aktualiséierung',
-    updatedDate: '6. Oktober 2026',
+    updatedDate: '7. November 2026',
     navigationLabel: 'Op dëser Säit',
     relatedNavigationLabel: 'Weider Säiten',
     contactLabel: 'D’Praxis kontaktéieren',
@@ -488,7 +490,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             title: 'Verantwortleche fir d’Veraarbechtung',
             paragraphs: [
               `${practice.doctor} ass fir d’Dateveraarbechtung am Zesummenhang mat dëser Websäit verantwortlech. Fir Froen oder Ufroen zu Ären Donnéeën, benotzt d’E-Mail oder déi berufflech Adress hei ënnendrënner.`,
-              'D’Websäit huet kee Benotzerkont a kee Kontaktformulaire an integréiert keen Instrument fir Besuchsstatistiken oder Reklammen. Hir Schrëftaarten a Biller gi mat de Fichiere vun der Websäit geliwwert, ouni Schrëftaarten vun enger externer Plattform ze lueden.',
+              'D’Websäit huet kee Benotzerkont an integréiert keen Instrument fir Besuchsstatistiken oder Reklammen. Hir Schrëftaarten a Biller gi mat de Fichiere vun der Websäit geliwwert, ouni Schrëftaarten vun enger externer Plattform ze lueden.',
             ],
           },
           {
@@ -507,6 +509,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
               'Wann Dir urufft oder schreift, ginn Är Kontaktdetailer an déi Informatiounen, déi Dir gitt, benotzt, fir Iech ze äntweren an Är Ufro ze behandelen. Dir gitt se fräiwëlleg un; nëmmen déi Informatiounen, déi fir eng Äntwert néideg sinn, gi gebraucht. Jee no der Ufro berout d’Veraarbechtung op de Schrëtt virum Ofschloss vun engem Kontrakt, déi Dir ufrot (Artikel 6, Paragraf 1, Buschtaf b), vum RGPD), oder op dem berechtegten Interessi, Informatiounsufroen ze beäntweren (Artikel 6, Paragraf 1, Buschtaf f)).',
               `An der Praxis huet nëmmen ${practice.doctor} Zougang zum E-Mail-Kont, dee fir Informatiounsufroe benotzt gëtt.`,
               'D’Kontaktadress benotzt Gmail, e Service vu Google, deen d’Messagen iwwerdréit a späichert. D’Websäit sammelt den Inhalt vun dësen Austausch net. Schéckt keng sensibel medezinesch Detailer oder Dokumenter per normaler E-Mail; rufft d’Praxis un, fir e passende Kommunikatiounswee ze wielen.',
+              'De WhatsApp-Formulaire bereet Är Noriicht an Ärem Browser vir a mécht WhatsApp eréischt op, wann Dir op de Knäppchen dréckt. Dës Websäit kritt a späichert den Text net. Dir kontrolléiert a schéckt d’Noriicht selwer a WhatsApp; dëse Service veraarbecht d’Informatiounen no sengen eegene Reegelen. Gitt iwwer dëse Formulaire keng sensibel medezinesch Donnéeën un.',
             ],
             links: [{ label: 'Google seng Dateschutzinformatiounen', href: sources.googlePrivacy }],
           },

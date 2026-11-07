@@ -19,6 +19,9 @@ const guideForCard: Partial<Record<number, CareGuideId>> = {
     <a class="text-link" href={localePath(locale, 'contact')}>
       {t.expertisePage.appointmentLabel}<Arrow />
     </a>
+    <a class="text-link" href={`${localePath(locale, 'contact')}#whatsapp-message`}>
+      {t.whatsappForm.link}<Arrow />
+    </a>
   </div>
   <div class="care-detail-grid">
     {t.expertisePage.items.map((item, index) => (

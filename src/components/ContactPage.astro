@@ -4,6 +4,7 @@ import VisitFaq from './VisitFaq.astro';
 import BookingOptions from './BookingOptions.astro';
 import Arrow from './Arrow.astro';
 import OpeningHours from './OpeningHours.astro';
+import WhatsAppForm from './WhatsAppForm.astro';
 interface Props { t: Translation }
 const { t } = Astro.props;
 ---
@@ -26,6 +27,8 @@ const { t } = Astro.props;
     </div>
   </div>
 </section>
+
+<WhatsAppForm t={t} />
 
 <section id="contact" class="contact-essentials container" aria-labelledby="contact-essentials-title">
   <div class="contact-essentials-heading">

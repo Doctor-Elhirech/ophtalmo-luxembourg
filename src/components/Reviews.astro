@@ -17,15 +17,11 @@ const { t } = Astro.props;
           <em>{t.reviews.emphasis}</em>
         </h2>
       </div>
-      <div class="rating" data-nosnippet>
+      <div class="reviews-live" data-nosnippet>
         <span class="eyebrow">{t.reviews.ratingLabel}</span>
-        <p>
-          <strong>{t.reviewSummary.rating}</strong>
-          <span>
-            {t.slash} {t.reviewSummary.maximum}
-          </span>
-        </p>
-        <span class="rating-count">{t.reviews.count}</span>
+        <a href={t.reviewListingUrl} target="_blank" rel="noopener noreferrer" aria-label={`${t.reviews.liveAction} (${t.accessibility.newTab})`}>
+          <span>{t.reviews.liveAction}</span><span aria-hidden="true">↗</span>
+        </a>
       </div>
     </div>
     <div class="review-grid">

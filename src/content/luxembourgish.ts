@@ -140,8 +140,8 @@ export const lb: Translation = {
     emphasis: 'déi gedeelt gëtt.',
     openQuote: '„',
     closeQuote: '“',
-    ratingLabel: 'Google-Bewäertung',
-    count: `${practice.reviewSummary.count} Google-Bewäertungen`,
+    ratingLabel: 'Google-Bewäertungen',
+    liveAction: 'Aktuell Bewäertungen op Google Maps kucken',
     quotes: [
       'Ech hu besonnesch seng Professionalitéit, seng Grëndlechkeet a seng Opmierksamkeet geschätzt.',
       'Ech war wéinst Aeschmäerzen do. Den Aendokter war ganz kompetent an huet gutt nogelauschtert. Ech kann hie recommandéieren.',
@@ -417,6 +417,21 @@ export const lb: Translation = {
     hoursText:
       'Ëffnungszäite vun der Praxis, wéi se op Doctena stinn. D’Disponibilitéite kënnen tëscht de Plattformen ofwäichen: kommt zu der Zäit, déi an Ärer Reservatioun bestätegt ass.',
     directionsLabel: 'Wee op Google Maps opmaachen',
+  },
+  whatsappForm: {
+    label: 'Direkt Noriicht · WhatsApp',
+    title: 'Eng Fro un d’Praxis?',
+    intro: 'Schreift Är Noriicht hei, kontrolléiert se dono a schéckt se iwwer WhatsApp.',
+    name: 'Ären Numm',
+    subject: 'Wourëms geet Är Fro?',
+    subjectPlaceholder: 'Wielt en Thema',
+    subjects: ['Praktesch Fro', 'Virun engem Rendez-vous', 'Aner Ufro'],
+    message: 'Är Noriicht',
+    messagePlaceholder: 'Schreift Är Fro hei…',
+    submit: 'Weider op WhatsApp',
+    note: 'D’Noriicht gëtt net automatesch geschéckt. Dir musst a WhatsApp op Schécken drécken.',
+    privacy: 'Gitt hei keng sensibel medezinesch Donnéeën un. Fir e Rendez-vous benotzt Doctena oder Doctipro.',
+    link: 'Iwwer WhatsApp schreiwen',
   },
   photos: {
     exteriorWide: 'Breet Baussenopnam vun de Raimlechkeeten zu Mamer mat Fassad a Strooss',

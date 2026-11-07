@@ -1108,37 +1108,40 @@
     font-size: clamp(43px, 4.6vw, 72px);
   }
 
-  .rating {
+  .reviews-live {
+    max-width: 350px;
     margin-right: 6%;
-    text-align: center;
+    border-top: 4px solid var(--forest);
+    padding-top: 17px;
   }
 
-  .rating .eyebrow {
+  .reviews-live .eyebrow {
+    display: block;
+    margin-bottom: 15px;
     font-size: 11px;
   }
 
-  .rating p {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    justify-content: center;
-    margin-top: 10px;
+  .reviews-live a {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 44px;
+    color: var(--forest);
+    font-size: 15px;
+    font-weight: 650;
+    line-height: 1.4;
+    transition: color 180ms ease;
   }
 
-  .rating strong {
-    font-family: var(--serif);
-    font-weight: 350;
-    font-size: 85px;
-    line-height: 1;
+  .reviews-live a:hover,
+  .reviews-live a:focus-visible {
+    color: var(--forest-hover);
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
-  .rating p>span {
-    font-size: 18px;
-    color: var(--muted);
-  }
-
-  .rating-count {
-    font-size: 12px;
+  .reviews-live a span:last-child {
+    font-size: 22px;
   }
 
   .review-grid {
@@ -1530,7 +1533,7 @@
   }
 
   .site-footer {
-    border-top: 1px solid var(--line);
+    border-top: 4px solid var(--forest);
     padding-top: 58px;
     padding-bottom: 24px;
   }
@@ -2130,9 +2133,17 @@
     color: var(--on-dark-muted);
   }
 
-  .appointment-preview .section-more-link {
-    color: var(--paper);
+  .appointment-preview-links {
+    display: grid;
+    justify-items: start;
+    gap: 14px;
     margin-top: 25px;
+  }
+
+  .appointment-preview .appointment-preview-links .section-more-link {
+    color: var(--paper);
+    min-height: 44px;
+    margin-top: 0;
   }
 
   .hero-secondary-booking {
@@ -2521,7 +2532,7 @@
       gap: 18px;
     }
 
-    .rating {
+    .reviews-live {
       margin-right: 0;
     }
 
@@ -2785,33 +2796,8 @@
       margin-bottom: 24px;
     }
 
-    .rating {
-      text-align: left;
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .rating .eyebrow {
-      display: none;
-    }
-
-    .rating p {
-      margin: 0;
-      gap: 7px;
-    }
-
-    .rating strong {
-      font-size: 54px;
-    }
-
-    .rating p>span {
-      font-size: 15px;
-    }
-
-    .rating-count {
-      font-size: 12px;
+    .reviews-live {
+      max-width: 100%;
     }
 
     .review-grid {

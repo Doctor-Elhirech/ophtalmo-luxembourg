@@ -28,6 +28,7 @@ const analyticsSettingsLabel = { fr: 'Choix des cookies', en: 'Cookie settings',
           <a href={localePath(locale, 'expertise')} aria-current={currentPage === 'expertise' ? 'page' : undefined}>{t.nav.expertise}</a>
           <a href={localePath(locale, 'practice')} aria-current={currentPage === 'practice' ? 'page' : undefined}>{t.nav.practice}</a>
           <a href={localePath(locale, 'contact')} aria-current={currentPage === 'contact' ? 'page' : undefined}>{t.nav.contact}</a>
+          <a href={`${localePath(locale, 'contact')}#whatsapp-message`}>{t.whatsappForm.link}</a>
         </div>
         <div class="footer-link-column footer-legal-links">
           <a class="footer-legal-link" href={localePath(locale, 'legal')} aria-current={currentPage === 'legal' ? 'page' : undefined}>{t.nav.legal}</a>

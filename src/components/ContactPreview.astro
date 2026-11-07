@@ -21,10 +21,16 @@ const { t, locale } = Astro.props;
     </div>
     <div>
       <BookingOptions t={t} compact />
-      <a class="text-link section-more-link" href={localePath(locale, 'contact')}>
-        {t.action.moreContact}
-        <Arrow />
-      </a>
+      <div class="appointment-preview-links">
+        <a class="text-link section-more-link" href={localePath(locale, 'contact')}>
+          {t.action.moreContact}
+          <Arrow />
+        </a>
+        <a class="text-link section-more-link" href={`${localePath(locale, 'contact')}#whatsapp-message`}>
+          {t.whatsappForm.link}
+          <Arrow />
+        </a>
+      </div>
     </div>
   </div>
 </section>

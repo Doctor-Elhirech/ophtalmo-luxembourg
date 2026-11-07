@@ -42,6 +42,20 @@ if (analyticsId && import.meta.env.PUBLIC_GA_PRIVACY_NOTICE_READY !== 'true') {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {page === 'contact' && (
+      <script is:inline>
+        history.scrollRestoration = 'manual';
+        if (performance.getEntriesByType('navigation')[0]?.type === 'reload') {
+          if (location.hash) history.replaceState(history.state, '', location.pathname + location.search);
+          window.addEventListener('pageshow', () => {
+            window.scrollTo({ top: 0, behavior: 'instant' });
+            requestAnimationFrame(() => {
+              window.scrollTo({ top: 0, behavior: 'instant' });
+            });
+          }, { once: true });
+        }
+      </script>
+    )}
     <title>{pageMeta.title}</title>
     <meta name="description" content={pageMeta.description} />
     <meta name="robots" content={siteSettings.indexable ? 'index, follow, max-image-preview:large' : 'noindex, follow'} />
