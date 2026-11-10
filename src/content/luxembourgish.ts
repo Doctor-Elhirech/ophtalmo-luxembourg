@@ -145,8 +145,17 @@ export const lb: Translation = {
     quotes: [
       'Ech hu besonnesch seng Professionalitéit, seng Grëndlechkeet a seng Opmierksamkeet geschätzt.',
       'Ech war wéinst Aeschmäerzen do. Den Aendokter war ganz kompetent an huet gutt nogelauschtert. Ech kann hie recommandéieren.',
+      'Exzellente Dokter, immens recommandéiert.',
+      'Häerze Wëllkomm an immens professionell.',
+      'Ech war gëschter zum ersten Rendezvous, an ech hu keng eenzeg Kloen! Super professionell, opmierksom a frëndlech! Ech recommandéieren si immens.',
     ],
     source: 'Google-Bewäertung',
+    verifiedTag: 'Verifizéiert Google-Bewäertung',
+    starsAria: '5 vu 5 Stären',
+    pauseLabel: 'Automatescht Scrollen pauséieren',
+    resumeLabel: 'Automatescht Scrollen weiderféieren',
+    pauseText: 'Paus',
+    resumeText: 'Weider',
     note: 'Auszich aus Google-Bewäertungen, op Lëtzebuergesch iwwersat. Déi ursprénglech Bewäertunge fannt Dir iwwer d’Linken hei uewen.',
   },
   appointment: {

@@ -1097,7 +1097,7 @@
     justify-content: space-between;
     gap: 48px;
     align-items: center;
-    margin-bottom: 62px;
+    margin-bottom: 56px;
   }
 
   .reviews-heading .eyebrow {
@@ -1113,6 +1113,7 @@
     margin-right: 6%;
     border-top: 4px solid var(--forest);
     padding-top: 17px;
+    flex-shrink: 0;
   }
 
   .reviews-live .eyebrow {
@@ -1144,62 +1145,199 @@
     font-size: 22px;
   }
 
-  .review-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8%;
+  /* ── Reviews Ongoing Auto-Scroll Marquee Carousel ── */
+  .reviews-carousel {
+    position: relative;
+    width: 100%;
+    outline: none;
   }
 
-  .review {
-    border-top: 1px solid var(--line);
-    padding-top: 35px;
+  .reviews-marquee-mask {
+    overflow: hidden;
+    padding-block: 8px 16px;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
   }
 
-  .review blockquote {
-    font-family: var(--serif);
-    font-size: clamp(25px, 2.4vw, 38px);
-    line-height: 1.35;
-    letter-spacing: -0.015em;
+  .reviews-marquee-track {
+    display: flex;
+    width: max-content;
   }
 
-  .review figcaption {
-    margin-top: 27px;
+  .reviews-marquee-group {
+    display: flex;
+    flex-shrink: 0;
+    animation: reviewsMarqueeRightToLeft 50s linear infinite;
+    will-change: transform;
+  }
+
+  @keyframes reviewsMarqueeRightToLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Review card */
+  .review-card {
+    width: clamp(340px, 30vw, 430px);
+    margin-right: clamp(20px, 2.5vw, 32px);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: clamp(24px, 2.8vw, 34px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 18px rgba(10, 34, 24, 0.03);
+    transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+    flex-shrink: 0;
+  }
+
+  .review-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: 0 12px 32px -4px rgba(10, 34, 24, 0.08);
+  }
+
+  .review-card-top {
     display: flex;
     align-items: center;
-    gap: 17px;
-    font-size: 12px;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
   }
 
-  .review figcaption>span:first-child {
-    font-weight: 650;
+  .review-stars-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
   }
 
-  .review figcaption>span:last-child {
+  .stars-icon-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 2.5px;
+  }
+
+  .star-svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+  }
+
+  .review-verified-tag {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
     color: var(--muted);
-    padding-left: 17px;
-    border-left: 1px solid var(--line);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 3px 9px;
+    line-height: 1.5;
+  }
+
+  .review-blockquote {
+    font-family: var(--serif);
+    font-size: clamp(20px, 1.8vw, 24px);
+    line-height: 1.45;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    flex-grow: 1;
+    margin-bottom: 24px;
+  }
+
+  .review-figcaption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding-top: 18px;
+    font-size: 13px;
+    flex-wrap: wrap;
+  }
+
+  .review-author-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .review-author-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--gold-light);
+    font-size: 14px;
+    font-weight: 650;
+    font-family: var(--serif);
+    flex-shrink: 0;
+  }
+
+  .review-author-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .review-author-name {
+    font-weight: 650;
+    color: var(--ink);
+    font-size: 13.5px;
+    line-height: 1.25;
+  }
+
+  .review-author-stars-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5px;
+    font-size: 11px;
+    line-height: 1;
+    color: var(--gold);
   }
 
   .review-source-link {
-    color: #235a91;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--forest);
     font-size: 12px;
-    padding-left: 17px;
-    border-left: 1px solid var(--line);
+    font-weight: 600;
     text-decoration: none;
-    transition: color 0.2s ease;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    padding: 7px 14px;
+    border-radius: 999px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     letter-spacing: 0.01em;
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
   }
 
-  .review-source-link:hover {
-    color: #174775;
-    text-decoration: underline;
-    text-underline-offset: 3px;
+  .review-source-link:hover,
+  .review-source-link:focus-visible {
+    background: var(--forest);
+    border-color: var(--forest);
+    color: var(--paper);
+    transform: translateY(-1px);
   }
 
   .review-note {
     font-size: 12px;
     color: var(--muted);
-    margin-top: 40px;
+    margin-top: 28px;
   }
 
   .appointment-section {
@@ -2448,6 +2586,10 @@
   }
 
   @media (max-width: 900px) {
+    .review-card {
+      width: clamp(310px, 45vw, 380px);
+    }
+
     .faq-section {
       grid-template-columns: 1fr;
       gap: 36px;
@@ -2784,7 +2926,7 @@
     .reviews-heading {
       align-items: flex-start;
       gap: 25px;
-      margin-bottom: 37px;
+      margin-bottom: 32px;
       flex-direction: column;
     }
 
@@ -2798,33 +2940,33 @@
 
     .reviews-live {
       max-width: 100%;
+      margin-right: 0;
     }
 
-    .review-grid {
-      display: block;
+    .review-card {
+      width: clamp(280px, 82vw, 340px);
+      margin-right: 18px;
+      padding: 22px 20px;
     }
 
-    .review {
-      padding-top: 26px;
+    .reviews-marquee-group {
+      animation-duration: 38s;
     }
 
-    .review+.review {
-      margin-top: 33px;
-    }
-
-    .review blockquote {
-      font-size: 28px;
+    .review-blockquote {
+      font-size: clamp(17px, 4.8vw, 20px);
       line-height: 1.4;
+      margin-bottom: 20px;
     }
 
-    .review figcaption {
-      margin-top: 20px;
-      font-size: 12px;
+    .review-figcaption {
+      gap: 12px;
+      padding-top: 14px;
     }
 
     .review-note {
-      font-size: 12px;
-      margin-top: 30px;
+      font-size: 11px;
+      margin-top: 20px;
     }
 
     .appointment-layout {

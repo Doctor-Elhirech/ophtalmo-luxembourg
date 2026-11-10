@@ -1,9 +1,22 @@
 ---
 import type { Translation } from '../content/translations';
+
 interface Props {
   t: Translation;
 }
+
 const { t } = Astro.props;
+
+// Duplicate quotes to ensure seamless continuous right-to-left marquee on all screen sizes
+const reviewList = t.reviews.quotes.map((quote, index) => ({
+  quote,
+  reviewer: t.reviewers[index],
+  url: t.reviewUrls[index],
+  initial: t.reviewers[index].charAt(0),
+}));
+
+// Two full sets ensure mathematical seamless loop at -100% translation
+const groups = [reviewList, reviewList];
 ---
 
 <section class="reviews-section section-space" aria-labelledby="reviews-title">
@@ -24,29 +37,81 @@ const { t } = Astro.props;
         </a>
       </div>
     </div>
-    <div class="review-grid">
-      {t.reviews.quotes.map((quote, index) => (
-        <figure class="review">
-          <blockquote>
-            <p>
-              {t.reviews.openQuote}
-              {quote}
-              {t.reviews.closeQuote}
-            </p>
-          </blockquote>
-          <figcaption>
-            <span>{t.reviewers[index]}</span>
-            <a
-              class="review-source-link"
-              href={t.reviewUrls[index]}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${t.reviews.source} (${t.accessibility.newTab})`}
-            >{t.reviews.source} ↗</a>
-          </figcaption>
-        </figure>
-      ))}
+  </div>
+
+  <!-- Full-width Ongoing Auto-Scrolling Marquee -->
+  <div class="reviews-carousel" id="reviews-carousel" role="region" aria-label={t.reviews.label}>
+    <div class="reviews-marquee-mask">
+      <div class="reviews-marquee-track" id="reviews-marquee-track">
+        {groups.map((group, groupIdx) => (
+          <div class="reviews-marquee-group" aria-hidden={groupIdx > 0 ? "true" : "false"}>
+            {group.map((item, itemIdx) => (
+              <figure class="review-card" data-index={itemIdx}>
+                <!-- Card Top: 5★ Rating + Verified Tag -->
+                <div class="review-card-top">
+                  <div class="review-stars-group" aria-label={t.reviews.starsAria}>
+                    <div class="stars-icon-row" aria-hidden="true">
+                      {[0, 1, 2, 3, 4].map(() => (
+                        <svg class="star-svg" width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M10 1.5L12.55 6.66L18.25 7.49L14.12 11.52L15.1 17.19L10 14.51L4.9 17.19L5.88 11.52L1.75 7.49L7.45 6.66L10 1.5Z"
+                            fill="var(--gold)"
+                            stroke="var(--gold)"
+                            stroke-width="0.75"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                  <span class="review-verified-tag">{t.reviews.verifiedTag}</span>
+                </div>
+
+                <!-- Quote text -->
+                <blockquote class="review-blockquote">
+                  <p>
+                    {t.reviews.openQuote}{item.quote}{t.reviews.closeQuote}
+                  </p>
+                </blockquote>
+
+                <!-- Card Bottom: Reviewer details + Direct Verification Link -->
+                <figcaption class="review-figcaption">
+                  <div class="review-author-wrap">
+                    <span class="review-author-avatar" aria-hidden="true">
+                      {item.initial}
+                    </span>
+                    <div class="review-author-details">
+                      <span class="review-author-name">{item.reviewer}</span>
+                      <div class="review-author-stars-mini" aria-hidden="true">
+                        {[0, 1, 2, 3, 4].map(() => (
+                          <span class="star-mini">★</span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <a
+                    class="review-source-link"
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    tabindex={groupIdx > 0 ? "-1" : "0"}
+                    aria-label={`${t.reviews.source} (${t.accessibility.newTab})`}
+                  >
+                    <span>{t.reviews.source}</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
-    <p class="review-note">{t.reviews.note}</p>
+
+    <!-- Note at the bottom -->
+    <div class="container">
+      <p class="review-note">{t.reviews.note}</p>
+    </div>
   </div>
 </section>

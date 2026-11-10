@@ -23,7 +23,7 @@ const motionRules: MotionRule[] = [
   { selector: '.gallery-caption, .review-note', kind: 'fade' },
   { selector: '.reviews-heading > div:first-child', kind: 'rise' },
   { selector: '.reviews-live', kind: 'fade' },
-  { selector: '.review', kind: 'card', stagger: true },
+  { selector: '.reviews-carousel', kind: 'fade' },
   { selector: '.appointment-preview-layout > div:first-child, .appointment-layout > div:first-child, .detail-booking-layout > div:not(.booking-options)', kind: 'left' },
   // Animate the container, leaving its individual button hover/focus effects intact.
   { selector: '.appointment-preview-layout > div:last-child, .appointment-actions, .detail-booking-layout > .booking-options', kind: 'settle' },

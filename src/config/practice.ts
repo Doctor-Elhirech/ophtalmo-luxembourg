@@ -38,10 +38,13 @@ export const practice = {
     },
   },
   reviewListingUrl: 'https://www.google.com/maps/search/?api=1&query=Cabinet+Ophtalmologique+Mamer%2C+110+Route+d%27Arlon%2C+L-8210+Mamer%2C+Luxembourg',
-  reviewers: ['Sarah E.', 'Aya Ads'],
+  reviewers: ['Sarah E.', 'Aya Ads', 'Sadio Dia', 'Mondher Labidi', 'Christian Andreolli'],
   reviewUrls: [
     'https://maps.app.goo.gl/VWTVwrPauDuw95F27',
     'https://maps.app.goo.gl/r4KZSy5kVNKfcjTy6',
+    'https://maps.app.goo.gl/bFsoUqCgXNcvL9ao8',
+    'https://maps.app.goo.gl/JPF2itXUBQ1DzB1g7',
+    'https://maps.app.goo.gl/G8Lknk6nbg9bxS998',
   ],
 };
 
