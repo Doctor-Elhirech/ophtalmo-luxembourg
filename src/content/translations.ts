@@ -185,6 +185,7 @@ const fr = {
       'Excellent docteur, hautement recommandé.',
       'Accueil chaleureux et très professionnel.',
       'J’ai eu mon premier rendez-vous hier et je n’ai absolument aucune plainte ! Super professionnel, attentionné et sympathique ! Je le recommande vivement.',
+      'Le médecin spécialiste a fait preuve d’un grand professionnalisme. Il est très patient et gentil. Je recommande à 100%',
     ],
     source: 'Avis Google',
     verifiedTag: 'Avis vérifié Google',
@@ -193,7 +194,7 @@ const fr = {
     resumeLabel: 'Reprendre le défilement automatique',
     pauseText: 'Pause',
     resumeText: 'Reprendre',
-    note: 'Extraits d’avis Google, traduits en français. Consultez les témoignages d’origine via les liens ci-dessus.',
+    note: 'Extraits d’avis Google, affichés dans la langue de cette page. Consultez les avis d’origine via les liens ci-dessus.',
   },
   appointment: {
     label: 'Votre prochain rendez-vous',
@@ -575,6 +576,7 @@ const en: typeof fr = {
       'Excellent doctor, highly recommended.',
       'Warm welcome and very professional.',
       'I had my first appointment yesterday, and I have absolutely no complaints! Super professional, attentive, and friendly! I highly recommend them.',
+      'The specialist doctor demonstrated great professionalism. He is very patient and kind. I recommend him 100%.',
     ],
     source: 'Google review',
     verifiedTag: 'Verified Google review',
@@ -583,7 +585,7 @@ const en: typeof fr = {
     resumeLabel: 'Resume automatic scrolling',
     pauseText: 'Pause',
     resumeText: 'Resume',
-    note: 'Excerpts from Google reviews, translated into English. Read the original reviews using the links above.',
+    note: 'Excerpts from Google reviews, shown in this page’s language. Read the original reviews using the links above.',
   },
   appointment: {
     label: 'Your next appointment',

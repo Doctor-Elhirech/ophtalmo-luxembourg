@@ -148,6 +148,7 @@ export const lb: Translation = {
       'Exzellente Dokter, immens recommandéiert.',
       'Häerze Wëllkomm an immens professionell.',
       'Ech war gëschter zum ersten Rendezvous, an ech hu keng eenzeg Kloen! Super professionell, opmierksom a frëndlech! Ech recommandéieren si immens.',
+      'De Fachdokter huet e grousse Professionnalismus gewisen. Hien ass ganz gedëlleg a léif. Ech recommandéieren hien zu 100 %.',
     ],
     source: 'Google-Bewäertung',
     verifiedTag: 'Verifizéiert Google-Bewäertung',
@@ -156,7 +157,7 @@ export const lb: Translation = {
     resumeLabel: 'Automatescht Scrollen weiderféieren',
     pauseText: 'Paus',
     resumeText: 'Weider',
-    note: 'Auszich aus Google-Bewäertungen, op Lëtzebuergesch iwwersat. Déi ursprénglech Bewäertunge fannt Dir iwwer d’Linken hei uewen.',
+    note: 'Auszich aus Google-Bewäertungen an der Sprooch vun dëser Säit. Déi ursprénglech Bewäertunge fannt Dir iwwer d’Linken hei uewen.',
   },
   appointment: {
     label: 'Ären nächste Rendez-vous',
