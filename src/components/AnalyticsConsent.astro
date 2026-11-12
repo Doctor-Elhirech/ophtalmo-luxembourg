@@ -11,27 +11,27 @@ const { locale, measurementId, privacyHref } = Astro.props;
 const copy = {
   fr: {
     label: 'Choix de mesure d’audience',
-    title: 'Mesure d’audience',
-    description: 'Avec votre accord, Google Analytics compte les visites et les clics vers la réservation, l’appel, l’e-mail ou l’itinéraire. Le contenu de vos messages et les détails de vos rendez-vous ne sont pas envoyés.',
+    title: 'Mesure d’audience facultative',
+    description: 'Autorisez Google Analytics à mesurer les visites du site. Vous pourrez modifier votre choix dans « Choix des cookies ».',
     accept: 'Accepter',
     reject: 'Refuser',
-    privacy: 'Confidentialité',
+    privacy: 'En savoir plus',
   },
   en: {
     label: 'Audience measurement choice',
-    title: 'Audience measurement',
-    description: 'With your permission, Google Analytics counts visits and clicks on booking, call, email and directions links. Message contents and appointment details are not sent.',
+    title: 'Optional analytics',
+    description: 'Allow Google Analytics to measure visits to this website. You can change your choice later in Cookie settings.',
     accept: 'Accept',
     reject: 'Reject',
-    privacy: 'Privacy',
+    privacy: 'Learn more',
   },
   lb: {
     label: 'Auswiel fir d’Visiteursmoossung',
-    title: 'Visiteursmoossung',
-    description: 'Mat Ärer Zoustëmmung zielt Google Analytics Visiten a Klicks op Linke fir Rendez-vousen, Uruff, E-Mailen a Weeër. Den Inhalt vun Noriichten an Detailer vun Äre Rendez-vouse ginn net geschéckt.',
+    title: 'Fräiwëlleg Visiteursmoossung',
+    description: 'Erlaabt Google Analytics, d’Visitten op dëser Websäit ze moossen. Dir kënnt Är Wiel spéider an de Cookie-Astellunge änneren.',
     accept: 'Akzeptéieren',
     reject: 'Ofleenen',
-    privacy: 'Dateschutz',
+    privacy: 'Méi gewuer ginn',
   },
 }[locale];
 ---

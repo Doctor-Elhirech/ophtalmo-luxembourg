@@ -126,7 +126,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             title: 'Responsable du traitement',
             paragraphs: [
               `${practice.doctor} est responsable des traitements liés à ce site. Pour toute question ou demande relative à vos données, utilisez le courriel ou l’adresse professionnelle ci-dessous.`,
-              'Le site ne propose pas de compte utilisateur et n’intègre pas d’outil de mesure d’audience ou de publicité. Ses polices de caractères et ses images sont servies avec les fichiers du site, sans chargement depuis une plateforme de polices externe.',
+              'Le site ne propose pas de compte utilisateur. Si elle est activée, la mesure d’audience facultative ne se charge qu’après votre accord et ne sert pas à la publicité. Ses polices de caractères et ses images sont servies avec les fichiers du site, sans chargement depuis une plateforme de polices externe.',
             ],
           },
           {
@@ -137,6 +137,16 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
               'Ces opérations reposent sur l’intérêt légitime de fournir un site fonctionnel et de le protéger contre les abus, conformément à l’article 6, paragraphe 1, point f), du RGPD. Ces données ne servent pas à établir un profil publicitaire sur ce site.',
             ],
             links: [{ label: 'Informations sur le traitement par Vercel', href: sources.vercelPrivacy }],
+          },
+          {
+            id: 'analytics',
+            title: 'Mesure d’audience facultative',
+            paragraphs: [
+              'Si la mesure d’audience est activée, Google Analytics ne se charge qu’après votre accord. Vous pouvez refuser sans limiter l’accès au site. Votre choix est mémorisé dans votre navigateur ; vous pouvez le modifier ou le retirer à tout moment avec le lien « Choix des cookies » au bas de chaque page.',
+              'Avec votre accord, le site mesure les consultations de pages par catégorie et par langue, ainsi que les clics sur les liens de réservation, de téléphone, d’e-mail et d’itinéraire. Le domaine de la page précédente peut également être transmis. Les événements envoyés explicitement par le site utilisent des adresses de page et des titres génériques ; le site n’envoie ni le texte de vos messages, ni des informations sur vos rendez-vous, ni des détails médicaux. Les données supplémentaires éventuellement recueillies dépendent des réglages de la propriété Google Analytics. Les fonctions publicitaires de Google sont désactivées.',
+              'Google Analytics est fourni par Google. Google peut traiter des données techniques relatives à votre navigateur et à votre utilisation du site, ainsi qu’utiliser des cookies ou identifiants conformément à ses propres règles. Le traitement de mesure d’audience repose sur votre consentement (article 6, paragraphe 1, point a), du RGPD). La durée de conservation des données Analytics suit le réglage de la propriété Google Analytics ; le site ne conserve pas les rapports Analytics. Le retrait du consentement n’affecte pas les traitements effectués avant son retrait.',
+            ],
+            links: [{ label: 'Politique de confidentialité de Google', href: sources.googlePrivacy }],
           },
           {
             id: 'contact',
@@ -187,7 +197,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             id: 'transfers-retention',
             title: 'Destinataires, transferts et conservation',
             paragraphs: [
-              'Les services d’hébergement, de messagerie et de cartographie peuvent traiter des données hors de l’Espace économique européen, notamment aux États-Unis. Vercel indique participer au cadre de protection des données UE–États-Unis. Google décrit le recours aux décisions d’adéquation, la participation de Google LLC à ce cadre et, lorsque nécessaire, aux clauses contractuelles types. Les conditions de traitement de Vercel décrivent également ces clauses pour les comptes auxquels elles s’appliquent.',
+              'Les services d’hébergement, de messagerie, de cartographie et, si elle est activée, de mesure d’audience peuvent traiter des données hors de l’Espace économique européen, notamment aux États-Unis. Vercel indique participer au cadre de protection des données UE–États-Unis. Google décrit le recours aux décisions d’adéquation, la participation de Google LLC à ce cadre et, lorsque nécessaire, aux clauses contractuelles types. Les conditions de traitement de Vercel décrivent également ces clauses pour les comptes auxquels elles s’appliquent.',
               'Les documents des fournisseurs, liés ci-dessous, expliquent ces garanties. Vous pouvez demander au cabinet ou au fournisseur concerné des précisions ou une copie des garanties applicables. La page de Google sur les transferts indique notamment comment demander une copie de ses clauses contractuelles types.',
               'Les données techniques sont conservées pour la durée nécessaire à la diffusion, à la sécurité et au traitement des incidents, selon les services et règles de conservation de l’hébergeur.',
               'Le médecin indique conserver actuellement la correspondance électronique du cabinet indéfiniment, sans délai de suppression prédéfini. Vous pouvez demander l’effacement de vos données dans les conditions expliquées ci-dessous.',
@@ -308,7 +318,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             title: 'Data controller',
             paragraphs: [
               `${practice.doctor} is responsible for data processing associated with this website. For questions or requests about your data, use the email or professional address below.`,
-              'The website has no user account and includes no audience analytics or advertising tool. Its fonts and images are served with the website files, without loading fonts from an external font platform.',
+              'The website has no user account. If enabled, optional audience measurement loads only after you consent and is not used for advertising. Its fonts and images are served with the website files, without loading fonts from an external font platform.',
             ],
           },
           {
@@ -319,6 +329,16 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
               'These operations rely on the legitimate interest in providing a working website and protecting it against misuse, under Article 6(1)(f) GDPR. This website does not use this data to build an advertising profile.',
             ],
             links: [{ label: 'Information about Vercel’s data processing', href: sources.vercelPrivacy }],
+          },
+          {
+            id: 'analytics',
+            title: 'Optional audience measurement',
+            paragraphs: [
+              'If audience measurement is enabled, Google Analytics loads only after you consent. You can refuse without losing access to the website. Your choice is stored in your browser; you can change or withdraw it at any time using the “Cookie settings” link at the bottom of each page.',
+              'With your consent, the website measures page views by page category and language, plus clicks on booking, telephone, email and directions links. The previous page’s domain may also be sent. Events explicitly sent by the website use generic page addresses and titles; the website does not send your message text, appointment information or medical details. Any additional data collected depends on the Google Analytics property settings. Google advertising features are disabled.',
+              'Google provides Google Analytics. Google may process technical information about your browser and use of the website, and may use cookies or identifiers under its own rules. Audience measurement processing relies on your consent (Article 6(1)(a) GDPR). Analytics data retention follows the setting in the Google Analytics property; the website does not store Analytics reports. Withdrawing consent does not affect processing carried out before withdrawal.',
+            ],
+            links: [{ label: 'Google privacy policy', href: sources.googlePrivacy }],
           },
           {
             id: 'contact',
@@ -369,7 +389,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             id: 'transfers-retention',
             title: 'Recipients, transfers and retention',
             paragraphs: [
-              'Hosting, email and map services may process data outside the European Economic Area, including in the United States. Vercel states that it participates in the EU–US Data Privacy Framework. Google describes using adequacy decisions, Google LLC’s participation in that framework and, where needed, standard contractual clauses. Vercel’s published data processing terms also describe these clauses for accounts covered by those terms.',
+              'Hosting, email, map and, if enabled, audience measurement services may process data outside the European Economic Area, including in the United States. Vercel states that it participates in the EU–US Data Privacy Framework. Google describes using adequacy decisions, Google LLC’s participation in that framework and, where needed, standard contractual clauses. Vercel’s published data processing terms also describe these clauses for accounts covered by those terms.',
               'The linked provider documents explain these safeguards. You can ask the practice or the relevant provider for further information or a copy of applicable safeguards. Google’s transfer page explains how to request a copy of its standard contractual clauses.',
               'Technical data is retained for as long as needed for delivery, security and incident handling, according to the host’s services and retention rules.',
               'The doctor states that the practice currently keeps email correspondence indefinitely, without a predefined deletion period. You can request deletion of your personal data under the conditions explained below.',
@@ -490,7 +510,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             title: 'Verantwortleche fir d’Veraarbechtung',
             paragraphs: [
               `${practice.doctor} ass fir d’Dateveraarbechtung am Zesummenhang mat dëser Websäit verantwortlech. Fir Froen oder Ufroen zu Ären Donnéeën, benotzt d’E-Mail oder déi berufflech Adress hei ënnendrënner.`,
-              'D’Websäit huet kee Benotzerkont an integréiert keen Instrument fir Besuchsstatistiken oder Reklammen. Hir Schrëftaarten a Biller gi mat de Fichiere vun der Websäit geliwwert, ouni Schrëftaarten vun enger externer Plattform ze lueden.',
+              'D’Websäit huet kee Benotzerkont. Wann d’Visiteursmoossung aktivéiert ass, gëtt se eréischt no Ärer Zoustëmmung gelueden a gëtt net fir Reklamme benotzt. Hir Schrëftaarten a Biller gi mat de Fichiere vun der Websäit geliwwert, ouni Schrëftaarten vun enger externer Plattform ze lueden.',
             ],
           },
           {
@@ -501,6 +521,16 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
               'Dës Operatioune berouen op dem berechtegten Interessi, eng funktionéierend Websäit bereetzestellen a si géint Mëssbrauch ze schützen, nom Artikel 6, Paragraf 1, Buschtaf f), vum RGPD. Dës Websäit benotzt dës Donnéeën net fir e Reklammeprofil ze erstellen.',
             ],
             links: [{ label: 'Informatiounen iwwer Vercel seng Dateveraarbechtung', href: sources.vercelPrivacy }],
+          },
+          {
+            id: 'analytics',
+            title: 'Fräiwëlleg Visiteursmoossung',
+            paragraphs: [
+              'Wann d’Visiteursmoossung aktivéiert ass, gëtt Google Analytics eréischt no Ärer Zoustëmmung gelueden. Dir kënnt refuséieren an d’Websäit trotzdeem benotzen. Är Wiel gëtt an Ärem Browser gespäichert; Dir kënnt se zu all Moment iwwer de Link „Cookie-Astellungen“ ënnen op all Säit änneren oder zréckzéien.',
+              'Mat Ärer Zoustëmmung moosst d’Websäit Säitevisitten no Säitekategorie a Sprooch, souwéi Klicks op Linke fir Rendez-vousen, Telefon, E-Mail an Itinérairen. Den Domain vun der Säit virdrun kann och geschéckt ginn. D’Evenementer, déi d’Websäit explizitt schéckt, benotze generell Säitadressen an Titelen; d’Websäit schéckt weder den Text vun Ären Noriichten nach Rendez-vous-Informatiounen oder medezinesch Detailer. Zousätzlech gesammelt Donnéeë hänke vun den Astellungen an der Google-Analytics-Property of. D’Reklammefunktioune vu Google sinn deaktivéiert.',
+              'Google stellt Google Analytics bereet. Google kann technesch Informatiounen iwwer Äre Browser an Är Notzung vun der Websäit veraarbechten a Cookien oder Identifikateure no sengen eegene Reegelen benotzen. D’Visiteursmoossung berout op Ärer Zoustëmmung (Artikel 6, Paragraf 1, Buschtaf a), vum RGPD). D’Späicherzäit vun Analytics-Donnéeë riicht sech no der Astellung an der Google-Analytics-Property; d’Websäit späichert keng Analytics-Berichter. Wann Dir Är Zoustëmmung zréckzitt, beaflosst dat net d’Veraarbechtung, déi virdru stattfonnt huet.',
+            ],
+            links: [{ label: 'Google seng Dateschutzreegelen', href: sources.googlePrivacy }],
           },
           {
             id: 'contact',
@@ -551,7 +581,7 @@ export const legalContent: Record<'fr' | 'en' | 'lb', LegalLocaleContent> = {
             id: 'transfers-retention',
             title: 'Empfänger, Iwwerdroung a Späicherfristen',
             paragraphs: [
-              'Hosting-, E-Mail- a Kaarteservicer kënnen Donnéeën ausserhalb vum Europäesche Wirtschaftsraum veraarbechten, ënner anerem an den USA. Vercel erkläert, datt et um EU–US-Dateschutzkader deelhëlt. Google beschreift d’Benotzung vun Adäquatiounsbescheeder, d’Participatioun vu Google LLC un dësem Kader an, wann néideg, Standardvertragsklauselen. Déi verëffentlecht Dateveraarbechtungskonditioune vu Vercel beschreiwen dës Klauselen och fir déi Konten, fir déi dës Konditioune gëllen.',
+              'Hosting-, E-Mail- a Kaarteservicer, souwéi aktivéiert Servicer fir d’Visiteursmoossung, kënnen Donnéeën ausserhalb vum Europäesche Wirtschaftsraum veraarbechten, ënner anerem an den USA. Vercel erkläert, datt et um EU–US-Dateschutzkader deelhëlt. Google beschreift d’Benotzung vun Adäquatiounsbescheeder, d’Participatioun vu Google LLC un dësem Kader an, wann néideg, Standardvertragsklauselen. Déi verëffentlecht Dateveraarbechtungskonditioune vu Vercel beschreiwen dës Klauselen och fir déi Konten, fir déi dës Konditioune gëllen.',
               'Déi hei verlinkt Dokumenter vun den Ubidder erklären dës Garantien. Dir kënnt d’Praxis oder de betraffenen Ubidder ëm méi Informatiounen oder eng Kopie vun den uwendbare Garantien froen. D’Säit vu Google iwwer Dateiwwerdroungen erkläert, wéi Dir eng Kopie vu senge Standardvertragsklauselen ufroe kënnt.',
               'Technesch Donnéeë gi sou laang gespäichert, wéi et fir d’Liwwerung, d’Sécherheet an d’Behandlung vun techneschen Tëschefäll néideg ass, no de Servicer a Späicherreegele vum Hosting-Ubidder.',
               'Den Dokter erkläert, datt d’E-Mail-Korrespondenz vun der Praxis aktuell ouni Zäitlimitt gespäichert gëtt, ouni eng virdefinéiert Frist fir d’Läschung. Dir kënnt d’Läschung vun Äre perséinlechen Donnéeën ënner de Konditiounen hei ënnendrënner ufroen.',
