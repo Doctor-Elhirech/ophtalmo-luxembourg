@@ -21,7 +21,7 @@
 
   .analytics-consent {
     position: fixed;
-    inset: auto 16px 16px auto;
+    inset: auto auto calc(16px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left));
     z-index: 80;
     width: min(380px, calc(100vw - 32px));
     display: grid;
