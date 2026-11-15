@@ -29,7 +29,7 @@ The repository is private, so sign in to a GitHub account that has access when p
 4. Review your changes with `git status` and `git diff`. Commit and push approved changes to GitHub.
 5. Check the deployment in Vercel and confirm the live website after it reports **Ready**.
 
-Vercel is connected to the repository’s `main` branch. A push to that branch is intended to trigger a production deployment. Check the deployment status after pushing, as permissions and account settings can affect automatic deployments.
+Vercel is connected to the repository’s `main` branch. A push to that branch is intended to trigger a production deployment. Check the deployment status after pushing, as repository visibility, contributor permissions and Vercel account settings can affect automatic deployments.
 
 ## Where to find things
 
