@@ -1,138 +1,101 @@
 # Ophtalmo Luxembourg
 
-A French, English and Luxembourgish website for the Mamer ophthalmology practice of **Dr M'Hamed EL HIRECH**. It presents the doctor, eye care information, the practice location and contact details. Visitors can follow external links to book through Doctena or Doctipro. The site does not collect appointment requests or medical records.
+A website for Dr M’Hamed EL HIRECH’s ophthalmology practice in Mamer, Luxembourg. It provides practice information, eye care guides, contact details and links to book through Doctena or Doctipro. The site is available in French, English and Luxembourgish.
 
-The current public address is [ophtalmo-luxembourg.vercel.app](https://ophtalmo-luxembourg.vercel.app/). A final custom domain can be connected later. The doctor's final review of hours, clinical wording, photographs and legal pages remains part of handoff.
+**Website:** [ophtalmo-luxembourg.vercel.app](https://ophtalmo-luxembourg.vercel.app/)
 
-## Technology at a glance
+**Repository:** [Doctor-Elhirech/ophtalmo-luxembourg](https://github.com/Doctor-Elhirech/ophtalmo-luxembourg)
 
-| Part                                         | What it does                                                                                 |
-| -------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Astro 7, TypeScript, HTML and CSS            | Builds fast, static pages without a patient database or application server.                  |
-| Locally hosted fonts and responsive photographs | Keeps the main design assets within the site and prepares images for different screen sizes. |
-| Sharp                                        | Produces optimized images from the files in `Photos/`.                                       |
-| Playwright and axe                           | Check layouts, links, keyboard use, accessibility and image behavior.                        |
-| Vercel, with Netlify configuration available | Hosts the generated pages; the site currently deploys through Vercel.                        |
+**Hosting:** Vercel · **Framework:** Astro · **Production branch:** `main`
 
-Analytics is prepared in the code but remains off until it is explicitly configured with the matching privacy information. The patient-facing email and external booking links are separate from the account used to manage hosting and search tools.
+## Getting started
 
-## Run locally
-
-Requires Node.js 22.12+ and npm. The committed `package-lock.json` fixes dependency versions.
+To run the website on your computer, install [Git](https://git-scm.com/) and Node.js 22.12 or newer, which includes npm. Then open a terminal and run:
 
 ```sh
+git clone https://github.com/Doctor-Elhirech/ophtalmo-luxembourg.git
+cd ophtalmo-luxembourg
 npm ci
 npm run dev
 ```
 
-Open the local address printed by Astro (normally `http://127.0.0.1:4321`).
+The repository is private, so sign in to a GitHub account that has access when prompted. Open the local address shown in the terminal, normally `http://127.0.0.1:4321`. Press **Ctrl+C** in the terminal to stop the local site.
 
-```sh
-npm run build     # Optimize local photos, check types, generate static HTML
-npm run preview   # Serve the generated dist/ folder
-npm run qa        # Browser checks against http://127.0.0.1:4321
-npm run qa:seo    # Care-guide layouts, links, metadata and indexing checks
-npm run qa:performance # Responsive image sharpness, fonts and scroll behavior
-npm run format    # Format the source and documentation
-```
+## Making changes
 
-Install the QA browser once with `npx playwright install chromium`. Set `QA_URL` to test another local preview address. No credentials or environment variables are required to run the site locally.
+1. Update your local copy with `git pull` while on the `main` branch.
+2. Edit the relevant files using the guide below. Review text changes in all three languages.
+3. Run `npm run dev` and inspect the affected pages on different screen sizes. Use `npm run build` to check the project and generate the production site.
+4. Review your changes with `git status` and `git diff`. Commit and push approved changes to GitHub.
+5. Check the deployment in Vercel and confirm the live website after it reports **Ready**.
 
-## Architecture
+Vercel is connected to the repository’s `main` branch. A push to that branch is intended to trigger a production deployment. Check the deployment status after pushing, as permissions and account settings can affect automatic deployments.
 
-| Location                                                  | Responsibility                                                                            |
-| --------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `src/pages/index.astro`                                   | French route, default language                                                            |
-| `src/pages/en/index.astro`                                | English route                                                                             |
-| `src/pages/lb/index.astro`                                | Luxembourgish route                                                                       |
-| `src/pages/{medecin,expertises,cabinet,contact}.astro`    | French detail pages                                                                       |
-| `src/pages/en/{doctor,expertise,practice,contact}.astro`  | English detail pages                                                                      |
-| `src/pages/lb/{dokter,leeschtungen,praxis,kontakt}.astro` | Luxembourgish detail pages                                                                |
-| `src/layouts/BaseLayout.astro`                            | Document metadata, self-hosted fonts, shared header/footer                                |
-| `src/components/`                                         | Small semantic sections and shared image/CTA controls                                     |
-| `src/config/practice.ts`                                  | Business facts, booking/profile URLs, directions, review counts and image slots           |
-| `src/config/site.mjs`                                     | Production origin and environment-aware indexing settings                                 |
-| `src/config/seo.ts`                                       | Localized route inventory, canonical/hreflang URLs and structured data                    |
-| `src/content/translations.ts`                             | Shared locale types, routes, FR/EN copy and accessible labels                             |
-| `src/content/luxembourgish.ts`                            | Luxembourgish copy and accessible labels                                                  |
-| `src/content/care-guides.ts`                              | Three patient guides in three languages, including primary medical source links           |
-| `src/scripts/language-navigation.ts`                      | Preserves the reading position when changing languages                                    |
-| `src/styles/global.css`                                   | Documented CSS layers: reset, base tokens, components, responsive overrides               |
-| `src/scripts/interactions.ts`                             | Mobile navigation, language anchors, native photo dialog, fallback and restrained reveals |
-| `Photos/`                                                 | Approved project photo sources, kept as provided                                          |
-| `public/images/`                                          | Optimized local AVIF and WebP images generated from those sources                         |
-| `scripts/prepare-images.mjs`                              | Repeatable image optimization and automatic dimension metadata                            |
-| `scripts/qa.mjs`                                          | Responsive, accessibility, links, gallery, keyboard and fallback checks                   |
-| `scripts/qa-seo.mjs`                                      | Localized guide layouts, navigation, metadata, schema and discovery checks                |
-| `scripts/submit-indexnow.mjs`                             | Explicit post-deployment URL submission to participating IndexNow search engines          |
-| `.env.example`                                            | Optional production origin, indexing and search-property verification configuration       |
-| `docs/CONTENT-SOURCES.md`                                 | Factual provenance, source conflicts and supplied-claim limits                            |
-| `docs/QA.md`                                              | Verification scope and limitations                                                        |
+## Where to find things
 
-Astro generates complete static HTML for all three languages. Literata and Plus Jakarta Sans are bundled locally. There is no frontend framework runtime, booking backend, database, form collection, active analytics, external font request, or custom authentication. The contact page embeds Google Maps; core reading and booking remain available without JavaScript.
+| What to update | Location |
+| --- | --- |
+| Practice details, phone number, email, booking links and review links | `src/config/practice.ts` |
+| French and English website text | `src/content/translations.ts` |
+| Luxembourgish website text | `src/content/luxembourgish.ts` |
+| Patient guides in all three languages | `src/content/care-guides.ts` |
+| Legal and privacy notices | `src/content/legal.ts` |
+| Page routes | `src/pages/` |
+| Page sections and the WhatsApp form | `src/components/` |
+| Layout, navigation and metadata | `src/layouts/BaseLayout.astro` and `src/config/seo.ts` |
+| Styling | `src/styles/` |
+| Original and optimized photos | `Photos/` and `public/images/` |
 
-## Replace photographs
+The WhatsApp form opens a prepared message in WhatsApp. The visitor reviews it and presses Send there. Online bookings are completed on the external booking platforms.
 
-Replace the matching original in `Photos/`, keeping its filename, then run `npm run build`. Image variants and source dimensions regenerate automatically.
+## Updating photographs
 
-The six original photo slots use 480, 640, 800, 960 and 1600-pixel WebP variants, capped at the source resolution. The two heavier outdoor photo slots also offer smaller AVIF files; browsers select a supported format through a native `picture` element, with WebP as the fallback. The approved entrance crop (`Img-7.png`) produces one 751 × 616 WebP image and is not enlarged. Download hints in `src/config/photo-sizes.ts` match the other photo layouts and cover crops; run `npm run qa:performance` after replacing a photograph to check its resolution. Self-hosted font declarations retain the original Latin and Latin-ext variable files for all three site languages.
+Replace the appropriate original file in `Photos/`, keeping its filename. Run `npm run build` to regenerate optimized images and image metadata, then review the resulting changes and the site’s photo layouts before committing.
 
-| Original    | Slot                   | Use                                |
-| ----------- | ---------------------- | ---------------------------------- |
-| `Img-6.png` | `streetReference`      | Homepage hero street view          |
-| `Img-5.png` | `exteriorWide`         | Previous panoramic hero (retained) |
-| `Img-1.png` | `consultation`         | Doctor section, consultation space |
-| `Img-4.png` | `exterior`             | Gallery and location               |
-| `Img-2.png` | `examination`          | Examination room gallery           |
-| `Img-3.png` | `examinationAlternate` | Alternate room view                |
-| `Img-7.png` | `entrance-detail`      | Practice arrival photo             |
+| File | Photograph |
+| --- | --- |
+| `Img-1.png` | Consultation space |
+| `Img-2.png` | Examination room |
+| `Img-3.png` | Alternate examination room view |
+| `Img-4.png` | Practice exterior |
+| `Img-5.png` | Panoramic exterior |
+| `Img-6.png` | Street view on the homepage |
+| `Img-7.png` | Building entrance |
 
-## Customize content
+## Checks and commands
 
-Edit facts and external destinations in `src/config/practice.ts`. Edit French and English copy in `src/content/translations.ts`, and Luxembourgish copy in `src/content/luxembourgish.ts`. All three dictionaries share one TypeScript shape, so content additions must be translated in each. Patient guides and their source links live in `src/content/care-guides.ts`. The doctor or a fluent Luxembourgish reviewer should approve the final medical wording before public handoff; no doctor review is claimed for the new guides.
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the local development site |
+| `npm run build` | Prepare images, check Astro files and build the site |
+| `npm run preview` | Serve the built site locally |
+| `npm run qa` | Run browser checks for the main pages |
+| `npm run qa:seo` | Check localized guides and search metadata |
+| `npm run qa:legal` | Check legal pages and the map integration |
+| `npm run qa:performance` | Check responsive images, fonts and interactions |
 
-## Search metadata and indexing
+Browser checks require Playwright’s Chromium browser. Install it with `npx playwright install chromium`. The main, SEO and performance checks use a running local site at `http://127.0.0.1:4321` by default. For another address, set `QA_URL`. The legal check starts its own local server. See [docs/QA.md](docs/QA.md) for the scope and limitations of the checks.
 
-The source defines 30 localized page routes: five main pages, two legal/privacy pages and three patient guides in each language. The guides cover an eye consultation, glasses and contact lenses, and cataracts, with links from the care overview. Pages have localized titles and descriptions, canonical and alternate-language URLs, Open Graph/Twitter metadata using a supplied examination-room photograph, and structured data. The JSON-LD connects the practice (`Physician`), doctor (`Person`), website (`WebSite`), pages including `MedicalWebPage`, and breadcrumbs. Medical guides cite their visible primary sources in the structured data. Conflicting opening hours, precise age eligibility, ratings and spoken Luxembourgish are excluded from the structured data.
+## Hosting, analytics and search
 
-The `/robots.txt` and `/sitemap.xml` endpoints are generated with the configured production origin. Production indexing is enabled by default, as authorized by the user. Preview and development environments use `noindex, follow`; `PUBLIC_SITE_INDEXABLE=false` can explicitly keep production non-indexable. `PUBLIC_SITE_ORIGIN` selects the canonical origin, with the existing stable Vercel address as the fallback.
+The live site is hosted on Vercel. Its production deployment uses the `main` branch and the original `ophtalmo-luxembourg.vercel.app` address. The additional `ophta-vision-mamer.vercel.app` address redirects to it.
 
-Patient-facing copy uses the public practice profiles and official professional register. There are no demonstration footers, empty credential/photo panels or editorial instructions on the public pages. The existing patient-count claim and supplied rating snapshot retain `data-nosnippet` controls. These do not establish accuracy or guarantee omission by every search engine. Analytics preparation is inactive by default; no tracking tag is loaded without its configuration.
+Production uses the following Vercel environment variables. `.env.example` documents the available options for local configuration.
 
-See `docs/QA.md` for verification scope and limits. No search-engine submission or webmaster-account setup is implied by a successful local build.
+| Variable | Purpose |
+| --- | --- |
+| `PUBLIC_SITE_ORIGIN` | The live origin used for canonical URLs and the sitemap |
+| `PUBLIC_SITE_INDEXABLE` | Controls production indexing. Use `true` for the live site |
+| `PUBLIC_GA_MEASUREMENT_ID` | Connects the site to its Google Analytics 4 web stream |
+| `PUBLIC_GA_PRIVACY_NOTICE_READY` | Enables the configured analytics consent flow when set to `true` |
+| `GOOGLE_SITE_VERIFICATION`, `BING_SITE_VERIFICATION` | Optional verification tokens when required by those services |
 
-## Before production handoff
+Changes to Vercel environment variables require a new deployment to take effect. Development and Vercel preview builds are marked `noindex`. The live sitemap is available at [sitemap.xml](https://ophtalmo-luxembourg.vercel.app/sitemap.xml).
 
-The doctor's final review should cover the published hours, service wording, supplied review/patient-count claims, photo permissions and legal/privacy accuracy. See `docs/CONTENT-SOURCES.md` for evidence and conflicts. The doctor biography uses supported Besançon training and hospital roles, with an official registration link. No unsupported years, awards, publications, machine models or onsite surgery claims have been created.
+Google Analytics is configured on the live site. Visitors can accept or refuse measurement and change their choice through the footer. Check visits in the **Ophtalmo Luxembourg** property in Google Analytics. Search performance and indexing can be reviewed in Google Search Console.
 
-Production indexing is authorized in code. Legal and privacy pages are available in all three languages. Before handover, resolve the actual hosting account's business-use/data-processing arrangements and retain an operator review of the notices. A formal authorization identifier or specialist-title document has not been invented. When the final stable free or paid address is selected, set `PUBLIC_SITE_ORIGIN`, configure any hostname redirects, verify the search property and submit its sitemap. Google Business Profile changes require the existing profile's account access; do not create a duplicate listing.
+If the public domain changes, update the production origin and domain redirects, review the analytics and privacy settings, and verify the new address in Search Console. Keep the former address and its redirects available during the transition.
 
-The patient contact email is unchanged. A separate administrative Gmail can own hosting, Search Console and analytics. The prepared GA4 integration requires a valid `PUBLIC_GA_MEASUREMENT_ID` and `PUBLIC_GA_PRIVACY_NOTICE_READY=true` after all three privacy notices describe the active setup. The build rejects incomplete activation settings. With the ID blank, the consent panel, analytics stylesheet and script are omitted. When configured, the Google tag loads only after acceptance, with advertising consent denied; the footer provides a choice/withdrawal control. Events use generic page groups and CTA types, a generic page location/title and only the referrer's origin. Confirm the stream settings, consent behavior and reporting before activating it. If hosting moves to Netlify, update the provider disclosures when the move occurs.
+## Content and maintenance
 
-Google Maps uses the original direct embed on the contact page, with native lazy loading and no added consent or hide-map controls. The privacy page describes this automatic connection to Google. `npm run qa:legal` checks the built legal pages and map integration without requesting the live Google service; it starts and stops its own temporary static server.
-
-## Deploy to Vercel
-
-The project currently deploys through Vercel. For a new deployment or a review of its settings, use:
-
-| Setting          | Value           |
-| ---------------- | --------------- |
-| Framework Preset | Astro           |
-| Build Command    | `npm run build` |
-| Output Directory | `dist`          |
-| Node.js Version  | 22.x            |
-
-**Optional environment variables:** use `.env.example` as a reference. The site can build without search-property credentials.
-
-| Key                        | Purpose                                                            |
-| -------------------------- | ------------------------------------------------------------------ |
-| `PUBLIC_SITE_ORIGIN`       | Final production origin; defaults to the stable Vercel origin      |
-| `PUBLIC_SITE_INDEXABLE`    | Production indexing defaults to `true`; set `false` to opt out     |
-| `GOOGLE_SITE_VERIFICATION` | Optional HTML verification token supplied by Google Search Console |
-| `BING_SITE_VERIFICATION`   | Optional HTML verification token supplied by Bing Webmaster Tools  |
-
-Vercel auto-deploys on every push to `main`. The repository may remain private; Vercel retains OAuth access regardless of repository visibility.
-
-After deployment, the account owner can create the relevant Google Search Console and Bing Webmaster Tools properties, set the supplied verification values, redeploy and finish verification. Submit the production sitemap through those services. Merely adding an environment-variable name does not create or verify a property.
-
-The optional `npm run seo:submit` command submits the production routes through IndexNow. Its public ownership key file must be deployed with the site before submission. Run it only after the intended production pages and ownership file are publicly available; it was not run during this implementation. Search engines decide whether and when to index submitted URLs, and submission does not guarantee rankings.
+Review changes to medical information, practice hours, booking links, photographs and legal notices with the practice before publishing. The source notes in [docs/CONTENT-SOURCES.md](docs/CONTENT-SOURCES.md) record the evidence and limitations for practice information. Google reviews displayed on the site are selected excerpts with links to their sources, while the current review listing is available through Google Maps.
